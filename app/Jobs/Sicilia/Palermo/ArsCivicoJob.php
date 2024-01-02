@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Jobs\Palermo;
+namespace App\Jobs\Sicilia\Palermo;
 
+use App\Events\PusherEvent;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Bus\Queueable;
@@ -9,53 +10,60 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Cache;
 use Symfony\Component\DomCrawler\Crawler;
 
 class ArsCivicoJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
+    protected bool $websocket;
+
     /**
      * Create a new job instance.
      */
-    public function __construct()
+    public function __construct(bool $websocket = false)
     {
-
+        $this->websocket = $websocket;
     }
 
     /**
      * Execute the job.
-     * @throws GuzzleException
      */
-    public function handle(): array
+    public function handle()
     {
 
-        $client = new Client();
+        $config = config('regioni.sicilia.palermo.data.arsCivico');
 
-        // Esegui la richiesta HTTP
-        $response = $client->request('GET', config('palermo.arsCivico.url'));
+        return Cache::remember($config['cache']['key'], now()->addMinutes($config['cache']['ttlMinute']), function () use ($config) {
+            $client = new Client();
 
-        // Utilizza Symfony DomCrawler per analizzare il documento HTML
-        $crawler = new Crawler($response->getBody()->getContents());
+            $response = $client->request('GET', $config['url']);
 
-        $ospedali = config('palermo.arsCivico.data');
+            $crawler = new Crawler($response->getBody()->getContents());
 
-        foreach ($ospedali as $keyH => $ospedale) {
-            foreach ($ospedale['data'] as $key => $value) {
-                if ($key !== 'extra') {
-                    $this->processHospitalData($ospedali, $keyH, $value, $crawler);
-                } else {
-                    foreach ($value as $extraK => $extraV) {
-                        $ospedali[$keyH]['data'][$key][$extraK]['value'] = $this->cleanText(implode('', $crawler->filter($extraV['selector'])->extract(['_text'])));
-                        unset($ospedali[$keyH]['data'][$key][$extraK]['selector']);
+            $ospedali = $config['data'];
+
+            foreach ($ospedali as $keyH => $ospedale) {
+                foreach ($ospedale['data'] as $key => $value) {
+                    if ($key !== 'extra') {
+                        $this->processHospitalData($ospedali, $keyH, $value, $crawler);
+                    } else {
+                        foreach ($value as $extraK => $extraV) {
+                            $ospedali[$keyH]['data'][$key][$extraK]['value'] = $this->cleanText(implode('', $crawler->filter($extraV['selector'])->extract(['_text'])));
+                            unset($ospedali[$keyH]['data'][$key][$extraK]['selector']);
+                        }
                     }
                 }
             }
-        }
 
-        //TODO EVENT WEBSOCKET CHANNEL PALERMO
+            if ($this->websocket) {
+                event(new PusherEvent($ospedali, ['channel' => config('regioni.sicilia.palermo.websocket.channel')]));
+            }
 
-        return $ospedali;
+            return $ospedali;
+        });
+
     }
 
     protected function cleanText($text): array|string
