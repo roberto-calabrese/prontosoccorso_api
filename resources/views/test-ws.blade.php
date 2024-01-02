@@ -20,12 +20,12 @@
     // Enable pusher logging - don't include this in production
     Pusher.logToConsole = true;
 
-    var pusher = new Pusher('c1f2549429dae80f0d0c', {
-        cluster: 'eu'
+    var pusher = new Pusher('{{ config('broadcasting.connections.pusher.key') }}', {
+        cluster: '{{ config('broadcasting.connections.pusher.options.cluster') }}'
     });
 
     var channel = pusher.subscribe('sicilia.palermo');
-    channel.bind('sicilia-palermo', function(data) {
+    channel.bind('sicilia.palermo', function(data) {
         console.log(data);
     });
 
