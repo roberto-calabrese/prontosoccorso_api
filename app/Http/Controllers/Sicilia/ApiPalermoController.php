@@ -25,14 +25,13 @@ class ApiPalermoController extends Controller
 
             return response()->json([
                 'status' => true,
-                'loading' => $this->palermoDataService->getLoadingCount(),
                 'websocket' => $this->palermoDataService->getWebSocketConfig(),
                 'data' => $data,
             ]);
 
         } catch (Exception $e) {
             // Log dell'errore
-            \Log::error('Error in ApiPalermoController: ' . $e->getMessage());
+            \Log::error('Error in ApiPalermoController: ' . $e->getMessage() . ' - line: '. $e->getLine());
 
             return response()->json([
                 'status' => false,

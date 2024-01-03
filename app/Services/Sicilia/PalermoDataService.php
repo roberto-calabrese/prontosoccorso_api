@@ -36,12 +36,6 @@ class PalermoDataService
         return array_merge($ospedaliRiuniti, $arsCivico);
     }
 
-    public function getLoadingCount(): int
-    {
-        return count(config('regioni.sicilia.palermo.data.ospedaliRiuniti.data')) +
-            count(config('regioni.sicilia.palermo.data.arsCivico.data'));
-    }
-
     public function getWebSocketConfig(): array
     {
         return [
@@ -55,7 +49,6 @@ class PalermoDataService
     {
         return config('queue.default') === 'redis' && config('regioni.sicilia.palermo.websocket.active');
     }
-
 
 
     protected function loadOspedaliRiunitiData(): void
@@ -78,7 +71,7 @@ class PalermoDataService
         }
     }
 
-    protected function getJobResult(ArsCivicoJob|OspedaliRiunitiJob $job): mixed
+    protected function getJobResult(ArsCivicoJob|OspedaliRiunitiJob $job): array
     {
         if ($this->activeWebsocket()) {
             $job::dispatch(true);
