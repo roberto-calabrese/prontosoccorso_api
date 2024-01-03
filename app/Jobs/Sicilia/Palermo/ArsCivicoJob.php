@@ -43,9 +43,9 @@ class ArsCivicoJob implements ShouldQueue
 
             $crawler = new Crawler($response->getBody()->getContents());
 
-            $ospedali = $config['data'];
+            $ospedali = [];
 
-            foreach ($ospedali as $keyH => $ospedale) {
+            foreach ($config['data'] as $keyH => $ospedale) {
                 foreach ($ospedale['data'] as $key => $value) {
                     if ($key !== 'extra') {
                         $this->processHospitalData($ospedali, $keyH, $value, $crawler);

@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Sicilia;
 use App\Http\Controllers\Controller;
 use App\Jobs\Sicilia\Palermo\ArsCivicoJob;
 use App\Jobs\Sicilia\Palermo\OspedaliRiunitiJob;
+use Exception;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,10 +16,10 @@ class ApiPalermoController extends Controller
     /**
      * Gestisce le richieste API relative ai dati dei servizi sanitari nella regione di Palermo, Sicilia.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\JsonResponse
+     * @param Request $request
+     * @return JsonResponse
      */
-    public function __invoke(Request $request): \Illuminate\Http\JsonResponse
+    public function __invoke(Request $request): JsonResponse
     {
         try {
             // Verifica se è attiva la modalità WebSocket
@@ -51,6 +53,16 @@ class ApiPalermoController extends Controller
                 $arsCivicoData = $websocket ? [] : $arsCivicoData;
             }
 
+            $arsCivico = config('regioni.sicilia.palermo.data.arsCivico.data');
+            foreach ($arsCivico as $key => $value) {
+                $arsCivico[$key]['data'] = $arsCivicoData[$key];
+            }
+
+            $ospedaliRiuniti = config('regioni.sicilia.palermo.data.ospedaliRiuniti.data');
+            foreach ($ospedaliRiuniti as $key => $value) {
+                $ospedaliRiuniti[$key]['data'] = $ospedaliRiunitiData[$key];
+            }
+
             // Restituisce una risposta JSON contenente lo stato, l'indicatore di caricamento e i dati combinati degli Ospedali Riuniti e dell'Ars Civico
             return response()->json([
                 'status' => true,
@@ -62,12 +74,12 @@ class ApiPalermoController extends Controller
                 ],
                 // Merge array dei dati
                 'data' => array_merge(
-                    $ospedaliRiunitiData,
-                    $arsCivicoData
+                    $ospedaliRiuniti,
+                    $arsCivico,
                 )
             ]);
 
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             // Se si verifica un'eccezione, restituisce una risposta JSON con uno stato di errore e un messaggio di errore interno
             return response()->json([
                 'status' => false,
