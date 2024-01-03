@@ -57,7 +57,8 @@ class ApiPalermoController extends Controller
                 'loading' => (count(config('regioni.sicilia.palermo.data.ospedaliRiuniti.data')) + count(config('regioni.sicilia.palermo.data.arsCivico.data'))),
                 'websocket' => [
                     'active' => $websocket,
-                    'channel' => config('regioni.sicilia.palermo.websocket.channel')
+                    'channel' => config('regioni.sicilia.palermo.websocket.channel'),
+                    'event' => config('regioni.sicilia.palermo.websocket.event'),
                 ],
                 // Merge array dei dati
                 'data' => array_merge(

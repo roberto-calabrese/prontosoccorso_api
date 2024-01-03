@@ -25,7 +25,7 @@
     });
 
     var channel = pusher.subscribe('sicilia.palermo');
-    channel.bind('sicilia.palermo', function(data) {
+    channel.bind('data', function(data) {
         console.log(data);
     });
 

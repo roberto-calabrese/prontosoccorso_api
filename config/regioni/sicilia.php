@@ -4,7 +4,8 @@ return [
     'palermo' => [
         'websocket' => [
             'active' => true,
-            'channel' => 'sicilia.palermo'
+            'channel' => 'sicilia.palermo',
+            'event' => 'data'
         ],
         'data' => [
             'ospedaliRiuniti' => [

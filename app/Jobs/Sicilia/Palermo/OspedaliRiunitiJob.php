@@ -59,7 +59,10 @@ class OspedaliRiunitiJob implements ShouldQueue
             }
 
             if ($this->websocket) {
-                event(new PusherEvent($ospedali, ['channel' => config('regioni.sicilia.palermo.websocket.channel')]));
+                event(new PusherEvent($ospedali, [
+                    'channel' => config('regioni.sicilia.palermo.websocket.channel'),
+                    'event' => config('regioni.sicilia.palermo.websocket.event')
+                ]));
             }
 
             return $ospedali;

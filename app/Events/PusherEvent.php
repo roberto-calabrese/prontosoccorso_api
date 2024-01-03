@@ -38,6 +38,6 @@ class PusherEvent implements ShouldBroadcast
 
     public function broadcastAs(): string
     {
-        return $this->params['channel'];
+        return $this->params['event'];
     }
 }
