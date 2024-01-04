@@ -34,7 +34,7 @@ class ArsCivicoJob implements ShouldQueue
     public function handle()
     {
 
-        $config = config('regioni.sicilia.palermo.data.arsCivico');
+        $config = config('regioni.sicilia.palermo.ospedali.arsCivico');
 
         return Cache::remember($config['cache']['key'], now()->addMinutes($config['cache']['ttlMinute']), function () use ($config) {
             $client = new Client();

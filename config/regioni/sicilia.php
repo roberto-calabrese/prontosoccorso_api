@@ -2,12 +2,16 @@
 
 return [
     'palermo' => [
+        'meta' => [
+          'slug' => 'palermo',
+          'Titolo' => 'Palermo'
+        ],
         'websocket' => [
             'active' => true,
             'channel' => 'sicilia.palermo',
             'event' => 'data'
         ],
-        'data' => [
+        'ospedali' => [
             'ospedaliRiuniti' => [
                 'cache' => [
                     'key' => 'sicilia.palermo.ospedaliRiuniti',
@@ -249,5 +253,5 @@ return [
                 ]
             ]
         ]
-    ]
+    ],
 ];

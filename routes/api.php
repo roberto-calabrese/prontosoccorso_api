@@ -17,4 +17,10 @@ use Illuminate\Support\Facades\Route;
 //TODO Il Jon applica la logica di cache (se esiste in cache lo prendo, se non c'è lo prendo e lo mantengo per X minuti)
 //TODO aggiungere evento EMIT (websocket) usando pusher per aggiornare i dati lato client (logica chi arriva arriva).
 
-Route::get('/sicilia/palermo', \App\Http\Controllers\Sicilia\ApiPalermoController::class);
+Route::get('/regioni', \App\Http\Controllers\ApiRegioniController::class);
+Route::get('/{regione}', \App\Http\Controllers\ApiRegioneController::class);
+
+
+Route::get('/{regione}/{provincia}', \App\Http\Controllers\ApiProvinciaController::class);
+
+//Route::get('/sicilia/palermo', \App\Http\Controllers\Sicilia\ApiPalermoController::class);

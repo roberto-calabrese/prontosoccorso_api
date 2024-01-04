@@ -33,7 +33,7 @@ class OspedaliRiunitiJob implements ShouldQueue
     public function handle()
     {
 
-        $config = config('regioni.sicilia.palermo.data.ospedaliRiuniti');
+        $config = config('regioni.sicilia.palermo.ospedali.ospedaliRiuniti');
 
         return Cache::remember($config['cache']['key'], now()->addMinutes($config['cache']['ttlMinute']), function () use ($config) {
             $client = new Client();

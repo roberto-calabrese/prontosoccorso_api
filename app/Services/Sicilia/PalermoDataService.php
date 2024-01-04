@@ -22,13 +22,12 @@ class PalermoDataService
         $this->loadOspedaliRiunitiData();
         $this->loadArsCivicoData();
 
-        $arsCivico = config('regioni.sicilia.palermo.data.arsCivico.data');
+        $arsCivico = config('regioni.sicilia.palermo.ospedali.arsCivico.data');
         foreach ($arsCivico as $key => $value) {
             $arsCivico[$key]['data'] = $this->arsCivicoData[$key] ?? [];
         }
 
-
-        $ospedaliRiuniti = config('regioni.sicilia.palermo.data.ospedaliRiuniti.data');
+        $ospedaliRiuniti = config('regioni.sicilia.palermo.ospedali.ospedaliRiuniti.data');
         foreach ($ospedaliRiuniti as $key => $value) {
             $ospedaliRiuniti[$key]['data'] = $this->ospedaliRiunitiData[$key] ?? [];
         }
@@ -53,7 +52,7 @@ class PalermoDataService
 
     protected function loadOspedaliRiunitiData(): void
     {
-        $cacheKey = config('regioni.sicilia.palermo.data.ospedaliRiuniti.cache.key');
+        $cacheKey = config('regioni.sicilia.palermo.ospedali.ospedaliRiuniti.cache.key');
         $this->ospedaliRiunitiData = Cache::get($cacheKey) ?: [];
 
         if (empty($this->ospedaliRiunitiData)) {
@@ -63,7 +62,7 @@ class PalermoDataService
 
     protected function loadArsCivicoData(): void
     {
-        $cacheKey = config('regioni.sicilia.palermo.data.arsCivico.cache.key');
+        $cacheKey = config('regioni.sicilia.palermo.ospedali.arsCivico.cache.key');
         $this->arsCivicoData = Cache::get($cacheKey) ?: [];
 
         if (empty($this->arsCivicoData)) {

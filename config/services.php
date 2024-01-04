@@ -31,4 +31,9 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'sicilia' => [
+        'provincie' => [
+            'palermo' => \App\Services\Sicilia\PalermoDataService::class,
+        ],
+    ],
 ];
