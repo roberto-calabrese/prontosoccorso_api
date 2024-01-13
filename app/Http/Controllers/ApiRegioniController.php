@@ -13,25 +13,25 @@ class ApiRegioniController extends Controller
     {
         try {
             $regioni = config('regioni');
-            $ospedaliPerRegione = [];
 
-            foreach ($regioni as $regione => $province) {
-                $numeroOspedali = 0;
+            $ospedaliPerRegione = array_map(static function ($province, $regione) {
+                $numeroOspedali = array_sum(array_map(static function ($provincia) {
+                    return array_sum(array_map(static function ($ospedali) {
+                        return count($ospedali['data']);
+                    }, $provincia['ospedali']));
+                }, $province));
 
-                // Itera su ogni provincia (che rappresenta un ospedale) e incrementa il conteggio
-                foreach ($province as $provincia) {
-                    $numeroOspedali += count($provincia['ospedali']);
-                }
-
-                $ospedaliPerRegione[$regione] = [
+                return [
+                    'nome' => $regione,
                     'numero_ospedali' => $numeroOspedali,
                 ];
-            }
+            }, $regioni, array_keys($regioni));
 
             return response()->json([
                 'status' => true,
                 'regioni' => $ospedaliPerRegione
             ]);
+
 
         } catch (Exception $e) {
             // Log dell'errore

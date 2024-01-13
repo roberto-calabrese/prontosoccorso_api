@@ -23,21 +23,23 @@ class ApiRegioneController extends Controller
 
             $regioneData = $regioni[$regione];
 
-            $result = [];
+            $result = array_map(static function ($provincia) {
+                $numeroOspedali = array_sum(array_map(static function ($ospedali) {
+                    return count($ospedali['data']);
+                }, $provincia['ospedali']));
 
-            foreach ($regioneData as $key => $provincia) {
-                $numeroOspedali = count($provincia['ospedali']);
-                $result[$key] = [
+                return [
                     'numero_ospedali' => $numeroOspedali,
                     'meta' => $provincia['meta']
                 ];
-            }
+            }, $regioneData);
 
             return response()->json([
                 'status' => true,
                 'regione' => $regione,
                 'provincie' => $result,
             ]);
+
 
         } catch (Exception $e) {
             // Log dell'errore
