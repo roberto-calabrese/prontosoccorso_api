@@ -65,7 +65,7 @@ return [
                     ],
                     'presidio_villa_sofia_pediatrico' => [
                         'id' => 2,
-                        'nome' => 'Presidio Villa Sofia - Pronto Soccorso Adulti',
+                        'nome' => 'Presidio Villa Sofia - Pronto Soccorso Pediatrico',
                         'type' => 'pediatrico',
                         'indirizzo' => 'Piazza Salerno, 1, 90146 Palermo PA',
                         'telefono' => '091 780 1111',
