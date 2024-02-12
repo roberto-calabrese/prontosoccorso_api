@@ -15,7 +15,7 @@ return [
             'ospedaliRiuniti' => [
                 'cache' => [
                     'key' => 'sicilia.palermo.ospedaliRiuniti',
-                    'ttlMinute' => 1
+                    'ttlMinute' => 10
                 ],
                 'url' => 'https://www.ospedaliriunitipalermo.it/amministrazione-trasparente/servizi-erogati/liste-di-attesa/pazienti-in-attesa-al-pronto-soccorso/',
                 'data' => [
@@ -158,7 +158,7 @@ return [
             'arsCivico' => [
                 'cache' => [
                     'key' => 'sicilia.palermo.arsCivico',
-                    'ttlMinute' => 1
+                    'ttlMinute' => 10
                 ],
                 'url' => 'https://www.arnascivico.it/index.php?option=com_content&view=article&id=3415&catid=24&Itemid=139',
                 'data' => [

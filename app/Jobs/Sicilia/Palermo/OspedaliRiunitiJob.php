@@ -33,6 +33,8 @@ class OspedaliRiunitiJob implements ShouldQueue
     public function handle()
     {
 
+        sleep(10);
+
         $config = config('regioni.sicilia.palermo.ospedali.ospedaliRiuniti');
 
         return Cache::remember($config['cache']['key'], now()->addMinutes($config['cache']['ttlMinute']), function () use ($config) {
@@ -51,6 +53,7 @@ class OspedaliRiunitiJob implements ShouldQueue
                         unset($ospedali[$keyH]['data'][$key]['selector']);
                     } else {
                         foreach ($value as $extraK => $extraV) {
+                            $ospedali[$keyH]['data'][$key][$extraK] = $ospedale['data'][$key][$extraK];
                             $ospedali[$keyH]['data'][$key][$extraK]['value'] = implode('', $crawler->filter($extraV['selector'])->extract(['_text']));
                             unset($ospedali[$keyH]['data'][$key][$extraK]['selector']);
                         }

@@ -51,6 +51,7 @@ class ArsCivicoJob implements ShouldQueue
                         $this->processHospitalData($ospedali, $keyH, $value, $crawler);
                     } else {
                         foreach ($value as $extraK => $extraV) {
+                            $ospedali[$keyH]['data'][$key][$extraK] = $ospedale['data'][$key][$extraK];
                             $ospedali[$keyH]['data'][$key][$extraK]['value'] = $this->cleanText(implode('', $crawler->filter($extraV['selector'])->extract(['_text'])));
                             unset($ospedali[$keyH]['data'][$key][$extraK]['selector']);
                         }
