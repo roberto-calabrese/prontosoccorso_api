@@ -21,7 +21,8 @@ return [
                 'data' => [
                     'presidio_villa_sofia_adulti' => [
                         'id' => 1,
-                        'nome' => 'Presidio Villa Sofia - Pronto Soccorso Adulti',
+                        'nome' => 'Presidio Villa Sofia',
+                        'descrizione' => 'Pronto Soccorso Adulti',
                         'type' => 'adulti', //TODO TYPE MODEL
                         'indirizzo' => 'Piazza Salerno, 1, 90146 Palermo PA',
                         'telefono' => '091 7804031',
@@ -65,7 +66,8 @@ return [
                     ],
                     'presidio_villa_sofia_pediatrico' => [
                         'id' => 2,
-                        'nome' => 'Presidio Villa Sofia - Pronto Soccorso Pediatrico',
+                        'nome' => 'Presidio Villa Sofia',
+                        'descrizione' => 'Pronto Soccorso Pediatrico',
                         'type' => 'pediatrico',
                         'indirizzo' => 'Piazza Salerno, 1, 90146 Palermo PA',
                         'telefono' => '091 6802015',
@@ -109,7 +111,8 @@ return [
                     ],
                     'presidio_cervello_adulti' => [
                         'id' => 3,
-                        'nome' => 'Presidio Cervello - Pronto Soccorso Adulti',
+                        'nome' => 'Presidio Cervello',
+                        'descrizione' => 'Pronto Soccorso Adulti',
                         'type' => 'adulti',
                         'indirizzo' => 'Piazza Salerno, 1, 90146 Palermo PA',
                         'telefono' => '091 6802515',
@@ -164,7 +167,8 @@ return [
                 'data' => [
                     'presidio_civico_adulti' => [
                         'id' => 4,
-                        'nome' => 'Presidio Civico - Pronto Soccorso Adulti',
+                        'nome' => 'Presidio Civico',
+                        'descrizione' => 'Pronto Soccorso Adulti',
                         'type' => 'adulti', //TODO TYPE MODEL
                         'indirizzo' => 'Via Carmelo Lazzaro, 4, 90127 Palermo PA',
                         'telefono' => '091 666 1111',
@@ -210,7 +214,8 @@ return [
                     ],
                     'presidio_civico_pediatrico' => [
                         'id' => 5,
-                        'nome' => 'Presidio Civico - Pronto Soccorso Pediatrico',
+                        'nome' => 'Presidio Civico',
+                        'descrizione' => 'Pronto Soccorso Pediatrico',
                         'type' => 'pediatrico', //TODO TYPE MODEL
                         'indirizzo' => 'Via Carmelo Lazzaro, 4, 90127 Palermo PA',
                         'telefono' => '091 666 1111',
