@@ -23,11 +23,18 @@ class ApiProvinciaController extends Controller
 
             $provinciaService = app($provinciaServiceClass);
             $data = $provinciaService->getData();
+            $new_data = [];
+            foreach ($data as $key => $item) {
+                $new_data[] = [
+                    'key' => $key,
+                    ...$item
+                ];
+            }
 
             return response()->json([
                 'status' => true,
                 'websocket' => $provinciaService->getWebSocketConfig(),
-                'data' => $data,
+                'data' => $new_data,
             ]);
 
         } catch (Exception $e) {
