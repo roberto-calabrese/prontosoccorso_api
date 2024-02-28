@@ -85,7 +85,7 @@ class ArsCivicoJob implements ShouldQueue
             $result = $this->cleanText(implode('', $crawler->filter($selectorRow)->extract(['_text'])));
 
             if ($j === 1) {
-                $row = strtolower($result);
+                $row = str_replace("totale", 'totali', strtolower($result));
             } else {
                 $data[$row][] = $result;
             }
