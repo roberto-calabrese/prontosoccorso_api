@@ -52,7 +52,8 @@ class ArsCivicoJob implements ShouldQueue
                     } else {
                         foreach ($value as $extraK => $extraV) {
                             $ospedali[$keyH]['data'][$key][$extraK] = $ospedale['data'][$key][$extraK];
-                            $ospedali[$keyH]['data'][$key][$extraK]['value'] = $this->cleanText(implode('', $crawler->filter($extraV['selector'])->extract(['_text'])));
+                            $cleanedValue = $this->cleanText(implode('', $crawler->filter($extraV['selector'])->extract(['_text'])));
+                            $ospedali[$keyH]['data'][$key][$extraK]['value'] = ($extraK === 'indice_sovraffollamento') ? (int)$cleanedValue : $cleanedValue;
                             unset($ospedali[$keyH]['data'][$key][$extraK]['selector']);
                         }
                     }

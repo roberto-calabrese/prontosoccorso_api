@@ -54,7 +54,8 @@ class OspedaliRiunitiJob implements ShouldQueue
                     } else {
                         foreach ($value as $extraK => $extraV) {
                             $ospedali[$keyH]['data'][$key][$extraK] = $ospedale['data'][$key][$extraK];
-                            $ospedali[$keyH]['data'][$key][$extraK]['value'] = implode('', $crawler->filter($extraV['selector'])->extract(['_text']));
+                            $cleanedValue = implode('', $crawler->filter($extraV['selector'])->extract(['_text']));
+                            $ospedali[$keyH]['data'][$key][$extraK]['value'] = ($extraK === 'indice_sovraffollamento') ? (int)preg_replace('/[^0-9]/', '', $cleanedValue) : $cleanedValue;
                             unset($ospedali[$keyH]['data'][$key][$extraK]['selector']);
                         }
                     }

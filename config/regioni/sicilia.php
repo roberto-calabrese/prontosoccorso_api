@@ -182,7 +182,7 @@ return [
                             'calculate_selector' => 'div.item-page>div:nth-child(4)>table:nth-child(7)>tbody>tr:nth-child(REPLACE)',
                             'extra' => [
                                 'indice_sovraffollamento' => [
-                                    'label' => 'Indice Sovraffollamento',
+                                    'label' => 'Indice di sovraffollamento',
                                     'selector' => 'div.item-page>div:nth-child(4)>p:nth-child(5)>span>strong:nth-child(1)>span',
                                 ],
                                 'numero_pazienti_con_una_permanenza24h' => [
@@ -229,7 +229,7 @@ return [
                             'calculate_selector' => 'div.item-page>div:nth-child(4)>table:nth-child(13)>tbody>tr:nth-child(REPLACE)',
                             'extra' => [
                                 'indice_sovraffollamento' => [
-                                    'label' => 'Indice Sovraffollamento',
+                                    'label' => 'Indice di sovraffollamento',
                                     'selector' => 'div.item-page>div:nth-child(4)>p:nth-child(11)>span>strong:nth-child(1)>span',
                                 ],
                                 'numero_pazienti_con_una_permanenza24h' => [
