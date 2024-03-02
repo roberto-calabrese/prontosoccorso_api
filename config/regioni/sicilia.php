@@ -256,7 +256,213 @@ return [
                         ]
                     ],
                 ]
-            ]
+            ],
+            'policlinico' => [
+                'cache' => [
+                    'key' => 'sicilia.palermo.policlinico',
+                    'ttlMinute' => 1
+                ],
+                'url' => 'http://www.policlinico.pa.it/portal/',
+                'data' => [
+                    'policlinico_adulti' => [
+                        'id' => 6,
+                        'nome' => 'Policlinico "Paolo Giaccone"',
+                        'descrizione' => 'Azienda Ospedaliera dell\'Università degli Studi di Palermo',
+                        'type' => 'adulti', //TODO TYPE MODEL
+                        'indirizzo' => 'Via del Vespro, 129 90127 Palermo',
+                        'telefono' => '091 6551111',
+                        'email' => 'protocollo@cert.policlinico.pa.it ',
+                        'web' => 'https://www.policlinico.pa.it',
+                        'coords' => [
+                            'lat' => '38.103724',
+                            'lng' => '13.355288',
+                        ],
+                        'data' => [
+                            'rosso' => [
+                                'selector' => 'div.psDiv>div:nth-child(5)>span:nth-child(4)>strong>span',
+                                'extra' => [
+                                    'in_attesa' => [
+                                        'label' => 'In attesa di visita',
+                                        'selector' => 'div.psDiv>div:nth-child(13)>span:nth-child(4)>strong>span',
+                                    ]
+                                ]
+                            ],
+                            'giallo' => [
+                                'selector' => 'div.psDiv>div:nth-child(6)>span:nth-child(4)>strong>span',
+                                'extra' => [
+                                    'in_attesa' => [
+                                        'label' => 'In attesa di visita',
+                                        'selector' => 'div.psDiv>div:nth-child(14)>span:nth-child(4)>strong>span',
+                                    ]
+                                ]
+                            ],
+                            'verde' => [
+                                'selector' => 'div.psDiv>div:nth-child(7)>span:nth-child(4)>strong>span',
+                                'extra' => [
+                                    'in_attesa' => [
+                                        'label' => 'In attesa di visita',
+                                        'selector' => 'div.psDiv>div:nth-child(15)>span:nth-child(4)>strong>span',
+                                    ]
+                                ]
+                            ],
+                            'bianco' => [
+                                'selector' => 'div.psDiv>div:nth-child(8)>span:nth-child(4)>strong>span',
+                                'extra' => [
+                                    'in_attesa' => [
+                                        'label' => 'In attesa di visita',
+                                        'selector' => 'div.psDiv>div:nth-child(16)>span:nth-child(4)>strong>span',
+                                    ]
+                                ]
+                            ],
+                            'totali' => [
+                                'selector' => 'div.psDiv>p:nth-child(3)>span>strong',
+                                'extra' => [
+                                    'in_attesa' => [
+                                        'label' => 'In attesa di visita',
+                                        'selector' => 'div.psDiv>p:nth-child(11)>span>strong',
+                                    ]
+                                ]
+                            ],
+                            'extra' => [
+                                'numero_posti_tecnico' => [
+                                    'label' => 'Num. posti tecnici presidiati',
+                                    'selector' => 'div.psDiv>p:nth-child(18)>span>span>strong',
+                                ],
+                                'indice_sovraffollamento' => [
+                                    'label' => 'Indice di sovraffollamento',
+                                    'selector' => 'div.psDiv>p:nth-child(18)>span>strong',
+                                ],
+                                'efficienza_operativa' => [
+                                    'label' => 'Efficienza operativa standard',
+                                    'selector' => 'div.psDiv>p:nth-child(18)>span>span>span>strong',
+                                ],
+                                'permanenza_24' => [
+                                    'label' => 'Permanenza entro 24h',
+                                    'selector' => 'div.psDiv>p:nth-child(18)>span>span>span>span:nth-child(4)>strong>span',
+                                ],
+                                'permanenza_24_48' => [
+                                    'label' => 'Permanenza tra 24h e 48h  4 paz.',
+                                    'selector' => 'div.psDiv>p:nth-child(18)>span>span>span>span:nth-child(7)>strong>span',
+                                ],
+                                'permanenza_48' => [
+                                    'label' => 'Permanenza oltre 48h  0 paz.',
+                                    'selector' => 'div.psDiv>p:nth-child(18)>span>span>span>span:nth-child(10)>strong>span',
+                                ],
+                            ],
+                        ]
+                    ],
+                ]
+            ],
+            'ingrassia' => [
+                'cache' => [
+                    'key' => 'sicilia.palermo.ingrassia',
+                    'ttlMinute' => 1
+                ],
+                'url' => 'https://www.asppalermo.org/attese_ps/',
+                'data' => [
+                    'ingrassia_adulti' => [
+                        'id' => 7,
+                        'nome' => 'Ingrassia',
+                        'descrizione' => 'Ingrassia',
+                        'type' => 'adulti', //TODO TYPE MODEL
+                        'indirizzo' => ' C.so Calatafimi, 1002, 90131 Palermo PA',
+                        'telefono' => '091 703 3615',
+                        'email' => ' - ',
+                        'web' => 'https://www.asppalermo.org/attese_ps/',
+                        'coords' => [
+                            'lat' => '38.103724',
+                            'lng' => '13.355288',
+                        ],
+                        'data' => [
+                            'rosso' => [
+                                'selector' => 'table.table>tbody>tr:nth-child(4)>td:nth-child(2)',
+                                'extra' => [
+                                    'in_attesa' => [
+                                        'label' => 'In attesa di visita',
+                                        'selector' => 'table.table>tbody>tr:nth-child(1)>td:nth-child(2)',
+                                    ],
+                                    'in_trattamento' => [
+                                        'label' => 'In trattamento',
+                                        'selector' => 'table.table>tbody>tr:nth-child(2)>td:nth-child(2)',
+                                    ],
+                                    'in_osservazione' => [
+                                        'label' => 'In osservazione',
+                                        'selector' => 'table.table>tbody>tr:nth-child(3)>td:nth-child(2)
+',
+                                    ]
+
+                                ]
+                            ],
+                            'giallo' => [
+                                'selector' => 'table.table>tbody>tr:nth-child(4)>td:nth-child(3)',
+                                'extra' => [
+                                    'in_attesa' => [
+                                        'label' => 'In attesa di visita',
+                                        'selector' => 'table.table>tbody>tr:nth-child(1)>td:nth-child(3)',
+                                    ],
+                                    'in_trattamento' => [
+                                        'label' => 'In trattamento',
+                                        'selector' => 'table.table>tbody>tr:nth-child(2)>td:nth-child(3)',
+                                    ],
+                                    'in_osservazione' => [
+                                        'label' => 'In osservazione',
+                                        'selector' => 'table.table>tbody>tr:nth-child(3)>td:nth-child(3)',
+                                    ]
+
+                                ]
+                            ],
+                            'verde' => [
+                                'selector' => 'table.table>tbody>tr:nth-child(4)>td:nth-child(4)',
+                                'extra' => [
+                                    'in_attesa' => [
+                                        'label' => 'In attesa di visita',
+                                        'selector' => 'table.table>tbody>tr:nth-child(1)>td:nth-child(4)',
+                                    ],
+                                    'in_trattamento' => [
+                                        'label' => 'In trattamento',
+                                        'selector' => 'table.table>tbody>tr:nth-child(2)>td:nth-child(4)',
+                                    ],
+                                    'in_osservazione' => [
+                                        'label' => 'In osservazione',
+                                        'selector' => 'table.table>tbody>tr:nth-child(3)>td:nth-child(4)'
+                                    ]
+                                ]
+                            ],
+                            'bianco' => [
+                                'selector' => 'table.table>tbody>tr:nth-child(4)>td:nth-child(5)',
+                                'extra' => [
+                                    'in_attesa' => [
+                                        'label' => 'In attesa di visita',
+                                        'selector' => 'table.table>tbody>tr:nth-child(1)>td:nth-child(5)',
+                                    ],
+                                    'in_trattamento' => [
+                                        'label' => 'In trattamento',
+                                        'selector' => 'table.table>tbody>tr:nth-child(2)>td:nth-child(5)',
+                                    ],
+                                    'in_osservazione' => [
+                                        'label' => 'In osservazione',
+                                        'selector' => 'table.table>tbody>tr:nth-child(3)>td:nth-child(5)',
+                                    ]
+
+                                ]
+                            ],
+                            'totali' => [
+                                'selector' => 'body>main>div>div:nth-child(4)>span:nth-child(1)',
+                            ],
+                            'extra' => [
+                                'numero_posti_tecnico' => [
+                                    'label' => 'Num. posti tecnici presidiati',
+                                    'selector' => 'div.text-monospace>span:nth-child(3)',
+                                ],
+                                'indice_sovraffollamento' => [
+                                    'label' => 'Indice di sovraffollamento',
+                                    'selector' => 'div.text-monospace>span:nth-child(5)',
+                                ],
+                            ],
+                        ]
+                    ],
+                ]
+            ],
         ]
     ],
 ];

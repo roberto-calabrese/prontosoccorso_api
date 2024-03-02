@@ -3,24 +3,34 @@
 namespace App\Services\Sicilia;
 
 use App\Jobs\Sicilia\Palermo\ArsCivicoJob;
+use App\Jobs\Sicilia\Palermo\GenericJob;
 use App\Jobs\Sicilia\Palermo\OspedaliRiunitiJob;
+use App\Jobs\Sicilia\Palermo\PoliclinicoJob;
 use Illuminate\Support\Facades\Cache;
 
 class PalermoDataService
 {
     protected array $ospedaliRiunitiData;
     protected array $arsCivicoData;
+    protected array $policlinicoData;
+    protected array $ingrassiaData;
+
 
     public function __construct()
     {
         $this->ospedaliRiunitiData = [];
         $this->arsCivicoData = [];
+        $this->policlinicoData = [];
+        $this->ingrassiaData = [];
     }
 
     public function getData(): \Illuminate\Config\Repository|\Illuminate\Foundation\Application|array|\Illuminate\Contracts\Foundation\Application
     {
         $this->loadOspedaliRiunitiData();
         $this->loadArsCivicoData();
+        $this->loadPoliclinicoData();
+        $this->loadIngrassiaData();
+
 
         $arsCivico = config('regioni.sicilia.palermo.ospedali.arsCivico.data');
         foreach ($arsCivico as $key => $value) {
@@ -32,7 +42,17 @@ class PalermoDataService
             $ospedaliRiuniti[$key]['data'] = $this->ospedaliRiunitiData[$key] ?? [];
         }
 
-        return array_merge($ospedaliRiuniti, $arsCivico);
+        $policlinico = config('regioni.sicilia.palermo.ospedali.policlinico.data');
+        foreach ($policlinico as $key => $value) {
+            $policlinico[$key]['data'] = $this->policlinicoData[$key] ?? [];
+        }
+
+        $ingrassia = config('regioni.sicilia.palermo.ospedali.ingrassia.data');
+        foreach ($ingrassia as $key => $value) {
+            $ingrassia[$key]['data'] = $this->ingrassiaData[$key] ?? [];
+        }
+
+        return array_merge($ospedaliRiuniti, $arsCivico, $policlinico, $ingrassia);
     }
 
     public function getWebSocketConfig(): array
@@ -56,7 +76,7 @@ class PalermoDataService
         $this->ospedaliRiunitiData = Cache::get($cacheKey) ?: [];
 
         if (empty($this->ospedaliRiunitiData)) {
-            $this->ospedaliRiunitiData = $this->getJobResult(new OspedaliRiunitiJob());
+            $this->ospedaliRiunitiData = $this->getJobResult(new GenericJob(false, config('regioni.sicilia.palermo.ospedali.ospedaliRiuniti')));
         }
     }
 
@@ -70,7 +90,27 @@ class PalermoDataService
         }
     }
 
-    protected function getJobResult(ArsCivicoJob|OspedaliRiunitiJob $job): array
+    protected function loadPoliclinicoData(): void
+    {
+        $cacheKey = config('regioni.sicilia.palermo.ospedali.policlinico.cache.key');
+        $this->policlinicoData = Cache::get($cacheKey) ?: [];
+
+        if (empty($this->policlinicoData)) {
+            $this->policlinicoData = $this->getJobResult(new GenericJob(false, config('regioni.sicilia.palermo.ospedali.policlinico')));
+        }
+    }
+
+    protected function loadIngrassiaData(): void
+    {
+        $cacheKey = config('regioni.sicilia.palermo.ospedali.ingrassia.cache.key');
+        $this->ingrassiaData = Cache::get($cacheKey) ?: [];
+
+        if (empty($this->ingrassiaData)) {
+            $this->ingrassiaData = $this->getJobResult(new GenericJob(false, config('regioni.sicilia.palermo.ospedali.ingrassia')));
+        }
+    }
+
+protected function getJobResult(ArsCivicoJob|OspedaliRiunitiJob|PoliclinicoJob|GenericJob $job): array
     {
         if ($this->activeWebsocket()) {
             $job::dispatch(true);
