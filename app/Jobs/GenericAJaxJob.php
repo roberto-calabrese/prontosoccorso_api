@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Jobs\Sicilia\Palermo;
+namespace App\Jobs;
 
 use App\Events\PusherEvent;
 use GuzzleHttp\Client;
@@ -10,9 +10,8 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Cache;
-use Symfony\Component\DomCrawler\Crawler;
 
-class GenericJob implements ShouldQueue
+class GenericAJaxJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
@@ -23,7 +22,7 @@ class GenericJob implements ShouldQueue
     /**
      * Create a new job instance.
      */
-    public function __construct(bool $websocket = false, array $config)
+    public function __construct(bool $websocket, array $config)
     {
         $this->websocket = $websocket;
         $this->config = $config;
@@ -35,25 +34,30 @@ class GenericJob implements ShouldQueue
     public function handle()
     {
 
-//        sleep(10);
-
         return Cache::remember($this->config['cache']['key'], now()->addMinutes($this->config['cache']['ttlMinute']), function () {
+
             $client = new Client();
 
-            $response = $client->request('GET', $this->config['url']);
+            $response = $client->request('POST', $this->config['url'], [
+                'headers' => $this->config['headers']
+            ]);
 
-            $crawler = new Crawler($response->getBody()->getContents());
+            $body = $response->getBody();
+
+            $dati = json_decode($body, true, 512, JSON_THROW_ON_ERROR);
 
             $ospedali = [];
 
             foreach ($this->config['data'] as $keyH => $ospedale) {
+
                 foreach ($ospedale['data'] as $key => $value) {
+
                     if ($key !== 'extra') {
-                        $ospedali[$keyH]['data'][$key]['value'] = implode('', $crawler->filter($value['selector'])->extract(['_text']));
+                        $ospedali[$keyH]['data'][$key]['value'] = data_get($dati, $value['selector']);
 
                         if(isset($value['extra']) && is_array($value['extra'])) {
                             foreach ($value['extra'] as $extra_k => $extra_v) {
-                                $extra_v['value'] = implode('', $crawler->filter($extra_v['selector'])->extract(['_text']));
+                                $extra_v['value'] = data_get($dati, $extra_v['selector']);
                                 unset($extra_v['selector']);
                                 $ospedali[$keyH]['data'][$key]['extra'][$extra_k] = $extra_v;
                             }
@@ -63,7 +67,7 @@ class GenericJob implements ShouldQueue
                     } else {
                         foreach ($value as $extraK => $extraV) {
                             $ospedali[$keyH]['data'][$key][$extraK] = $ospedale['data'][$key][$extraK];
-                            $cleanedValue = implode('', $crawler->filter($extraV['selector'])->extract(['_text']));
+                            $cleanedValue = data_get($dati, $extraV['selector']);
                             $ospedali[$keyH]['data'][$key][$extraK]['value'] = ($extraK === 'indice_sovraffollamento') ? (int)preg_replace('/[^0-9.]/', '', $cleanedValue) : $cleanedValue;
                             unset($ospedali[$keyH]['data'][$key][$extraK]['selector']);
                         }

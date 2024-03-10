@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Jobs\Sicilia\Palermo;
+namespace App\Jobs;
 
 use App\Events\PusherEvent;
 use GuzzleHttp\Client;
@@ -12,18 +12,21 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Cache;
 use Symfony\Component\DomCrawler\Crawler;
 
-class PoliclinicoJob implements ShouldQueue
+class GenericScrapeJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     protected bool $websocket;
 
+    protected array $config;
+
     /**
      * Create a new job instance.
      */
-    public function __construct(bool $websocket = false)
+    public function __construct(bool $websocket, array $config)
     {
         $this->websocket = $websocket;
+        $this->config = $config;
     }
 
     /**
@@ -34,18 +37,16 @@ class PoliclinicoJob implements ShouldQueue
 
 //        sleep(10);
 
-        $config = config('regioni.sicilia.palermo.ospedali.policlinico');
-
-        return Cache::remember($config['cache']['key'], now()->addMinutes($config['cache']['ttlMinute']), function () use ($config) {
+        return Cache::remember($this->config['cache']['key'], now()->addMinutes($this->config['cache']['ttlMinute']), function () {
             $client = new Client();
 
-            $response = $client->request('GET', $config['url']);
+            $response = $client->request('GET', $this->config['url']);
 
             $crawler = new Crawler($response->getBody()->getContents());
 
             $ospedali = [];
 
-            foreach ($config['data'] as $keyH => $ospedale) {
+            foreach ($this->config['data'] as $keyH => $ospedale) {
                 foreach ($ospedale['data'] as $key => $value) {
                     if ($key !== 'extra') {
                         $ospedali[$keyH]['data'][$key]['value'] = implode('', $crawler->filter($value['selector'])->extract(['_text']));
@@ -63,7 +64,7 @@ class PoliclinicoJob implements ShouldQueue
                         foreach ($value as $extraK => $extraV) {
                             $ospedali[$keyH]['data'][$key][$extraK] = $ospedale['data'][$key][$extraK];
                             $cleanedValue = implode('', $crawler->filter($extraV['selector'])->extract(['_text']));
-                            $ospedali[$keyH]['data'][$key][$extraK]['value'] = ($extraK === 'indice_sovraffollamento') ? (int)preg_replace('/[^0-9]/', '', $cleanedValue) : $cleanedValue;
+                            $ospedali[$keyH]['data'][$key][$extraK]['value'] = ($extraK === 'indice_sovraffollamento') ? (int)preg_replace('/[^0-9.]/', '', $cleanedValue) : $cleanedValue;
                             unset($ospedali[$keyH]['data'][$key][$extraK]['selector']);
                         }
                     }

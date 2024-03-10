@@ -2,10 +2,9 @@
 
 namespace App\Services\Sicilia;
 
+use App\Jobs\GenericAJaxJob;
+use App\Jobs\GenericScrapeJob;
 use App\Jobs\Sicilia\Palermo\ArsCivicoJob;
-use App\Jobs\Sicilia\Palermo\GenericJob;
-use App\Jobs\Sicilia\Palermo\OspedaliRiunitiJob;
-use App\Jobs\Sicilia\Palermo\PoliclinicoJob;
 use Illuminate\Support\Facades\Cache;
 
 class PalermoDataService
@@ -14,6 +13,7 @@ class PalermoDataService
     protected array $arsCivicoData;
     protected array $policlinicoData;
     protected array $ingrassiaData;
+    protected array $buccheriData;
 
 
     public function __construct()
@@ -22,6 +22,7 @@ class PalermoDataService
         $this->arsCivicoData = [];
         $this->policlinicoData = [];
         $this->ingrassiaData = [];
+        $this->buccheriData = [];
     }
 
     public function getData(): \Illuminate\Config\Repository|\Illuminate\Foundation\Application|array|\Illuminate\Contracts\Foundation\Application
@@ -30,7 +31,7 @@ class PalermoDataService
         $this->loadArsCivicoData();
         $this->loadPoliclinicoData();
         $this->loadIngrassiaData();
-
+        $this->loadBuccheriData();
 
         $arsCivico = config('regioni.sicilia.palermo.ospedali.arsCivico.data');
         foreach ($arsCivico as $key => $value) {
@@ -52,7 +53,12 @@ class PalermoDataService
             $ingrassia[$key]['data'] = $this->ingrassiaData[$key] ?? [];
         }
 
-        return array_merge($ospedaliRiuniti, $arsCivico, $policlinico, $ingrassia);
+        $buccheri = config('regioni.sicilia.palermo.ospedali.buccheri.data');
+        foreach ($buccheri as $key => $value) {
+            $buccheri[$key]['data'] = $this->buccheriData[$key] ?? [];
+        }
+
+        return array_merge($ospedaliRiuniti, $arsCivico, $policlinico, $ingrassia, $buccheri);
     }
 
     public function getWebSocketConfig(): array
@@ -76,7 +82,7 @@ class PalermoDataService
         $this->ospedaliRiunitiData = Cache::get($config['cache']['key']) ?: [];
 
         if (empty($this->ospedaliRiunitiData)) {
-            $this->ospedaliRiunitiData = $this->getJobResult(new GenericJob(false, $config), $config);
+            $this->ospedaliRiunitiData = $this->getJobResult(new GenericScrapeJob($this->activeWebsocket(), $config), $config);
         }
     }
 
@@ -96,7 +102,7 @@ class PalermoDataService
         $this->policlinicoData = Cache::get($config['cache']['key']) ?: [];
 
         if (empty($this->policlinicoData)) {
-            $this->policlinicoData = $this->getJobResult(new GenericJob(false, $config), $config);
+            $this->policlinicoData = $this->getJobResult(new GenericScrapeJob($this->activeWebsocket(), $config), $config);
         }
     }
 
@@ -106,11 +112,21 @@ class PalermoDataService
         $this->ingrassiaData = Cache::get($config['cache']['key']) ?: [];
 
         if (empty($this->ingrassiaData)) {
-            $this->ingrassiaData = $this->getJobResult(new GenericJob(false, $config), $config);
+            $this->ingrassiaData = $this->getJobResult(new GenericScrapeJob($this->activeWebsocket(), $config), $config);
         }
     }
 
-protected function getJobResult(ArsCivicoJob|OspedaliRiunitiJob|PoliclinicoJob|GenericJob $job, array $config = []) : array
+    protected function loadBuccheriData(): void
+    {
+        $config = config('regioni.sicilia.palermo.ospedali.buccheri');
+        $this->buccheriData = Cache::get($config['cache']['key']) ?: [];
+
+        if (empty($this->buccheriData)) {
+            $this->buccheriData = $this->getJobResult(new GenericAJaxJob($this->activeWebsocket(), $config), $config);
+        }
+    }
+
+protected function getJobResult(ArsCivicoJob|GenericScrapeJob|GenericAJaxJob $job, array $config = []) : array
     {
         if ($this->activeWebsocket()) {
             $job::dispatch(true, $config);
