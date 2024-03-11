@@ -37,7 +37,7 @@ class GenericDataService
         $data = Cache::get($ospedaleConfig['cache']['key']);
 
         foreach ($ospedaleConfig['data'] as $key => $value) {
-            $value['data'] = $data[$key]['data'] ?? [];
+            $value['data'] = $data[$key] ?? [];
             $this->ospedaliData[$key] = $value;
         }
 
