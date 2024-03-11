@@ -23,7 +23,7 @@ return [
             'data' => [
                 'presidio_villa_sofia_adulti' => [
                     'id' => 1,
-                    'nome' => 'Presidio Villa Sofia',
+                    'nome' => 'Villa Sofia',
                     'descrizione' => 'Pronto Soccorso Adulti',
                     'adulti' => true,
                     'indirizzo' => 'Piazza Salerno, 1, 90146 Palermo PA',
@@ -69,7 +69,7 @@ return [
                 ],
                 'presidio_villa_sofia_pediatrico' => [
                     'id' => 2,
-                    'nome' => 'Presidio Villa Sofia',
+                    'nome' => 'Villa Sofia',
                     'descrizione' => 'Pronto Soccorso Pediatrico',
                     'adulti' => false,
                     'indirizzo' => 'Piazza Salerno, 1, 90146 Palermo PA',
@@ -114,8 +114,8 @@ return [
                 ],
                 'presidio_cervello_adulti' => [
                     'id' => 3,
-                    'nome' => 'Presidio Cervello',
-                    'descrizione' => 'Pronto Soccorso Adulti',
+                    'nome' => 'Cervello',
+                    'descrizione' => 'Presidio Cervello Adulti',
                     'adulti' => true,
                     'indirizzo' => 'Piazza Salerno, 1, 90146 Palermo PA',
                     'telefono' => '091 6802515',
@@ -171,7 +171,7 @@ return [
             'data' => [
                 'presidio_civico_adulti' => [
                     'id' => 4,
-                    'nome' => 'Presidio Civico',
+                    'nome' => 'Civico',
                     'descrizione' => 'Pronto Soccorso Adulti',
                     'adulti' => true,
                     'indirizzo' => 'Via Carmelo Lazzaro, 4, 90127 Palermo PA',
@@ -218,7 +218,7 @@ return [
                 ],
                 'presidio_civico_pediatrico' => [
                     'id' => 5,
-                    'nome' => 'Presidio Civico',
+                    'nome' => 'Civico',
                     'descrizione' => 'Pronto Soccorso Pediatrico',
                     'adulti' => false,
                     'indirizzo' => 'Via Carmelo Lazzaro, 4, 90127 Palermo PA',
@@ -271,8 +271,8 @@ return [
             'data' => [
                 'policlinico_adulti' => [
                     'id' => 6,
-                    'nome' => 'Policlinico "Paolo Giaccone"',
-                    'descrizione' => 'Azienda Ospedaliera dell\'Università degli Studi di Palermo',
+                    'nome' => 'Policlinico',
+                    'descrizione' => '"Paolo Giaccone" - Azienda Ospedaliera dell\'Università degli Studi di Palermo',
                     'adulti' => true,
                     'indirizzo' => 'Via del Vespro, 129 90127 Palermo',
                     'telefono' => '091 6551111',
