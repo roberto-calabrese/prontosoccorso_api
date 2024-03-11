@@ -3,9 +3,7 @@
 namespace App\Jobs\Sicilia\Palermo;
 
 use App\Events\PusherEvent;
-use Event;
 use GuzzleHttp\Client;
-use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -18,14 +16,17 @@ class ArsCivicoJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    protected bool $websocket;
+    protected array $websocket;
+
+    protected array $config;
 
     /**
      * Create a new job instance.
      */
-    public function __construct(bool $websocket = false)
+    public function __construct(array $websocket, array $config)
     {
         $this->websocket = $websocket;
+        $this->config = $config;
     }
 
     /**
@@ -34,18 +35,25 @@ class ArsCivicoJob implements ShouldQueue
     public function handle()
     {
 
-        $config = config('regioni.sicilia.palermo.ospedali.arsCivico');
+        $cacheKey = $this->config['cache']['key'];
+        $cacheTTL = $this->config['cache']['ttlMinute'];
 
-        return Cache::remember($config['cache']['key'], now()->addMinutes($config['cache']['ttlMinute']), function () use ($config) {
+        $lockKey = "lock:{$cacheKey}";
+
+        if (!Cache::add($lockKey, true, $cacheTTL)) {
+            return;
+        }
+
+        return Cache::remember($cacheKey, now()->addMinutes($cacheTTL), function () {
             $client = new Client();
 
-            $response = $client->request('GET', $config['url']);
+            $response = $client->request('GET', $this->config['url']);
 
             $crawler = new Crawler($response->getBody()->getContents());
 
             $ospedali = [];
 
-            foreach ($config['data'] as $keyH => $ospedale) {
+            foreach ($this->config['data'] as $keyH => $ospedale) {
                 foreach ($ospedale['data'] as $key => $value) {
                     if ($key !== 'extra') {
                         $this->processHospitalData($ospedali, $keyH, $value, $crawler);
@@ -62,8 +70,8 @@ class ArsCivicoJob implements ShouldQueue
 
             if ($this->websocket) {
                 event(new PusherEvent($ospedali, [
-                    'channel' => config('regioni.sicilia.palermo.websocket.channel'),
-                    'event' => config('regioni.sicilia.palermo.websocket.event'),
+                    'channel' => $this->websocket['channel'],
+                    'event' => $this->websocket['event']
                 ]));
             }
 

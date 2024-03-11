@@ -15,14 +15,14 @@ class GenericAJaxJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    protected bool $websocket;
+    protected array $websocket;
 
     protected array $config;
 
     /**
      * Create a new job instance.
      */
-    public function __construct(bool $websocket, array $config)
+    public function __construct(array $websocket, array $config)
     {
         $this->websocket = $websocket;
         $this->config = $config;
@@ -34,7 +34,16 @@ class GenericAJaxJob implements ShouldQueue
     public function handle()
     {
 
-        return Cache::remember($this->config['cache']['key'], now()->addMinutes($this->config['cache']['ttlMinute']), function () {
+        $cacheKey = $this->config['cache']['key'];
+        $cacheTTL = $this->config['cache']['ttlMinute'];
+
+        $lockKey = "lock:{$cacheKey}";
+
+        if (!Cache::add($lockKey, true, $cacheTTL)) {
+            return;
+        }
+
+        return Cache::remember($cacheKey, now()->addMinutes($cacheTTL), function () {
 
             $client = new Client();
 
@@ -77,8 +86,8 @@ class GenericAJaxJob implements ShouldQueue
 
             if ($this->websocket) {
                 event(new PusherEvent($ospedali, [
-                    'channel' => config('regioni.sicilia.palermo.websocket.channel'),
-                    'event' => config('regioni.sicilia.palermo.websocket.event')
+                    'channel' => $this->websocket['channel'],
+                    'event' => $this->websocket['event']
                 ]));
             }
 

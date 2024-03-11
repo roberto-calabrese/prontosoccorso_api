@@ -37,7 +37,7 @@ class GenericDataService
         $data = Cache::get($ospedaleConfig['cache']['key']);
 
         foreach ($ospedaleConfig['data'] as $key => $value) {
-            $value['data'] = $data[$key] ?? [];
+            $value['data'] = $data[$key]['data'] ?? [];
             $this->ospedaliData[$key] = $value;
         }
 
@@ -62,15 +62,15 @@ class GenericDataService
         ];
     }
 
-    protected function activeWebsocket(): bool
+    protected function activeWebsocket(): array
     {
-        return config('queue.default') === 'redis' && config("$this->configKey.websocket.active");
+        return config('queue.default') === 'redis' && config("$this->configKey.websocket.active") ? config("$this->configKey.websocket") : [];
     }
 
 protected function getJobResult($job, array $config = []) : array
     {
         if ($this->activeWebsocket()) {
-            $job::dispatch(true, $config);
+            $job::dispatch($this->activeWebsocket(), $config);
             return [];
         }
 
