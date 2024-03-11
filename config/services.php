@@ -33,7 +33,7 @@ return [
 
     'sicilia' => [
         'provincie' => [
-            'palermo' => \App\Services\Sicilia\PalermoDataService::class,
+            'palermo' => \App\Services\GenericDataService::class,
         ],
     ],
 ];

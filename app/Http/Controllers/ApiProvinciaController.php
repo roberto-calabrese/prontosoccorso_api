@@ -14,7 +14,11 @@ class ApiProvinciaController extends Controller
         try {
             $provinciaServiceClass = config("services.{$regione}.provincie.{$provincia}");
 
-            if (!$provinciaServiceClass || !class_exists($provinciaServiceClass)) {
+            $configKey = "regioni.{$regione}.{$provincia}";
+
+            $configProvincia = config($configKey);
+
+            if (!$configProvincia || !$provinciaServiceClass || !class_exists($provinciaServiceClass)) {
                 return response()->json([
                     'status' => false,
                     'message' => "Servizio non valido per la regione {$regione} - provincia {$provincia}"
@@ -22,7 +26,9 @@ class ApiProvinciaController extends Controller
             }
 
             $provinciaService = app($provinciaServiceClass);
-            $data = $provinciaService->getData();
+
+            $data = $provinciaService->getData(array_keys($configProvincia['ospedali']), $configKey);
+
             $new_data = [];
             foreach ($data as $key => $item) {
                 $new_data[] = [

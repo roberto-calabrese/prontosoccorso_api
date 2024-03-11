@@ -19,6 +19,7 @@ return [
                 'ttlMinute' => 1
             ],
             'url' => 'https://www.ospedaliriunitipalermo.it/amministrazione-trasparente/servizi-erogati/liste-di-attesa/pazienti-in-attesa-al-pronto-soccorso/',
+            'jobClass' => \App\Jobs\GenericScrapeJob::class,
             'data' => [
                 'presidio_villa_sofia_adulti' => [
                     'id' => 1,
@@ -166,6 +167,7 @@ return [
                 'ttlMinute' => 1
             ],
             'url' => 'https://www.arnascivico.it/index.php?option=com_content&view=article&id=3415&catid=24&Itemid=139',
+            'jobClass' => \App\Jobs\Sicilia\Palermo\ArsCivicoJob::class,
             'data' => [
                 'presidio_civico_adulti' => [
                     'id' => 4,
@@ -265,6 +267,7 @@ return [
                 'ttlMinute' => 1
             ],
             'url' => 'http://www.policlinico.pa.it/portal/',
+            'jobClass' => \App\Jobs\GenericScrapeJob::class,
             'data' => [
                 'policlinico_adulti' => [
                     'id' => 6,
@@ -361,6 +364,7 @@ return [
                 'ttlMinute' => 1
             ],
             'url' => 'https://www.asppalermo.org/attese_ps/',
+            'jobClass' => \App\Jobs\GenericScrapeJob::class,
             'data' => [
                 'ingrassia_adulti' => [
                     'id' => 7,
@@ -476,6 +480,7 @@ return [
                 'User-Agent' => $userAgent,
                 'Origin' => 'https://servizionline.provinciaromanafbf.it',
             ],
+            'jobClass' => \App\Jobs\GenericAJaxJob::class,
             'data' => [
                 'buccheri_adulti' => [
                     'id' => 8,

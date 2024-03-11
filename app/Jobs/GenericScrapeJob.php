@@ -35,8 +35,6 @@ class GenericScrapeJob implements ShouldQueue
     public function handle()
     {
 
-//        sleep(10);
-
         return Cache::remember($this->config['cache']['key'], now()->addMinutes($this->config['cache']['ttlMinute']), function () {
             $client = new Client();
 
