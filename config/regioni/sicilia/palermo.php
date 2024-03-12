@@ -24,7 +24,7 @@ return [
                 'presidio_villa_sofia_adulti' => [
                     'id' => 1,
                     'nome' => 'Villa Sofia',
-                    'descrizione' => 'Pronto Soccorso Adulti',
+                    'descrizione' => 'Ospedali Riuniti Villa Sofia Cervello',
                     'adulti' => true,
                     'indirizzo' => 'Piazza Salerno, 1, 90146 Palermo PA',
                     'telefono' => '091 7804031',
@@ -70,7 +70,7 @@ return [
                 'presidio_villa_sofia_pediatrico' => [
                     'id' => 2,
                     'nome' => 'Villa Sofia',
-                    'descrizione' => 'Pronto Soccorso Pediatrico',
+                    'descrizione' => 'Ospedali Riuniti Villa Sofia Cervello',
                     'adulti' => false,
                     'indirizzo' => 'Piazza Salerno, 1, 90146 Palermo PA',
                     'telefono' => '091 6802015',
@@ -115,7 +115,7 @@ return [
                 'presidio_cervello_adulti' => [
                     'id' => 3,
                     'nome' => 'Cervello',
-                    'descrizione' => 'Presidio Cervello Adulti',
+                    'descrizione' => 'Ospedali Riuniti Villa Sofia Cervello',
                     'adulti' => true,
                     'indirizzo' => 'Piazza Salerno, 1, 90146 Palermo PA',
                     'telefono' => '091 6802515',
@@ -393,10 +393,8 @@ return [
                                 ],
                                 'in_osservazione' => [
                                     'label' => 'In osservazione',
-                                    'selector' => 'table.table>tbody>tr:nth-child(3)>td:nth-child(2)
-    ',
+                                    'selector' => 'table.table>tbody>tr:nth-child(3)>td:nth-child(2)',
                                 ]
-
                             ]
                         ],
                         'giallo' => [
@@ -550,7 +548,7 @@ return [
                                 'selector' => 'numeroAccessiProntoSoccorsoOdierno',
                             ],
                             'accessi_anno' => [
-                                'label' => 'Accesso dell\' Anno',
+                                'label' => 'Accessi dell\' Anno',
                                 'selector' => 'numeroAccessiProntoSoccorsoAnno',
                             ],
                             'indice_sovraffollamento' => [
