@@ -24,7 +24,7 @@ Route::get('buccheri', static function (){
 });
 
 
-Route::get('/init', \App\Http\Controllers\ApiInitController::class);
+Route::get('/settings', \App\Http\Controllers\ApiSettingsController::class);
 
 Route::get('/regioni', \App\Http\Controllers\ApiRegioniController::class);
 Route::get('/{regione}', \App\Http\Controllers\ApiRegioneController::class);

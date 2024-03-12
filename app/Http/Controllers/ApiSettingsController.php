@@ -7,7 +7,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class ApiInitController extends Controller
+class ApiSettingsController extends Controller
 {
     public function __invoke(Request $request): JsonResponse
     {
