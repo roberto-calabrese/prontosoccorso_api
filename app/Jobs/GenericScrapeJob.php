@@ -47,7 +47,7 @@ class GenericScrapeJob implements ShouldQueue
         return Cache::remember($cacheKey, now()->addMinutes($cacheTTL), function () {
             $client = new Client();
 
-            $response = $client->request('GET', $this->config['url']);
+            $response = $client->request('GET', $this->config['url'], ['verify' => false]);
 
             $crawler = new Crawler($response->getBody()->getContents());
 
@@ -56,11 +56,10 @@ class GenericScrapeJob implements ShouldQueue
             foreach ($this->config['data'] as $keyH => $ospedale) {
                 foreach ($ospedale['data'] as $key => $value) {
                     if ($key !== 'extra') {
-                        $ospedali[$keyH]['data'][$key]['value'] = implode('', $crawler->filter($value['selector'])->extract(['_text']));
-
+                        $ospedali[$keyH]['data'][$key]['value'] = (int)preg_replace("/[^0-9]/", "", implode('', $crawler->filter($value['selector'])->extract(['_text'])));
                         if(isset($value['extra']) && is_array($value['extra'])) {
                             foreach ($value['extra'] as $extra_k => $extra_v) {
-                                $extra_v['value'] = implode('', $crawler->filter($extra_v['selector'])->extract(['_text']));
+                                $extra_v['value'] = (int)preg_replace("/[^0-9]/", "", implode('', $crawler->filter($extra_v['selector'])->extract(['_text'])));
                                 unset($extra_v['selector']);
                                 $ospedali[$keyH]['data'][$key]['extra'][$extra_k] = $extra_v;
                             }

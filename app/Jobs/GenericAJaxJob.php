@@ -48,7 +48,8 @@ class GenericAJaxJob implements ShouldQueue
             $client = new Client();
 
             $response = $client->request('POST', $this->config['url'], [
-                'headers' => $this->config['headers']
+                'headers' => $this->config['headers'],
+                'verify' => false
             ]);
 
             $body = $response->getBody();

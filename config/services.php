@@ -34,6 +34,7 @@ return [
     'sicilia' => [
         'provincie' => [
             'palermo' => \App\Services\GenericDataService::class,
+            'messina' => \App\Services\GenericDataService::class,
         ],
     ],
 ];

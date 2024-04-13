@@ -284,47 +284,47 @@ return [
                     ],
                     'data' => [
                         'rosso' => [
-                            'selector' => 'div.psDiv>div:nth-child(5)>span:nth-child(4)>strong>span',
+                            'selector' => 'div.psDiv>div:nth-child(13)>span:nth-child(4)>strong>span',
                             'extra' => [
                                 'in_attesa' => [
-                                    'label' => 'In attesa di visita',
-                                    'selector' => 'div.psDiv>div:nth-child(13)>span:nth-child(4)>strong>span',
+                                    'label' => 'In Carico',
+                                    'selector' => 'div.psDiv>div:nth-child(5)>span:nth-child(4)>strong>span',
                                 ]
                             ]
                         ],
                         'giallo' => [
-                            'selector' => 'div.psDiv>div:nth-child(6)>span:nth-child(4)>strong>span',
+                            'selector' => 'div.psDiv>div:nth-child(14)>span:nth-child(4)>strong>span',
                             'extra' => [
                                 'in_attesa' => [
-                                    'label' => 'In attesa di visita',
-                                    'selector' => 'div.psDiv>div:nth-child(14)>span:nth-child(4)>strong>span',
+                                    'label' => 'In Carico',
+                                    'selector' => 'div.psDiv>div:nth-child(6)>span:nth-child(4)>strong>span',
                                 ]
                             ]
                         ],
                         'verde' => [
-                            'selector' => 'div.psDiv>div:nth-child(7)>span:nth-child(4)>strong>span',
+                            'selector' => 'div.psDiv>div:nth-child(15)>span:nth-child(4)>strong>span',
                             'extra' => [
                                 'in_attesa' => [
-                                    'label' => 'In attesa di visita',
-                                    'selector' => 'div.psDiv>div:nth-child(15)>span:nth-child(4)>strong>span',
+                                    'label' => 'In Carico',
+                                    'selector' => 'div.psDiv>div:nth-child(7)>span:nth-child(4)>strong>span',
                                 ]
                             ]
                         ],
                         'bianco' => [
-                            'selector' => 'div.psDiv>div:nth-child(8)>span:nth-child(4)>strong>span',
+                            'selector' => 'div.psDiv>div:nth-child(16)>span:nth-child(4)>strong>span',
                             'extra' => [
                                 'in_attesa' => [
-                                    'label' => 'In attesa di visita',
-                                    'selector' => 'div.psDiv>div:nth-child(16)>span:nth-child(4)>strong>span',
+                                    'label' => 'In Carico',
+                                    'selector' => 'div.psDiv>div:nth-child(8)>span:nth-child(4)>strong>span',
                                 ]
                             ]
                         ],
                         'totali' => [
-                            'selector' => 'div.psDiv>p:nth-child(3)>span>strong',
+                            'selector' => 'div.psDiv>p:nth-child(11)>span>strong',
                             'extra' => [
                                 'in_attesa' => [
-                                    'label' => 'In attesa di visita',
-                                    'selector' => 'div.psDiv>p:nth-child(11)>span>strong',
+                                    'label' => 'In Carico',
+                                    'selector' => 'div.psDiv>p:nth-child(3)>span>strong',
                                 ]
                             ]
                         ],

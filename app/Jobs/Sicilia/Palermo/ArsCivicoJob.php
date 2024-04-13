@@ -47,7 +47,7 @@ class ArsCivicoJob implements ShouldQueue
         return Cache::remember($cacheKey, now()->addMinutes($cacheTTL), function () {
             $client = new Client();
 
-            $response = $client->request('GET', $this->config['url']);
+            $response = $client->request('GET', $this->config['url'], ['verify' => false]);
 
             $crawler = new Crawler($response->getBody()->getContents());
 
@@ -115,14 +115,20 @@ class ArsCivicoJob implements ShouldQueue
             $data = $this->extractDataFromSelector($crawler, $selector, $i === $maxI);
 
             foreach ($data as $row => $rowData) {
-                $ospedali[$keyH]['data'][$row]['value'] = $i !== $maxI ? $rowData[3] : array_sum(array_slice($rowData, 0, 3));
-
-                foreach (['pazienti_in_attesa', 'pazienti_in_trattamento', 'pazienti_in_osservazione'] as $extraType) {
+//                $ospedali[$keyH]['data'][$row]['value'] = $i !== $maxI ? $rowData[0] : array_sum(array_slice($rowData, 0, 3));
+                $ospedali[$keyH]['data'][$row]['value'] = $rowData[0];
+                foreach (['pazienti_in_attesa','pazienti_in_trattamento', 'pazienti_in_osservazione', 'pazienti_totali'] as $extraType) {
                     $ospedali[$keyH]['data'][$row]['extra'][$extraType]['label'] = ucfirst(str_replace('_', ' ', $extraType));
-                    $ospedali[$keyH]['data'][$row]['extra'][$extraType]['value'] = $rowData[array_search($extraType, ['pazienti_in_attesa', 'pazienti_in_trattamento', 'pazienti_in_osservazione'])];
+                    if ($row === 'totali' && $extraType  === 'pazienti_totali') {
+                        $ospedali[$keyH]['data'][$row]['extra'][$extraType]['value'] = array_sum(array_slice($rowData, 0, 3));
+                    } else {
+                        $ospedali[$keyH]['data'][$row]['extra'][$extraType]['value'] = $rowData[array_search($extraType, ['pazienti_in_attesa','pazienti_in_trattamento', 'pazienti_in_osservazione', 'pazienti_totali'])];
+                    }
+
                 }
             }
         }
+
         unset($ospedali[$keyH]['data']['calculate_selector']);
     }
 }
