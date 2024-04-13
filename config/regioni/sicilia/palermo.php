@@ -381,7 +381,7 @@ return [
                     ],
                     'data' => [
                         'rosso' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(4)>td:nth-child(2)',
+                            'selector' => 'table.table>tbody>tr:nth-child(1)>td:nth-child(2)',
                             'extra' => [
                                 'in_attesa' => [
                                     'label' => 'In attesa di visita',
@@ -394,11 +394,15 @@ return [
                                 'in_osservazione' => [
                                     'label' => 'In osservazione',
                                     'selector' => 'table.table>tbody>tr:nth-child(3)>td:nth-child(2)',
+                                ],
+                                'totali' => [
+                                    'label' => 'Totali',
+                                    'selector' => 'table.table>tbody>tr:nth-child(4)>td:nth-child(2)',
                                 ]
                             ]
                         ],
                         'giallo' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(4)>td:nth-child(3)',
+                            'selector' => 'table.table>tbody>tr:nth-child(1)>td:nth-child(3)',
                             'extra' => [
                                 'in_attesa' => [
                                     'label' => 'In attesa di visita',
@@ -411,12 +415,16 @@ return [
                                 'in_osservazione' => [
                                     'label' => 'In osservazione',
                                     'selector' => 'table.table>tbody>tr:nth-child(3)>td:nth-child(3)',
+                                ],
+                                'totali' => [
+                                    'label' => 'Totali',
+                                    'selector' => 'table.table>tbody>tr:nth-child(4)>td:nth-child(3)',
                                 ]
 
                             ]
                         ],
                         'verde' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(4)>td:nth-child(4)',
+                            'selector' => 'table.table>tbody>tr:nth-child(1)>td:nth-child(4)',
                             'extra' => [
                                 'in_attesa' => [
                                     'label' => 'In attesa di visita',
@@ -429,11 +437,15 @@ return [
                                 'in_osservazione' => [
                                     'label' => 'In osservazione',
                                     'selector' => 'table.table>tbody>tr:nth-child(3)>td:nth-child(4)'
+                                ],
+                                'totali' => [
+                                    'label' => 'Totali',
+                                    'selector' => 'table.table>tbody>tr:nth-child(4)>td:nth-child(4)',
                                 ]
                             ]
                         ],
                         'bianco' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(4)>td:nth-child(5)',
+                            'selector' => 'table.table>tbody>tr:nth-child(1)>td:nth-child(5)',
                             'extra' => [
                                 'in_attesa' => [
                                     'label' => 'In attesa di visita',
@@ -446,6 +458,10 @@ return [
                                 'in_osservazione' => [
                                     'label' => 'In osservazione',
                                     'selector' => 'table.table>tbody>tr:nth-child(3)>td:nth-child(5)',
+                                ],
+                                'totali' => [
+                                    'label' => 'Totali',
+                                    'selector' => 'table.table>tbody>tr:nth-child(4)>td:nth-child(5)',
                                 ]
 
                             ]
