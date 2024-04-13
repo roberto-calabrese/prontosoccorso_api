@@ -47,7 +47,10 @@ class GenericScrapeJob implements ShouldQueue
         return Cache::remember($cacheKey, now()->addMinutes($cacheTTL), function () {
             $client = new Client();
 
-            $response = $client->request('GET', $this->config['url'], ['verify' => false]);
+            $response = $client->request('GET', $this->config['url'], [
+                'headers' => $this->config['headers'],
+                'verify' => false
+            ]);
 
             $crawler = new Crawler($response->getBody()->getContents());
 

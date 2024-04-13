@@ -19,6 +19,11 @@ return [
                 'ttlMinute' => 1
             ],
             'url' => 'https://www.asp.messina.it/?page_id=125231',
+            'headers' => [
+                'Referer' => 'https://www.asp.messina.it',
+                'User-Agent' => $userAgent,
+                'Origin' => 'https://www.asp.messina.it',
+            ],
             'jobClass' => \App\Jobs\GenericScrapeJob::class,
             'data' => [
                 'barcellona_pozzo_di_gotto' => [
