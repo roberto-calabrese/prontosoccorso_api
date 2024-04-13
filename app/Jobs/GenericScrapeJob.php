@@ -48,7 +48,7 @@ class GenericScrapeJob implements ShouldQueue
             $client = new Client();
 
             $response = $client->request('GET', $this->config['url'], [
-                'headers' => $this->config['headers'],
+                'headers' => $this->config['headers'] ?? [],
                 'verify' => false
             ]);
 
