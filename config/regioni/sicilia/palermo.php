@@ -2,6 +2,52 @@
 
 $userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.79 Safari/537.36';
 
+$tableSettings = [
+    'headers' => $tableHeaders = [
+        [
+            'title' => 'Presidio',
+            'align' => 'start',
+            'key' => 'nome'
+        ],
+        [
+            'title' => 'Indice Sovraffollamento: ',
+            'align' => 'emd',
+            'key' => 'data.data.extra.indice_sovraffollamento.value'
+        ],
+        [
+            'title' => 'Codice Rosso',
+            'align' => 'end',
+            'key' => 'data.data.rosso.value'
+        ],
+        [
+            'title' => 'Codice Giallo',
+            'align' => 'end',
+            'key' => 'data.data.giallo.value'
+        ],
+        [
+            'title' => 'Codice Verde',
+            'align' => 'end',
+            'key' => 'data.data.verde.value'
+        ],
+        [
+            'title' => 'Codice Bianco',
+            'align' => 'end',
+            'key' => 'data.data.bianco.value'
+        ],
+        [
+            'title' => 'Totali',
+            'align' => 'end',
+            'key' => 'data.data.totali.value'
+        ],
+    ],
+    'sortBy' => [
+        [
+            'key' => 'data.data.extra.indice_sovraffollamento.value',
+            'order' => 'asc'
+        ]
+    ]
+];
+
 return [
     'meta' => [
       'slug' => 'palermo',
@@ -12,6 +58,7 @@ return [
         'channel' => 'sicilia.palermo',
         'event' => 'data'
     ],
+    'tableSettings' => $tableSettings,
     'ospedali' => [
         'ospedaliRiuniti' => [
             'cache' => [
