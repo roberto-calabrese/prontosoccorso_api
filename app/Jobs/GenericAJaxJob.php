@@ -36,6 +36,7 @@ class GenericAJaxJob implements ShouldQueue
 
         $cacheKey = $this->config['cache']['key'];
         $cacheTTL = $this->config['cache']['ttlMinute'];
+        $method = $this->config['method'] ?? 'GET';
 
         $lockKey = "lock:{$cacheKey}";
 
@@ -43,11 +44,11 @@ class GenericAJaxJob implements ShouldQueue
             return;
         }
 
-        return Cache::remember($cacheKey, now()->addMinutes($cacheTTL), function () {
+        return Cache::remember($cacheKey, now()->addMinutes($cacheTTL), function () use ($method) {
 
             $client = new Client();
 
-            $response = $client->request('POST', $this->config['url'], [
+            $response = $client->request($method, $this->config['url'], [
                 'headers' => $this->config['headers'],
                 'verify' => false
             ]);

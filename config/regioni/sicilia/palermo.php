@@ -541,6 +541,7 @@ return [
                 'User-Agent' => $userAgent,
                 'Origin' => 'https://servizionline.provinciaromanafbf.it',
             ],
+            'method' => 'POST',
             'jobClass' => \App\Jobs\GenericAJaxJob::class,
             'data' => [
                 'buccheri_adulti' => [

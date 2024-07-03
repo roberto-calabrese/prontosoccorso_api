@@ -39,4 +39,9 @@ return [
             'catania' => \App\Services\GenericDataService::class,
         ],
     ],
+    'liguria' => [
+        'provincie' => [
+            'imperia' => \App\Services\GenericDataService::class,
+        ],
+    ],
 ];
