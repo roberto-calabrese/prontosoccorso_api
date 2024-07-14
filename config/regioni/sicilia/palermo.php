@@ -79,8 +79,8 @@ return [
                     'web' => 'https://www.ospedaliriunitipalermo.it/amministrazione-trasparente/servizi-erogati/liste-di-attesa/pazienti-in-attesa-al-pronto-soccorso/',
                     'google_maps' => 'https://maps.app.goo.gl/vY4RATYz7ePA2Pe76',
                     'coords' => [
-                        'lat' => '38.149290',
-                        'lng' => '13.314810',
+                        'lat' => '38.149292',
+                        'lng' => '13.314412',
                     ],
                     'data' => [
                         'rosso' => [
@@ -124,8 +124,8 @@ return [
                     'email' => 'direzionepresidio@villasofia.it',
                     'web' => 'https://www.ospedaliriunitipalermo.it/amministrazione-trasparente/servizi-erogati/liste-di-attesa/pazienti-in-attesa-al-pronto-soccorso/',
                     'coords' => [
-                        'lat' => '38.149290',
-                        'lng' => '13.314810',
+                        'lat' => '38.149590',
+                        'lng' => '13.314612',
                     ],
                     'data' => [
                         'rosso' => [
@@ -169,8 +169,8 @@ return [
                     'email' => 'direzionepresidio@villasofia.it',
                     'web' => 'https://www.ospedaliriunitipalermo.it/amministrazione-trasparente/servizi-erogati/liste-di-attesa/pazienti-in-attesa-al-pronto-soccorso/',
                     'coords' => [
-                        'lat' => '38.149290',
-                        'lng' => '13.314810',
+                        'lat' => '38.142390',
+                        'lng' => '13.315850',
                     ],
                     'data' => [
                         'rosso' => [
@@ -226,8 +226,8 @@ return [
                     'email' => 'ospedalecivicopa@pec.it',
                     'web' => 'https://www.arnascivico.it',
                     'coords' => [
-                        'lat' => '38.103724',
-                        'lng' => '13.355288',
+                        'lat' => '38.105726',
+                        'lng' => '13.356283',
                     ],
                     'data' => [
                         'calculate_selector' => 'div.item-page>div:nth-child(4)>table:nth-child(7)>tbody>tr:nth-child(REPLACE)',
@@ -273,8 +273,8 @@ return [
                     'email' => 'ospedalecivicopa@pec.it',
                     'web' => 'https://www.arnascivico.it',
                     'coords' => [
-                        'lat' => '38.103724',
-                        'lng' => '13.355288',
+                        'lat' => '38.101754',
+                        'lng' => '13.355468',
                     ],
                     'data' => [
                         'calculate_selector' => 'div.item-page>div:nth-child(4)>table:nth-child(13)>tbody>tr:nth-child(REPLACE)',
@@ -326,8 +326,8 @@ return [
                     'email' => 'protocollo@cert.policlinico.pa.it ',
                     'web' => 'https://www.policlinico.pa.it',
                     'coords' => [
-                        'lat' => '38.103724',
-                        'lng' => '13.355288',
+                        'lat' => '38.103992',
+                        'lng' => '13.355366',
                     ],
                     'data' => [
                         'rosso' => [
@@ -423,8 +423,8 @@ return [
                     'email' => ' - ',
                     'web' => 'https://www.asppalermo.org/attese_ps/',
                     'coords' => [
-                        'lat' => '38.103724',
-                        'lng' => '13.355288',
+                        'lat' => '38.106798',
+                        'lng' => '13.357277',
                     ],
                     'data' => [
                         'rosso' => [
@@ -554,8 +554,8 @@ return [
                     'email' => 'urp@fbfpa.it',
                     'web' => 'https://www.ospedalebuccherilaferla.it',
                     'coords' => [
-                        'lat' => '38.103724',
-                        'lng' => '13.355288',
+                        'lat' => '38.101734',
+                        'lng' => '13.35228',
                     ],
                     'data' => [
                         'rosso' => [
