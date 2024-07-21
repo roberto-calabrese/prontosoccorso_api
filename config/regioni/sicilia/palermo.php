@@ -79,8 +79,8 @@ return [
                     'web' => 'https://www.ospedaliriunitipalermo.it/amministrazione-trasparente/servizi-erogati/liste-di-attesa/pazienti-in-attesa-al-pronto-soccorso/',
                     'google_maps' => 'https://maps.app.goo.gl/vY4RATYz7ePA2Pe76',
                     'coords' => [
-                        'lat' => '38.149292',
-                        'lng' => '13.314412',
+                        'lat' => '38.1549139',
+                        'lng' => '13.33434',
                     ],
                     'data' => [
                         'rosso' => [
@@ -120,12 +120,17 @@ return [
                     'descrizione' => 'Ospedali Riuniti Villa Sofia Cervello',
                     'adulti' => false,
                     'indirizzo' => 'Piazza Salerno, 1, 90146 Palermo PA',
-                    'telefono' => '091 6802015',
-                    'email' => 'direzionepresidio@villasofia.it',
+                    'telefono' => '+39 091 6802015',
+                    'sala_visite' => '+39 091 6802014  / +39 091 6802015',
+                    'triage' => '+39 091 6802013',
+                    'caposala' => '+39 091 6802072',
+                    'info' => 'Per i pazienti di PSP che necessitano di un inquadramento diagnostico non urgente e/o di un follow up neurologico è attivo l’Ambulatorio di Neurologia pediatrica e Medicina del Sonno',
+                    'email' => 'ps.pediatrico@villasofia.it',
+                    'volumi' => 'In epoca pre pandemica  ( fino al 2019)  il PS Pediatrico vanta  29.077 accessi/anno con un tasso di ospedalizzazione del 5%, una percentuale di codici in emergenza/urgenza del 22% e tempi di attesa medi di 48,28 min.  2983 pazienti sono stati assistiti in OBI con un tempo medio di permanenza pari a 20 ore e una percentuale di dimessi del 83% e ricoveri 0,2%. Sono state erogate complessivamente 185.693 prestazioni specialistiche, di cui 83.949 trattate  esclusivamente in Pronto Soccorso. L’attività di trauma center è rappresentata dal 25% degli accessi (7476 ) di cui 1560 (20%) in emergenza/urgenza.',
                     'web' => 'https://www.ospedaliriunitipalermo.it/amministrazione-trasparente/servizi-erogati/liste-di-attesa/pazienti-in-attesa-al-pronto-soccorso/',
                     'coords' => [
-                        'lat' => '38.149590',
-                        'lng' => '13.314612',
+                        'lat' => '38.1549139',
+                        'lng' => '13.33434',
                     ],
                     'data' => [
                         'rosso' => [
@@ -169,8 +174,8 @@ return [
                     'email' => 'direzionepresidio@villasofia.it',
                     'web' => 'https://www.ospedaliriunitipalermo.it/amministrazione-trasparente/servizi-erogati/liste-di-attesa/pazienti-in-attesa-al-pronto-soccorso/',
                     'coords' => [
-                        'lat' => '38.142390',
-                        'lng' => '13.315850',
+                        'lat' => '38.1549139',
+                        'lng' => '13.33434',
                     ],
                     'data' => [
                         'rosso' => [
