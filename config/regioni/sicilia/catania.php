@@ -68,14 +68,14 @@ return [
                     'nome' => 'AOU Policlinico G. Rodolico Catania - Pronto soccorso generale',
                     'descrizione' => 'AOU Policlinico G. Rodolico Catania - Pronto soccorso generale',
                     'adulti' => true,
-                    'indirizzo' => '',
-                    'telefono' => '',
+                    'indirizzo' => 'Via S. Sofia, 78, 95123 Catania CT',
+                    'telefono' => '095 479 4111',
                     'email' => '',
                     'web' => 'https://policlinicorodolicosanmarco.it/',
-                    'google_maps' => '',
+                    'google_maps' => 'https://www.google.it/maps/place/Presidio+Ospedaliero+Gaspare+Rodolico/@37.529246,15.0693695,17z/data=!3m1!4b1!4m6!3m5!1s0x1313fd34dc489d2f:0x331cee779e74911!8m2!3d37.529246!4d15.0693695!16s%2Fg%2F11fmz3jp99?entry=ttu',
                     'coords' => [
-                        'lat' => '',
-                        'lng' => '',
+                        'lat' => '37.529246',
+                        'lng' => '15.0693695',
                     ],
                     'data' => [
                         'rosso' => [
@@ -130,14 +130,14 @@ return [
                     'nome' => 'AOU Policlinico S. Marco Catania - Pronto soccorso generale',
                     'descrizione' => 'AOU Policlinico S. Marco Catania - Pronto soccorso generale',
                     'adulti' => true,
-                    'indirizzo' => '',
-                    'telefono' => '',
+                    'indirizzo' => 'Viale Carlo Azeglio Ciampi, 95121 Catania CT',
+                    'telefono' => '0954794111',
                     'email' => '',
                     'web' => 'https://policlinicorodolicosanmarco.it/',
-                    'google_maps' => '',
+                    'google_maps' => 'https://www.google.it/maps/place/Ospedale+San+Marco/@37.4798414,15.0363461,17z/data=!3m1!4b1!4m6!3m5!1s0x1313e3b279f913c7:0xf01e65244b688428!8m2!3d37.4798414!4d15.0363461!16s%2Fg%2F11fhn0xc8z?hl=it&entry=ttu',
                     'coords' => [
-                        'lat' => '',
-                        'lng' => '',
+                        'lat' => '37.4798414',
+                        'lng' => '15.0363461',
                     ],
                     'data' => [
                         'rosso' => [
