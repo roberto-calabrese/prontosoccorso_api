@@ -26,27 +26,27 @@ $tableSettings = [
             'key' => 'nome'
         ],
         [
-            'title' => 'Codice Rosso',
+            'title' => 'Rosso in attesa',
             'align' => 'end',
             'key' => 'data.data.rosso.value'
         ],
         [
-            'title' => 'Codice Arancione',
+            'title' => 'Arancione in attesa',
             'align' => 'end',
             'key' => 'data.data.arancione.value'
         ],
         [
-            'title' => 'Codice Azzurro',
+            'title' => 'Azzurro in attesa',
             'align' => 'end',
             'key' => 'data.data.azzurro.value'
         ],
         [
-            'title' => 'Codice Verde',
+            'title' => 'Verde in attesa',
             'align' => 'end',
             'key' => 'data.data.verde.value'
         ],
         [
-            'title' => 'Codice Bianco',
+            'title' => 'Bianco in attesa',
             'align' => 'end',
             'key' => 'data.data.bianco.value'
         ],
