@@ -50,12 +50,112 @@ $tableSettings = [
             'align' => 'end',
             'key' => 'data.data.bianco.value'
         ],
+        [
+            'title' => 'Totali',
+            'align' => 'end',
+            'key' => 'data.data.totali.value'
+        ],
     ],
     'sortBy' => [
         [
             'key' => 'data.data.bianco.value',
             'order' => 'asc'
         ]
+    ]
+];
+
+$dataCommon = [
+    'rosso' => [
+        'selector' => 'prontoSoccorsoAffollamento.numAttRos',
+        'extra' => [
+            'in_attesa' => [
+                'label' => 'Pazienti in attesa',
+                'selector' => 'prontoSoccorsoAffollamento.numAttRos',
+            ],
+            'in_trattamento' => [
+                'label' => 'Pazienti in trattamento',
+                'selector' => 'prontoSoccorsoAffollamento.numTraRos',
+            ]
+        ]
+    ],
+    'arancione' => [
+        'selector' => 'prontoSoccorsoAffollamento.numAttAra',
+        'extra' => [
+            'in_attesa' => [
+                'label' => 'Pazienti in attesa',
+                'selector' => 'prontoSoccorsoAffollamento.numAttAra',
+            ],
+            'in_trattamento' => [
+                'label' => 'Pazienti in trattamento',
+                'selector' => 'prontoSoccorsoAffollamento.numTraAra',
+            ]
+        ]
+    ],
+    'azzurro' => [
+        'selector' => 'prontoSoccorsoAffollamento.numAttAzz',
+        'extra' => [
+            'in_attesa' => [
+                'label' => 'Pazienti in attesa',
+                'selector' => 'prontoSoccorsoAffollamento.numAttAzz',
+            ],
+            'in_trattamento' => [
+                'label' => 'Pazienti in trattamento',
+                'selector' => 'prontoSoccorsoAffollamento.numTraAzz',
+            ]
+        ]
+    ],
+    'verde' => [
+        'selector' => 'prontoSoccorsoAffollamento.numAttVer',
+        'extra' => [
+            'in_attesa' => [
+                'label' => 'Pazienti in attesa',
+                'selector' => 'prontoSoccorsoAffollamento.numAttVer',
+            ],
+            'in_trattamento' => [
+                'label' => 'Pazienti in trattamento',
+                'selector' => 'prontoSoccorsoAffollamento.numTraVer',
+            ]
+        ]
+    ],
+    'bianco' => [
+        'selector' => 'prontoSoccorsoAffollamento.numAttBia',
+        'extra' => [
+            'in_attesa' => [
+                'label' => 'Pazienti in attesa',
+                'selector' => 'prontoSoccorsoAffollamento.numAttBia',
+            ],
+            'in_trattamento' => [
+                'label' => 'Pazienti in trattamento',
+                'selector' => 'prontoSoccorsoAffollamento.numTraBia',
+            ]
+        ]
+    ],
+    'totali' => [
+        'action' => [
+            'operation' => 'sum',
+            'keys' => [
+                'in_attesa' => [
+                    'label' => 'Pazienti in attesa',
+                    'fields' => [
+                        'prontoSoccorsoAffollamento.numAttRos',
+                        'prontoSoccorsoAffollamento.numAttAra',
+                        'prontoSoccorsoAffollamento.numAttAzz',
+                        'prontoSoccorsoAffollamento.numAttVer',
+                        'prontoSoccorsoAffollamento.numAttBia',
+                    ],
+                ],
+                'in_trattamento' => [
+                    'label' => 'Pazienti in trattamento',
+                    'fields' => [
+                        'prontoSoccorsoAffollamento.numTraRos',
+                        'prontoSoccorsoAffollamento.numTraAra',
+                        'prontoSoccorsoAffollamento.numTraAzz',
+                        'prontoSoccorsoAffollamento.numTraVer',
+                        'prontoSoccorsoAffollamento.numTraBia',
+                    ],
+                ]
+            ]
+        ],
     ]
 ];
 
@@ -95,53 +195,7 @@ return [
                         'lat' => '43.78476426198199',
                         'lng' => '7.648010647783196',
                     ],
-                    'data' => [
-                        'rosso' => [
-                            'selector' => 'prontoSoccorsoAffollamento.numAttRos',
-                            'extra' => [
-                                'in_trattamento' => [
-                                    'label' => 'Pazienti in trattamento',
-                                    'selector' => 'prontoSoccorsoAffollamento.numTraRos',
-                                ]
-                            ]
-                        ],
-                        'arancione' => [
-                            'selector' => 'prontoSoccorsoAffollamento.numAttAra',
-                            'extra' => [
-                                'in_trattamento' => [
-                                    'label' => 'Pazienti in trattamento',
-                                    'selector' => 'prontoSoccorsoAffollamento.numTraAra',
-                                ]
-                            ]
-                        ],
-                        'azzurro' => [
-                            'selector' => 'prontoSoccorsoAffollamento.numAttAzz',
-                            'extra' => [
-                                'in_trattamento' => [
-                                    'label' => 'Pazienti in trattamento',
-                                    'selector' => 'prontoSoccorsoAffollamento.numTraAzz',
-                                ]
-                            ]
-                        ],
-                        'verde' => [
-                            'selector' => 'prontoSoccorsoAffollamento.numAttVer',
-                            'extra' => [
-                                'in_trattamento' => [
-                                    'label' => 'Pazienti in trattamento',
-                                    'selector' => 'prontoSoccorsoAffollamento.numTraVer',
-                                ]
-                            ]
-                        ],
-                        'bianco' => [
-                            'selector' => 'prontoSoccorsoAffollamento.numAttBia',
-                            'extra' => [
-                                'in_trattamento' => [
-                                    'label' => 'Pazienti in trattamento',
-                                    'selector' => 'prontoSoccorsoAffollamento.numTraBia',
-                                ]
-                            ]
-                        ]
-                    ]
+                    'data' => [...$dataCommon]
                 ]
             ]
         ],
@@ -169,53 +223,7 @@ return [
                         'lat' => 43.89146010958014,
                         'lng' => 8.030312852818343,
                     ],
-                    'data' => [
-                        'rosso' => [
-                            'selector' => 'prontoSoccorsoAffollamento.numAttRos',
-                            'extra' => [
-                                'in_trattamento' => [
-                                    'label' => 'Pazienti in trattamento',
-                                    'selector' => 'prontoSoccorsoAffollamento.numTraRos',
-                                ]
-                            ]
-                        ],
-                        'arancione' => [
-                            'selector' => 'prontoSoccorsoAffollamento.numAttAra',
-                            'extra' => [
-                                'in_trattamento' => [
-                                    'label' => 'Pazienti in trattamento',
-                                    'selector' => 'prontoSoccorsoAffollamento.numTraAra',
-                                ]
-                            ]
-                        ],
-                        'azzurro' => [
-                            'selector' => 'prontoSoccorsoAffollamento.numAttAzz',
-                            'extra' => [
-                                'in_trattamento' => [
-                                    'label' => 'Pazienti in trattamento',
-                                    'selector' => 'prontoSoccorsoAffollamento.numTraAzz',
-                                ]
-                            ]
-                        ],
-                        'verde' => [
-                            'selector' => 'prontoSoccorsoAffollamento.numAttVer',
-                            'extra' => [
-                                'in_trattamento' => [
-                                    'label' => 'Pazienti in trattamento',
-                                    'selector' => 'prontoSoccorsoAffollamento.numTraVer',
-                                ]
-                            ]
-                        ],
-                        'bianco' => [
-                            'selector' => 'prontoSoccorsoAffollamento.numAttBia',
-                            'extra' => [
-                                'in_trattamento' => [
-                                    'label' => 'Pazienti in trattamento',
-                                    'selector' => 'prontoSoccorsoAffollamento.numTraBia',
-                                ]
-                            ]
-                        ]
-                    ]
+                    'data' => [...$dataCommon]
                 ]
             ]
         ],
@@ -243,53 +251,7 @@ return [
                         'lat' => 43.822223641864255,
                         'lng' => 7.779106107638991,
                     ],
-                    'data' => [
-                        'rosso' => [
-                            'selector' => 'prontoSoccorsoAffollamento.numAttRos',
-                            'extra' => [
-                                'in_trattamento' => [
-                                    'label' => 'Pazienti in trattamento',
-                                    'selector' => 'prontoSoccorsoAffollamento.numTraRos',
-                                ]
-                            ]
-                        ],
-                        'arancione' => [
-                            'selector' => 'prontoSoccorsoAffollamento.numAttAra',
-                            'extra' => [
-                                'in_trattamento' => [
-                                    'label' => 'Pazienti in trattamento',
-                                    'selector' => 'prontoSoccorsoAffollamento.numTraAra',
-                                ]
-                            ]
-                        ],
-                        'azzurro' => [
-                            'selector' => 'prontoSoccorsoAffollamento.numAttAzz',
-                            'extra' => [
-                                'in_trattamento' => [
-                                    'label' => 'Pazienti in trattamento',
-                                    'selector' => 'prontoSoccorsoAffollamento.numTraAzz',
-                                ]
-                            ]
-                        ],
-                        'verde' => [
-                            'selector' => 'prontoSoccorsoAffollamento.numAttVer',
-                            'extra' => [
-                                'in_trattamento' => [
-                                    'label' => 'Pazienti in trattamento',
-                                    'selector' => 'prontoSoccorsoAffollamento.numTraVer',
-                                ]
-                            ]
-                        ],
-                        'bianco' => [
-                            'selector' => 'prontoSoccorsoAffollamento.numAttBia',
-                            'extra' => [
-                                'in_trattamento' => [
-                                    'label' => 'Pazienti in trattamento',
-                                    'selector' => 'prontoSoccorsoAffollamento.numTraBia',
-                                ]
-                            ]
-                        ]
-                    ]
+                    'data' => [...$dataCommon]
                 ]
             ]
         ]

@@ -58,6 +58,11 @@ class GenericScrapeJob implements ShouldQueue
 
             foreach ($this->config['data'] as $keyH => $ospedale) {
                 foreach ($ospedale['data'] as $key => $value) {
+
+                    if (!isset($value['selector'])) {
+                        continue;
+                    }
+
                     if ($key !== 'extra') {
                         $ospedali[$keyH]['data'][$key]['value'] = (int)preg_replace("/[^0-9]/", "", implode('', $crawler->filter($value['selector'])->extract(['_text'])));
                         if(isset($value['extra']) && is_array($value['extra'])) {
@@ -78,6 +83,23 @@ class GenericScrapeJob implements ShouldQueue
                         }
                     }
                 }
+
+                if (isset($ospedale['data']['totali']['action']) && $ospedale['data']['totali']['action']['operation'] === 'sum') {
+                    $totaliKeys = $ospedale['data']['totali']['action']['keys'];
+                    $totals = $this->calcolaTotali($ospedali[$keyH]['data'], $totaliKeys);
+
+                    // Assegna i totali calcolati
+                    $ospedali[$keyH]['data']['totali'] = [
+                        'value' => $totals['in_attesa'] ?? 0,
+                        'extra' => array_map(static function($key, $info) use ($totals) {
+                            return [
+                                'label' => $info['label'],
+                                'value' => $totals[$key] ?? 0, // Default a 0 se non esiste la chiave
+                            ];
+                        }, array_keys($totaliKeys), $totaliKeys),
+                    ];
+                }
+
             }
 
 
@@ -92,4 +114,29 @@ class GenericScrapeJob implements ShouldQueue
 
         });
     }
+
+
+    private function calcolaTotali($data, $keys): array
+    {
+        $totals = array_fill_keys(array_keys($keys), 0);
+
+        foreach ($data as $codice => $field) {
+            if ($codice === 'totali') {
+                continue;
+            }
+
+            // Somma i valori principali
+            foreach ($keys as $key => $info) {
+                if (($key === 'in_attesa') && isset($field['value']) && is_numeric($field['value'])) {
+                    $totals[$key] += $field['value'];
+                }
+                if (($key !== 'in_attesa') && isset($field['extra'][$key]['value']) && is_numeric($field['extra'][$key]['value'])) {
+                    $totals[$key] += $field['extra'][$key]['value'];
+                }
+            }
+        }
+
+        return $totals;
+    }
+
 }

@@ -2,6 +2,7 @@
 
 $userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.79 Safari/537.36';
 
+
 $tableSettings = [
     'headers' => $tableHeaders = [
         [
@@ -70,7 +71,7 @@ return [
             'data' => [
                 'presidio_villa_sofia_adulti' => [
                     'id' => 1,
-                    'nome' => 'Villa Sofia',
+                    'nome' => 'Palermo - Villa Sofia',
                     'descrizione' => 'Ospedali Riuniti Villa Sofia Cervello',
                     'adulti' => true,
                     'indirizzo' => 'Piazza Salerno, 1, 90146 Palermo PA',
@@ -116,7 +117,7 @@ return [
                 ],
                 'presidio_villa_sofia_pediatrico' => [
                     'id' => 2,
-                    'nome' => 'Villa Sofia',
+                    'nome' => 'Palermo - Villa Sofia',
                     'descrizione' => 'Ospedali Riuniti Villa Sofia Cervello',
                     'adulti' => false,
                     'indirizzo' => 'Piazza Salerno, 1, 90146 Palermo PA',
@@ -166,7 +167,7 @@ return [
                 ],
                 'presidio_cervello_adulti' => [
                     'id' => 3,
-                    'nome' => 'Cervello',
+                    'nome' => 'Palermo - Cervello',
                     'descrizione' => 'Ospedali Riuniti Villa Sofia Cervello',
                     'adulti' => true,
                     'indirizzo' => 'Piazza Salerno, 1, 90146 Palermo PA',
@@ -223,7 +224,7 @@ return [
             'data' => [
                 'presidio_civico_adulti' => [
                     'id' => 4,
-                    'nome' => 'Civico',
+                    'nome' => 'Palermo - Civico',
                     'descrizione' => 'Pronto Soccorso Adulti',
                     'adulti' => true,
                     'indirizzo' => 'Via Carmelo Lazzaro, 4, 90127 Palermo PA',
@@ -270,7 +271,7 @@ return [
                 ],
                 'presidio_civico_pediatrico' => [
                     'id' => 5,
-                    'nome' => 'Civico',
+                    'nome' => 'Palermo - Civico',
                     'descrizione' => 'Pronto Soccorso Pediatrico',
                     'adulti' => false,
                     'indirizzo' => 'Via Carmelo Lazzaro, 4, 90127 Palermo PA',
@@ -323,7 +324,7 @@ return [
             'data' => [
                 'policlinico_adulti' => [
                     'id' => 6,
-                    'nome' => 'Policlinico',
+                    'nome' => 'Palermo - Policlinico',
                     'descrizione' => '"Paolo Giaccone" - Azienda Ospedaliera dell\'Università degli Studi di Palermo',
                     'adulti' => true,
                     'indirizzo' => 'Via del Vespro, 129 90127 Palermo',
@@ -420,7 +421,7 @@ return [
             'data' => [
                 'ingrassia_adulti' => [
                     'id' => 7,
-                    'nome' => 'Ingrassia',
+                    'nome' => 'Palermo - Ingrassia',
                     'descrizione' => 'Ingrassia',
                     'adulti' => true,
                     'indirizzo' => ' C.so Calatafimi, 1002, 90131 Palermo PA',
@@ -551,7 +552,7 @@ return [
             'data' => [
                 'buccheri_adulti' => [
                     'id' => 8,
-                    'nome' => 'Buccheri La Ferla',
+                    'nome' => 'Palermo - Buccheri La Ferla',
                     'descrizione' => 'Fatebenefratelli ',
                     'adulti' => true,
                     'indirizzo' => 'Via Messina Marine, 197, 90123 Palermo PA',

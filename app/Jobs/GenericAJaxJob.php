@@ -63,7 +63,11 @@ class GenericAJaxJob implements ShouldQueue
 
                 foreach ($ospedale['data'] as $key => $value) {
 
-                    if ($key !== 'extra') {
+                    if (!isset($value['selector'])) {
+                        continue;
+                    }
+
+                    if ($key !== 'extra' ) {
                         $ospedali[$keyH]['data'][$key]['value'] = data_get($dati, $value['selector']);
 
                         if(isset($value['extra']) && is_array($value['extra'])) {
@@ -81,9 +85,34 @@ class GenericAJaxJob implements ShouldQueue
                             $cleanedValue = data_get($dati, $extraV['selector']);
                             $ospedali[$keyH]['data'][$key][$extraK]['value'] = ($extraK === 'indice_sovraffollamento') ? (int)preg_replace('/[^0-9.]/', '', $cleanedValue) : $cleanedValue;
                             unset($ospedali[$keyH]['data'][$key][$extraK]['selector']);
+
                         }
                     }
                 }
+
+                if (isset($ospedale['data']['totali']['action']) && $ospedale['data']['totali']['action']['operation'] === 'sum') {
+                    $totali = $ospedale['data']['totali']['action']['keys'];
+
+                    // Inizializza i totali
+                    $totals = [];
+
+                    // Calcola i totali per ogni chiave definita
+                    foreach ($totali as $key => $total) {
+                        $totals[$key] = $this->calcolaTotaliPerChiave($dati, $total['fields']);
+                    }
+
+                    // Assegna i totali calcolati
+                    $ospedali[$keyH]['data']['totali'] = [
+                        'value' => $totals['in_attesa'] ?? 0, // Totale per 'in_attesa' o 0 se non esiste
+                        'extra' => array_map(static function($key, $info) use ($totals) {
+                            return [
+                                'label' => $info['label'],
+                                'value' => $totals[$key] ?? 0, // Valore per la chiave o 0 se non esiste
+                            ];
+                        }, array_keys($totali), $totali),
+                    ];
+                }
+
             }
 
             if ($this->websocket) {
@@ -96,5 +125,15 @@ class GenericAJaxJob implements ShouldQueue
             return $ospedali;
 
         });
+    }
+
+    private function calcolaTotaliPerChiave($dati, $fields): float|int|string
+    {
+        $sum = 0;
+        foreach ($fields as $field) {
+            $value = data_get($dati, $field);
+            $sum += is_numeric($value) ? $value : 0;
+        }
+        return $sum;
     }
 }
