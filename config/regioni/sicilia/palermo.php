@@ -157,7 +157,17 @@ return [
                             'selector' => 'div.olo-container-pronto-soccorso>div:nth-child(5)>div:nth-child(4)>div:nth-child(4)>div:nth-child(2)',
                         ],
                         'totali' => [
-                            'selector' => 'div.olo-container-pronto-soccorso>div:nth-child(5)>div:nth-child(3)>div:nth-child(1)>div:nth-child(2)',
+                            'selector' => 'div.olo-container-pronto-soccorso>div:nth-child(5)>div:nth-child(3)>div:nth-child(2)>div:nth-child(2)',
+                            'extra' => [
+                                'in_attesa' => [
+                                    'label' => 'Pazienti in attesa',
+                                    'selector' => 'div.olo-container-pronto-soccorso>div:nth-child(5)>div:nth-child(3)>div:nth-child(2)>div:nth-child(2)',
+                                ],
+                                'totali' => [
+                                    'label' => 'Pazienti totali nella struttura',
+                                    'selector' => 'div.olo-container-pronto-soccorso>div:nth-child(5)>div:nth-child(3)>div:nth-child(1)>div:nth-child(2)',
+                                ],
+                            ],
                         ],
                         'extra' => [
                             'in_attesa' => [
@@ -202,7 +212,17 @@ return [
                             'selector' => 'div.olo-container-pronto-soccorso>div:nth-child(3)>div:nth-child(4)>div:nth-child(4)>div:nth-child(2)',
                         ],
                         'totali' => [
-                            'selector' => 'div.olo-container-pronto-soccorso>div:nth-child(3)>div:nth-child(3)>div:nth-child(1)>div:nth-child(2)',
+                            'selector' => 'div.cervello>div:nth-child(3)>div:nth-child(2)>div:nth-child(2)',
+                            'extra' => [
+                                'in_attesa' => [
+                                    'label' => 'Pazienti in attesa',
+                                    'selector' => 'div.cervello>div:nth-child(3)>div:nth-child(2)>div:nth-child(2)',
+                                ],
+                                'totali' => [
+                                    'label' => 'Pazienti totali nella struttura',
+                                    'selector' => 'div.olo-container-pronto-soccorso>div:nth-child(3)>div:nth-child(3)>div:nth-child(1)>div:nth-child(2)',
+                                ],
+                            ],
                         ],
                         'extra' => [
                             'in_attesa' => [
