@@ -63,7 +63,7 @@ class GenericAJaxJob implements ShouldQueue
 
                 foreach ($ospedale['data'] as $key => $value) {
 
-                    if (!isset($value['selector'])) {
+                    if(isset($value['action'])) {
                         continue;
                     }
 
@@ -93,21 +93,18 @@ class GenericAJaxJob implements ShouldQueue
                 if (isset($ospedale['data']['totali']['action']) && $ospedale['data']['totali']['action']['operation'] === 'sum') {
                     $totali = $ospedale['data']['totali']['action']['keys'];
 
-                    // Inizializza i totali
                     $totals = [];
 
-                    // Calcola i totali per ogni chiave definita
                     foreach ($totali as $key => $total) {
                         $totals[$key] = $this->calcolaTotaliPerChiave($dati, $total['fields']);
                     }
 
-                    // Assegna i totali calcolati
                     $ospedali[$keyH]['data']['totali'] = [
-                        'value' => $totals['in_attesa'] ?? 0, // Totale per 'in_attesa' o 0 se non esiste
+                        'value' => $totals['in_attesa'] ?? 0,
                         'extra' => array_map(static function($key, $info) use ($totals) {
                             return [
                                 'label' => $info['label'],
-                                'value' => $totals[$key] ?? 0, // Valore per la chiave o 0 se non esiste
+                                'value' => $totals[$key] ?? 0,
                             ];
                         }, array_keys($totali), $totali),
                     ];

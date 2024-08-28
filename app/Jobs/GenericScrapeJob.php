@@ -58,14 +58,12 @@ class GenericScrapeJob implements ShouldQueue
 
             foreach ($this->config['data'] as $keyH => $ospedale) {
                 foreach ($ospedale['data'] as $key => $value) {
-
-                    if (!isset($value['selector'])) {
+                    if(isset($value['action'])) {
                         continue;
                     }
-
                     if ($key !== 'extra') {
                         $ospedali[$keyH]['data'][$key]['value'] = (int)preg_replace("/[^0-9]/", "", implode('', $crawler->filter($value['selector'])->extract(['_text'])));
-                        if(isset($value['extra']) && is_array($value['extra'])) {
+                        if (isset($value['extra']) && is_array($value['extra'])) {
                             foreach ($value['extra'] as $extra_k => $extra_v) {
                                 $extra_v['value'] = (int)preg_replace("/[^0-9]/", "", implode('', $crawler->filter($extra_v['selector'])->extract(['_text'])));
                                 unset($extra_v['selector']);
@@ -82,16 +80,16 @@ class GenericScrapeJob implements ShouldQueue
                             unset($ospedali[$keyH]['data'][$key][$extraK]['selector']);
                         }
                     }
+
                 }
 
                 if (isset($ospedale['data']['totali']['action']) && $ospedale['data']['totali']['action']['operation'] === 'sum') {
                     $totaliKeys = $ospedale['data']['totali']['action']['keys'];
                     $totals = $this->calcolaTotali($ospedali[$keyH]['data'], $totaliKeys);
 
-                    // Assegna i totali calcolati
                     $ospedali[$keyH]['data']['totali'] = [
                         'value' => $totals['in_attesa'] ?? 0,
-                        'extra' => array_map(static function($key, $info) use ($totals) {
+                        'extra' => array_map(static function ($key, $info) use ($totals) {
                             return [
                                 'label' => $info['label'],
                                 'value' => $totals[$key] ?? 0, // Default a 0 se non esiste la chiave
@@ -125,7 +123,6 @@ class GenericScrapeJob implements ShouldQueue
                 continue;
             }
 
-            // Somma i valori principali
             foreach ($keys as $key => $info) {
                 if (($key === 'in_attesa') && isset($field['value']) && is_numeric($field['value'])) {
                     $totals[$key] += $field['value'];
