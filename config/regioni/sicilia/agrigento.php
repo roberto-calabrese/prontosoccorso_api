@@ -38,13 +38,32 @@ $tableSettings = [
             'title' => 'Bianco in attesa',
             'align' => 'end',
             'key' => 'data.data.bianco.value'
-        ]
+        ],
+        [
+            'title' => 'Totali',
+            'align' => 'end',
+            'key' => 'data.data.totali.value'
+        ],
     ],
     'sortBy' => [
         [
             'key' => 'data.data.bianco.value',
             'order' => 'asc'
         ]
+    ]
+];
+
+$dataCommons = [
+    'totali' => [
+        'action' => [
+            'operation' => 'sum',
+            'keys' => [
+                'in_attesa' => [
+                    'label' => 'Pazienti in attesa',
+                    'value' => null
+                ]
+            ]
+        ],
     ]
 ];
 
@@ -105,7 +124,8 @@ return [
                         ],
                         'bianco' => [
                             'selector' => 'table.table>tbody>tr:nth-child(1)>td:nth-child(6)',
-                        ]
+                        ],
+                        'totali' => [...$dataCommons['totali']]
                     ]
                 ],
                 'ps_canicatti' => [
@@ -140,7 +160,9 @@ return [
                         ],
                         'bianco' => [
                             'selector' => 'table.table>tbody>tr:nth-child(2)>td:nth-child(7)',
-                        ]
+                        ],
+                        'totali' => [...$dataCommons['totali']]
+
                     ]
                 ],
                 'ps_licata' => [
@@ -175,7 +197,8 @@ return [
                         ],
                         'bianco' => [
                             'selector' => 'table.table>tbody>tr:nth-child(3)>td:nth-child(7)',
-                        ]
+                        ],
+                        'totali' => [...$dataCommons['totali']]
                     ]
                 ],
                 'ps_ribera' => [
@@ -210,7 +233,8 @@ return [
                         ],
                         'bianco' => [
                             'selector' => 'table.table>tbody>tr:nth-child(4)>td:nth-child(7)',
-                        ]
+                        ],
+                        'totali' => [...$dataCommons['totali']]
                     ]
                 ],
                 'ps_sciacca' => [
@@ -245,7 +269,8 @@ return [
                         ],
                         'bianco' => [
                             'selector' => 'table.table>tbody>tr:nth-child(5)>td:nth-child(7)',
-                        ]
+                        ],
+                        'totali' => [...$dataCommons['totali']]
                     ]
                 ],
             ]
