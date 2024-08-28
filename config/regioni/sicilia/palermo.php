@@ -340,7 +340,11 @@ return [
                             'selector' => 'div.psDiv>div:nth-child(13)>span:nth-child(4)>strong>span',
                             'extra' => [
                                 'in_attesa' => [
-                                    'label' => 'In Carico',
+                                    'label' => 'Pazienti in attesa',
+                                    'selector' => 'div.psDiv>div:nth-child(13)>span:nth-child(4)>strong>span',
+                                ],
+                                'in_trattamento' => [
+                                    'label' => 'Pazienti in trattamento',
                                     'selector' => 'div.psDiv>div:nth-child(5)>span:nth-child(4)>strong>span',
                                 ]
                             ]
@@ -349,7 +353,11 @@ return [
                             'selector' => 'div.psDiv>div:nth-child(14)>span:nth-child(4)>strong>span',
                             'extra' => [
                                 'in_attesa' => [
-                                    'label' => 'In Carico',
+                                    'label' => 'Pazienti in attesa',
+                                    'selector' => 'div.psDiv>div:nth-child(14)>span:nth-child(4)>strong>span',
+                                ],
+                                'in_trattamento' => [
+                                    'label' => 'Pazienti in trattamento',
                                     'selector' => 'div.psDiv>div:nth-child(6)>span:nth-child(4)>strong>span',
                                 ]
                             ]
@@ -358,7 +366,11 @@ return [
                             'selector' => 'div.psDiv>div:nth-child(15)>span:nth-child(4)>strong>span',
                             'extra' => [
                                 'in_attesa' => [
-                                    'label' => 'In Carico',
+                                    'label' => 'Pazienti in attesa',
+                                    'selector' => 'div.psDiv>div:nth-child(15)>span:nth-child(4)>strong>span',
+                                ],
+                                'in_trattamento' => [
+                                    'label' => 'Pazienti in trattamento',
                                     'selector' => 'div.psDiv>div:nth-child(7)>span:nth-child(4)>strong>span',
                                 ]
                             ]
@@ -367,7 +379,11 @@ return [
                             'selector' => 'div.psDiv>div:nth-child(16)>span:nth-child(4)>strong>span',
                             'extra' => [
                                 'in_attesa' => [
-                                    'label' => 'In Carico',
+                                    'label' => 'Pazienti in attesa',
+                                    'selector' => 'div.psDiv>div:nth-child(16)>span:nth-child(4)>strong>span',
+                                ],
+                                'in_trattamento' => [
+                                    'label' => 'Pazienti in trattamento',
                                     'selector' => 'div.psDiv>div:nth-child(8)>span:nth-child(4)>strong>span',
                                 ]
                             ]
@@ -376,7 +392,11 @@ return [
                             'selector' => 'div.psDiv>p:nth-child(11)>span>strong',
                             'extra' => [
                                 'in_attesa' => [
-                                    'label' => 'In Carico',
+                                    'label' => 'Pazienti in attesa',
+                                    'selector' => 'div.psDiv>p:nth-child(11)>span>strong',
+                                ],
+                                'in_trattamento' => [
+                                    'label' => 'Pazienti in trattamento',
                                     'selector' => 'div.psDiv>p:nth-child(3)>span>strong',
                                 ]
                             ]
@@ -441,11 +461,11 @@ return [
                                     'selector' => 'table.table>tbody>tr:nth-child(1)>td:nth-child(2)',
                                 ],
                                 'in_trattamento' => [
-                                    'label' => 'In trattamento',
+                                    'label' => 'Pazienti in trattamento',
                                     'selector' => 'table.table>tbody>tr:nth-child(2)>td:nth-child(2)',
                                 ],
                                 'in_osservazione' => [
-                                    'label' => 'In osservazione',
+                                    'label' => 'Pazienti in osservazione',
                                     'selector' => 'table.table>tbody>tr:nth-child(3)>td:nth-child(2)',
                                 ],
                                 'totali' => [
@@ -462,11 +482,11 @@ return [
                                     'selector' => 'table.table>tbody>tr:nth-child(1)>td:nth-child(3)',
                                 ],
                                 'in_trattamento' => [
-                                    'label' => 'In trattamento',
+                                    'label' => 'Pazienti in trattamento',
                                     'selector' => 'table.table>tbody>tr:nth-child(2)>td:nth-child(3)',
                                 ],
                                 'in_osservazione' => [
-                                    'label' => 'In osservazione',
+                                    'label' => 'Pazienti in osservazione',
                                     'selector' => 'table.table>tbody>tr:nth-child(3)>td:nth-child(3)',
                                 ],
                                 'totali' => [
@@ -484,11 +504,11 @@ return [
                                     'selector' => 'table.table>tbody>tr:nth-child(1)>td:nth-child(4)',
                                 ],
                                 'in_trattamento' => [
-                                    'label' => 'In trattamento',
+                                    'label' => 'Pazienti in trattamento',
                                     'selector' => 'table.table>tbody>tr:nth-child(2)>td:nth-child(4)',
                                 ],
                                 'in_osservazione' => [
-                                    'label' => 'In osservazione',
+                                    'label' => 'Pazienti in osservazione',
                                     'selector' => 'table.table>tbody>tr:nth-child(3)>td:nth-child(4)'
                                 ],
                                 'totali' => [
@@ -505,11 +525,11 @@ return [
                                     'selector' => 'table.table>tbody>tr:nth-child(1)>td:nth-child(5)',
                                 ],
                                 'in_trattamento' => [
-                                    'label' => 'In trattamento',
+                                    'label' => 'Pazienti in trattamento',
                                     'selector' => 'table.table>tbody>tr:nth-child(2)>td:nth-child(5)',
                                 ],
                                 'in_osservazione' => [
-                                    'label' => 'In osservazione',
+                                    'label' => 'Pazienti in osservazione',
                                     'selector' => 'table.table>tbody>tr:nth-child(3)>td:nth-child(5)',
                                 ],
                                 'totali' => [
@@ -567,8 +587,12 @@ return [
                         'rosso' => [
                             'selector' => 'pazientiInAttesa.totaleCodiciRossi',
                             'extra' => [
+                                'in_attesa' => [
+                                    'label' => 'Pazienti in attesa',
+                                    'selector' => 'pazientiInAttesa.totaleCodiciRossi',
+                                ],
                                 'in_trattamento' => [
-                                    'label' => 'In Trattamento',
+                                    'label' => 'Pazienti in trattamento',
                                     'selector' => 'pazientiInTrattamento.totaleCodiciRossi',
                                 ],
                             ]
@@ -576,8 +600,12 @@ return [
                         'giallo' => [
                             'selector' => 'pazientiInAttesa.totaleCodiciGialli',
                             'extra' => [
+                                'in_attesa' => [
+                                    'label' => 'Pazienti in attesa',
+                                    'selector' => 'pazientiInAttesa.totaleCodiciGialli',
+                                ],
                                 'in_trattamento' => [
-                                    'label' => 'In Trattamento',
+                                    'label' => 'Pazienti in trattamento',
                                     'selector' => 'pazientiInTrattamento.totaleCodiciGialli',
                                 ],
 
@@ -586,8 +614,12 @@ return [
                         'verde' => [
                             'selector' => 'pazientiInAttesa.totaleCodiciVerdi',
                             'extra' => [
+                                'in_attesa' => [
+                                    'label' => 'Pazienti in attesa',
+                                    'selector' => 'pazientiInAttesa.totaleCodiciVerdi',
+                                ],
                                 'in_trattamento' => [
-                                    'label' => 'In Trattamento',
+                                    'label' => 'Pazienti in trattamento',
                                     'selector' => 'pazientiInTrattamento.totaleCodiciVerdi',
                                 ],
                             ]
@@ -595,8 +627,12 @@ return [
                         'bianco' => [
                             'selector' => 'pazientiInAttesa.totaleCodiciBianchi',
                             'extra' => [
+                                'in_attesa' => [
+                                    'label' => 'Pazienti in attesa',
+                                    'selector' => 'pazientiInAttesa.totaleCodiciBianchi',
+                                ],
                                 'in_trattamento' => [
-                                    'label' => 'In Trattamento',
+                                    'label' => 'Pazienti in trattamento',
                                     'selector' => 'pazientiInTrattamento.totaleCodiciBianchi',
                                 ],
 
@@ -605,8 +641,12 @@ return [
                         'totali' => [
                             'selector' => 'pazientiInAttesa.totalePazienti',
                             'extra' => [
-                                'in_visita' => [
-                                    'label' => 'In Trattamento',
+                                'in_attesa' => [
+                                    'label' => 'Pazienti in attesa',
+                                    'selector' => 'pazientiInAttesa.totalePazienti',
+                                ],
+                                'in_trattamento' => [
+                                    'label' => 'Pazienti in trattamento',
                                     'selector' => 'pazientiInTrattamento.totalePazienti',
                                 ],
 
