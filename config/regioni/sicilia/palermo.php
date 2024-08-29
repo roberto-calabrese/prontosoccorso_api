@@ -570,7 +570,23 @@ return [
                             ]
                         ],
                         'totali' => [
-                            'selector' => 'body>main>div>div:nth-child(4)>span:nth-child(1)',
+                            'action' => [
+                                'operation' => 'sum',
+                                'keys' => [
+                                    'in_attesa' => [
+                                        'label' => 'Pazienti in attesa',
+                                        'value' => null
+                                    ],
+                                    'in_trattamento' => [
+                                        'label' => 'Pazienti in trattamento',
+                                        'value' => null
+                                    ],
+                                    'in_osservazione' => [
+                                        'label' => 'Pazienti in osservazione',
+                                        'value' => null,
+                                    ],
+                                ]
+                            ],
                         ],
                         'extra' => [
                             'numero_posti_tecnico' => [
