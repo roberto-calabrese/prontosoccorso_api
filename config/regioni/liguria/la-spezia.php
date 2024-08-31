@@ -161,99 +161,74 @@ $dataCommon = [
 
 return [
     'meta' => [
-      'slug' => 'imperia',
-      'Titolo' => 'Imperia'
+      'slug' => 'la-spezia',
+      'Titolo' => 'La Spezia'
     ],
     'websocket' => [
         'active' => true,
-        'channel' => 'liguria.imperia',
+        'channel' => 'liguria.la_spezia',
         'event' => 'data'
     ],
     'tableSettings' => $tableSettings,
     'ospedali' => [
-        'bordighera' => [
+        'osp_sant_andrea' => [
             'cache' => [
-                'key' => 'sicilia.liguria.imperia.bordighera',
+                'key' => 'sicilia.liguria.la_spezia.osp_sant_andrea',
                 'ttlMinute' => 1
             ],
-            'url' => 'https://pslive.regione.liguria.it/api/prontosoccorso/07000103',
+            'url' => 'https://pslive.regione.liguria.it/api/prontosoccorso/07005804',
             'method' => 'GET',
             'headers' => $headers,
             'jobClass' => \App\Jobs\GenericAJaxJob::class,
             'data' => [
-                'saint_charles' => [
+                'osp_sant_andrea' => [
                     'id' => 1,
-                    'nome' => 'Bordighera - Saint Charles',
-                    'descrizione' => 'Presidio Ospedaliero Unificato - Stabilimento Ospedaliero di Bordighera - Struttura dedicata a patologie e prestazioni di bassa complessità',
+                    'nome' => 'La Spezia -  Ospedale Sant`Andrea',
+                    'descrizione' => '"Presidio Ospedaliero Del Levante Ligure - Ospedale Sant`Andrea La Spezia"',
                     'adulti' => true,
-                    'indirizzo' => 'Via Aurelia 122 - Bordighera - IM',
-                    'telefono' => '',
+                    'indirizzo' => 'Via Vittorio Veneto, 197, 19121 La Spezia SP',
+                    'telefono' => '0187 5331',
                     'email' => '',
                     'web' => 'https://pslive.regione.liguria.it/dashboard',
-                    'google_maps' => 'https://www.google.it/maps?sca_esv=9e19fdb118b43033&sxsrf=ADLYWIIxDBk8dM0VgK8BReVoPGkEWu0_aw:1725117327261&iflsig=AL9hbdgAAAAAZtNBn__srNa0BD19Hv4BmkaQu-GIbde1&uact=5&gs_lp=Egdnd3Mtd2l6IjdPc3BlZGFsZSBFdmFuZ2VsaWNvIEludGVybmF6aW9uYWxlIC0gU2FuIENhcmxvIFZvbHRyaQoKMg0QLhjRAxjHARgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCMgcQLhgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCMgcQLhgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCSOoCULkBWLkBcAF4AJABAJgBAKABAKoBALgBA8gBAPgBAvgBAZgCAaACB6gCCpgDB5IHATGgBwA&um=1&ie=UTF-8&fb=1&gl=it&sa=X&geocode=KaWJIRgdPNMSMZshZwNe5bRK&daddr=P.le+Efisio+Gianasso,+4,+16158+Genova+GE',
+                    'google_maps' => 'https://www.google.it/maps/place//data=!4m2!3m1!1s0x12d4fcbf286118d5:0xaab4aed31148cea?sa=X&ved=1t:8290&ictx=111',
                     'coords' => [
-                        'lat' => '43.78476426198199',
-                        'lng' => '7.648010647783196',
+                        'lat' => 44.1111071,
+                        'lng' => 9.8285929,
+                    ],
+                    'data' => [...$dataCommon]
+
+                ],
+            ]
+        ],
+        'osp_san_bartolomeo' => [
+            'cache' => [
+                'key' => 'sicilia.liguria.la_spezia.osp_san_bartolomeo',
+                'ttlMinute' => 1
+            ],
+            'url' => 'https://pslive.regione.liguria.it/api/prontosoccorso/07005801',
+            'method' => 'GET',
+            'headers' => $headers,
+            'jobClass' => \App\Jobs\GenericAJaxJob::class,
+            'data' => [
+                'osp_san_bartolomeo' => [
+                    'id' => 2,
+                    'nome' => 'Sarzana -  Ospedale San Bartolomeo',
+                    'descrizione' => '"Presidio Ospedaliero Del Levante Ligure - Stabilimento San Bartolomeo di Sarzana"',
+                    'adulti' => true,
+                    'indirizzo' => 'Via Cisa, 19038 Santa Caterina, Sarzana SP',
+                    'telefono' => '0187 6041',
+                    'email' => '',
+                    'web' => 'https://pslive.regione.liguria.it/dashboard',
+                    'google_maps' => 'https://www.google.it/maps/place//data=!4m2!3m1!1s0x12d51cd618f04a45:0x6a1c3ea8e8561e86?sa=X&ved=1t:8290&ictx=111',
+                    'coords' => [
+                        'lat' => 44.12098940943782,
+                        'lng' => 9.948950646208047,
                     ],
                     'data' => [...$dataCommon]
                 ]
             ]
         ],
-        'imperia_santagata' => [
-            'cache' => [
-                'key' => 'sicilia.liguria.imperia.santagata',
-                'ttlMinute' => 1
-            ],
-            'url' => 'https://pslive.regione.liguria.it/api/prontosoccorso/07000101',
-            'method' => 'GET',
-            'headers' => $headers,
-            'jobClass' => \App\Jobs\GenericAJaxJob::class,
-            'data' => [
-                'santagata' => [
-                    'id' => 1,
-                    'nome' => 'Imperia - Sant\'Agata',
-                    'descrizione' => 'Presidio Ospedaliero Unificato - Stabilimento Ospedaliero di Imperia',
-                    'adulti' => true,
-                    'indirizzo' => 'Sant\'Agata 57 - Imperia - IM',
-                    'telefono' => '',
-                    'email' => '',
-                    'web' => 'https://pslive.regione.liguria.it/dashboard',
-                    'google_maps' => 'https://www.google.it/maps/place/Ospedale+Imperia/@43.8916768,8.0277196,17z/data=!3m1!4b1!4m6!3m5!1s0x12d26ea7173d4a27:0xbf8ed12e5e8b9c07!8m2!3d43.891673!4d8.0302945!16s%2Fg%2F12605dg_l?entry=ttu&g_ep=EgoyMDI0MDgyOC4wIKXMDSoASAFQAw%3D%3D',
-                    'coords' => [
-                        'lat' => 43.89146010958014,
-                        'lng' => 8.030312852818343,
-                    ],
-                    'data' => [...$dataCommon]
-                ]
-            ]
-        ],
-        'sanremo_borea' => [
-            'cache' => [
-                'key' => 'sicilia.liguria.imperia.sanremo_borea',
-                'ttlMinute' => 1
-            ],
-            'url' => 'https://pslive.regione.liguria.it/api/prontosoccorso/07000102',
-            'method' => 'GET',
-            'headers' => $headers,
-            'jobClass' => \App\Jobs\GenericAJaxJob::class,
-            'data' => [
-                'sanremo_borea' => [
-                    'id' => 1,
-                    'nome' => 'Sanremo - Giovanni Borea',
-                    'descrizione' => 'Presidio Ospedaliero Unificato - Stabilimento Ospedaliero di Sanremo',
-                    'adulti' => true,
-                    'indirizzo' => 'Via Giovanni Borea 56 - Sanremo - IM',
-                    'telefono' => '',
-                    'email' => '',
-                    'web' => 'https://pslive.regione.liguria.it/dashboard',
-                    'google_maps' => 'https://www.google.it/maps/place/Ospedale+di+Sanremo/@43.8226922,7.7793986,16z/data=!3m1!4b1!4m6!3m5!1s0x12cdf550c84d6947:0xf2de780a6eb017cb!8m2!3d43.8226922!4d7.7793986!16s%2Fg%2F1264pq_zs?entry=ttu&g_ep=EgoyMDI0MDgyOC4wIKXMDSoASAFQAw%3D%3D',
-                    'coords' => [
-                        'lat' => 43.822223641864255,
-                        'lng' => 7.779106107638991,
-                    ],
-                    'data' => [...$dataCommon]
-                ]
-            ]
-        ]
+
+
     ]
 ];

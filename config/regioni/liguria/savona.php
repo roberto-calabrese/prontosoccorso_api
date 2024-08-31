@@ -190,7 +190,7 @@ return [
                     'telefono' => '',
                     'email' => '',
                     'web' => 'https://pslive.regione.liguria.it/dashboard',
-                    'google_maps' => '',
+                    'google_maps' => 'https://www.google.it/maps/place/Ospedale+Santa+Maria+di+Misericordia/@44.0546714,8.1995313,16z/data=!3m1!4b1!4m6!3m5!1s0x12d25ec2702aa2f3:0x34b861620d59aa38!8m2!3d44.0546714!4d8.1995313!16s%2Fg%2F11b620g6zy?entry=ttu&g_ep=EgoyMDI0MDgyOC4wIKXMDSoASAFQAw%3D%3D',
                     'coords' => [
                         'lat' => 44.0546714,
                         'lng' => 8.1973426,
@@ -218,7 +218,7 @@ return [
                     'telefono' => '',
                     'email' => '',
                     'web' => 'https://pslive.regione.liguria.it/dashboard',
-                    'google_maps' => '',
+                    'google_maps' => 'https://www.google.it/maps/place/Santa+Corona/@44.1426951,8.270956,17z/data=!3m1!4b1!4m6!3m5!1s0x12d2f70403878357:0x93688d15e8e1e606!8m2!3d44.1426951!4d8.270956!16s%2Fg%2F1ptyjwcbs?entry=ttu&g_ep=EgoyMDI0MDgyOC4wIKXMDSoASAFQAw%3D%3D',
                     'coords' => [
                         'lat' => 44.1426951,
                         'lng' => 8.2687673,
@@ -246,7 +246,7 @@ return [
                     'telefono' => '',
                     'email' => '',
                     'web' => 'https://pslive.regione.liguria.it/dashboard',
-                    'google_maps' => '',
+                    'google_maps' => 'https://www.google.it/maps/place/Ospedale+San+Giuseppe/@44.4016957,8.2703056,16z/data=!3m1!4b1!4m6!3m5!1s0x12d2c281f7cb7fa7:0x1c619ab84d9266fb!8m2!3d44.4016957!4d8.2703056!16s%2Fg%2F1tfs813v?entry=ttu&g_ep=EgoyMDI0MDgyOC4wIKXMDSoASAFQAw%3D%3D',
                     'coords' => [
                         'lat' => 44.4016706,
                         'lng' => 8.2682556,
@@ -274,7 +274,7 @@ return [
                     'telefono' => '',
                     'email' => '',
                     'web' => 'https://pslive.regione.liguria.it/dashboard',
-                    'google_maps' => '',
+                    'google_maps' => 'https://www.google.it/maps/place/Ospedale+San+Paolo/@44.320428,8.4915187,17z/data=!3m1!4b1!4m6!3m5!1s0x12d31e1b564d44ed:0x29f37f2951fe7205!8m2!3d44.320428!4d8.4915187!16s%2Fg%2F11crzw3r7l?entry=ttu&g_ep=EgoyMDI0MDgyOC4wIKXMDSoASAFQAw%3D%3D',
                     'coords' => [
                         'lat' => 44.320428,
                         'lng' => 8.48933,

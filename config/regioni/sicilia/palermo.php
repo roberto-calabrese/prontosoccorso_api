@@ -139,6 +139,7 @@ return [
                     'email' => 'ps.pediatrico@villasofia.it',
                     'volumi' => 'In epoca pre pandemica  ( fino al 2019)  il PS Pediatrico vanta  29.077 accessi/anno con un tasso di ospedalizzazione del 5%, una percentuale di codici in emergenza/urgenza del 22% e tempi di attesa medi di 48,28 min.  2983 pazienti sono stati assistiti in OBI con un tempo medio di permanenza pari a 20 ore e una percentuale di dimessi del 83% e ricoveri 0,2%. Sono state erogate complessivamente 185.693 prestazioni specialistiche, di cui 83.949 trattate  esclusivamente in Pronto Soccorso. L’attività di trauma center è rappresentata dal 25% degli accessi (7476 ) di cui 1560 (20%) in emergenza/urgenza.',
                     'web' => 'https://www.ospedaliriunitipalermo.it/amministrazione-trasparente/servizi-erogati/liste-di-attesa/pazienti-in-attesa-al-pronto-soccorso/',
+                    'google_maps' => 'https://maps.app.goo.gl/vY4RATYz7ePA2Pe76',
                     'coords' => [
                         'lat' => '38.1549139',
                         'lng' => '13.33434',
@@ -193,6 +194,7 @@ return [
                     'indirizzo' => 'Piazza Salerno, 1, 90146 Palermo PA',
                     'telefono' => '091 6802515',
                     'email' => 'direzionepresidio@villasofia.it',
+                    'google_maps' => 'https://maps.app.goo.gl/vY4RATYz7ePA2Pe76',
                     'web' => 'https://www.ospedaliriunitipalermo.it/amministrazione-trasparente/servizi-erogati/liste-di-attesa/pazienti-in-attesa-al-pronto-soccorso/',
                     'coords' => [
                         'lat' => '38.1549139',
@@ -261,6 +263,7 @@ return [
                     'telefono' => '091 666 1111',
                     'email' => 'ospedalecivicopa@pec.it',
                     'web' => 'https://www.arnascivico.it',
+                    'google_maps' => 'https://www.google.it/maps/place/Ospedale+Civico+di+Palermo/@38.1042334,13.3560857,17z/data=!3m1!4b1!4m6!3m5!1s0x1319ef79f9df9793:0x9018c72eca13ef10!8m2!3d38.1042334!4d13.3560857!16s%2Fg%2F11f_dzzpkj?entry=ttu&g_ep=EgoyMDI0MDgyOC4wIKXMDSoASAFQAw%3D%3D',
                     'coords' => [
                         'lat' => '38.105726',
                         'lng' => '13.356283',
@@ -361,6 +364,7 @@ return [
                     'telefono' => '091 6551111',
                     'email' => 'protocollo@cert.policlinico.pa.it ',
                     'web' => 'https://www.policlinico.pa.it',
+                    'google_maps' => 'https://www.google.it/maps/place/AZIENDA+OSPEDALIERA+UNIVERSITARIA+POLICLINICO+PAOLO+GIACCONE/@38.1044938,13.3625445,16z/data=!3m1!4b1!4m6!3m5!1s0x1319e587f5bc639f:0xcbac5e0f9d0ba0e4!8m2!3d38.1044938!4d13.3625445!16s%2Fg%2F1tgfsk1z?entry=ttu&g_ep=EgoyMDI0MDgyOC4wIKXMDSoASAFQAw%3D%3D',
                     'coords' => [
                         'lat' => '38.103992',
                         'lng' => '13.355366',
@@ -478,6 +482,7 @@ return [
                     'telefono' => '091 703 3615',
                     'email' => ' - ',
                     'web' => 'https://www.asppalermo.org/attese_ps/',
+                    'google_maps' => 'https://www.google.it/maps/place/Ospedale+Ingrassia,+Cral/@38.0932568,13.3099573,16z/data=!3m1!4b1!4m6!3m5!1s0x1319ee52f1b0555f:0xf085cb35f4bff4ab!8m2!3d38.0932568!4d13.3099573!16s%2Fg%2F11cjn2whw7?entry=ttu&g_ep=EgoyMDI0MDgyOC4wIKXMDSoASAFQAw%3D%3D',
                     'coords' => [
                         'lat' => '38.106798',
                         'lng' => '13.357277',
@@ -625,6 +630,7 @@ return [
                     'telefono' => '091 479111',
                     'email' => 'urp@fbfpa.it',
                     'web' => 'https://www.ospedalebuccherilaferla.it',
+                    'google_maps' => 'https://www.google.it/maps/place/Ospedale+Buccheri+La+Ferla/@38.1058898,13.3859316,17z/data=!3m1!4b1!4m6!3m5!1s0x1319e4510cdbca39:0x1ceaed4b54422ed4!8m2!3d38.1058898!4d13.3859316!16s%2Fg%2F1tf0sqth?entry=ttu&g_ep=EgoyMDI0MDgyOC4wIKXMDSoASAFQAw%3D%3D',
                     'coords' => [
                         'lat' => '38.101734',
                         'lng' => '13.35228',

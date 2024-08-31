@@ -44,6 +44,7 @@ return [
             'imperia' => \App\Services\GenericDataService::class,
             'savona' => \App\Services\GenericDataService::class,
             'genova' => \App\Services\GenericDataService::class,
+            'la-spezia' => \App\Services\GenericDataService::class,
         ],
     ],
 ];
