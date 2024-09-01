@@ -41,7 +41,8 @@ class ApiProvinciaController extends Controller
                 'status' => true,
                 'websocket' => $provinciaService->getWebSocketConfig(),
                 'data' => $new_data,
-                'tableSettings' => $configProvincia['tableSettings']
+                'tableSettings' => $configProvincia['tableSettings'],
+                'meta' => $configProvincia['meta']
             ]);
 
         } catch (Exception $e) {

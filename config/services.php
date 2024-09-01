@@ -37,6 +37,7 @@ return [
             'messina' => \App\Services\GenericDataService::class,
             'agrigento' => \App\Services\GenericDataService::class,
             'catania' => \App\Services\GenericDataService::class,
+            'siracusa' => \App\Services\GenericDataService::class,
         ],
     ],
     'liguria' => [

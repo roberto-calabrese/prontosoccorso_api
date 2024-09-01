@@ -65,7 +65,11 @@ class GenericScrapeJob implements ShouldQueue
                         $ospedali[$keyH]['data'][$key]['value'] = (int)preg_replace("/[^0-9]/", "", implode('', $crawler->filter($value['selector'])->extract(['_text'])));
                         if (isset($value['extra']) && is_array($value['extra'])) {
                             foreach ($value['extra'] as $extra_k => $extra_v) {
-                                $extra_v['value'] = (int)preg_replace("/[^0-9]/", "", implode('', $crawler->filter($extra_v['selector'])->extract(['_text'])));
+
+                                $extra_v['value'] = isset($extra_v['is_string'])
+                                    ?  implode('', $crawler->filter($extra_v['selector'])->extract(['_text']))
+                                    : (int)preg_replace("/[^0-9]/", "", implode('', $crawler->filter($extra_v['selector'])->extract(['_text'])));
+
                                 unset($extra_v['selector']);
                                 $ospedali[$keyH]['data'][$key]['extra'][$extra_k] = $extra_v;
                             }
