@@ -78,10 +78,10 @@ return [
                     'telefono' => '091 7804031',
                     'email' => 'direzionepresidio@villasofia.it',
                     'web' => 'https://www.ospedaliriunitipalermo.it/amministrazione-trasparente/servizi-erogati/liste-di-attesa/pazienti-in-attesa-al-pronto-soccorso/',
-                    'google_maps' => 'https://maps.app.goo.gl/vY4RATYz7ePA2Pe76',
+                    'google_maps' => 'https://www.google.com/maps/place/Piazza+Salerno,+1,+90146+Palermo+PA,+Italia/@38.155978,13.337607,15z/data=!4m6!3m5!1s0x1319e8d80d96bf33:0x96e9216aaa3017f2!8m2!3d38.154867!4d13.33671!16s%2Fg%2F11bw3gq2xv?hl=it&entry=ttu&g_ep=EgoyMDI0MDgyOC4wIKXMDSoASAFQAw%3D%3D',
                     'coords' => [
-                        'lat' => '38.1549139',
-                        'lng' => '13.33434',
+                        'lat' => '38.155978',
+                        'lng' => '13.337607',
                     ],
                     'data' => [
                         'rosso' => [
@@ -130,19 +130,19 @@ return [
                     'nome' => 'Palermo - Villa Sofia',
                     'descrizione' => 'Ospedali Riuniti Villa Sofia Cervello',
                     'adulti' => false,
-                    'indirizzo' => 'Piazza Salerno, 1, 90146 Palermo PA',
-                    'telefono' => '+39 091 6802015',
+                    'indirizzo' => 'Via Trabucco, 180, 90146 Palermo PA',
+                    'telefono' => '0916802111',
                     'sala_visite' => '+39 091 6802014  / +39 091 6802015',
                     'triage' => '+39 091 6802013',
                     'caposala' => '+39 091 6802072',
                     'info' => 'Per i pazienti di PSP che necessitano di un inquadramento diagnostico non urgente e/o di un follow up neurologico è attivo l’Ambulatorio di Neurologia pediatrica e Medicina del Sonno',
                     'email' => 'ps.pediatrico@villasofia.it',
                     'volumi' => 'In epoca pre pandemica  ( fino al 2019)  il PS Pediatrico vanta  29.077 accessi/anno con un tasso di ospedalizzazione del 5%, una percentuale di codici in emergenza/urgenza del 22% e tempi di attesa medi di 48,28 min.  2983 pazienti sono stati assistiti in OBI con un tempo medio di permanenza pari a 20 ore e una percentuale di dimessi del 83% e ricoveri 0,2%. Sono state erogate complessivamente 185.693 prestazioni specialistiche, di cui 83.949 trattate  esclusivamente in Pronto Soccorso. L’attività di trauma center è rappresentata dal 25% degli accessi (7476 ) di cui 1560 (20%) in emergenza/urgenza.',
-                    'web' => 'https://www.ospedaliriunitipalermo.it/amministrazione-trasparente/servizi-erogati/liste-di-attesa/pazienti-in-attesa-al-pronto-soccorso/',
-                    'google_maps' => 'https://maps.app.goo.gl/vY4RATYz7ePA2Pe76',
+                    'web' => 'https://www.ospedaliriunitipalermo.it/cervello.html',
+                    'google_maps' => 'https://www.google.com/maps/place/Piazza+Salerno,+1,+90146+Palermo+PA,+Italia/@38.155978,13.337607,15z/data=!4m6!3m5!1s0x1319e8d80d96bf33:0x96e9216aaa3017f2!8m2!3d38.154867!4d13.33671!16s%2Fg%2F11bw3gq2xv?hl=it&entry=ttu&g_ep=EgoyMDI0MDgyOC4wIKXMDSoASAFQAw%3D%3D',
                     'coords' => [
-                        'lat' => '38.1549139',
-                        'lng' => '13.33434',
+                        'lat' => '38.155978',
+                        'lng' => '13.337607',
                     ],
                     'data' => [
                         'rosso' => [
@@ -191,14 +191,14 @@ return [
                     'nome' => 'Palermo - Cervello',
                     'descrizione' => 'Ospedali Riuniti Villa Sofia Cervello',
                     'adulti' => true,
-                    'indirizzo' => 'Piazza Salerno, 1, 90146 Palermo PA',
-                    'telefono' => '091 6802515',
+                    'indirizzo' => 'Via Trabucco, 180, 90146 Palermo PA',
+                    'telefono' => ' 091 680 2111',
                     'email' => 'direzionepresidio@villasofia.it',
                     'google_maps' => 'https://maps.app.goo.gl/vY4RATYz7ePA2Pe76',
-                    'web' => 'https://www.ospedaliriunitipalermo.it/amministrazione-trasparente/servizi-erogati/liste-di-attesa/pazienti-in-attesa-al-pronto-soccorso/',
+                    'web' => 'https://www.google.it/maps/place/Ospedali+Riuniti+Villa+Sofia-+Cervello+Pronto+Soccorso/@38.1545298,13.3138741,17z/data=!3m1!4b1!4m6!3m5!1s0x1319e8d8183d228f:0x456f6e94feddec13!8m2!3d38.1545298!4d13.3138741!16s%2Fg%2F11fyx8jlns?entry=ttu&g_ep=EgoyMDI0MDgyOC4wIKXMDSoASAFQAw%3D%3D',
                     'coords' => [
-                        'lat' => '38.1549139',
-                        'lng' => '13.33434',
+                        'lat' => '38.1545298',
+                        'lng' => '13.3138741',
                     ],
                     'data' => [
                         'rosso' => [
@@ -265,8 +265,8 @@ return [
                     'web' => 'https://www.arnascivico.it',
                     'google_maps' => 'https://www.google.it/maps/place/Ospedale+Civico+di+Palermo/@38.1042334,13.3560857,17z/data=!3m1!4b1!4m6!3m5!1s0x1319ef79f9df9793:0x9018c72eca13ef10!8m2!3d38.1042334!4d13.3560857!16s%2Fg%2F11f_dzzpkj?entry=ttu&g_ep=EgoyMDI0MDgyOC4wIKXMDSoASAFQAw%3D%3D',
                     'coords' => [
-                        'lat' => '38.105726',
-                        'lng' => '13.356283',
+                        'lat' => '38.1042334',
+                        'lng' => '13.3560857',
                     ],
                     'data' => [
                         'calculate_selector' => 'div.item-page>div:nth-child(4)>table:nth-child(7)>tbody>tr:nth-child(REPLACE)',
@@ -311,9 +311,10 @@ return [
                     'telefono' => '091 666 1111',
                     'email' => 'ospedalecivicopa@pec.it',
                     'web' => 'https://www.arnascivico.it',
+                    'google_maps' => 'https://www.google.it/maps/place/Ospedale+Civico+di+Palermo/@38.1042334,13.3560857,17z/data=!3m1!4b1!4m6!3m5!1s0x1319ef79f9df9793:0x9018c72eca13ef10!8m2!3d38.1042334!4d13.3560857!16s%2Fg%2F11f_dzzpkj?entry=ttu&g_ep=EgoyMDI0MDgyOC4wIKXMDSoASAFQAw%3D%3D',
                     'coords' => [
-                        'lat' => '38.101754',
-                        'lng' => '13.355468',
+                        'lat' => '38.1042334',
+                        'lng' => '13.3560857',
                     ],
                     'data' => [
                         'calculate_selector' => 'div.item-page>div:nth-child(4)>table:nth-child(13)>tbody>tr:nth-child(REPLACE)',
@@ -352,7 +353,7 @@ return [
                 'key' => 'sicilia.palermo.policlinico',
                 'ttlMinute' => 1
             ],
-            'url' => 'http://www.policlinico.pa.it/portal/',
+            'url' => 'https://www.policlinico.pa.it/portal/',
             'jobClass' => \App\Jobs\GenericScrapeJob::class,
             'data' => [
                 'policlinico_adulti' => [
@@ -366,8 +367,8 @@ return [
                     'web' => 'https://www.policlinico.pa.it',
                     'google_maps' => 'https://www.google.it/maps/place/AZIENDA+OSPEDALIERA+UNIVERSITARIA+POLICLINICO+PAOLO+GIACCONE/@38.1044938,13.3625445,16z/data=!3m1!4b1!4m6!3m5!1s0x1319e587f5bc639f:0xcbac5e0f9d0ba0e4!8m2!3d38.1044938!4d13.3625445!16s%2Fg%2F1tgfsk1z?entry=ttu&g_ep=EgoyMDI0MDgyOC4wIKXMDSoASAFQAw%3D%3D',
                     'coords' => [
-                        'lat' => '38.103992',
-                        'lng' => '13.355366',
+                        'lat' => '38.1044938',
+                        'lng' => '13.3625445',
                     ],
                     'data' => [
                         'rosso' => [
@@ -484,8 +485,8 @@ return [
                     'web' => 'https://www.asppalermo.org/attese_ps/',
                     'google_maps' => 'https://www.google.it/maps/place/Ospedale+Ingrassia,+Cral/@38.0932568,13.3099573,16z/data=!3m1!4b1!4m6!3m5!1s0x1319ee52f1b0555f:0xf085cb35f4bff4ab!8m2!3d38.0932568!4d13.3099573!16s%2Fg%2F11cjn2whw7?entry=ttu&g_ep=EgoyMDI0MDgyOC4wIKXMDSoASAFQAw%3D%3D',
                     'coords' => [
-                        'lat' => '38.106798',
-                        'lng' => '13.357277',
+                        'lat' => '38.0932568',
+                        'lng' => '13.3099573',
                     ],
                     'data' => [
                         'rosso' => [
@@ -632,8 +633,8 @@ return [
                     'web' => 'https://www.ospedalebuccherilaferla.it',
                     'google_maps' => 'https://www.google.it/maps/place/Ospedale+Buccheri+La+Ferla/@38.1058898,13.3859316,17z/data=!3m1!4b1!4m6!3m5!1s0x1319e4510cdbca39:0x1ceaed4b54422ed4!8m2!3d38.1058898!4d13.3859316!16s%2Fg%2F1tf0sqth?entry=ttu&g_ep=EgoyMDI0MDgyOC4wIKXMDSoASAFQAw%3D%3D',
                     'coords' => [
-                        'lat' => '38.101734',
-                        'lng' => '13.35228',
+                        'lat' => '38.1058898',
+                        'lng' => '13.3859316',
                     ],
                     'data' => [
                         'rosso' => [
