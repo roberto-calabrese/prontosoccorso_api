@@ -48,4 +48,11 @@ return [
             'la-spezia' => \App\Services\GenericDataService::class,
         ],
     ],
+    'veneto' => [
+        'provincie' => [
+            'belluno' => \App\Services\GenericDataService::class,
+            'padova' => \App\Services\GenericDataService::class,
+            'rovigo' => \App\Services\GenericDataService::class,
+        ],
+    ],
 ];

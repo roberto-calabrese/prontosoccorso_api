@@ -47,25 +47,32 @@ class GenericScrapeJob implements ShouldQueue
         return Cache::remember($cacheKey, now()->addMinutes($cacheTTL), function () {
             $client = new Client();
 
-            $response = $client->request('GET', $this->config['url'], [
+            $response = $client->request($this->config['method'] ?? 'GET', $this->config['url'], [
                 'headers' => $this->config['headers'] ?? [],
-                'verify' => false
+                'verify' => false,
+                'query' => $this->config['query'] ?? null,
+                'form_params' => $this->config['form_params'] ?? null
             ]);
 
             $crawler = new Crawler($response->getBody()->getContents());
 
             $ospedali = [];
 
+            $numberIteration = 1;
+
             foreach ($this->config['data'] as $keyH => $ospedale) {
+
                 foreach ($ospedale['data'] as $key => $value) {
                     if(isset($value['action'])) {
                         continue;
                     }
+
                     if ($key !== 'extra') {
+                        $value['selector'] = str_replace($this->config['iterateSelector'] ?? '', $numberIteration, $value['selector']);
                         $ospedali[$keyH]['data'][$key]['value'] = (int)preg_replace("/[^0-9]/", "", implode('', $crawler->filter($value['selector'])->extract(['_text'])));
                         if (isset($value['extra']) && is_array($value['extra'])) {
                             foreach ($value['extra'] as $extra_k => $extra_v) {
-
+                                $extra_v['selector'] = str_replace($this->config['iterateSelector'] ?? '', $numberIteration, $extra_v['selector']);
                                 $extra_v['value'] = isset($extra_v['is_string'])
                                     ?  implode('', $crawler->filter($extra_v['selector'])->extract(['_text']))
                                     : (int)preg_replace("/[^0-9]/", "", implode('', $crawler->filter($extra_v['selector'])->extract(['_text'])));
@@ -78,14 +85,16 @@ class GenericScrapeJob implements ShouldQueue
                         unset($ospedali[$keyH]['data'][$key]['selector']);
                     } else {
                         foreach ($value as $extraK => $extraV) {
+                            $extraV['selector'] = str_replace($this->config['iterateSelector'] ?? '', $numberIteration, $extraV['selector']);
                             $ospedali[$keyH]['data'][$key][$extraK] = $ospedale['data'][$key][$extraK];
                             $cleanedValue = implode('', $crawler->filter($extraV['selector'])->extract(['_text']));
                             $ospedali[$keyH]['data'][$key][$extraK]['value'] = ($extraK === 'indice_sovraffollamento') ? (int)preg_replace('/[^0-9.]/', '', $cleanedValue) : $cleanedValue;
                             unset($ospedali[$keyH]['data'][$key][$extraK]['selector']);
                         }
                     }
-
                 }
+
+                $numberIteration++;
 
                 if (isset($ospedale['data']['totali']['action']) && $ospedale['data']['totali']['action']['operation'] === 'sum') {
                     $totaliKeys = $ospedale['data']['totali']['action']['keys'];
@@ -96,7 +105,7 @@ class GenericScrapeJob implements ShouldQueue
                         'extra' => array_map(static function ($key, $info) use ($totals) {
                             return [
                                 'label' => $info['label'],
-                                'value' => $totals[$key] ?? 0, // Default a 0 se non esiste la chiave
+                                'value' => $totals[$key] ?? 0,
                             ];
                         }, array_keys($totaliKeys), $totaliKeys),
                     ];

@@ -304,17 +304,17 @@ return [
                 ],
                 'presidio_civico_pediatrico' => [
                     'id' => 5,
-                    'nome' => 'Palermo - Civico',
-                    'descrizione' => 'Pronto Soccorso Pediatrico',
+                    'nome' => 'Palermo - Civico "Di Cristina"',
+                    'descrizione' => 'L\'ospedale specializzato pediatrico "Di Cristina", sede del Dipartimento di Pediatria, è dotato di un pronto soccorso e di 15 unità operative di diagnosi e cura.',
                     'adulti' => false,
                     'indirizzo' => 'Via Carmelo Lazzaro, 4, 90127 Palermo PA',
-                    'telefono' => '091 666 1111',
+                    'telefono' => '091 6666012',
                     'email' => 'ospedalecivicopa@pec.it',
                     'web' => 'https://www.arnascivico.it',
-                    'google_maps' => 'https://www.google.it/maps/place/Ospedale+Civico+di+Palermo/@38.1042334,13.3560857,17z/data=!3m1!4b1!4m6!3m5!1s0x1319ef79f9df9793:0x9018c72eca13ef10!8m2!3d38.1042334!4d13.3560857!16s%2Fg%2F11f_dzzpkj?entry=ttu&g_ep=EgoyMDI0MDgyOC4wIKXMDSoASAFQAw%3D%3D',
+                    'google_maps' => 'https://www.google.it/maps/place/Via+dei+Benedettini,+5,+90134+Palermo+PA/@38.1099461,13.3548131,155m/data=!3m1!1e3!4m6!3m5!1s0x1319ef630c18c8ad:0xe0dc4b3a6500f882!8m2!3d38.1099002!4d13.3547353!16s%2Fg%2F11c4kh9b5z?hl=it&entry=ttu&g_ep=EgoyMDI0MDgyOC4wIKXMDSoASAFQAw%3D%3D',
                     'coords' => [
-                        'lat' => '38.1042334',
-                        'lng' => '13.3560857',
+                        'lat' => '338.1099461',
+                        'lng' => '13.3548131',
                     ],
                     'data' => [
                         'calculate_selector' => 'div.item-page>div:nth-child(4)>table:nth-child(13)>tbody>tr:nth-child(REPLACE)',
