@@ -313,7 +313,7 @@ return [
                     'web' => 'https://www.arnascivico.it',
                     'google_maps' => 'https://www.google.it/maps/place/Via+dei+Benedettini,+5,+90134+Palermo+PA/@38.1099461,13.3548131,155m/data=!3m1!1e3!4m6!3m5!1s0x1319ef630c18c8ad:0xe0dc4b3a6500f882!8m2!3d38.1099002!4d13.3547353!16s%2Fg%2F11c4kh9b5z?hl=it&entry=ttu&g_ep=EgoyMDI0MDgyOC4wIKXMDSoASAFQAw%3D%3D',
                     'coords' => [
-                        'lat' => '338.1099461',
+                        'lat' => '38.1099461',
                         'lng' => '13.3548131',
                     ],
                     'data' => [
