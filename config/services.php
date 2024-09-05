@@ -53,6 +53,10 @@ return [
             'belluno' => \App\Services\GenericDataService::class,
             'padova' => \App\Services\GenericDataService::class,
             'rovigo' => \App\Services\GenericDataService::class,
+            'treviso' => \App\Services\GenericDataService::class,
+            'venezia' => \App\Services\GenericDataService::class,
+            'verona' => \App\Services\GenericDataService::class,
+            'vicenza' => \App\Services\GenericDataService::class,
         ],
     ],
 ];
