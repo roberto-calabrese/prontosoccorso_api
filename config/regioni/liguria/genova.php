@@ -254,7 +254,6 @@ return [
                         'lng' => 8.94046233105913,
                     ],
                     'data' => [...$dataCommon]
-
                 ]
             ]
         ],
@@ -283,7 +282,6 @@ return [
                         'lng' => 8.9747922,
                     ],
                     'data' => [...$dataCommon]
-
                 ]
             ]
         ],
@@ -312,7 +310,6 @@ return [
                         'lng' => 8.987861738137527,
                     ],
                     'data' => [...$dataCommon]
-
                 ]
             ]
         ],
