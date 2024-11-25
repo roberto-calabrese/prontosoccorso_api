@@ -45,6 +45,59 @@ $tableSettings = [
 ];
 
 $dataCommons = [
+    'rosso' => [
+        'selector' => 'table.table>tbody>tr:nth-child($I)>td:nth-child(2)>div:nth-child(1)>div>div',
+        'extra' => [
+            'in_trattamento' => [
+                'label' => 'Pazienti in trattamento',
+                'selector' => 'table.table>tbody>tr:nth-child($I)>td:nth-child(3)>div:nth-child(1)>div>div',
+            ],
+            'in_attesa' => [
+                'label' => 'Pazienti in attesa',
+                'selector' => 'table.table>tbody>tr:nth-child($I)>td:nth-child(2)>div:nth-child(1)>div>div',
+            ]
+        ]
+    ],
+    'giallo' => [
+        'selector' => 'table.table>tbody>tr:nth-child($I)>td:nth-child(2)>div:nth-child(2)>div>div',
+        'extra' => [
+            'in_attesa' => [
+                'label' => 'Pazienti in attesa',
+                'selector' => 'table.table>tbody>tr:nth-child($I)>td:nth-child(2)>div:nth-child(2)>div>div',
+            ],
+            'in_trattamento' => [
+                'label' => 'Pazienti in trattamento',
+                'selector' => 'table.table>tbody>tr:nth-child($I)>td:nth-child(3)>div:nth-child(2)>div>div',
+            ],
+        ]
+    ],
+    'verde' => [
+        'selector' => 'table.table>tbody>tr:nth-child($I)>td:nth-child(2)>div:nth-child(3)>div>div',
+        'extra' => [
+            'in_attesa' => [
+                'label' => 'Pazienti in attesa',
+                'selector' => 'table.table>tbody>tr:nth-child(1)>td:nth-child(2)>div:nth-child(3)>div>div',
+            ],
+            'in_trattamento' => [
+                'label' => 'Pazienti in trattamento',
+                'selector' => 'table.table>tbody>tr:nth-child($I)>td:nth-child(3)>div:nth-child(3)>div>div',
+            ],
+        ]
+    ],
+    'bianco' => [
+        'selector' => 'table.table>tbody>tr:nth-child($I)>td:nth-child(2)>div:nth-child(4)>div>div',
+        'extra' => [
+            'in_attesa' => [
+                'label' => 'Pazienti in attesa',
+                'selector' => 'table.table>tbody>tr:nth-child($I)>td:nth-child(2)>div:nth-child(4)>div>div',
+            ],
+            'in_trattamento' => [
+                'label' => 'Pazienti in trattamento',
+                'selector' => 'table.table>tbody>tr:nth-child($I)>td:nth-child(3)>div:nth-child(4)>div>div',
+            ],
+
+        ]
+    ],
     'totali' => [
         'action' => [
             'operation' => 'sum',
@@ -86,6 +139,7 @@ return [
                 'Origin' => 'https://www.asp.messina.it',
             ],
             'jobClass' => \App\Jobs\GenericScrapeJob::class,
+            'iterateSelector' => '$I',
             'data' => [
                 'barcellona_pozzo_di_gotto' => [
                     'id' => 1,
@@ -101,62 +155,7 @@ return [
                         'lat' => '38.1520632',
                         'lng' => '15.2216912',
                     ],
-                    'data' => [
-                        'rosso' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(1)>td:nth-child(2)>div:nth-child(1)>div>div',
-                            'extra' => [
-                                'in_trattamento' => [
-                                    'label' => 'Pazienti in trattamento',
-                                    'selector' => 'table.table>tbody>tr:nth-child(1)>td:nth-child(3)>div:nth-child(1)>div>div',
-                                ],
-                                'in_attesa' => [
-                                    'label' => 'Pazienti in attesa',
-                                    'selector' => 'table.table>tbody>tr:nth-child(1)>td:nth-child(2)>div:nth-child(1)>div>div',
-                                ]
-                            ]
-                        ],
-                        'giallo' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(1)>td:nth-child(2)>div:nth-child(2)>div>div',
-                            'extra' => [
-                                'in_attesa' => [
-                                    'label' => 'Pazienti in attesa',
-                                    'selector' => 'table.table>tbody>tr:nth-child(1)>td:nth-child(2)>div:nth-child(2)>div>div',
-                                ],
-                                'in_trattamento' => [
-                                    'label' => 'Pazienti in trattamento',
-                                    'selector' => 'table.table>tbody>tr:nth-child(1)>td:nth-child(3)>div:nth-child(2)>div>div',
-                                ],
-                            ]
-                        ],
-                        'verde' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(1)>td:nth-child(2)>div:nth-child(3)>div>div',
-                            'extra' => [
-                                'in_attesa' => [
-                                    'label' => 'Pazienti in attesa',
-                                    'selector' => 'table.table>tbody>tr:nth-child(1)>td:nth-child(2)>div:nth-child(3)>div>div',
-                                ],
-                                'in_trattamento' => [
-                                    'label' => 'Pazienti in trattamento',
-                                    'selector' => 'table.table>tbody>tr:nth-child(1)>td:nth-child(3)>div:nth-child(3)>div>div',
-                                ],
-                            ]
-                        ],
-                        'bianco' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(1)>td:nth-child(2)>div:nth-child(4)>div>div',
-                            'extra' => [
-                                'in_attesa' => [
-                                    'label' => 'Pazienti in attesa',
-                                    'selector' => 'table.table>tbody>tr:nth-child(1)>td:nth-child(2)>div:nth-child(4)>div>div',
-                                ],
-                                'in_trattamento' => [
-                                    'label' => 'Pazienti in trattamento',
-                                    'selector' => 'table.table>tbody>tr:nth-child(1)>td:nth-child(3)>div:nth-child(4)>div>div',
-                                ],
-
-                            ]
-                        ],
-                        'totali' => [...$dataCommons['totali']]
-                    ]
+                    'data' => $dataCommons,
                 ],
                 'lipari' => [
                     'id' => 1,
@@ -172,62 +171,7 @@ return [
                         'lat' => '38.4622956',
                         'lng' => '14.9542607',
                     ],
-                    'data' => [
-                        'rosso' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(2)>td:nth-child(2)>div:nth-child(1)>div>div',
-                            'extra' => [
-                                'in_attesa' => [
-                                    'label' => 'Pazienti in attesa',
-                                    'selector' => 'table.table>tbody>tr:nth-child(2)>td:nth-child(2)>div:nth-child(1)>div>div',
-                                ],
-                                'in_trattamento' => [
-                                    'label' => 'Pazienti in trattamento',
-                                    'selector' => 'table.table>tbody>tr:nth-child(2)>td:nth-child(3)>div:nth-child(1)>div>div',
-                                ],
-
-                            ]
-                        ],
-                        'giallo' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(2)>td:nth-child(2)>div:nth-child(2)>div>div',
-                            'extra' => [
-                                'in_attesa' => [
-                                    'label' => 'Pazienti in attesa',
-                                    'selector' => 'table.table>tbody>tr:nth-child(2)>td:nth-child(2)>div:nth-child(2)>div>div',
-                                ],
-                                'in_trattamento' => [
-                                    'label' => 'Pazienti in trattamento',
-                                    'selector' => 'table.table>tbody>tr:nth-child(2)>td:nth-child(3)>div:nth-child(2)>div>div',
-                                ],
-                            ]
-                        ],
-                        'verde' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(2)>td:nth-child(2)>div:nth-child(3)>div>div',
-                            'extra' => [
-                                'in_attesa' => [
-                                    'label' => 'Pazienti in attesa',
-                                    'selector' => 'table.table>tbody>tr:nth-child(2)>td:nth-child(2)>div:nth-child(3)>div>div',
-                                ],
-                                'in_trattamento' => [
-                                    'label' => 'Pazienti in trattamento',
-                                    'selector' => 'table.table>tbody>tr:nth-child(2)>td:nth-child(3)>div:nth-child(3)>div>div',
-                                ],
-                            ]
-                        ],
-                        'bianco' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(2)>td:nth-child(2)>div:nth-child(4)>div>div',
-                            'extra' => [
-                                'in_attesa' => [
-                                    'label' => 'Pazienti in attesa',
-                                    'selector' => 'table.table>tbody>tr:nth-child(2)>td:nth-child(2)>div:nth-child(4)>div>div',
-                                ],
-                                'in_trattamento' => [
-                                    'label' => 'Pazienti in trattamento',
-                                    'selector' => 'table.table>tbody>tr:nth-child(2)>td:nth-child(3)>div:nth-child(4)>div>div',
-                                ],
-                            ]
-                        ],
-                        'totali' => [...$dataCommons['totali']]
-                    ]
+                    'data' => $dataCommons,
                 ],
                 'milazzo' => [
                     'id' => 1,
@@ -243,61 +187,7 @@ return [
                         'lat' => '38.1887555',
                         'lng' => '15.2524891',
                     ],
-                    'data' => [
-                        'rosso' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(3)>td:nth-child(2)>div:nth-child(1)>div>div',
-                            'extra' => [
-                                'in_attesa' => [
-                                    'label' => 'Pazienti in attesa',
-                                    'selector' => 'table.table>tbody>tr:nth-child(3)>td:nth-child(2)>div:nth-child(1)>div>div',
-                                ],
-                                'in_trattamento' => [
-                                    'label' => 'Pazienti in trattamento',
-                                    'selector' => 'table.table>tbody>tr:nth-child(3)>td:nth-child(3)>div:nth-child(1)>div>div',
-                                ],
-                            ]
-                        ],
-                        'giallo' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(3)>td:nth-child(2)>div:nth-child(2)>div>div',
-                            'extra' => [
-                                'in_attesa' => [
-                                    'label' => 'Pazienti in attesa',
-                                    'selector' => 'table.table>tbody>tr:nth-child(3)>td:nth-child(2)>div:nth-child(2)>div>div',
-                                ],
-                                'in_trattamento' => [
-                                    'label' => 'Pazienti in trattamento',
-                                    'selector' => 'table.table>tbody>tr:nth-child(3)>td:nth-child(3)>div:nth-child(2)>div>div',
-                                ],
-                            ]
-                        ],
-                        'verde' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(3)>td:nth-child(2)>div:nth-child(3)>div>div',
-                            'extra' => [
-                                'in_attesa' => [
-                                    'label' => 'Pazienti in attesa',
-                                    'selector' => 'table.table>tbody>tr:nth-child(3)>td:nth-child(2)>div:nth-child(3)>div>div',
-                                ],
-                                'in_trattamento' => [
-                                    'label' => 'Pazienti in trattamento',
-                                    'selector' => 'table.table>tbody>tr:nth-child(3)>td:nth-child(3)>div:nth-child(3)>div>div',
-                                ],
-                            ]
-                        ],
-                        'bianco' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(3)>td:nth-child(2)>div:nth-child(4)>div>div',
-                            'extra' => [
-                                'in_attesa' => [
-                                    'label' => 'Pazienti in attesa',
-                                    'selector' => 'table.table>tbody>tr:nth-child(3)>td:nth-child(2)>div:nth-child(4)>div>div',
-                                ],
-                                'in_trattamento' => [
-                                    'label' => 'Pazienti in trattamento',
-                                    'selector' => 'table.table>tbody>tr:nth-child(3)>td:nth-child(3)>div:nth-child(4)>div>div',
-                                ],
-                            ]
-                        ],
-                        'totali' => [...$dataCommons['totali']]
-                    ]
+                    'data' => $dataCommons,
                 ],
                 'taormina' => [
                     'id' => 1,
@@ -313,61 +203,7 @@ return [
                         'lat' => '37.8459587',
                         'lng' => '15.2788757',
                     ],
-                    'data' => [
-                        'rosso' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(4)>td:nth-child(2)>div:nth-child(1)>div>div',
-                            'extra' => [
-                                'in_attesa' => [
-                                    'label' => 'Pazienti in attesa',
-                                    'selector' => 'table.table>tbody>tr:nth-child(4)>td:nth-child(2)>div:nth-child(1)>div>div',
-                                ],
-                                'in_trattamento' => [
-                                    'label' => 'Pazienti in trattamento',
-                                    'selector' => 'table.table>tbody>tr:nth-child(4)>td:nth-child(3)>div:nth-child(1)>div>div',
-                                ],
-                            ]
-                        ],
-                        'giallo' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(4)>td:nth-child(2)>div:nth-child(2)>div>div',
-                            'extra' => [
-                                'in_attesa' => [
-                                    'label' => 'Pazienti in attesa',
-                                    'selector' => 'table.table>tbody>tr:nth-child(4)>td:nth-child(2)>div:nth-child(2)>div>div',
-                                ],
-                                'in_trattamento' => [
-                                    'label' => 'Pazienti in trattamento',
-                                    'selector' => 'table.table>tbody>tr:nth-child(4)>td:nth-child(3)>div:nth-child(2)>div>div',
-                                ],
-                            ]
-                        ],
-                        'verde' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(4)>td:nth-child(2)>div:nth-child(3)>div>div',
-                            'extra' => [
-                                'in_attesa' => [
-                                    'label' => 'Pazienti in attesa',
-                                    'selector' => 'table.table>tbody>tr:nth-child(4)>td:nth-child(2)>div:nth-child(3)>div>div',
-                                ],
-                                'in_trattamento' => [
-                                    'label' => 'Pazienti in trattamento',
-                                    'selector' => 'table.table>tbody>tr:nth-child(4)>td:nth-child(3)>div:nth-child(3)>div>div',
-                                ],
-                            ]
-                        ],
-                        'bianco' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(4)>td:nth-child(2)>div:nth-child(4)>div>div',
-                            'extra' => [
-                                'in_attesa' => [
-                                    'label' => 'Pazienti in attesa',
-                                    'selector' => 'table.table>tbody>tr:nth-child(4)>td:nth-child(2)>div:nth-child(4)>div>div',
-                                ],
-                                'in_trattamento' => [
-                                    'label' => 'Pazienti in trattamento',
-                                    'selector' => 'table.table>tbody>tr:nth-child(4)>td:nth-child(3)>div:nth-child(4)>div>div',
-                                ],
-                            ]
-                        ],
-                        'totali' => [...$dataCommons['totali']]
-                    ]
+                    'data' => $dataCommons,
                 ],
                 'mistretta' => [
                     'id' => 1,
@@ -383,61 +219,7 @@ return [
                         'lat' => '37.928393',
                         'lng' => '14.3575739',
                     ],
-                    'data' => [
-                        'rosso' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(5)>td:nth-child(2)>div:nth-child(1)>div>div',
-                            'extra' => [
-                                'in_attesa' => [
-                                    'label' => 'Pazienti in attesa',
-                                    'selector' => 'table.table>tbody>tr:nth-child(5)>td:nth-child(2)>div:nth-child(1)>div>div',
-                                ],
-                                'in_trattamento' => [
-                                    'label' => 'Pazienti in trattamento',
-                                    'selector' => 'table.table>tbody>tr:nth-child(5)>td:nth-child(3)>div:nth-child(1)>div>div',
-                                ],
-                            ]
-                        ],
-                        'giallo' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(5)>td:nth-child(2)>div:nth-child(2)>div>div',
-                            'extra' => [
-                                'in_attesa' => [
-                                    'label' => 'Pazienti in attesa',
-                                    'selector' => 'table.table>tbody>tr:nth-child(5)>td:nth-child(2)>div:nth-child(2)>div>div',
-                                ],
-                                'in_trattamento' => [
-                                    'label' => 'Pazienti in trattamento',
-                                    'selector' => 'table.table>tbody>tr:nth-child(5)>td:nth-child(3)>div:nth-child(2)>div>div',
-                                ],
-                            ]
-                        ],
-                        'verde' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(5)>td:nth-child(2)>div:nth-child(3)>div>div',
-                            'extra' => [
-                                'in_attesa' => [
-                                    'label' => 'Pazienti in attesa',
-                                    'selector' => 'table.table>tbody>tr:nth-child(5)>td:nth-child(2)>div:nth-child(3)>div>div',
-                                ],
-                                'in_trattamento' => [
-                                    'label' => 'Pazienti in trattamento',
-                                    'selector' => 'table.table>tbody>tr:nth-child(5)>td:nth-child(3)>div:nth-child(3)>div>div',
-                                ],
-                            ]
-                        ],
-                        'bianco' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(5)>td:nth-child(2)>div:nth-child(4)>div>div',
-                            'extra' => [
-                                'in_attesa' => [
-                                    'label' => 'Pazienti in attesa',
-                                    'selector' => 'table.table>tbody>tr:nth-child(5)>td:nth-child(2)>div:nth-child(4)>div>div',
-                                ],
-                                'in_trattamento' => [
-                                    'label' => 'Pazienti in trattamento',
-                                    'selector' => 'table.table>tbody>tr:nth-child(5)>td:nth-child(3)>div:nth-child(4)>div>div',
-                                ],
-                            ]
-                        ],
-                        'totali' => [...$dataCommons['totali']]
-                    ]
+                    'data' => $dataCommons,
                 ],
                 'patti' => [
                     'id' => 1,
@@ -453,61 +235,7 @@ return [
                         'lat' => '38.141417',
                         'lng' => '14.9687621',
                     ],
-                    'data' => [
-                        'rosso' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(6)>td:nth-child(2)>div:nth-child(1)>div>div',
-                            'extra' => [
-                                'in_attesa' => [
-                                    'label' => 'Pazienti in attesa',
-                                    'selector' => 'table.table>tbody>tr:nth-child(6)>td:nth-child(2)>div:nth-child(1)>div>div',
-                                ],
-                                'in_trattamento' => [
-                                    'label' => 'Pazienti in trattamento',
-                                    'selector' => 'table.table>tbody>tr:nth-child(6)>td:nth-child(3)>div:nth-child(1)>div>div',
-                                ],
-                            ]
-                        ],
-                        'giallo' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(6)>td:nth-child(2)>div:nth-child(2)>div>div',
-                            'extra' => [
-                                'in_attesa' => [
-                                    'label' => 'Pazienti in attesa',
-                                    'selector' => 'table.table>tbody>tr:nth-child(6)>td:nth-child(2)>div:nth-child(2)>div>div',
-                                ],
-                                'in_trattamento' => [
-                                    'label' => 'Pazienti in trattamento',
-                                    'selector' => 'table.table>tbody>tr:nth-child(6)>td:nth-child(3)>div:nth-child(2)>div>div',
-                                ],
-                            ]
-                        ],
-                        'verde' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(6)>td:nth-child(2)>div:nth-child(3)>div>div',
-                            'extra' => [
-                                'in_attesa' => [
-                                    'label' => 'Pazienti in attesa',
-                                    'selector' => 'table.table>tbody>tr:nth-child(6)>td:nth-child(2)>div:nth-child(3)>div>div',
-                                ],
-                                'in_trattamento' => [
-                                    'label' => 'Pazienti in trattamento',
-                                    'selector' => 'table.table>tbody>tr:nth-child(6)>td:nth-child(3)>div:nth-child(3)>div>div',
-                                ],
-                            ]
-                        ],
-                        'bianco' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(6)>td:nth-child(2)>div:nth-child(4)>div>div',
-                            'extra' => [
-                                'in_attesa' => [
-                                    'label' => 'Pazienti in attesa',
-                                    'selector' => 'table.table>tbody>tr:nth-child(6)>td:nth-child(2)>div:nth-child(4)>div>div',
-                                ],
-                                'in_trattamento' => [
-                                    'label' => 'Pazienti in trattamento',
-                                    'selector' => 'table.table>tbody>tr:nth-child(6)>td:nth-child(3)>div:nth-child(4)>div>div',
-                                ],
-                            ]
-                        ],
-                        'totali' => [...$dataCommons['totali']]
-                    ]
+                    'data' => $dataCommons,
                 ],
                 'st_militello' => [
                     'id' => 1,
@@ -523,61 +251,7 @@ return [
                         'lat' => '38.0663717',
                         'lng' => '14.6273949',
                     ],
-                    'data' => [
-                        'rosso' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(7)>td:nth-child(2)>div:nth-child(1)>div>div',
-                            'extra' => [
-                                'in_attesa' => [
-                                    'label' => 'Pazienti in attesa',
-                                    'selector' => 'table.table>tbody>tr:nth-child(7)>td:nth-child(2)>div:nth-child(1)>div>div',
-                                ],
-                                'in_trattamento' => [
-                                    'label' => 'Pazienti in trattamento',
-                                    'selector' => 'table.table>tbody>tr:nth-child(7)>td:nth-child(3)>div:nth-child(1)>div>div',
-                                ],
-                            ]
-                        ],
-                        'giallo' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(7)>td:nth-child(2)>div:nth-child(2)>div>div',
-                            'extra' => [
-                                'in_attesa' => [
-                                    'label' => 'Pazienti in attesa',
-                                    'selector' => 'table.table>tbody>tr:nth-child(7)>td:nth-child(2)>div:nth-child(2)>div>div',
-                                ],
-                                'in_trattamento' => [
-                                    'label' => 'Pazienti in trattamento',
-                                    'selector' => 'table.table>tbody>tr:nth-child(7)>td:nth-child(3)>div:nth-child(2)>div>div',
-                                ],
-                            ]
-                        ],
-                        'verde' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(7)>td:nth-child(2)>div:nth-child(3)>div>div',
-                            'extra' => [
-                                'in_attesa' => [
-                                    'label' => 'Pazienti in attesa',
-                                    'selector' => 'table.table>tbody>tr:nth-child(7)>td:nth-child(2)>div:nth-child(3)>div>div',
-                                ],
-                                'in_trattamento' => [
-                                    'label' => 'Pazienti in trattamento',
-                                    'selector' => 'table.table>tbody>tr:nth-child(7)>td:nth-child(3)>div:nth-child(3)>div>div',
-                                ],
-                            ]
-                        ],
-                        'bianco' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(7)>td:nth-child(2)>div:nth-child(4)>div>div',
-                            'extra' => [
-                                'in_attesa' => [
-                                    'label' => 'Pazienti in attesa',
-                                    'selector' => 'table.table>tbody>tr:nth-child(7)>td:nth-child(2)>div:nth-child(4)>div>div',
-                                ],
-                                'in_trattamento' => [
-                                    'label' => 'Pazienti in trattamento',
-                                    'selector' => 'table.table>tbody>tr:nth-child(7)>td:nth-child(3)>div:nth-child(4)>div>div',
-                                ],
-                            ]
-                        ],
-                        'totali' => [...$dataCommons['totali']]
-                    ]
+                    'data' => $dataCommons,
                 ],
             ]
         ],

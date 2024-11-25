@@ -353,8 +353,13 @@ return [
                 'key' => 'sicilia.palermo.policlinico',
                 'ttlMinute' => 1
             ],
-            'url' => 'https://www.policlinico.pa.it/portal/',
-            'jobClass' => \App\Jobs\GenericScrapeJob::class,
+             'url' => 'https://www.policlinico.pa.it/o/PoliclinicoPaRestBuilder/v1.0/ProntoSoccorso',
+            'headers' => [
+                'Referer' => 'https://www.policlinico.pa.it/web/guest',
+                'User-Agent' => $userAgent,
+                'Origin' => 'https://www.policlinico.pa.it/web/guest',
+            ],
+            'jobClass' => \App\Jobs\GenericAJaxJob::class,
             'data' => [
                 'policlinico_adulti' => [
                     'id' => 6,
@@ -364,7 +369,7 @@ return [
                     'indirizzo' => 'Via del Vespro, 129 90127 Palermo',
                     'telefono' => '091 6551111',
                     'email' => 'protocollo@cert.policlinico.pa.it ',
-                    'web' => 'https://www.policlinico.pa.it',
+                    'web' => 'https://www.policlinico.pa.it/web/guest',
                     'google_maps' => 'https://www.google.it/maps/place/AZIENDA+OSPEDALIERA+UNIVERSITARIA+POLICLINICO+PAOLO+GIACCONE/@38.1044938,13.3625445,16z/data=!3m1!4b1!4m6!3m5!1s0x1319e587f5bc639f:0xcbac5e0f9d0ba0e4!8m2!3d38.1044938!4d13.3625445!16s%2Fg%2F1tgfsk1z?entry=ttu&g_ep=EgoyMDI0MDgyOC4wIKXMDSoASAFQAw%3D%3D',
                     'coords' => [
                         'lat' => '38.1044938',
@@ -372,96 +377,123 @@ return [
                     ],
                     'data' => [
                         'rosso' => [
-                            'selector' => 'div.psDiv>div:nth-child(13)>span:nth-child(4)>strong>span',
+                            'selector' => 'pazientiInAttesa.rosso',
                             'extra' => [
                                 'in_attesa' => [
                                     'label' => 'Pazienti in attesa',
-                                    'selector' => 'div.psDiv>div:nth-child(13)>span:nth-child(4)>strong>span',
+                                    'selector' => 'pazientiInAttesa.rosso',
                                 ],
                                 'in_trattamento' => [
                                     'label' => 'Pazienti in trattamento',
-                                    'selector' => 'div.psDiv>div:nth-child(5)>span:nth-child(4)>strong>span',
+                                    'selector' => 'pazientiInCarico.rosso',
+                                ],
+                                'carichi_urgenti' => [
+                                    'label' => 'Carichi urgenti',
+                                    'selector' => 'carichiUrgenza.rosso',
+                                ],
+                                'tempo_attesa' => [
+                                    'label' => 'Tempi medi di attesa',
+                                    'selector' => 'tempiMediAttesa.rosso',
                                 ]
                             ]
                         ],
                         'giallo' => [
-                            'selector' => 'div.psDiv>div:nth-child(14)>span:nth-child(4)>strong>span',
+                            'selector' => 'pazientiInAttesa.giallo',
                             'extra' => [
                                 'in_attesa' => [
                                     'label' => 'Pazienti in attesa',
-                                    'selector' => 'div.psDiv>div:nth-child(14)>span:nth-child(4)>strong>span',
+                                    'selector' => 'pazientiInAttesa.giallo',
                                 ],
                                 'in_trattamento' => [
                                     'label' => 'Pazienti in trattamento',
-                                    'selector' => 'div.psDiv>div:nth-child(6)>span:nth-child(4)>strong>span',
+                                    'selector' => 'pazientiInCarico.giallo',
+                                ],
+                                'carichi_urgenti' => [
+                                    'label' => 'Carichi urgenti',
+                                    'selector' => 'carichiUrgenza.giallo',
+                                ],
+                                'tempo_attesa' => [
+                                    'label' => 'Tempi medi di attesa',
+                                    'selector' => 'tempiMediAttesa.giallo',
                                 ]
                             ]
                         ],
                         'verde' => [
-                            'selector' => 'div.psDiv>div:nth-child(15)>span:nth-child(4)>strong>span',
+                            'selector' => 'pazientiInAttesa.verde',
                             'extra' => [
                                 'in_attesa' => [
                                     'label' => 'Pazienti in attesa',
-                                    'selector' => 'div.psDiv>div:nth-child(15)>span:nth-child(4)>strong>span',
+                                    'selector' => 'pazientiInAttesa.verde',
                                 ],
                                 'in_trattamento' => [
                                     'label' => 'Pazienti in trattamento',
-                                    'selector' => 'div.psDiv>div:nth-child(7)>span:nth-child(4)>strong>span',
+                                    'selector' => 'pazientiInCarico.verde',
+                                ],
+                                'carichi_urgenti' => [
+                                    'label' => 'Carichi urgenti',
+                                    'selector' => 'carichiUrgenza.verde',
+                                ],
+                                'tempo_attesa' => [
+                                    'label' => 'Tempi medi di attesa',
+                                    'selector' => 'tempiMediAttesa.verde',
                                 ]
                             ]
                         ],
                         'bianco' => [
-                            'selector' => 'div.psDiv>div:nth-child(16)>span:nth-child(4)>strong>span',
+                            'selector' => 'pazientiInAttesa.bianco',
                             'extra' => [
                                 'in_attesa' => [
                                     'label' => 'Pazienti in attesa',
-                                    'selector' => 'div.psDiv>div:nth-child(16)>span:nth-child(4)>strong>span',
+                                    'selector' => 'pazientiInAttesa.bianco',
                                 ],
                                 'in_trattamento' => [
                                     'label' => 'Pazienti in trattamento',
-                                    'selector' => 'div.psDiv>div:nth-child(8)>span:nth-child(4)>strong>span',
+                                    'selector' => 'pazientiInCarico.bianco',
+                                ],
+                                'carichi_urgenti' => [
+                                    'label' => 'Carichi urgenti',
+                                    'selector' => 'carichiUrgenza.bianco',
+                                ],
+                                'tempo_attesa' => [
+                                    'label' => 'Tempi medi di attesa',
+                                    'selector' => 'tempiMediAttesa.bianco',
                                 ]
                             ]
                         ],
                         'totali' => [
-                            'selector' => 'div.psDiv>p:nth-child(11)>span>strong',
-                            'extra' => [
-                                'in_attesa' => [
-                                    'label' => 'Pazienti in attesa',
-                                    'selector' => 'div.psDiv>p:nth-child(11)>span>strong',
-                                ],
-                                'in_trattamento' => [
-                                    'label' => 'Pazienti in trattamento',
-                                    'selector' => 'div.psDiv>p:nth-child(3)>span>strong',
+                            'action' => [
+                                'operation' => 'sum',
+                                'keys' => [
+                                    'in_attesa' => [
+                                        'label' => 'Pazienti in attesa',
+                                        'fields' => [
+                                            'pazientiInAttesa.rosso',
+                                            'pazientiInAttesa.giallo',
+                                            'pazientiInAttesa.verde',
+                                            'pazientiInAttesa.bianco',
+                                        ],
+                                    ],
+                                    'in_trattamento' => [
+                                        'label' => 'Pazienti in trattamento',
+                                        'fields' => [
+                                            'pazientiInCarico.rosso',
+                                            'pazientiInCarico.giallo',
+                                            'pazientiInCarico.verde',
+                                            'pazientiInCarico.bianco',
+                                        ],
+                                    ],
+                                    'carichi_urgenti' => [
+                                        'label' => 'Carichi urgenti',
+                                        'fields' => [
+                                            'carichiUrgenza.rosso',
+                                            'carichiUrgenza.giallo',
+                                            'carichiUrgenza.verde',
+                                            'carichiUrgenza.bianco',
+                                        ],
+                                    ],
                                 ]
-                            ]
-                        ],
-                        'extra' => [
-                            'numero_posti_tecnico' => [
-                                'label' => 'Num. posti tecnici presidiati',
-                                'selector' => 'div.psDiv>p:nth-child(18)>span>span>strong',
                             ],
-                            'indice_sovraffollamento' => [
-                                'label' => 'Indice di sovraffollamento',
-                                'selector' => 'div.psDiv>p:nth-child(18)>span>strong',
-                            ],
-                            'efficienza_operativa' => [
-                                'label' => 'Efficienza operativa standard',
-                                'selector' => 'div.psDiv>p:nth-child(18)>span>span>span>strong',
-                            ],
-                            'permanenza_24' => [
-                                'label' => 'Permanenza entro 24h',
-                                'selector' => 'div.psDiv>p:nth-child(18)>span>span>span>span:nth-child(4)>strong>span',
-                            ],
-                            'permanenza_24_48' => [
-                                'label' => 'Permanenza tra 24h e 48h  4 paz.',
-                                'selector' => 'div.psDiv>p:nth-child(18)>span>span>span>span:nth-child(7)>strong>span',
-                            ],
-                            'permanenza_48' => [
-                                'label' => 'Permanenza oltre 48h  0 paz.',
-                                'selector' => 'div.psDiv>p:nth-child(18)>span>span>span>span:nth-child(10)>strong>span',
-                            ],
-                        ],
+                        ]
                     ]
                 ],
             ]

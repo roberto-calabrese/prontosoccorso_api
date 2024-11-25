@@ -54,6 +54,24 @@ $tableSettings = [
 ];
 
 $dataCommons = [
+    'rosso' => [
+        'selector' => 'table.table>tbody>tr:nth-child($I)>td:nth-child(2)',
+    ],
+    'arancione' => [
+        'selector' => 'table.table>tbody>tr:nth-child($I)>td:nth-child(3)',
+    ],
+    'giallo' => [
+        'selector' => 'table.table>tbody>tr:nth-child($I)>td:nth-child(4)',
+    ],
+    'verde' => [
+        'selector' => 'table.table>tbody>tr:nth-child($I)>td:nth-child(5)',
+    ],
+    'azzurro' => [
+        'selector' => 'table.table>tbody>tr:nth-child($I)>td:nth-child(6)',
+    ],
+    'bianco' => [
+        'selector' => 'table.table>tbody>tr:nth-child($I)>td:nth-child(7)',
+    ],
     'totali' => [
         'action' => [
             'operation' => 'sum',
@@ -91,6 +109,7 @@ return [
                 'Origin' => 'http://www.aspag.it/',
             ],
             'jobClass' => \App\Jobs\GenericScrapeJob::class,
+            'iterateSelector' => '$I',
             'data' => [
                 'ps_agrigento' => [
                     'id' => 1,
@@ -106,27 +125,7 @@ return [
                         'lat' => '37.3520998',
                         'lng' => '13.6077597',
                     ],
-                    'data' => [
-                        'rosso' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(1)>td:nth-child(2)',
-                        ],
-                        'arancione' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(1)>td:nth-child(3)',
-                        ],
-                        'giallo' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(1)>td:nth-child(4)',
-                        ],
-                        'verde' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(1)>td:nth-child(5)',
-                        ],
-                        'azzurro' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(1)>td:nth-child(6)',
-                        ],
-                        'bianco' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(1)>td:nth-child(6)',
-                        ],
-                        'totali' => [...$dataCommons['totali']]
-                    ]
+                    'data' => $dataCommons,
                 ],
                 'ps_canicatti' => [
                     'id' => 1,
@@ -142,28 +141,7 @@ return [
                         'lat' => '37.3526077',
                         'lng' => '13.8342088',
                     ],
-                    'data' => [
-                        'rosso' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(2)>td:nth-child(2)',
-                        ],
-                        'arancione' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(2)>td:nth-child(3)',
-                        ],
-                        'giallo' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(2)>td:nth-child(4)',
-                        ],
-                        'verde' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(2)>td:nth-child(5)',
-                        ],
-                        'azzurro' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(2)>td:nth-child(6)',
-                        ],
-                        'bianco' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(2)>td:nth-child(7)',
-                        ],
-                        'totali' => [...$dataCommons['totali']]
-
-                    ]
+                    'data' => $dataCommons,
                 ],
                 'ps_licata' => [
                     'id' => 1,
@@ -179,27 +157,7 @@ return [
                         'lat' => '37.1071727',
                         'lng' => '13.9246533',
                     ],
-                    'data' => [
-                        'rosso' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(3)>td:nth-child(2)',
-                        ],
-                        'arancione' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(3)>td:nth-child(3)',
-                        ],
-                        'giallo' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(3)>td:nth-child(4)',
-                        ],
-                        'verde' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(3)>td:nth-child(5)',
-                        ],
-                        'azzurro' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(3)>td:nth-child(6)',
-                        ],
-                        'bianco' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(3)>td:nth-child(7)',
-                        ],
-                        'totali' => [...$dataCommons['totali']]
-                    ]
+                    'data' => $dataCommons,
                 ],
                 'ps_ribera' => [
                     'id' => 1,
@@ -215,27 +173,7 @@ return [
                         'lat' => '37.493477',
                         'lng' => '13.265719',
                     ],
-                    'data' => [
-                        'rosso' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(4)>td:nth-child(2)',
-                        ],
-                        'arancione' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(4)>td:nth-child(3)',
-                        ],
-                        'giallo' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(4)>td:nth-child(4)',
-                        ],
-                        'verde' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(4)>td:nth-child(5)',
-                        ],
-                        'azzurro' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(4)>td:nth-child(6)',
-                        ],
-                        'bianco' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(4)>td:nth-child(7)',
-                        ],
-                        'totali' => [...$dataCommons['totali']]
-                    ]
+                    'data' => $dataCommons,
                 ],
                 'ps_sciacca' => [
                     'id' => 1,
@@ -251,27 +189,7 @@ return [
                         'lat' => '37.525705',
                         'lng' => '13.0736286',
                     ],
-                    'data' => [
-                        'rosso' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(5)>td:nth-child(2)',
-                        ],
-                        'arancione' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(5)>td:nth-child(3)',
-                        ],
-                        'giallo' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(5)>td:nth-child(4)',
-                        ],
-                        'verde' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(5)>td:nth-child(5)',
-                        ],
-                        'azzurro' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(5)>td:nth-child(6)',
-                        ],
-                        'bianco' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(5)>td:nth-child(7)',
-                        ],
-                        'totali' => [...$dataCommons['totali']]
-                    ]
+                    'data' => $dataCommons,
                 ],
             ]
         ],
