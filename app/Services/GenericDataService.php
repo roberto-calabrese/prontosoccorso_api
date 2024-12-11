@@ -30,7 +30,7 @@ class GenericDataService
 
     private function loadOspedaliData(string $ospedale): void
     {
-        $configKey = $this->configKey.".ospedali.".$ospedale;
+        $configKey = $this->configKey . ".ospedali." . $ospedale;
 
         $ospedaleConfig = config($configKey);
 
@@ -53,7 +53,7 @@ class GenericDataService
         }
     }
 
-    public function getWebSocketConfig (): array
+    public function getWebSocketConfig(): array
     {
         return [
             'active' => $this->activeWebsocket(),
@@ -67,7 +67,7 @@ class GenericDataService
         return config('queue.default') === 'redis' && config("$this->configKey.websocket.active") ? config("$this->configKey.websocket") : [];
     }
 
-protected function getJobResult($job, array $config = []) : array
+    protected function getJobResult($job, array $config = []): array
     {
         if ($this->activeWebsocket()) {
             $job::dispatch($this->activeWebsocket(), $config);

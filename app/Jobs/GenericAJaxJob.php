@@ -109,7 +109,6 @@ class GenericAJaxJob implements ShouldQueue
                         }, array_keys($totali), $totali),
                     ];
                 }
-
             }
 
             if ($this->websocket) {

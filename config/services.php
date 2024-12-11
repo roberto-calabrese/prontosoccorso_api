@@ -60,4 +60,10 @@ return [
             'vicenza' => \App\Services\GenericDataService::class,
         ],
     ],
+    'piemonte' => [
+        'provincie' => [
+            'vercelli' => \App\Services\GenericDataService::class,
+            'torino' => \App\Services\GenericDataService::class,
+        ]
+    ]
 ];

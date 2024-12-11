@@ -29,6 +29,7 @@ class ApiProvinciaController extends Controller
 
             $data = $provinciaService->getData(array_keys($configProvincia['ospedali']), $configKey);
 
+
             $new_data = [];
             foreach ($data as $key => $item) {
                 $new_data[] = [
