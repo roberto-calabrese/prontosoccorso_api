@@ -296,5 +296,117 @@ return [
                 ]
             ]
         ],
+        'torinoMauriziano' => [
+            'cache' => [
+                'key' => 'piemonte.torino.mauriziano',
+                'ttlMinute' => 1
+            ],
+            'url' => 'https://www.mauriziano.it/i-nostri-servizi/pazienti-in-attesa-presso-pronto-soccorso',
+            'headers' => [
+                'Referer' => 'https://www.mauriziano.it/',
+                'User-Agent' => $userAgent,
+                'Origin' => 'https://www.mauriziano.it/'
+            ],
+            'jobClass' => \App\Jobs\GenericScrapeJob::class,
+            'data' => [
+                'mauriziano' => [
+                    'id' => 11,
+                    'nome' => 'Torino - Ospedale Mauriziano Umberto Pronto Soccorso',
+                    'descrizione' => 'Ospedale Mauriziano Umberto I',
+                    'adulti' => true,
+                    'indirizzo' => ' Corso Carlo e Nello Rosselli, 2, 10128 Torino TO',
+                    'telefono' => '011 508 2370',
+                    'email' => '',
+                    'web' => 'https://www.mauriziano.it/i-nostri-servizi/pazienti-in-attesa-presso-pronto-soccorso',
+                    'google_maps' => 'https://www.google.it/maps/place/Ospedale+Mauriziano+Umberto+Pronto+Soccorso/@45.050979,7.6651525,1369m/data=!3m2!1e3!4b1!4m6!3m5!1s0x47886d374ab5dfef:0xbe88fc05f4c1c061!8m2!3d45.050979!4d7.6651525!16s%2Fg%2F11c1gbrzzw?entry=ttu&g_ep=EgoyMDI0MTIwOC4wIKXMDSoASAFQAw%3D%3D',
+                    'coords' => [
+                        'lat' => '45.050979',
+                        'lng' => '7.6651525',
+                    ],
+                    'data' => [
+                        'rosso' => [
+                            'selector' => 'table#TableTempiAttesaProntoSoccorso>tbody>tr:nth-child(1)>td:nth-child(2)',
+                            'extra' => [
+                                'in_attesa' => [
+                                    'label' => 'Pazienti in attesa',
+                                    'selector' => 'table#TableTempiAttesaProntoSoccorso>tbody>tr:nth-child(1)>td:nth-child(2)',
+                                ],
+                                'in_trattamento' => [
+                                    'label' => 'Pazienti in trattamento',
+                                    'selector' => 'table#TableTempiAttesaProntoSoccorso>tbody>tr:nth-child(1)>td:nth-child(3)',
+                                ],
+                            ]
+                        ],
+                        'arancione' => [
+                            'selector' => 'table#TableTempiAttesaProntoSoccorso>tbody>tr:nth-child(2)>td:nth-child(2)',
+                            'extra' => [
+                                'in_attesa' => [
+                                    'label' => 'Pazienti in attesa',
+                                    'selector' => 'table#TableTempiAttesaProntoSoccorso>tbody>tr:nth-child(2)>td:nth-child(2)',
+                                ],
+                                'in_trattamento' => [
+                                    'label' => 'Pazienti in trattamento',
+                                    'selector' => 'table#TableTempiAttesaProntoSoccorso>tbody>tr:nth-child(2)>td:nth-child(3)',
+                                ],
+                            ]
+                        ],
+                        'azzurro' => [
+                            'selector' => 'table#TableTempiAttesaProntoSoccorso>tbody>tr:nth-child(3)>td:nth-child(2)',
+                            'extra' => [
+                                'in_attesa' => [
+                                    'label' => 'Pazienti in attesa',
+                                    'selector' => 'table#TableTempiAttesaProntoSoccorso>tbody>tr:nth-child(3)>td:nth-child(2)',
+                                ],
+                                'in_trattamento' => [
+                                    'label' => 'Pazienti in trattamento',
+                                    'selector' => 'table#TableTempiAttesaProntoSoccorso>tbody>tr:nth-child(3)>td:nth-child(3)',
+                                ],
+                            ]
+                        ],
+                        'verde' => [
+                            'selector' => 'table#TableTempiAttesaProntoSoccorso>tbody>tr:nth-child(4)>td:nth-child(2)',
+                            'extra' => [
+                                'in_attesa' => [
+                                    'label' => 'Pazienti in attesa',
+                                    'selector' => 'table#TableTempiAttesaProntoSoccorso>tbody>tr:nth-child(4)>td:nth-child(2)',
+                                ],
+                                'in_trattamento' => [
+                                    'label' => 'Pazienti in trattamento',
+                                    'selector' => 'table#TableTempiAttesaProntoSoccorso>tbody>tr:nth-child(4)>td:nth-child(3)',
+                                ],
+                            ]
+                        ],
+                        'bianco' => [
+                            'selector' => 'table#TableTempiAttesaProntoSoccorso>tbody>tr:nth-child(5)>td:nth-child(2)',
+                            'extra' => [
+                                'in_attesa' => [
+                                    'label' => 'Pazienti in attesa',
+                                    'selector' => 'table#TableTempiAttesaProntoSoccorso>tbody>tr:nth-child(5)>td:nth-child(2)',
+                                ],
+                                'in_trattamento' => [
+                                    'label' => 'Pazienti in trattamento',
+                                    'selector' => 'table#TableTempiAttesaProntoSoccorso>tbody>tr:nth-child(5)>td:nth-child(3)',
+                                ],
+                            ]
+                        ],
+                        'totali' => [
+                            'action' => [
+                                'operation' => 'sum',
+                                'keys' => [
+                                    'in_attesa' => [
+                                        'label' => 'Pazienti in attesa',
+                                        'value' => null
+                                    ],
+                                    'in_trattamento' => [
+                                        'label' => 'Pazienti in trattamento',
+                                        'value' => null
+                                    ],
+                                ]
+                            ],
+                        ],
+                    ]
+                ]
+            ]
+        ],
     ]
 ];
