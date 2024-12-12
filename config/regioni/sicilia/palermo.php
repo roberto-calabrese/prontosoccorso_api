@@ -21,9 +21,19 @@ $tableSettings = [
             'key' => 'data.data.rosso.value'
         ],
         [
+            'title' => 'Arancione in attesa',
+            'align' => 'end',
+            'key' => 'data.data.arancione.value'
+        ],
+        [
             'title' => 'Giallo in attesa',
             'align' => 'end',
             'key' => 'data.data.giallo.value'
+        ],
+        [
+            'title' => 'Azzurro in attesa',
+            'align' => 'end',
+            'key' => 'data.data.azzurro.value'
         ],
         [
             'title' => 'Verde in attesa',
@@ -377,86 +387,107 @@ return [
                     ],
                     'data' => [
                         'rosso' => [
-                            'selector' => 'pazientiInAttesa.rosso',
+                            'selector' => 'pazientiInAttesa.Rosso (1)',
                             'extra' => [
                                 'in_attesa' => [
                                     'label' => 'Pazienti in attesa',
-                                    'selector' => 'pazientiInAttesa.rosso',
+                                    'selector' => 'pazientiInAttesa.Rosso (1)',
                                 ],
                                 'in_trattamento' => [
                                     'label' => 'Pazienti in trattamento',
-                                    'selector' => 'pazientiInCarico.rosso',
+                                    'selector' => 'pazientiInCarico.Rosso (1)',
                                 ],
                                 'carichi_urgenti' => [
                                     'label' => 'Carichi urgenti',
-                                    'selector' => 'carichiUrgenza.rosso',
+                                    'selector' => 'carichiUrgenza.Rosso (1)',
                                 ],
                                 'tempo_attesa' => [
                                     'label' => 'Tempi medi di attesa',
-                                    'selector' => 'tempiMediAttesa.rosso',
+                                    'selector' => 'tempiMediAttesa.Rosso (1)',
                                 ]
                             ]
                         ],
-                        'giallo' => [
-                            'selector' => 'pazientiInAttesa.giallo',
+                        'arancione' => [
+                            'selector' => 'pazientiInAttesa.Arancione (2)',
                             'extra' => [
                                 'in_attesa' => [
                                     'label' => 'Pazienti in attesa',
-                                    'selector' => 'pazientiInAttesa.giallo',
+                                    'selector' => 'pazientiInAttesa.Arancione (2)',
                                 ],
                                 'in_trattamento' => [
                                     'label' => 'Pazienti in trattamento',
-                                    'selector' => 'pazientiInCarico.giallo',
+                                    'selector' => 'pazientiInCarico.Arancione (2)',
                                 ],
                                 'carichi_urgenti' => [
                                     'label' => 'Carichi urgenti',
-                                    'selector' => 'carichiUrgenza.giallo',
+                                    'selector' => 'carichiUrgenza.Arancione (2)',
                                 ],
                                 'tempo_attesa' => [
                                     'label' => 'Tempi medi di attesa',
-                                    'selector' => 'tempiMediAttesa.giallo',
+                                    'selector' => 'tempiMediAttesa.Arancione (2)',
+                                ]
+                            ]
+                        ],
+                        'azzurro' => [
+                            'selector' => 'pazientiInAttesa.Azzurro (3)',
+                            'extra' => [
+                                'in_attesa' => [
+                                    'label' => 'Pazienti in attesa',
+                                    'selector' => 'pazientiInAttesa.Azzurro (3)',
+                                ],
+                                'in_trattamento' => [
+                                    'label' => 'Pazienti in trattamento',
+                                    'selector' => 'pazientiInCarico.Azzurro (3)',
+                                ],
+                                'carichi_urgenti' => [
+                                    'label' => 'Carichi urgenti',
+                                    'selector' => 'carichiUrgenza.Azzurro (3)',
+                                ],
+                                'tempo_attesa' => [
+                                    'label' => 'Tempi medi di attesa',
+                                    'selector' => 'tempiMediAttesa.Azzurro (3)',
                                 ]
                             ]
                         ],
                         'verde' => [
-                            'selector' => 'pazientiInAttesa.verde',
+                            'selector' => 'pazientiInAttesa.Verde (4)',
                             'extra' => [
                                 'in_attesa' => [
                                     'label' => 'Pazienti in attesa',
-                                    'selector' => 'pazientiInAttesa.verde',
+                                    'selector' => 'pazientiInAttesa.Verde (4)',
                                 ],
                                 'in_trattamento' => [
                                     'label' => 'Pazienti in trattamento',
-                                    'selector' => 'pazientiInCarico.verde',
+                                    'selector' => 'pazientiInCarico.Verde (4)',
                                 ],
                                 'carichi_urgenti' => [
                                     'label' => 'Carichi urgenti',
-                                    'selector' => 'carichiUrgenza.verde',
+                                    'selector' => 'carichiUrgenza.Verde (4)',
                                 ],
                                 'tempo_attesa' => [
                                     'label' => 'Tempi medi di attesa',
-                                    'selector' => 'tempiMediAttesa.verde',
+                                    'selector' => 'tempiMediAttesa.Verde (4)',
                                 ]
                             ]
                         ],
                         'bianco' => [
-                            'selector' => 'pazientiInAttesa.bianco',
+                            'selector' => 'pazientiInAttesa.Bianco (5)',
                             'extra' => [
                                 'in_attesa' => [
                                     'label' => 'Pazienti in attesa',
-                                    'selector' => 'pazientiInAttesa.bianco',
+                                    'selector' => 'pazientiInAttesa.Bianco (5)',
                                 ],
                                 'in_trattamento' => [
                                     'label' => 'Pazienti in trattamento',
-                                    'selector' => 'pazientiInCarico.bianco',
+                                    'selector' => 'pazientiInCarico.Bianco (5)',
                                 ],
                                 'carichi_urgenti' => [
                                     'label' => 'Carichi urgenti',
-                                    'selector' => 'carichiUrgenza.bianco',
+                                    'selector' => 'carichiUrgenza.Bianco (5)',
                                 ],
                                 'tempo_attesa' => [
                                     'label' => 'Tempi medi di attesa',
-                                    'selector' => 'tempiMediAttesa.bianco',
+                                    'selector' => 'tempiMediAttesa.Bianco (5)',
                                 ]
                             ]
                         ],
@@ -467,28 +498,31 @@ return [
                                     'in_attesa' => [
                                         'label' => 'Pazienti in attesa',
                                         'fields' => [
-                                            'pazientiInAttesa.rosso',
-                                            'pazientiInAttesa.giallo',
-                                            'pazientiInAttesa.verde',
-                                            'pazientiInAttesa.bianco',
+                                            'pazientiInAttesa.Rosso (1)',
+                                            'pazientiInAttesa.Arancione (2)',
+                                            'pazientiInAttesa.Azzurro (3)',
+                                            'pazientiInAttesa.Verde (4)',
+                                            'pazientiInAttesa.Bianco (5)',
                                         ],
                                     ],
                                     'in_trattamento' => [
                                         'label' => 'Pazienti in trattamento',
                                         'fields' => [
-                                            'pazientiInCarico.rosso',
-                                            'pazientiInCarico.giallo',
-                                            'pazientiInCarico.verde',
-                                            'pazientiInCarico.bianco',
+                                            'pazientiInCarico.Rosso (1)',
+                                            'pazientiInCarico.Arancione (2)',
+                                            'pazientiInCarico.Azzurro (3)',
+                                            'pazientiInCarico.Verde (4)',
+                                            'pazientiInCarico.Bianco (5)',
                                         ],
                                     ],
                                     'carichi_urgenti' => [
                                         'label' => 'Carichi urgenti',
                                         'fields' => [
-                                            'carichiUrgenza.rosso',
-                                            'carichiUrgenza.giallo',
-                                            'carichiUrgenza.verde',
-                                            'carichiUrgenza.bianco',
+                                            'carichiUrgenza.Rosso (1)',
+                                            'carichiUrgenza.Arancione (2)',
+                                            'carichiUrgenza.Azzurro (3)',
+                                            'carichiUrgenza.Verde (4)',
+                                            'carichiUrgenza.Bianco (5)',
                                         ],
                                     ],
                                 ]
