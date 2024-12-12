@@ -43,7 +43,7 @@ class UpdateApplicationCommand extends Command
 
         $sitemap = 'sitemap.xml';
         $sourcePath = public_path($sitemap);
-        $destinationPath = env('PATH_PS_LIVE_CLIENT', null) . $sitemap;
+        $destinationPath = env('DEST_PATH_PS_LIVE_CLIENT', null) . $sitemap;
 
         if ($destinationPath) {
             $this->info("Copiando file da $sourcePath a $destinationPath...");
