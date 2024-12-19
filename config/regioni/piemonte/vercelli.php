@@ -105,7 +105,7 @@ return [
             'jobClass' => \App\Jobs\Piemonte\AslvcAJaxJob::class,
             'data' => [
                 'borgosesiaAsl' => [
-                    'id' => 1,
+                    'id' => 2,
                     'nome' => 'Borgosesia - Presidio Ospedaliero S.S. Pietro e Paolo',
                     'descrizione' => 'Presidio Ospedaliero S.S. Pietro e Paolo, Pronto Soccorso',
                     'adulti' => true,

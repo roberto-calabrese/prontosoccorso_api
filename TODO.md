@@ -19,7 +19,7 @@
 https://indicatori.uslsudest.toscana.it/presenze-pronto-soccorso/
 
 ### Vari 
-https://www.uslcentro.toscana.it/psstat/pronto-soccorso-pa.php
+[] https://www.uslcentro.toscana.it/psstat/pronto-soccorso-pa.php
 
 -------------------
 

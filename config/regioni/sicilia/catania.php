@@ -147,7 +147,7 @@ return [
                     ]
                 ],
                 'policlinicoSanMarco' => [
-                    'id' => 1,
+                    'id' => 2,
                     'nome' => 'AOU Policlinico S. Marco Catania - Pronto soccorso generale',
                     'descrizione' => 'AOU Policlinico S. Marco Catania - Pronto soccorso generale',
                     'adulti' => true,

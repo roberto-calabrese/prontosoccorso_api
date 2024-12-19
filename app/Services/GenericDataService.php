@@ -25,6 +25,7 @@ class GenericDataService
             $this->loadOspedaliData($ospedale);
         }
 
+
         return $this->ospedaliData;
     }
 
@@ -37,6 +38,7 @@ class GenericDataService
         $data = Cache::get($ospedaleConfig['cache']['key']);
 
         foreach ($ospedaleConfig['data'] as $key => $value) {
+            unset($value['replaceSearch'], $value['replaceTo']);
             $value['data'] = $data[$key] ?? [];
             $this->ospedaliData[$key] = $value;
         }

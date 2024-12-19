@@ -69,11 +69,14 @@ class GenericScrapeJob implements ShouldQueue
 
                     if ($key !== 'extra') {
                         $value['selector'] = str_replace($this->config['iterateSelector'] ?? '', $numberIteration, $value['selector']);
+                        $value['selector'] = $this->replaceSelector($value['selector'], $ospedale);
+
                         $iterValue = preg_replace("/[^0-9]/", "", implode('', $crawler->filter($value['selector'])->extract(['_text'])));
                         $ospedali[$keyH]['data'][$key]['value'] = $iterValue === "" ? "?" : $iterValue;
                         if (isset($value['extra']) && is_array($value['extra'])) {
                             foreach ($value['extra'] as $extra_k => $extra_v) {
                                 $extra_v['selector'] = str_replace($this->config['iterateSelector'] ?? '', $numberIteration, $extra_v['selector']);
+                                $extra_v['selector'] = $this->replaceSelector($extra_v['selector'], $ospedale);
                                 $extra_v['value'] = isset($extra_v['is_string'])
                                     ?  implode('', $crawler->filter($extra_v['selector'])->extract(['_text']))
                                     : (int)preg_replace("/[^0-9]/", "", implode('', $crawler->filter($extra_v['selector'])->extract(['_text'])));
@@ -87,6 +90,7 @@ class GenericScrapeJob implements ShouldQueue
                     } else {
                         foreach ($value as $extraK => $extraV) {
                             $extraV['selector'] = str_replace($this->config['iterateSelector'] ?? '', $numberIteration, $extraV['selector']);
+                            $extraV['selector'] = $this->replaceSelector($extraV['selector'], $ospedale);
                             $ospedali[$keyH]['data'][$key][$extraK] = $ospedale['data'][$key][$extraK];
                             $cleanedValue = implode('', $crawler->filter($extraV['selector'])->extract(['_text']));
                             $ospedali[$keyH]['data'][$key][$extraK]['value'] = ($extraK === 'indice_sovraffollamento') ? (int)preg_replace('/[^0-9.]/', '', $cleanedValue) : $cleanedValue;
@@ -113,7 +117,6 @@ class GenericScrapeJob implements ShouldQueue
                 }
 
             }
-
 
             if ($this->websocket) {
                 event(new PusherEvent($ospedali, [
@@ -148,6 +151,18 @@ class GenericScrapeJob implements ShouldQueue
         }
 
         return $totals;
+    }
+
+    private function replaceSelector($selector, $ospedale): string|null
+    {
+        if (isset($ospedale['replaceSearch'], $ospedale['replaceTo']) && preg_match($ospedale['replaceSearch'], $selector)) {
+            $index = 0;
+            return preg_replace_callback($ospedale['replaceSearch'], static function() use (&$index, $ospedale) {
+                return $ospedale['replaceTo'][$index++];
+            }, $selector);
+        }
+
+        return $selector;
     }
 
 }

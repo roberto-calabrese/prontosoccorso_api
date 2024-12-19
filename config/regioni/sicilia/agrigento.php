@@ -128,7 +128,7 @@ return [
                     'data' => $dataCommons,
                 ],
                 'ps_canicatti' => [
-                    'id' => 1,
+                    'id' => 2,
                     'nome' => 'Canicattì - Ospedale Barone Lombardo',
                     'descrizione' => 'Ospedale Canicattì - Il Pronto soccorso si trova al Piano 0 ed è aperto 24h da Lunedì a Domenica.',
                     'adulti' => true,
@@ -144,7 +144,7 @@ return [
                     'data' => $dataCommons,
                 ],
                 'ps_licata' => [
-                    'id' => 1,
+                    'id' => 3,
                     'nome' => 'Licata - Ospedale San Giacomo d\'Altopasso',
                     'descrizione' => 'Prestazioni assicurate Triage principali prestazioni Visite, emergenze e urgenze Stabilizzazione Osservazione breve del Paziente Branche specialistiche: Traumatologia, Cardiologia, Medicina, Psichiatria, Pediatria, Chirurgia, Chirurgia vascolare, ORL Dal 1 gennaio 2010, 4 posti letto consentono le attività di stabilizzazione del paziente attraverso l’osservazione continua.',
                     'adulti' => true,
@@ -160,7 +160,7 @@ return [
                     'data' => $dataCommons,
                 ],
                 'ps_ribera' => [
-                    'id' => 1,
+                    'id' => 4,
                     'nome' => 'Ribera - Ospedale Fratelli Parlapiano',
                     'descrizione' => 'Ospedale Ribera',
                     'adulti' => true,
@@ -176,7 +176,7 @@ return [
                     'data' => $dataCommons,
                 ],
                 'ps_sciacca' => [
-                    'id' => 1,
+                    'id' => 5,
                     'nome' => 'Sciacca - Ospedale Giovanni Paolo II',
                     'descrizione' => 'Orari di accesso: Da Lunedì a Domenica h24 Al pronto soccorso si può accedere direttamente, su richiesta del medico di famiglia o di continuità assistenziale, o tramite ambulanza inviata dalla centrale operativa del 118',
                     'adulti' => true,

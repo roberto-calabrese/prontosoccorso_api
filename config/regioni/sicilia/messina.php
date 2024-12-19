@@ -158,7 +158,7 @@ return [
                     'data' => $dataCommons,
                 ],
                 'lipari' => [
-                    'id' => 1,
+                    'id' => 2,
                     'nome' => 'Lipari - Ospedaliero Civile',
                     'descrizione' => 'Presidio Ospedaliero Civile - Lipari',
                     'adulti' => true,
@@ -174,7 +174,7 @@ return [
                     'data' => $dataCommons,
                 ],
                 'milazzo' => [
-                    'id' => 1,
+                    'id' => 3,
                     'nome' => 'Milazzo - Presidio Ospedaliero "Giuseppe Fogliani"',
                     'descrizione' => 'Presidio Ospedaliero "Giuseppe Fogliani" - Milazzo',
                     'adulti' => true,
@@ -190,7 +190,7 @@ return [
                     'data' => $dataCommons,
                 ],
                 'taormina' => [
-                    'id' => 1,
+                    'id' => 4,
                     'nome' => 'Taormina - Ospedale "San Vincenzo" Sirina',
                     'descrizione' => 'Ospedale "San Vincenzo" Sirina - Taormina	',
                     'adulti' => true,
@@ -206,7 +206,7 @@ return [
                     'data' => $dataCommons,
                 ],
                 'mistretta' => [
-                    'id' => 1,
+                    'id' => 5,
                     'nome' => 'Mistretta - Presidio Ospedaliero "San Salvatore"',
                     'descrizione' => 'Presidio Ospedaliero "San Salvatore" - Mistretta	',
                     'adulti' => true,
@@ -222,7 +222,7 @@ return [
                     'data' => $dataCommons,
                 ],
                 'patti' => [
-                    'id' => 1,
+                    'id' => 6,
                     'nome' => 'Patti - Presidio Ospedaliero "Barone Romeo"',
                     'descrizione' => 'Presidio Ospedaliero "Barone Romeo" - Patti',
                     'adulti' => true,
@@ -238,7 +238,7 @@ return [
                     'data' => $dataCommons,
                 ],
                 'st_militello' => [
-                    'id' => 1,
+                    'id' => 7,
                     'nome' => 'Sant\'Agata Di Militello - Presidio Ospedaliero Sant\'Agata Militello',
                     'descrizione' => 'Presidio Ospedaliero Sant\'Agata Militello - Sant\'Agata Di Militello',
                     'adulti' => true,

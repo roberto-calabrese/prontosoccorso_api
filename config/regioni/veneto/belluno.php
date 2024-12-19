@@ -189,7 +189,7 @@ return [
                     'data' => $dataCommons,
                 ],
                 'belluno' => [
-                    'id' => 1,
+                    'id' => 2,
                     'nome' => 'Belluno - Ospedale San Martino ',
                     'descrizione' => 'Ospedale San Martino di Belluno, Pronto Soccorso',
                     'adulti' => true,
@@ -205,7 +205,7 @@ return [
                     'data' => $dataCommons,
                 ],
                 'pieve_di_cadore,' => [
-                    'id' => 1,
+                    'id' => 3,
                     'nome' => 'Pieve di Cadore - Presidio Ospedaliero "Giovanni Paolo II"',
                     'descrizione' => 'Presidio Ospedaliero "Giovanni Paolo II" Pronto Soccorso',
                     'adulti' => true,
@@ -221,7 +221,7 @@ return [
                     'data' => $dataCommons,
                 ],
                 'agordo,' => [
-                    'id' => 1,
+                    'id' => 4,
                     'nome' => 'Agordo - ULSS 1 Dolomiti',
                     'descrizione' => 'ULSS 1 Dolomiti - Ospedale di Agordo',
                     'adulti' => true,

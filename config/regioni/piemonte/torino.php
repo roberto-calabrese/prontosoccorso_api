@@ -186,7 +186,7 @@ return [
             'jobClass' => \App\Jobs\Piemonte\CittaDellaSaluteAJaxJob::class,
             'data' => [
                 'molinette' => [
-                    'id' => 1,
+                    'id' => 2,
                     'nome' => 'Torino - Pronto Soccorso Molinette',
                     'descrizione' => 'Azienda Ospedaliero-Universitaria Città della Salute e della Scienza di Torino',
                     'adulti' => true,
@@ -217,7 +217,7 @@ return [
             'jobClass' => \App\Jobs\Piemonte\CittaDellaSaluteAJaxJob::class,
             'data' => [
                 'cto' => [
-                    'id' => 2,
+                    'id' => 3,
                     'nome' => 'Torino - Presidio Ospedaliero CTO Pronto Soccorso',
                     'descrizione' => 'C.T.O. Centro Traumatologico Ortopedico',
                     'adulti' => true,
@@ -248,7 +248,7 @@ return [
             'jobClass' => \App\Jobs\Piemonte\CittaDellaSaluteAJaxJob::class,
             'data' => [
                 'st_anna' => [
-                    'id' => 2,
+                    'id' => 4,
                     'nome' => 'Torino - Ospedale Sant\'anna',
                     'descrizione' => 'Ospedale Ostetrico Ginecologico Sant\'Anna',
                     'adulti' => true,
@@ -279,7 +279,7 @@ return [
             'jobClass' => \App\Jobs\Piemonte\CittaDellaSaluteAJaxJob::class,
             'data' => [
                 'st_anna' => [
-                    'id' => 10,
+                    'id' => 5,
                     'nome' => 'Torino - Ospedale Regina Margherita',
                     'descrizione' => 'L\'ospedale infantile Regina Margherita di Torino, con l\'ospedale ostetrico-ginecologico Sant\'Anna, costituisce un presidio ospedaliero di rilievo nazionale ad alta specializzazione materno-infantile. Fa parte dell\'AOU Città della Salute e della Scienza.',
                     'adulti' => true,
@@ -310,7 +310,7 @@ return [
             'jobClass' => \App\Jobs\GenericScrapeJob::class,
             'data' => [
                 'mauriziano' => [
-                    'id' => 11,
+                    'id' => 6,
                     'nome' => 'Torino - Ospedale Mauriziano Umberto Pronto Soccorso',
                     'descrizione' => 'Ospedale Mauriziano Umberto I',
                     'adulti' => true,
