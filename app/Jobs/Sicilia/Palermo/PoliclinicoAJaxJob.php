@@ -176,15 +176,11 @@ class PoliclinicoAJaxJob implements ShouldQueue
 
     private function calcolaIndiceSovraffollamento($dati): float
     {
-
         $permanenza24H = (int)$this->filterNumber($dati['permanenza24H']);
         $permanenza2448H = (int)$this->filterNumber($dati['permanenza2448H']);
         $permanenzaOltre24H = (int)$this->filterNumber($dati['permanenzaOltre24H']);
         $postiTecniciPresidiati = (int)$this->filterNumber($dati['postiTecniciPresidiati']);
-        $efficienzaOperativaStandard = $dati['efficienzaOperativaStandard'];
 
-
-        // Pazienti totali
         $pazientiTotali = $permanenza24H + $permanenza2448H + $permanenzaOltre24H;
 
         $indiceSovraffollamento = ($pazientiTotali / $postiTecniciPresidiati) * 100;

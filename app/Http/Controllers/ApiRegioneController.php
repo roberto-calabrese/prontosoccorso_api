@@ -22,22 +22,28 @@ class ApiRegioneController extends Controller
             }
 
             $regioneData = $regioni[$regione];
+            $numeroOspedaliTotali = 0;
 
-            $result = array_map(static function ($provincia) {
+            $result = array_map(static function ($provincia) use (&$numeroOspedaliTotali) {
                 $numeroOspedali = array_sum(array_map(static function ($ospedali) {
                     return count($ospedali['data']);
                 }, $provincia['ospedali']));
+
+                $numeroOspedaliTotali += $numeroOspedali;
 
                 return [
                     'numero_ospedali' => $numeroOspedali,
                     'meta' => $provincia['meta']
                 ];
+
+
             }, $regioneData);
 
             return response()->json([
                 'status' => true,
                 'regione' => $regione,
                 'provincie' => $result,
+                'ospedaliTotali' => $numeroOspedaliTotali,
             ]);
 
 

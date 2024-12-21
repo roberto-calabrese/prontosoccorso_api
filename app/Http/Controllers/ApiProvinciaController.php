@@ -29,7 +29,6 @@ class ApiProvinciaController extends Controller
 
             $data = $provinciaService->getData(array_keys($configProvincia['ospedali']), $configKey);
 
-
             $new_data = [];
             foreach ($data as $key => $item) {
                 $new_data[] = [
@@ -43,6 +42,7 @@ class ApiProvinciaController extends Controller
                 'websocket' => $provinciaService->getWebSocketConfig(),
                 'data' => $new_data,
                 'tableSettings' => $configProvincia['tableSettings'],
+                'ospedaliTotali' => count($data),
                 'meta' => $configProvincia['meta']
             ]);
 
