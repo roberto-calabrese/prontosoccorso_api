@@ -364,12 +364,13 @@ return [
                 'ttlMinute' => 1
             ],
              'url' => 'https://www.policlinico.pa.it/o/PoliclinicoPaRestBuilder/v1.0/ProntoSoccorso',
+             'url_indici' => 'https://www.policlinico.pa.it/o/PoliclinicoPaRestBuilder/v1.0/ProntoSoccorsoIndici',
             'headers' => [
                 'Referer' => 'https://www.policlinico.pa.it/web/guest',
                 'User-Agent' => $userAgent,
                 'Origin' => 'https://www.policlinico.pa.it/web/guest',
             ],
-            'jobClass' => \App\Jobs\GenericAJaxJob::class,
+            'jobClass' => \App\Jobs\Sicilia\Palermo\PoliclinicoAJaxJob::class,
             'data' => [
                 'policlinico_adulti' => [
                     'id' => 6,
