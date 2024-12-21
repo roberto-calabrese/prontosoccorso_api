@@ -46,8 +46,7 @@ class ApiSettingsController extends Controller
             ]);
 
         } catch (Exception $e) {
-            // Log dell'errore
-            \Log::error('Error in ApiInitController: ' . $e->getMessage() . ' - line: ' . $e->getLine());
+            \Log::error('Error in : '.self::class .' - '. $e->getMessage() . ' - line: ' . $e->getLine());
 
             return response()->json([
                 'status' => false,
