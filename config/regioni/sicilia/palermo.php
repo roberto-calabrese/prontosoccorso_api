@@ -718,7 +718,7 @@ return [
                 ],
                 'corleone_ps' => [
                     'id' => 9,
-                    'nome' => 'Corleone - Ospedale dei Bianchi',
+                    'nome' => 'Corleone - dei Bianchi',
                     'descrizione' => 'PRONTO SOCCORSO - P.O. "DEI BIANCHI" DI CORLEONE',
                     'adulti' => true,
                     'indirizzo' => 'Via Don Giovanni Colletto, 90034 Corleone PA',
@@ -736,7 +736,7 @@ return [
                 ],
                 'petraliasottana_ps' => [
                     'id' => 10,
-                    'nome' => 'Petralia Sottana - Ospedale Madonna SS.ma Dell\'Alto',
+                    'nome' => 'Petralia Sottana - Madonna SS.ma Dell\'Alto',
                     'descrizione' => 'Ospedale Madonna SS.ma Dell\'Alto',
                     'adulti' => true,
                     'indirizzo' => 'Via Esterna Sant\'Elia, 90027 Petralia Sottana PA',
@@ -754,7 +754,7 @@ return [
                 ],
                 'terminiimerese_ps' => [
                     'id' => 11,
-                    'nome' => 'Termini Imerese - Presidio Ospedalierio Salvatore Cimino',
+                    'nome' => 'Termini Imerese - Salvatore Cimino',
                     'descrizione' => 'Presidio Ospedalierio Salvatore Cimino Pronto Soccorso',
                     'adulti' => true,
                     'indirizzo' => 'Via Salvatore Cimino, 2, 90141 Termini Imerese PA',
