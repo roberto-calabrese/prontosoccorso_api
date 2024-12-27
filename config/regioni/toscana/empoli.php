@@ -50,19 +50,19 @@ $tableSettings = [
 
 return [
     'meta' => [
-        'slug' => 'firenze',
-        'Titolo' => 'Firenze'
+        'slug' => 'empoli',
+        'Titolo' => 'Empoli'
     ],
     'websocket' => [
         'active' => true,
-        'channel' => 'toscana.firenze',
+        'channel' => 'toscana.empoli',
         'event' => 'data'
     ],
     'tableSettings' => $tableSettings,
     'ospedali' => [
-        'firenzeUslCentro' => [
+        'empoliUslCentro' => [
             'cache' => [
-                'key' => 'toscana.firenze.uslCentro',
+                'key' => 'toscana.empoli.uslCentro',
                 'ttlMinute' => 1
             ],
             'url' => 'https://www.uslcentro.toscana.it/psstat/pronto-soccorso-pa.php',
@@ -73,42 +73,22 @@ return [
             ],
             'jobClass' => \App\Jobs\Toscana\UslCentroScrapeJob::class,
             'data' => [
-                'sanGiovanniDiDio' => [
+                'sanGiuseppeEmpoli' => [
                     'id' => 1,
-                    'nome' => 'Firenze - Ospedale San Giovanni di Dio Pronto Soccorso',
-                    'descrizione' => 'Si trova presso: Ospedale San Giovanni di Dio - Torregalli',
+                    'nome' => 'Empoli - Ospedale San Giuseppe',
+                    'descrizione' => 'Si trova presso: Ospedale San Giuseppe',
                     'adulti' => true,
-                    'indirizzo' => 'Via Torregalli, 3, 50143 Firenze FI',
-                    'telefono' => '055 69321',
+                    'indirizzo' => 'Viale Giovanni Boccaccio, 16/20, 50053 Empoli FI',
+                    'telefono' => '0571 7051',
                     'email' => '',
                     'web' => 'https://www.uslcentro.toscana.it/psstat/pronto-soccorso-pa.php',
-                    'google_maps' => 'https://www.google.it/maps/place/Ospedale+San+Giovanni+di+Dio+Pronto+Soccorso/@43.7574418,11.2034533,700m/data=!3m2!1e3!4b1!4m6!3m5!1s0x132a50dece1ecd95:0x20923eab24fe05e3!8m2!3d43.7574418!4d11.2034533!16s%2Fg%2F11f25snn__?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D',
+                    'google_maps' => 'https://www.google.it/maps/place/Ospedale+S.Giuseppe+Pronto+Soccorso/@43.7215166,10.9348309,1400m/data=!3m2!1e3!4b1!4m6!3m5!1s0x132a68806d7fe49f:0x49fc60aa7649cb6a!8m2!3d43.7215166!4d10.9348309!16s%2Fg%2F11f1zlf150?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D',
                     'coords' => [
-                        'lat' => '43.7574418',
-                        'lng' => '11.2034533',
+                        'lat' => '43.7215166',
+                        'lng' => '10.9348309',
                     ],
                     'data' => [
-                        'name' => 'Ospedale San Giovanni di Dio - Firenze'
-                    ],
-                ],
-                'StMariaNuova' => [
-                    'id' => 2,
-                    'nome' => 'Firenze - Ospedale Santa Maria Nuova Pronto Soccorso',
-                    'descrizione' => 'Ospedale Santa Maria Nuova Pronto Soccorso',
-                    'adulti' => true,
-                    'indirizzo' => 'Via Torregalli, 3, 50143 Firenze FI',
-                    'telefono' => '055 693111',
-                    'email' => '',
-                    'web' => 'https://www.uslcentro.toscana.it/psstat/pronto-soccorso-pa.php',
-                    'google_maps' => 'https://www.google.it/maps/place/Ospedale+Santa+Maria+Nuova+Pronto+Soccorso/@43.7734519,11.259605,1399m/data=!3m2!1e3!4b1!4m6!3m5!1s0x132a5403d376289f:0x21708120bed83250!8m2!3d43.7734519!4d11.259605!16s%2Fg%2F12hlqnqq8?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D',
-                    'coords' => [
-                        'lat' => '43.7734519',
-                        'lng' => '11.259605',
-                    ],
-                    'replaceSearch' => '/\#R/',
-                    'replaceTo' => [14],
-                    'data' => [
-                        'name' => 'Ospedale Santa Maria Nuova - Firenze'
+                        'name' => 'Ospedale San Giuseppe - Empoli'
                     ],
                 ],
             ]

@@ -67,9 +67,10 @@ return [
             'novara' => \App\Services\GenericDataService::class,
         ]
     ],
-//    'toscana' => [
-//        'provincie' => [
-//            'firenze' => \App\Services\GenericDataService::class,
-//        ]
-//    ]
+    'toscana' => [
+        'provincie' => [
+            'firenze' => \App\Services\GenericDataService::class,
+            'empoli' => \App\Services\GenericDataService::class,
+        ]
+    ]
 ];
