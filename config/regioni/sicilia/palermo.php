@@ -2,7 +2,6 @@
 
 $userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.79 Safari/537.36';
 
-
 $tableSettings = [
     'headers' => $tableHeaders = [
         [
@@ -57,6 +56,146 @@ $tableSettings = [
             'order' => 'asc'
         ]
     ]
+];
+
+$dataCommonAspPalermo = [
+    'rosso' => [
+        'selector' => 'body>main>div:nth-child(#R)>table>tbody>tr:nth-child(1)>td:nth-child(2)',
+        'extra' => [
+            'in_attesa' => [
+                'label' => 'In attesa di visita',
+                'selector' => 'body>main>div:nth-child(#R)>table>tbody>tr:nth-child(1)>td:nth-child(2)',
+            ],
+            'in_trattamento' => [
+                'label' => 'Pazienti in trattamento',
+                'selector' => 'body>main>div:nth-child(#R)>table>tbody>tr:nth-child(2)>td:nth-child(2)',
+            ],
+            'in_osservazione' => [
+                'label' => 'Pazienti in osservazione',
+                'selector' => 'body>main>div:nth-child(#R)>table>tbody>tr:nth-child(3)>td:nth-child(2)',
+            ],
+            'totali' => [
+                'label' => 'Totali',
+                'selector' => 'body>main>div:nth-child(#R)>table>tbody>tr:nth-child(4)>td:nth-child(2)',
+            ]
+        ]
+    ],
+    'arancione' => [
+        'selector' => 'body>main>div:nth-child(#R)>table>tbody>tr:nth-child(1)>td:nth-child(3)',
+        'extra' => [
+            'in_attesa' => [
+                'label' => 'In attesa di visita',
+                'selector' => 'body>main>div:nth-child(#R)>table>tbody>tr:nth-child(1)>td:nth-child(3)',
+            ],
+            'in_trattamento' => [
+                'label' => 'Pazienti in trattamento',
+                'selector' => 'body>main>div:nth-child(#R)>table>tbody>tr:nth-child(2)>td:nth-child(3)',
+            ],
+            'in_osservazione' => [
+                'label' => 'Pazienti in osservazione',
+                'selector' => 'body>main>div:nth-child(#R)>table>tbody>tr:nth-child(3)>td:nth-child(3)',
+            ],
+            'totali' => [
+                'label' => 'Totali',
+                'selector' => 'body>main>div:nth-child(#R)>table>tbody>tr:nth-child(4)>td:nth-child(3)',
+            ]
+
+        ]
+    ],
+    'azzurro' => [
+        'selector' => 'body>main>div:nth-child(#R)>table>tbody>tr:nth-child(1)>td:nth-child(3)',
+        'extra' => [
+            'in_attesa' => [
+                'label' => 'In attesa di visita',
+                'selector' => 'body>main>div:nth-child(#R)>table>tbody>tr:nth-child(1)>td:nth-child(3)',
+            ],
+            'in_trattamento' => [
+                'label' => 'Pazienti in trattamento',
+                'selector' => 'body>main>div:nth-child(#R)>table>tbody>tr:nth-child(2)>td:nth-child(3)',
+            ],
+            'in_osservazione' => [
+                'label' => 'Pazienti in osservazione',
+                'selector' => 'body>main>div:nth-child(#R)>table>tbody>tr:nth-child(3)>td:nth-child(3)',
+            ],
+            'totali' => [
+                'label' => 'Totali',
+                'selector' => 'body>main>div:nth-child(#R)>table>tbody>tr:nth-child(4)>td:nth-child(3)',
+            ]
+
+        ]
+    ],
+    'verde' => [
+        'selector' => 'body>main>div:nth-child(#R)>table>tbody>tr:nth-child(1)>td:nth-child(4)',
+        'extra' => [
+            'in_attesa' => [
+                'label' => 'In attesa di visita',
+                'selector' => 'body>main>div:nth-child(#R)>table>tbody>tr:nth-child(1)>td:nth-child(4)',
+            ],
+            'in_trattamento' => [
+                'label' => 'Pazienti in trattamento',
+                'selector' => 'body>main>div:nth-child(#R)>table>tbody>tr:nth-child(2)>td:nth-child(4)',
+            ],
+            'in_osservazione' => [
+                'label' => 'Pazienti in osservazione',
+                'selector' => 'body>main>div:nth-child(#R)>table>tbody>tr:nth-child(3)>td:nth-child(4)'
+            ],
+            'totali' => [
+                'label' => 'Totali',
+                'selector' => 'body>main>div:nth-child(#R)>table>tbody>tr:nth-child(1)>td:nth-child(4)',
+            ]
+        ]
+    ],
+    'bianco' => [
+        'selector' => 'body>main>div:nth-child(#R)>table>tbody>tr:nth-child(1)>td:nth-child(5)',
+        'extra' => [
+            'in_attesa' => [
+                'label' => 'In attesa di visita',
+                'selector' => 'body>main>div:nth-child(#R)>table>tbody>tr:nth-child(1)>td:nth-child(5)',
+            ],
+            'in_trattamento' => [
+                'label' => 'Pazienti in trattamento',
+                'selector' => 'body>main>div:nth-child(#R)>table>tbody>tr:nth-child(2)>td:nth-child(5)',
+            ],
+            'in_osservazione' => [
+                'label' => 'Pazienti in osservazione',
+                'selector' => 'body>main>div:nth-child(#R)>table>tbody>tr:nth-child(3)>td:nth-child(5)',
+            ],
+            'totali' => [
+                'label' => 'Totali',
+                'selector' => 'body>main>div:nth-child(#R)>table>tbody>tr:nth-child(4)>td:nth-child(5)',
+            ]
+
+        ]
+    ],
+    'totali' => [
+        'action' => [
+            'operation' => 'sum',
+            'keys' => [
+                'in_attesa' => [
+                    'label' => 'Pazienti in attesa',
+                    'value' => null
+                ],
+                'in_trattamento' => [
+                    'label' => 'Pazienti in trattamento',
+                    'value' => null
+                ],
+                'in_osservazione' => [
+                    'label' => 'Pazienti in osservazione',
+                    'value' => null,
+                ],
+            ]
+        ],
+    ],
+    'extra' => [
+        'numero_posti_tecnico' => [
+            'label' => 'Num. posti tecnici presidiati',
+            'selector' => 'body>main>div:nth-child(#R)>div:nth-child(2)>span:nth-child(3)',
+        ],
+        'indice_sovraffollamento' => [
+            'label' => 'Indice di sovraffollamento',
+            'selector' => 'body>main>div:nth-child(#R)>div:nth-child(2)>span:nth-child(5)',
+        ],
+    ],
 ];
 
 return [
@@ -538,10 +677,10 @@ return [
                 'key' => 'sicilia.palermo.ingrassia',
                 'ttlMinute' => 1
             ],
-            'url' => 'https://www.asppalermo.org/attese_ps/',
+            'url' => 'https://www.asppalermo.org/attese_ps/index_mod2.php',
             'jobClass' => \App\Jobs\GenericScrapeJob::class,
             'data' => [
-                'ingrassia_adulti' => [
+                'palermo_ingrassia_adulti' => [
                     'id' => 7,
                     'nome' => 'Palermo - Ingrassia',
                     'descrizione' => 'Ingrassia',
@@ -551,127 +690,85 @@ return [
                     'email' => ' - ',
                     'web' => 'https://www.asppalermo.org/attese_ps/',
                     'google_maps' => 'https://www.google.it/maps/place/Ospedale+Ingrassia,+Cral/@38.0932568,13.3099573,16z/data=!3m1!4b1!4m6!3m5!1s0x1319ee52f1b0555f:0xf085cb35f4bff4ab!8m2!3d38.0932568!4d13.3099573!16s%2Fg%2F11cjn2whw7?entry=ttu&g_ep=EgoyMDI0MDgyOC4wIKXMDSoASAFQAw%3D%3D',
+                    'replaceSearch' => '/\#R/',
+                    'replaceTo' => [1],
                     'coords' => [
                         'lat' => '38.0932568',
                         'lng' => '13.3099573',
                     ],
-                    'data' => [
-                        'rosso' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(1)>td:nth-child(2)',
-                            'extra' => [
-                                'in_attesa' => [
-                                    'label' => 'In attesa di visita',
-                                    'selector' => 'table.table>tbody>tr:nth-child(1)>td:nth-child(2)',
-                                ],
-                                'in_trattamento' => [
-                                    'label' => 'Pazienti in trattamento',
-                                    'selector' => 'table.table>tbody>tr:nth-child(2)>td:nth-child(2)',
-                                ],
-                                'in_osservazione' => [
-                                    'label' => 'Pazienti in osservazione',
-                                    'selector' => 'table.table>tbody>tr:nth-child(3)>td:nth-child(2)',
-                                ],
-                                'totali' => [
-                                    'label' => 'Totali',
-                                    'selector' => 'table.table>tbody>tr:nth-child(4)>td:nth-child(2)',
-                                ]
-                            ]
-                        ],
-                        'giallo' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(1)>td:nth-child(3)',
-                            'extra' => [
-                                'in_attesa' => [
-                                    'label' => 'In attesa di visita',
-                                    'selector' => 'table.table>tbody>tr:nth-child(1)>td:nth-child(3)',
-                                ],
-                                'in_trattamento' => [
-                                    'label' => 'Pazienti in trattamento',
-                                    'selector' => 'table.table>tbody>tr:nth-child(2)>td:nth-child(3)',
-                                ],
-                                'in_osservazione' => [
-                                    'label' => 'Pazienti in osservazione',
-                                    'selector' => 'table.table>tbody>tr:nth-child(3)>td:nth-child(3)',
-                                ],
-                                'totali' => [
-                                    'label' => 'Totali',
-                                    'selector' => 'table.table>tbody>tr:nth-child(4)>td:nth-child(3)',
-                                ]
-
-                            ]
-                        ],
-                        'verde' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(1)>td:nth-child(4)',
-                            'extra' => [
-                                'in_attesa' => [
-                                    'label' => 'In attesa di visita',
-                                    'selector' => 'table.table>tbody>tr:nth-child(1)>td:nth-child(4)',
-                                ],
-                                'in_trattamento' => [
-                                    'label' => 'Pazienti in trattamento',
-                                    'selector' => 'table.table>tbody>tr:nth-child(2)>td:nth-child(4)',
-                                ],
-                                'in_osservazione' => [
-                                    'label' => 'Pazienti in osservazione',
-                                    'selector' => 'table.table>tbody>tr:nth-child(3)>td:nth-child(4)'
-                                ],
-                                'totali' => [
-                                    'label' => 'Totali',
-                                    'selector' => 'table.table>tbody>tr:nth-child(4)>td:nth-child(4)',
-                                ]
-                            ]
-                        ],
-                        'bianco' => [
-                            'selector' => 'table.table>tbody>tr:nth-child(1)>td:nth-child(5)',
-                            'extra' => [
-                                'in_attesa' => [
-                                    'label' => 'In attesa di visita',
-                                    'selector' => 'table.table>tbody>tr:nth-child(1)>td:nth-child(5)',
-                                ],
-                                'in_trattamento' => [
-                                    'label' => 'Pazienti in trattamento',
-                                    'selector' => 'table.table>tbody>tr:nth-child(2)>td:nth-child(5)',
-                                ],
-                                'in_osservazione' => [
-                                    'label' => 'Pazienti in osservazione',
-                                    'selector' => 'table.table>tbody>tr:nth-child(3)>td:nth-child(5)',
-                                ],
-                                'totali' => [
-                                    'label' => 'Totali',
-                                    'selector' => 'table.table>tbody>tr:nth-child(4)>td:nth-child(5)',
-                                ]
-
-                            ]
-                        ],
-                        'totali' => [
-                            'action' => [
-                                'operation' => 'sum',
-                                'keys' => [
-                                    'in_attesa' => [
-                                        'label' => 'Pazienti in attesa',
-                                        'value' => null
-                                    ],
-                                    'in_trattamento' => [
-                                        'label' => 'Pazienti in trattamento',
-                                        'value' => null
-                                    ],
-                                    'in_osservazione' => [
-                                        'label' => 'Pazienti in osservazione',
-                                        'value' => null,
-                                    ],
-                                ]
-                            ],
-                        ],
-                        'extra' => [
-                            'numero_posti_tecnico' => [
-                                'label' => 'Num. posti tecnici presidiati',
-                                'selector' => 'div.text-monospace>span:nth-child(3)',
-                            ],
-                            'indice_sovraffollamento' => [
-                                'label' => 'Indice di sovraffollamento',
-                                'selector' => 'div.text-monospace>span:nth-child(5)',
-                            ],
-                        ],
-                    ]
+                    'data' => $dataCommonAspPalermo
+                ],
+                'partinico_civico' => [
+                    'id' => 8,
+                    'nome' => 'Partinico - Civico',
+                    'descrizione' => 'Ospedale Civico Partinico',
+                    'adulti' => true,
+                    'indirizzo' => 'Via Circonvallazione, 1, 90047 Partinico PA',
+                    'telefono' => '091 891 1111',
+                    'email' => ' - ',
+                    'web' => 'https://www.asppalermo.org/attese_ps/index_mod2.php',
+                    'google_maps' => 'https://www.google.it/maps/place/Ospedale+Civico+Partinico/@38.037556,13.11546,763m/data=!3m2!1e3!4b1!4m6!3m5!1s0x13198c4ded139531:0x858cd54fe1511879!8m2!3d38.037556!4d13.11546!16s%2Fg%2F1tlr2s5g?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D',
+                    'replaceSearch' => '/\#R/',
+                    'replaceTo' => [4],
+                    'coords' => [
+                        'lat' => '38.037556',
+                        'lng' => '13.11546',
+                    ],
+                    'data' => $dataCommonAspPalermo
+                ],
+                'corleone_ps' => [
+                    'id' => 9,
+                    'nome' => 'Corleone - Ospedale dei Bianchi',
+                    'descrizione' => 'PRONTO SOCCORSO - P.O. "DEI BIANCHI" DI CORLEONE',
+                    'adulti' => true,
+                    'indirizzo' => 'Via Don Giovanni Colletto, 90034 Corleone PA',
+                    'telefono' => '091 845 0100',
+                    'email' => ' - ',
+                    'web' => 'https://www.asppalermo.org/attese_ps/index_mod2.php',
+                    'google_maps' => 'https://www.google.it/maps/place/Ospedale+dei+Bianchi/@37.8169335,13.2984776,765m/data=!3m2!1e3!4b1!4m6!3m5!1s0x131a1c772404f9cb:0xef406def016eaa7!8m2!3d37.8169335!4d13.2984776!16s%2Fg%2F11cjpc6w9d?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D',
+                    'replaceSearch' => '/\#R/',
+                    'replaceTo' => [7],
+                    'coords' => [
+                        'lat' => '37.8169335',
+                        'lng' => '13.2984776',
+                    ],
+                    'data' => $dataCommonAspPalermo
+                ],
+                'petraliasottana_ps' => [
+                    'id' => 10,
+                    'nome' => 'Petralia Sottana - Ospedale Madonna SS.ma Dell\'Alto',
+                    'descrizione' => 'Ospedale Madonna SS.ma Dell\'Alto',
+                    'adulti' => true,
+                    'indirizzo' => 'Via Esterna Sant\'Elia, 90027 Petralia Sottana PA',
+                    'telefono' => '0921 682026',
+                    'email' => ' - ',
+                    'web' => 'https://www.asppalermo.org/attese_ps/index_mod2.php',
+                    'google_maps' => 'https://www.google.it/maps/place/Ospedale+Madonna+SS.ma+Dell\'Alto+-+Pronto+Soccorso/@37.8187079,14.0911795,765m/data=!3m2!1e3!4b1!4m6!3m5!1s0x131732a374269b23:0xb187f42912ef38e7!8m2!3d37.8187079!4d14.0911795!16s%2Fg%2F11f_c02yhc?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D',
+                    'replaceSearch' => '/\#R/',
+                    'replaceTo' => [10],
+                    'coords' => [
+                        'lat' => '37.8187079',
+                        'lng' => '14.0911795',
+                    ],
+                    'data' => $dataCommonAspPalermo
+                ],
+                'terminiimerese_ps' => [
+                    'id' => 11,
+                    'nome' => 'Termini Imerese - Presidio Ospedalierio Salvatore Cimino',
+                    'descrizione' => 'Presidio Ospedalierio Salvatore Cimino Pronto Soccorso',
+                    'adulti' => true,
+                    'indirizzo' => 'Via Salvatore Cimino, 2, 90141 Termini Imerese PA',
+                    'telefono' => '091 815 1111',
+                    'email' => ' - ',
+                    'web' => 'https://www.asppalermo.org/attese_ps/index_mod2.php',
+                    'google_maps' => 'https://www.google.it/maps/place/Presidio+Ospedalierio+Salvatore+Cimino+Pronto+Soccorso/@37.9834983,13.6860693,764m/data=!3m2!1e3!4b1!4m6!3m5!1s0x1317505703055555:0x9413d5cafaa20d3e!8m2!3d37.9834983!4d13.6860693!16s%2Fg%2F11gbf8fct1?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D',
+                    'replaceSearch' => '/\#R/',
+                    'replaceTo' => [13],
+                    'coords' => [
+                        'lat' => '37.9834983',
+                        'lng' => '13.6860693',
+                    ],
+                    'data' => $dataCommonAspPalermo
                 ],
             ]
         ],
@@ -690,7 +787,7 @@ return [
             'jobClass' => \App\Jobs\GenericAJaxJob::class,
             'data' => [
                 'buccheri_adulti' => [
-                    'id' => 8,
+                    'id' => 12,
                     'nome' => 'Palermo - Buccheri La Ferla',
                     'descrizione' => 'Fatebenefratelli ',
                     'adulti' => true,
