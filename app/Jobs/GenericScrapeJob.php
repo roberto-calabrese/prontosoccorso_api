@@ -71,7 +71,7 @@ class GenericScrapeJob implements ShouldQueue
                         $value['selector'] = str_replace($this->config['iterateSelector'] ?? '', $numberIteration, $value['selector']);
                         $value['selector'] = $this->replaceSelector($value['selector'], $ospedale);
                         $iterValue = preg_replace("/[^0-9]/", "", implode('', $crawler->filter($value['selector'])->extract(['_text'])));
-                        $ospedali[$keyH]['data'][$key]['value'] = $iterValue === "" ? "?" : $iterValue;
+                        $ospedali[$keyH]['data'][$key]['value'] = $iterValue === "" ? "-" : $iterValue;
                         if (isset($value['extra']) && is_array($value['extra'])) {
                             foreach ($value['extra'] as $extra_k => $extra_v) {
                                 $extra_v['selector'] = str_replace($this->config['iterateSelector'] ?? '', $numberIteration, $extra_v['selector']);
