@@ -183,7 +183,7 @@ return [
             'data' => [
                 'osp_evangelico' => [
                     'id' => 1,
-                    'nome' => 'Genova Voltri - Ospedale Evangelico',
+                    'nome' => 'Genova Voltri - Evangelico',
                     'descrizione' => 'Ospedale Evangelico Internazionale - San Carlo Voltri',
                     'adulti' => true,
                     'indirizzo' => 'Piazzale Gianasso 4,  Genova Voltri - GE',
@@ -212,7 +212,7 @@ return [
             'data' => [
                 'osp_villa_scassi' => [
                     'id' => 2,
-                    'nome' => 'Genova - Ospedale Villa Scassi',
+                    'nome' => 'Genova - Villa Scassi',
                     'descrizione' => '"Presidio Ospedaliero Metropolitano (Genova Sampierdarena) - Ospedale Villa Scassi"',
                     'adulti' => true,
                     'indirizzo' => 'Corso Onofrio Scassi, 1, 16149 Genova GE',
@@ -241,7 +241,7 @@ return [
             'data' => [
                 'osp_galliera' => [
                     'id' => 3,
-                    'nome' => 'Genova- E.O. Ospedali Galliera',
+                    'nome' => 'Genova- E.O. Galliera',
                     'descrizione' => 'L\'Ente ospedaliero Ospedali Galliera ("Mura delle Cappuccine") noto come ospedale Galliera - è una struttura sanitaria storica tuttora attiva. Edificato nel 1877 dalla duchessa di Galliera, è attualmente uno dei grandi complessi ospedalieri di Genova. ',
                     'adulti' => true,
                     'indirizzo' => 'Via Alessandro Volta, 6, 16128 Genova GE',

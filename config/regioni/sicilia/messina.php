@@ -175,7 +175,7 @@ return [
                 ],
                 'milazzo' => [
                     'id' => 3,
-                    'nome' => 'Milazzo - Presidio Ospedaliero "Giuseppe Fogliani"',
+                    'nome' => 'Milazzo - "Giuseppe Fogliani"',
                     'descrizione' => 'Presidio Ospedaliero "Giuseppe Fogliani" - Milazzo',
                     'adulti' => true,
                     'indirizzo' => 'Contrada Villaggio Grazia, 98057 Milazzo ME',
@@ -191,7 +191,7 @@ return [
                 ],
                 'taormina' => [
                     'id' => 4,
-                    'nome' => 'Taormina - Ospedale "San Vincenzo" Sirina',
+                    'nome' => 'Taormina - "San Vincenzo" Sirina',
                     'descrizione' => 'Ospedale "San Vincenzo" Sirina - Taormina	',
                     'adulti' => true,
                     'indirizzo' => 'Contrada Sirina, 98039 Taormina ME',
@@ -207,7 +207,7 @@ return [
                 ],
                 'mistretta' => [
                     'id' => 5,
-                    'nome' => 'Mistretta - Presidio Ospedaliero "San Salvatore"',
+                    'nome' => 'Mistretta - "San Salvatore"',
                     'descrizione' => 'Presidio Ospedaliero "San Salvatore" - Mistretta	',
                     'adulti' => true,
                     'indirizzo' => 'Via Anna Salamone, 99, 98073 Mistretta ME',
@@ -223,7 +223,7 @@ return [
                 ],
                 'patti' => [
                     'id' => 6,
-                    'nome' => 'Patti - Presidio Ospedaliero "Barone Romeo"',
+                    'nome' => 'Patti - "Barone Romeo"',
                     'descrizione' => 'Presidio Ospedaliero "Barone Romeo" - Patti',
                     'adulti' => true,
                     'indirizzo' => 'Via Giuseppe Mazzini, 14, 98066 Patti ME',
@@ -239,7 +239,7 @@ return [
                 ],
                 'st_militello' => [
                     'id' => 7,
-                    'nome' => 'Sant\'Agata Di Militello - Presidio Ospedaliero Sant\'Agata Militello',
+                    'nome' => 'Sant\'Agata Di Militello - Presidio Ospedaliero',
                     'descrizione' => 'Presidio Ospedaliero Sant\'Agata Militello - Sant\'Agata Di Militello',
                     'adulti' => true,
                     'indirizzo' => 'Via G. Medici, 98076 Sant\'Agata di Militello ME',

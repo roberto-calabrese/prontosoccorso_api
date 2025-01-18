@@ -113,7 +113,7 @@ return [
             'data' => [
                 'ps_agrigento' => [
                     'id' => 1,
-                    'nome' => 'Agrigento - Ospedale San Giovanni di Dio',
+                    'nome' => 'Agrigento - San Giovanni di Dio',
                     'descrizione' => 'La Unità Operativa è così articolata: PRONTO SOCCORSO eroga prestazioni sanitarie per la diagnosi e il trattamento di patologie a carattere di emergenza / urgenza; OSSERVAZIONE BREVE eroga prestazioni sanitarie finalizzate alla stabilizzazione del paziente e alla verifica della appropriatezza diagnostica orientate alla eventuale ospedalizzazione o dimissione del paziente; MEDICINA D’URGENZA eroga prestazioni sanitarie assimilabili a quelle di ricovero ordinario di pazienti con patologia medica (12 posti letto). L\'Unità Operativa è allocata al 1° piano dell’Ospedale con accesso dalla scala B; raggiungibile anche dall\’esterno seguendo le indicazioni stradali presenti nell’area esterna periospedaliera.',
                     'adulti' => true,
                     'indirizzo' => 'Contrada Consolida, 92100 Agrigento AG',
@@ -129,7 +129,7 @@ return [
                 ],
                 'ps_canicatti' => [
                     'id' => 2,
-                    'nome' => 'Canicattì - Ospedale Barone Lombardo',
+                    'nome' => 'Canicattì - Barone Lombardo',
                     'descrizione' => 'Ospedale Canicattì - Il Pronto soccorso si trova al Piano 0 ed è aperto 24h da Lunedì a Domenica.',
                     'adulti' => true,
                     'indirizzo' => 'Contrada Giarre, 92024 Canicattì AG',
@@ -145,7 +145,7 @@ return [
                 ],
                 'ps_licata' => [
                     'id' => 3,
-                    'nome' => 'Licata - Ospedale San Giacomo d\'Altopasso',
+                    'nome' => 'Licata - San Giacomo d\'Altopasso',
                     'descrizione' => 'Prestazioni assicurate Triage principali prestazioni Visite, emergenze e urgenze Stabilizzazione Osservazione breve del Paziente Branche specialistiche: Traumatologia, Cardiologia, Medicina, Psichiatria, Pediatria, Chirurgia, Chirurgia vascolare, ORL Dal 1 gennaio 2010, 4 posti letto consentono le attività di stabilizzazione del paziente attraverso l’osservazione continua.',
                     'adulti' => true,
                     'indirizzo' => 'Contrada Cannavecchia, 92027 Licata AG',
@@ -161,7 +161,7 @@ return [
                 ],
                 'ps_ribera' => [
                     'id' => 4,
-                    'nome' => 'Ribera - Ospedale Fratelli Parlapiano',
+                    'nome' => 'Ribera - Fratelli Parlapiano',
                     'descrizione' => 'Ospedale Ribera',
                     'adulti' => true,
                     'indirizzo' => 'Via Circonvallazione - Ribera',
@@ -177,7 +177,7 @@ return [
                 ],
                 'ps_sciacca' => [
                     'id' => 5,
-                    'nome' => 'Sciacca - Ospedale Giovanni Paolo II',
+                    'nome' => 'Sciacca - Giovanni Paolo II',
                     'descrizione' => 'Orari di accesso: Da Lunedì a Domenica h24 Al pronto soccorso si può accedere direttamente, su richiesta del medico di famiglia o di continuità assistenziale, o tramite ambulanza inviata dalla centrale operativa del 118',
                     'adulti' => true,
                     'indirizzo' => 'Via Pompei, 92019 Sciacca AG',

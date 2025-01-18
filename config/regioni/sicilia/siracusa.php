@@ -88,7 +88,7 @@ return [
             'data' => [
                 'pso_umbero1' => [
                     'id' => 1,
-                    'nome' => 'Siracusa - Ospedale Umberto I',
+                    'nome' => 'Siracusa - Umberto I',
                     'descrizione' => '',
                     'adulti' => true,
                     'indirizzo' => 'Via Giuseppe Testaferrata, 1, 96100 Siracusa SR',
@@ -212,7 +212,7 @@ return [
                 ],
                 'pso_augusta' => [
                     'id' => 2,
-                    'nome' => 'Augusta - Ospedale E.Muscatello',
+                    'nome' => 'Augusta - E.Muscatello',
                     'descrizione' => 'Ospedale E.Muscatello - Augusta',
                     'adulti' => true,
                     'indirizzo' => 'C/da Granatello, 96011 Augusta SR',
@@ -458,7 +458,7 @@ return [
                 ],
                 'pso_avola' => [
                     'id' => 4,
-                    'nome' => 'Avola - Ospedale G. di Maria',
+                    'nome' => 'Avola - G. di Maria',
                     'descrizione' => 'Ospedale G. di Maria',
                     'adulti' => true,
                     'indirizzo' => 'SS115 Contrada Chiusa di Carlo, 96012 Avola SR',
