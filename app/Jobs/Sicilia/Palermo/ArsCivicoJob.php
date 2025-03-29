@@ -58,11 +58,33 @@ class ArsCivicoJob implements ShouldQueue
                     if ($key !== 'extra') {
                         $this->processHospitalData($ospedali, $keyH, $value, $crawler);
                     } else {
+                        // Estrai tutto il testo dal <span>
+                        $fullText = $this->cleanText(implode('', $crawler->filter(reset($value)['selector'])->extract(['_text'])));
+
                         foreach ($value as $extraK => $extraV) {
                             $ospedali[$keyH]['data'][$key][$extraK] = $ospedale['data'][$key][$extraK];
-                            $cleanedValue = $this->cleanText(implode('', $crawler->filter($extraV['selector'])->extract(['_text'])));
-                            $ospedali[$keyH]['data'][$key][$extraK]['value'] = ($extraK === 'indice_sovraffollamento') ? (int)$cleanedValue : $cleanedValue;
+
+                            // Nuove regex per il testo estratto
+                            $regexPatterns = [
+                                'indice_sovraffollamento' => '/Indice Sovraffollamento:\s*(\d+)%/i',
+                                'numero_pazienti_con_una_permanenza24h' => '/Numero pazienti con una permanenza 24h:\s*(\d+)/i',
+                                'numero_pazienti_con_una_permanenza_compresa_tra24h_e48h' => '/Numero pazienti con una permanenza compresa tra 24h e 48h:\s*(\d+)/i',
+                                'numero_pazienti_con_una_permanenza48h' => '/Numero pazienti con una permanenza >48h:\s*(\d+)/i',
+                                'numero_posti_tecnici_presidiati_del_ps_fissati_dalla_direzione_aziendale' => '/Numero posti tecnici presidiati del PS fissati dalla Direzione Aziendale:\s*(\d+)/i',
+                                'efficienza_operativa_standard' => '/Efficienza operativa \(Standard = 0,05\):\s*([\d.]+)/i',
+                            ];
+
+                            // Applica la regex corretta
+                            if (isset($regexPatterns[$extraK]) && preg_match($regexPatterns[$extraK], $fullText, $matches)) {
+                                $cleanedValue = trim($matches[1]);
+                                $ospedali[$keyH]['data'][$key][$extraK]['value'] = ($extraK === 'indice_sovraffollamento') ? (int) $cleanedValue : $cleanedValue;
+                            } else {
+                                $ospedali[$keyH]['data'][$key][$extraK]['value'] = null; // Se non trova nulla, assegna null
+                            }
+
+                            // Pulizia dei dati
                             unset($ospedali[$keyH]['data'][$key][$extraK]['selector']);
+                            unset($ospedali[$keyH]['data'][$key][$extraK]['regex']); // Rimuove la regex dall'array
                         }
                     }
                 }
@@ -105,15 +127,14 @@ class ArsCivicoJob implements ShouldQueue
 
     protected function processHospitalData(&$ospedali, $keyH, $value, $crawler): void
     {
-        $selectorTable = str_replace('>tbody>tr:nth-child(REPLACE)', '>tbody tr', $value);
+        $selectorTable = str_replace('> tbody > tr:nth-of-type(REPLACE)', '>tbody tr', $value);
         $table = $crawler->filter($selectorTable);
-        $maxI = ($table->count());
 
+        $maxI = ($table->count());
         for ($i = 2; $i <= $maxI; $i++) {
             $selector = str_replace('REPLACE', $i, $value);
 
             $data = $this->extractDataFromSelector($crawler, $selector, $i === $maxI);
-
             foreach ($data as $row => $rowData) {
 //                $ospedali[$keyH]['data'][$row]['value'] = $i !== $maxI ? $rowData[0] : array_sum(array_slice($rowData, 0, 3));
                 $ospedali[$keyH]['data'][$row]['value'] = $rowData[0];

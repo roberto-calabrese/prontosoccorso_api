@@ -418,37 +418,33 @@ return [
                         'lng' => '13.3560857',
                     ],
                     'data' => [
-                        'calculate_selector' => 'div.item-page>div:nth-child(4)>table:nth-child(7)>tbody>tr:nth-child(REPLACE)',
+                        'calculate_selector' => 'table.gridtable:nth-of-type(1) > tbody > tr:nth-of-type(REPLACE)',
                         'extra' => [
                             'indice_sovraffollamento' => [
                                 'label' => 'Indice di sovraffollamento',
-                                'selector' => 'div.item-page>div:nth-child(4)>p:nth-child(5)>span>strong:nth-child(1)>span',
+                                'selector' => 'div.com-content-article__body:nth-of-type(2) > p:nth-of-type(5) > span',
                             ],
                             'numero_pazienti_con_una_permanenza24h' => [
                                 'label' => 'Numero pazienti con una permanenza <24h',
-                                'selector' => 'div.item-page>div:nth-child(4)>p:nth-child(5)>span>strong:nth-child(3)',
+                                'selector' => 'div.com-content-article__body:nth-of-type(2) > p:nth-of-type(5) > span',
                             ],
                             'numero_pazienti_con_una_permanenza_compresa_tra24h_e48h' => [
                                 'label' => 'Numero pazienti con una permanenza compresa tra 24h e 48h',
-                                'selector' => 'div.item-page>div:nth-child(4)>p:nth-child(5)>span>strong:nth-child(5)',
+                                'selector' => 'div.com-content-article__body:nth-of-type(2) > p:nth-of-type(5) > span',
                             ],
                             'numero_pazienti_con_una_permanenza48h' => [
                                 'label' => 'Numero pazienti con una permanenza >48h',
-                                'selector' => 'div.item-page>div:nth-child(4)>p:nth-child(5)>span>strong:nth-child(7)',
+                                'selector' => 'div.com-content-article__body:nth-of-type(2) > p:nth-of-type(5) > span',
                             ],
                             'numero_posti_tecnici_presidiati_del_ps_fissati_dalla_direzione_aziendale' => [
                                 'label' => 'Numero posti tecnici presidiati del PS fissati dalla Direzione Aziendale',
-                                'selector' => 'div.item-page>div:nth-child(4)>p:nth-child(5)>span>strong:nth-child(9)',
-                            ],
-                            'numero_posti_riferibili_alla_struttura9401_semintensiva' => [
-                                'label' => 'Numero posti riferibili alla struttura 9401 semintensiva',
-                                'selector' => 'div.item-page>div:nth-child(4)>p:nth-child(5)>span>strong:nth-child(11)',
+                                'selector' => 'div.com-content-article__body:nth-of-type(2) > p:nth-of-type(5) > span',
                             ],
                             'efficienza_operativa_standard' => [
                                 'label' => 'Efficienza operativa (Standard <= 0,05)',
-                                'selector' => 'div.item-page>div:nth-child(4)>p:nth-child(5)>span>strong:nth-child(13)',
+                                'selector' => 'div.com-content-article__body:nth-of-type(2) > p:nth-of-type(5) > span',
                             ],
-                        ]
+                        ],
                     ]
                 ],
                 'presidio_civico_pediatrico' => [
@@ -466,33 +462,33 @@ return [
                         'lng' => '13.3548131',
                     ],
                     'data' => [
-                        'calculate_selector' => 'div.item-page>div:nth-child(4)>table:nth-child(13)>tbody>tr:nth-child(REPLACE)',
+                        'calculate_selector' => 'table.gridtable:nth-of-type(1) > tbody > tr:nth-of-type(REPLACE)',
                         'extra' => [
                             'indice_sovraffollamento' => [
                                 'label' => 'Indice di sovraffollamento',
-                                'selector' => 'div.item-page>div:nth-child(4)>p:nth-child(11)>span>strong:nth-child(1)>span',
+                                'selector' => 'div.com-content-article__body:nth-of-type(2) > p:nth-of-type(10) > span',
                             ],
                             'numero_pazienti_con_una_permanenza24h' => [
                                 'label' => 'Numero pazienti con una permanenza <24h',
-                                'selector' => 'div.item-page>div:nth-child(4)>p:nth-child(11)>span>strong:nth-child(3)',
+                                'selector' => 'div.com-content-article__body:nth-of-type(2) > p:nth-of-type(10) > span',
                             ],
                             'numero_pazienti_con_una_permanenza_compresa_tra24h_e48h' => [
                                 'label' => 'Numero pazienti con una permanenza compresa tra 24h e 48h',
-                                'selector' => 'div.item-page>div:nth-child(4)>p:nth-child(11)>span>strong:nth-child(5)',
+                                'selector' => 'div.com-content-article__body:nth-of-type(2) > p:nth-of-type(10) > span',
                             ],
                             'numero_pazienti_con_una_permanenza48h' => [
                                 'label' => 'Numero pazienti con una permanenza >48h',
-                                'selector' => 'div.item-page>div:nth-child(4)>p:nth-child(11)>span>strong:nth-child(7)',
+                                'selector' => 'div.com-content-article__body:nth-of-type(2) > p:nth-of-type(10) > span',
                             ],
                             'numero_posti_tecnici_presidiati_del_ps_fissati_dalla_direzione_aziendale' => [
                                 'label' => 'Numero posti tecnici presidiati del PS fissati dalla Direzione Aziendale',
-                                'selector' => 'div.item-page>div:nth-child(4)>p:nth-child(11)>span>strong:nth-child(9)',
+                                'selector' => 'div.com-content-article__body:nth-of-type(2) > p:nth-of-type(10) > span',
                             ],
                             'efficienza_operativa_standard' => [
                                 'label' => 'Efficienza operativa (Standard <= 0,05)',
-                                'selector' => 'div.item-page>div:nth-child(4)>p:nth-child(11)>span>strong:nth-child(11)',
+                                'selector' => 'div.com-content-article__body:nth-of-type(2) > p:nth-of-type(10) > span',
                             ],
-                        ]
+                        ],
                     ]
                 ],
             ]
