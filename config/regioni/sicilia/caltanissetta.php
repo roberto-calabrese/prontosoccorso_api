@@ -115,15 +115,15 @@ $commonCruscottoAsp = [
         ]
     ],
     'totali' => [
-        'selector' => 'html > body > div.container:nth-of-type(1) > div.dashboard:nth-of-type(1) > div.main-table:nth-of-type(1) > table > tbody > tr:nth-of-type(1) > td:nth-of-type(6) > div.badge',
+        'selector' => 'html > body > div.container:nth-of-type(1) > div.dashboard:nth-of-type(1) > div.main-table:nth-of-type(1) > table > tbody > tr:nth-of-type(1) > td:nth-of-type(6)',
         'extra' => [
             'in_attesa' => [
                 'label' => 'Pazienti in attesa',
-                'selector' => 'html > body > div.container:nth-of-type(1) > div.dashboard:nth-of-type(1) > div.main-table:nth-of-type(1) > table > tbody > tr:nth-of-type(1) > td:nth-of-type(6) > div.badge',
+                'selector' => 'html > body > div.container:nth-of-type(1) > div.dashboard:nth-of-type(1) > div.main-table:nth-of-type(1) > table > tbody > tr:nth-of-type(1) > td:nth-of-type(6)',
             ],
             'in_trattamento' => [
                 'label' => 'Pazienti in trattamento',
-                'selector' => 'html > body > div.container:nth-of-type(1) > div.dashboard:nth-of-type(1) > div.main-table:nth-of-type(1) > table > tbody > tr:nth-of-type(2) > td:nth-of-type(6) > div.badge',
+                'selector' => 'html > body > div.container:nth-of-type(1) > div.dashboard:nth-of-type(1) > div.main-table:nth-of-type(1) > table > tbody > tr:nth-of-type(2) > td:nth-of-type(6)',
             ]
         ]
     ]
