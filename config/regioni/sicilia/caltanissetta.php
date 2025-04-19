@@ -20,11 +20,6 @@ $tableSettings = [
             'key' => 'data.data.arancione.value'
         ],
         [
-            'title' => 'Giallo in attesa',
-            'align' => 'end',
-            'key' => 'data.data.giallo.value'
-        ],
-        [
             'title' => 'Azzurro in attesa',
             'align' => 'end',
             'key' => 'data.data.azzurro.value'
@@ -55,93 +50,80 @@ $tableSettings = [
 
 $commonCruscottoAsp = [
     'rosso' => [
-        'selector' => 'body>table:nth-child(2)>tbody>tr>td:nth-child(1)>table>tbody>tr>td>table>tbody>tr:nth-child(2)>td:nth-child(2)>h1',
+        'selector' => 'html > body > div.container:nth-of-type(1) > div.dashboard:nth-of-type(1) > div.main-table:nth-of-type(1) > table > tbody > tr:nth-of-type(1) > td:nth-of-type(1) > div.badge',
         'extra' => [
             'in_attesa' => [
                 'label' => 'Pazienti in attesa',
-                'selector' => 'body>table:nth-child(2)>tbody>tr>td:nth-child(1)>table>tbody>tr>td>table>tbody>tr:nth-child(2)>td:nth-child(2)>h1',
+                'selector' => 'html > body > div.container:nth-of-type(1) > div.dashboard:nth-of-type(1) > div.main-table:nth-of-type(1) > table > tbody > tr:nth-of-type(1) > td:nth-of-type(1) > div.badge',
             ],
             'in_trattamento' => [
                 'label' => 'Pazienti in trattamento',
-                'selector' => 'body>table:nth-child(2)>tbody>tr>td:nth-child(1)>table>tbody>tr>td>table>tbody>tr:nth-child(3)>td:nth-child(2)>h1',
+                'selector' => 'html > body > div.container:nth-of-type(1) > div.dashboard:nth-of-type(1) > div.main-table:nth-of-type(1) > table > tbody > tr:nth-of-type(2) > td:nth-of-type(1) > div.badge',
             ]
         ]
     ],
     'arancione' => [
-        'selector' => 'body>table:nth-child(2)>tbody>tr>td:nth-child(1)>table>tbody>tr>td>table>tbody>tr:nth-child(2)>td:nth-child(3)>h1',
+        'selector' => 'html > body > div.container:nth-of-type(1) > div.dashboard:nth-of-type(1) > div.main-table:nth-of-type(1) > table > tbody > tr:nth-of-type(1) > td:nth-of-type(2) > div.badge',
         'extra' => [
             'in_attesa' => [
                 'label' => 'Pazienti in attesa',
-                'selector' => 'body>table:nth-child(2)>tbody>tr>td:nth-child(1)>table>tbody>tr>td>table>tbody>tr:nth-child(2)>td:nth-child(3)>h1',
+                'selector' => 'html > body > div.container:nth-of-type(1) > div.dashboard:nth-of-type(1) > div.main-table:nth-of-type(1) > table > tbody > tr:nth-of-type(1) > td:nth-of-type(2) > div.badge',
             ],
             'in_trattamento' => [
                 'label' => 'Pazienti in trattamento',
-                'selector' => 'body>table:nth-child(2)>tbody>tr>td:nth-child(1)>table>tbody>tr>td>table>tbody>tr:nth-child(3)>td:nth-child(3)>h1',
-            ]
-        ]
-    ],
-    'giallo' => [
-        'selector' => 'body>table:nth-child(2)>tbody>tr>td:nth-child(1)>table>tbody>tr>td>table>tbody>tr:nth-child(2)>td:nth-child(4)>h1',
-        'extra' => [
-            'in_attesa' => [
-                'label' => 'Pazienti in attesa',
-                'selector' => 'body>table:nth-child(2)>tbody>tr>td:nth-child(1)>table>tbody>tr>td>table>tbody>tr:nth-child(2)>td:nth-child(4)>h1',
-            ],
-            'in_trattamento' => [
-                'label' => 'Pazienti in trattamento',
-                'selector' => 'body>table:nth-child(2)>tbody>tr>td:nth-child(1)>table>tbody>tr>td>table>tbody>tr:nth-child(3)>td:nth-child(4)>h1',
+                'selector' => 'html > body > div.container:nth-of-type(1) > div.dashboard:nth-of-type(1) > div.main-table:nth-of-type(1) > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > div.badge',
             ]
         ]
     ],
     'azzurro' => [
-        'selector' => 'body>table:nth-child(2)>tbody>tr>td:nth-child(1)>table>tbody>tr>td>table>tbody>tr:nth-child(2)>td:nth-child(5)>h1',
+        'selector' => 'html > body > div.container:nth-of-type(1) > div.dashboard:nth-of-type(1) > div.main-table:nth-of-type(1) > table > tbody > tr:nth-of-type(1) > td:nth-of-type(3) > div.badge',
         'extra' => [
             'in_attesa' => [
                 'label' => 'Pazienti in attesa',
-                'selector' => 'body>table:nth-child(2)>tbody>tr>td:nth-child(1)>table>tbody>tr>td>table>tbody>tr:nth-child(2)>td:nth-child(5)>h1',
+                'selector' => 'html > body > div.container:nth-of-type(1) > div.dashboard:nth-of-type(1) > div.main-table:nth-of-type(1) > table > tbody > tr:nth-of-type(1) > td:nth-of-type(3) > div.badge',
             ],
             'in_trattamento' => [
                 'label' => 'Pazienti in trattamento',
-                'selector' => 'body>table:nth-child(2)>tbody>tr>td:nth-child(1)>table>tbody>tr>td>table>tbody>tr:nth-child(3)>td:nth-child(5)>h1',
+                'selector' => 'html > body > div.container:nth-of-type(1) > div.dashboard:nth-of-type(1) > div.main-table:nth-of-type(1) > table > tbody > tr:nth-of-type(2) > td:nth-of-type(3) > div.badge',
             ]
         ]
     ],
     'verde' => [
-        'selector' => 'body>table:nth-child(2)>tbody>tr>td:nth-child(1)>table>tbody>tr>td>table>tbody>tr:nth-child(2)>td:nth-child(6)>h1',
+        'selector' => 'html > body > div.container:nth-of-type(1) > div.dashboard:nth-of-type(1) > div.main-table:nth-of-type(1) > table > tbody > tr:nth-of-type(1) > td:nth-of-type(4) > div.badge',
         'extra' => [
             'in_attesa' => [
                 'label' => 'Pazienti in attesa',
-                'selector' => 'body>table:nth-child(2)>tbody>tr>td:nth-child(1)>table>tbody>tr>td>table>tbody>tr:nth-child(2)>td:nth-child(6)>h1',
+                'selector' => 'html > body > div.container:nth-of-type(1) > div.dashboard:nth-of-type(1) > div.main-table:nth-of-type(1) > table > tbody > tr:nth-of-type(1) > td:nth-of-type(4) > div.badge',
             ],
             'in_trattamento' => [
                 'label' => 'Pazienti in trattamento',
-                'selector' => 'body>table:nth-child(2)>tbody>tr>td:nth-child(1)>table>tbody>tr>td>table>tbody>tr:nth-child(3)>td:nth-child(6)>h1',
+                'selector' => 'html > body > div.container:nth-of-type(1) > div.dashboard:nth-of-type(1) > div.main-table:nth-of-type(1) > table > tbody > tr:nth-of-type(2) > td:nth-of-type(4) > div.badge',
             ]
         ]
     ],
     'bianco' => [
-        'selector' => 'body>table:nth-child(2)>tbody>tr>td:nth-child(1)>table>tbody>tr>td>table>tbody>tr:nth-child(2)>td:nth-child(7)>h1',
+        'selector' => 'html > body > div.container:nth-of-type(1) > div.dashboard:nth-of-type(1) > div.main-table:nth-of-type(1) > table > tbody > tr:nth-of-type(1) > td:nth-of-type(5) > div.badge',
         'extra' => [
             'in_attesa' => [
                 'label' => 'Pazienti in attesa',
-                'selector' => 'body>table:nth-child(2)>tbody>tr>td:nth-child(1)>table>tbody>tr>td>table>tbody>tr:nth-child(2)>td:nth-child(7)>h1',
+                'selector' => 'html > body > div.container:nth-of-type(1) > div.dashboard:nth-of-type(1) > div.main-table:nth-of-type(1) > table > tbody > tr:nth-of-type(1) > td:nth-of-type(5) > div.badge',
             ],
             'in_trattamento' => [
                 'label' => 'Pazienti in trattamento',
-                'selector' => 'body>table:nth-child(2)>tbody>tr>td:nth-child(1)>table>tbody>tr>td>table>tbody>tr:nth-child(3)>td:nth-child(7)>h1',
+                'selector' => 'html > body > div.container:nth-of-type(1) > div.dashboard:nth-of-type(1) > div.main-table:nth-of-type(1) > table > tbody > tr:nth-of-type(2) > td:nth-of-type(5) > div.badge',
             ]
         ]
     ],
     'totali' => [
-        'selector' => 'body>table:nth-child(2)>tbody>tr>td:nth-child(1)>table>tbody>tr>td>table>tbody>tr:nth-child(2)>td:nth-child(8)>h1',
+        'selector' => 'html > body > div.container:nth-of-type(1) > div.dashboard:nth-of-type(1) > div.main-table:nth-of-type(1) > table > tbody > tr:nth-of-type(1) > td:nth-of-type(6) > div.badge',
         'extra' => [
             'in_attesa' => [
                 'label' => 'Pazienti in attesa',
-                'selector' => 'body>table:nth-child(2)>tbody>tr>td:nth-child(1)>table>tbody>tr>td>table>tbody>tr:nth-child(2)>td:nth-child(8)>h1',
+                'selector' => 'html > body > div.container:nth-of-type(1) > div.dashboard:nth-of-type(1) > div.main-table:nth-of-type(1) > table > tbody > tr:nth-of-type(1) > td:nth-of-type(6) > div.badge',
             ],
             'in_trattamento' => [
                 'label' => 'Pazienti in trattamento',
-                'selector' => 'body>table:nth-child(2)>tbody>tr>td:nth-child(1)>table>tbody>tr>td>table>tbody>tr:nth-child(3)>td:nth-child(8)>h1',
+                'selector' => 'html > body > div.container:nth-of-type(1) > div.dashboard:nth-of-type(1) > div.main-table:nth-of-type(1) > table > tbody > tr:nth-of-type(2) > td:nth-of-type(6) > div.badge',
             ]
         ]
     ]
