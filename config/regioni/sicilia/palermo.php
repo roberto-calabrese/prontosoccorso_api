@@ -274,24 +274,80 @@ return [
                         ],
                     ]
                 ],
-                'presidio_villa_sofia_pediatrico' => [
+//                'presidio_villa_sofia_pediatrico' => [
+//                    'id' => 2,
+//                    'nome' => 'Palermo - Villa Sofia',
+//                    'descrizione' => 'Ospedali Riuniti Villa Sofia Cervello',
+//                    'adulti' => false,
+//                    'indirizzo' => 'Via Trabucco, 180, 90146 Palermo PA',
+//                    'telefono' => '0916802111',
+//                    'sala_visite' => '+39 091 6802014  / +39 091 6802015',
+//                    'triage' => '+39 091 6802013',
+//                    'caposala' => '+39 091 6802072',
+//                    'info' => 'Per i pazienti di PSP che necessitano di un inquadramento diagnostico non urgente e/o di un follow up neurologico è attivo l’Ambulatorio di Neurologia pediatrica e Medicina del Sonno',
+//                    'email' => 'ps.pediatrico@villasofia.it',
+//                    'volumi' => 'In epoca pre pandemica  ( fino al 2019)  il PS Pediatrico vanta  29.077 accessi/anno con un tasso di ospedalizzazione del 5%, una percentuale di codici in emergenza/urgenza del 22% e tempi di attesa medi di 48,28 min.  2983 pazienti sono stati assistiti in OBI con un tempo medio di permanenza pari a 20 ore e una percentuale di dimessi del 83% e ricoveri 0,2%. Sono state erogate complessivamente 185.693 prestazioni specialistiche, di cui 83.949 trattate  esclusivamente in Pronto Soccorso. L’attività di trauma center è rappresentata dal 25% degli accessi (7476 ) di cui 1560 (20%) in emergenza/urgenza.',
+//                    'web' => 'https://www.ospedaliriunitipalermo.it/cervello.html',
+//                    'google_maps' => 'https://www.google.com/maps/place/Piazza+Salerno,+1,+90146+Palermo+PA,+Italia/@38.155978,13.337607,15z/data=!4m6!3m5!1s0x1319e8d80d96bf33:0x96e9216aaa3017f2!8m2!3d38.154867!4d13.33671!16s%2Fg%2F11bw3gq2xv?hl=it&entry=ttu&g_ep=EgoyMDI0MDgyOC4wIKXMDSoASAFQAw%3D%3D',
+//                    'coords' => [
+//                        'lat' => '38.155978',
+//                        'lng' => '13.337607',
+//                    ],
+//                    'data' => [
+//                        'rosso' => [
+//                            'selector' => 'div.olo-container-pronto-soccorso>div:nth-child(5)>div:nth-child(4)>div:nth-child(1)>div:nth-child(2)',
+//                        ],
+//                        'giallo' => [
+//                            'selector' => 'div.olo-container-pronto-soccorso>div:nth-child(5)>div:nth-child(4)>div:nth-child(2)>div:nth-child(2)',
+//                        ],
+//                        'verde' => [
+//                            'selector' => 'div.olo-container-pronto-soccorso>div:nth-child(5)>div:nth-child(4)>div:nth-child(3)>div:nth-child(2)',
+//                        ],
+//                        'bianco' => [
+//                            'selector' => 'div.olo-container-pronto-soccorso>div:nth-child(5)>div:nth-child(4)>div:nth-child(4)>div:nth-child(2)',
+//                        ],
+//                        'totali' => [
+//                            'selector' => 'div.olo-container-pronto-soccorso>div:nth-child(5)>div:nth-child(3)>div:nth-child(2)>div:nth-child(2)',
+//                            'extra' => [
+//                                'in_attesa' => [
+//                                    'label' => 'Pazienti in attesa',
+//                                    'selector' => 'div.olo-container-pronto-soccorso>div:nth-child(5)>div:nth-child(3)>div:nth-child(2)>div:nth-child(2)',
+//                                ],
+//                                'totali' => [
+//                                    'label' => 'Pazienti totali nella struttura',
+//                                    'selector' => 'div.olo-container-pronto-soccorso>div:nth-child(5)>div:nth-child(3)>div:nth-child(1)>div:nth-child(2)',
+//                                ],
+//                            ],
+//                        ],
+//                        'extra' => [
+//                            'in_attesa' => [
+//                                'label' => 'Pazienti in attesa',
+//                                'selector' => 'div.olo-container-pronto-soccorso>div:nth-child(5)>div:nth-child(3)>div:nth-child(2)>div:nth-child(2)',
+//                            ],
+//                            'indice_sovraffollamento' => [
+//                                'label' => 'Indice di sovraffollamento',
+//                                'selector' => 'div.olo-container-pronto-soccorso>div:nth-child(5)>div:nth-child(5)',
+//                            ],
+//                            'aggiornamento' => [
+//                                'label' => 'Aggiornato al',
+//                                'selector' => 'div.olo-row-dati-aggiornati-al',
+//                            ],
+//                        ],
+//                    ]
+//                ],
+                'presidio_cervello_pediatrico' => [
                     'id' => 2,
-                    'nome' => 'Palermo - Villa Sofia',
+                    'nome' => 'Palermo - Cervello Pediatrico',
                     'descrizione' => 'Ospedali Riuniti Villa Sofia Cervello',
                     'adulti' => false,
                     'indirizzo' => 'Via Trabucco, 180, 90146 Palermo PA',
-                    'telefono' => '0916802111',
-                    'sala_visite' => '+39 091 6802014  / +39 091 6802015',
-                    'triage' => '+39 091 6802013',
-                    'caposala' => '+39 091 6802072',
-                    'info' => 'Per i pazienti di PSP che necessitano di un inquadramento diagnostico non urgente e/o di un follow up neurologico è attivo l’Ambulatorio di Neurologia pediatrica e Medicina del Sonno',
-                    'email' => 'ps.pediatrico@villasofia.it',
-                    'volumi' => 'In epoca pre pandemica  ( fino al 2019)  il PS Pediatrico vanta  29.077 accessi/anno con un tasso di ospedalizzazione del 5%, una percentuale di codici in emergenza/urgenza del 22% e tempi di attesa medi di 48,28 min.  2983 pazienti sono stati assistiti in OBI con un tempo medio di permanenza pari a 20 ore e una percentuale di dimessi del 83% e ricoveri 0,2%. Sono state erogate complessivamente 185.693 prestazioni specialistiche, di cui 83.949 trattate  esclusivamente in Pronto Soccorso. L’attività di trauma center è rappresentata dal 25% degli accessi (7476 ) di cui 1560 (20%) in emergenza/urgenza.',
-                    'web' => 'https://www.ospedaliriunitipalermo.it/cervello.html',
-                    'google_maps' => 'https://www.google.com/maps/place/Piazza+Salerno,+1,+90146+Palermo+PA,+Italia/@38.155978,13.337607,15z/data=!4m6!3m5!1s0x1319e8d80d96bf33:0x96e9216aaa3017f2!8m2!3d38.154867!4d13.33671!16s%2Fg%2F11bw3gq2xv?hl=it&entry=ttu&g_ep=EgoyMDI0MDgyOC4wIKXMDSoASAFQAw%3D%3D',
+                    'telefono' => ' 091 680 2111',
+                    'email' => 'direzionepresidio@villasofia.it',
+                    'google_maps' => 'https://maps.app.goo.gl/vY4RATYz7ePA2Pe76',
+                    'web' => 'https://www.google.it/maps/place/Ospedali+Riuniti+Villa+Sofia-+Cervello+Pronto+Soccorso/@38.1545298,13.3138741,17z/data=!3m1!4b1!4m6!3m5!1s0x1319e8d8183d228f:0x456f6e94feddec13!8m2!3d38.1545298!4d13.3138741!16s%2Fg%2F11fyx8jlns?entry=ttu&g_ep=EgoyMDI0MDgyOC4wIKXMDSoASAFQAw%3D%3D',
                     'coords' => [
-                        'lat' => '38.155978',
-                        'lng' => '13.337607',
+                        'lat' => '38.1545298',
+                        'lng' => '13.3138741',
                     ],
                     'data' => [
                         'rosso' => [
