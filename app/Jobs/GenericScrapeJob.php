@@ -70,15 +70,17 @@ class GenericScrapeJob implements ShouldQueue
                     if ($key !== 'extra') {
                         $value['selector'] = str_replace($this->config['iterateSelector'] ?? '', $numberIteration, $value['selector']);
                         $value['selector'] = $this->replaceSelector($value['selector'], $ospedale);
-                        $iterValue = preg_replace("/[^0-9]/", "", implode('', $crawler->filter($value['selector'])->extract(['_text'])));
+                        $extractType = $value['extract'] ?? '_text';
+                        $iterValue = preg_replace("/[^0-9]/", "", implode('', $crawler->filter($value['selector'])->extract([$extractType])));
                         $ospedali[$keyH]['data'][$key]['value'] = $iterValue === "" ? "-" : $iterValue;
                         if (isset($value['extra']) && is_array($value['extra'])) {
                             foreach ($value['extra'] as $extra_k => $extra_v) {
                                 $extra_v['selector'] = str_replace($this->config['iterateSelector'] ?? '', $numberIteration, $extra_v['selector']);
                                 $extra_v['selector'] = $this->replaceSelector($extra_v['selector'], $ospedale);
+                                $extractTypeExtra = $extra_v['extract'] ?? '_text';
                                 $extra_v['value'] = isset($extra_v['is_string'])
-                                    ?  implode('', $crawler->filter($extra_v['selector'])->extract(['_text']))
-                                    : (int)preg_replace("/[^0-9]/", "", implode('', $crawler->filter($extra_v['selector'])->extract(['_text'])));
+                                    ?  implode('', $crawler->filter($extra_v['selector'])->extract([$extractTypeExtra]))
+                                    : (int)preg_replace("/[^0-9]/", "", implode('', $crawler->filter($extra_v['selector'])->extract([$extractTypeExtra])));
 
                                 unset($extra_v['selector']);
                                 $ospedali[$keyH]['data'][$key]['extra'][$extra_k] = $extra_v;
@@ -91,7 +93,8 @@ class GenericScrapeJob implements ShouldQueue
                             $extraV['selector'] = str_replace($this->config['iterateSelector'] ?? '', $numberIteration, $extraV['selector']);
                             $extraV['selector'] = $this->replaceSelector($extraV['selector'], $ospedale);
                             $ospedali[$keyH]['data'][$key][$extraK] = $ospedale['data'][$key][$extraK];
-                            $cleanedValue = implode('', $crawler->filter($extraV['selector'])->extract(['_text']));
+                            $extractTypeExtra = $extraV['extract'] ?? '_text';
+                            $cleanedValue = implode('', $crawler->filter($extraV['selector'])->extract([$extractTypeExtra]));
                             $ospedali[$keyH]['data'][$key][$extraK]['value'] = ($extraK === 'indice_sovraffollamento') ? (int)preg_replace('/[^0-9.]/', '', $cleanedValue) : $cleanedValue;
                             unset($ospedali[$keyH]['data'][$key][$extraK]['selector']);
                         }

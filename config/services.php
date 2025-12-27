@@ -74,5 +74,10 @@ return [
             'prato' => \App\Services\GenericDataService::class,
             'pistoia' => \App\Services\GenericDataService::class,
         ]
+    ],
+    'calabria' => [
+        'provincie' => [
+            'reggio-calabria' => \App\Services\GenericDataService::class,
+        ],
     ]
 ];
