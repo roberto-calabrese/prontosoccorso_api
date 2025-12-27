@@ -111,6 +111,60 @@ return [
                         'name' => 'Ospedale Santa Maria Nuova - Firenze'
                     ],
                 ],
+                'SantaMariaAnnunziata' => [
+                    'id' => 3,
+                    'nome' => 'Bagno a Ripoli - Ospedale Santa Maria Annunziata',
+                    'descrizione' => 'Ospedale Santa Maria Annunziata',
+                    'adulti' => true,
+                    'indirizzo' => 'Via Antella, 58, 50012 Bagno a Ripoli FI',
+                    'telefono' => '055 69361',
+                    'email' => 'direzionesanitaria.sma@uslcentro.toscana.it',
+                    'web' => 'https://www.uslcentro.toscana.it/psstat/pronto-soccorso-pa.php',
+                    'google_maps' => 'https://www.google.com/maps/place/Ospedale+Santa+Maria+Annunziata/@43.7321241,11.3056594,17z/data=!3m1!4b1!4m6!3m5!1s0x132a53066f7aa449:0x37f740c4dcc0a31!8m2!3d43.7321241!4d11.3056594!16s%2Fg%2F119v61yys?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D',
+                    'coords' => [
+                        'lat' => '43.7321241',
+                        'lng' => '11.3056594',
+                    ],
+                    'data' => [
+                        'name' => 'Ospedale Santa Maria Annunziata - Bagno a Ripoli'
+                    ],
+                ],
+                'SanGiuseppeEmpoli' => [
+                    'id' => 4,
+                    'nome' => 'Empoli - Ospedale San Giuseppe',
+                    'descrizione' => 'Ospedale San Giuseppe di Empoli',
+                    'adulti' => true,
+                    'indirizzo' => 'Viale Giovanni Boccaccio, 16, 50053 Empoli FI',
+                    'telefono' => '0571 7051',
+                    'email' => 'direzionesanitaria.sg@uslcentro.toscana.it',
+                    'web' => 'https://www.uslcentro.toscana.it/psstat/pronto-soccorso-pa.php',
+                    'google_maps' => 'https://www.google.com/maps/place/Ospedale+San+Giuseppe+di+Empoli/@43.7222153,10.9340379,16z/data=!3m1!4b1!4m6!3m5!1s0x132a6880304ee9f5:0xa2fbeb2e2cb2a93b!8m2!3d43.7222153!4d10.9340379!16s%2Fg%2F1vlcyzrt?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D',
+                    'coords' => [
+                        'lat' => '43.7222153',
+                        'lng' => '10.9340379',
+                    ],
+                    'data' => [
+                        'name' => 'Ospedale San Giuseppe - Empoli'
+                    ],
+                ],
+                'Mugello' => [
+                    'id' => 5,
+                    'nome' => 'Borgo San Lorenzo - Nuovo Ospedale del Mugello',
+                    'descrizione' => 'Nuovo Ospedale del Mugello',
+                    'adulti' => true,
+                    'indirizzo' => 'Viale della Resistenza, 60, 50032 Borgo San Lorenzo FI',
+                    'telefono' => '055 84511',
+                    'email' => 'direzionesanitaria.mugello@uslcentro.toscana.it',
+                    'web' => 'https://www.uslcentro.toscana.it/psstat/pronto-soccorso-pa.php',
+                    'google_maps' => 'https://www.google.com/maps/place/Ospedale+del+Mugello/@43.9584307,11.3752875,16z/data=!3m1!4b1!4m6!3m5!1s0x132b02ef3296a4e3:0xda128eda59c57680!8m2!3d43.9584307!4d11.3752875!16s%2Fg%2F126299n0l?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D',
+                    'coords' => [
+                        'lat' => '43.9584307',
+                        'lng' => '11.3752875',
+                    ],
+                    'data' => [
+                        'name' => 'Nuovo Ospedale del Mugello - Borgo San Lorenzo'
+                    ],
+                ],
             ]
         ],
     ]
