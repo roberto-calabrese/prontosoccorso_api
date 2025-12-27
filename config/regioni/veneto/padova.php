@@ -69,7 +69,6 @@ $dataCommons = [
                 'label' => 'Pazienti in trattamento',
                 'selector' => 'table#ps>tbody>tr:nth-child($I)>td:nth-child(3)>table>tr:nth-child(3)>td:nth-child(5)',
             ],
-
         ]
     ],
     'bianco' => [
@@ -160,14 +159,14 @@ return [
     ],
     'tableSettings' => $tableSettings,
     'ospedali' => [
-        'salute_regione_veneto' => [
+        'padova_ulss6' => [
             'cache' => [
-                'key' => 'veneto.padova.salute_regione_veneto',
+                'key' => 'veneto.padova.ulss6',
                 'ttlMinute' => 1
             ],
             'url' => 'https://salute.regione.veneto.it/servizi/situazione-nei-pronto-soccorso?p_p_id=PRONTOSOCCORSO_WAR_portalprontosoccorso_INSTANCE_o0QZ&p_p_lifecycle=1&p_p_state=normal&p_p_mode=view&p_p_col_id=column-3&p_p_col_count=1',
             'method' => 'POST',
-            'form_params' => ['provincia' => 'PD'],
+            'form_params' => ['ulss' => '506'],
             'iterateSelector' => '$I',
             'headers' => $headers,
             'jobClass' => \App\Jobs\GenericScrapeJob::class,
@@ -188,9 +187,22 @@ return [
                     ],
                     'data' => $dataCommons,
                 ],
-                'abano_terme' => [
+                'montagnana' => [
                     'id' => 2,
-                    'nome' => 'Belluno - Policlinico Abano Terme',
+                    'nome' => 'Montagnana - Punto Primo Intervento',
+                    'descrizione' => 'Pronto Soccorso - Punto Primo Intervento Montagnana',
+                    'adulti' => true,
+                    'indirizzo' => 'Via Lovara, 10, Montagnana, 35044, PD',
+                    'telefono' => '',
+                    'email' => '',
+                    'web' => 'https://salute.regione.veneto.it/servizi/situazione-nei-pronto-soccorso',
+                    'google_maps' => 'https://www.google.it/maps/place/Via+Lovara,+10,+35044+Montagnana+PD',
+                    'coords' => [],
+                    'data' => $dataCommons,
+                ],
+                'abano_terme' => [
+                    'id' => 3,
+                    'nome' => 'Abano Terme - Policlinico',
                     'descrizione' => 'Policlinico Abano Terme Pronto Soccorso',
                     'adulti' => true,
                     'indirizzo' => 'Piazza Cristoforo Colombo, 1, Abano Terme, 35031, PD',
@@ -204,8 +216,8 @@ return [
                     ],
                     'data' => $dataCommons,
                 ],
-                'camposampiero,' => [
-                    'id' => 3,
+                'camposampiero' => [
+                    'id' => 4,
                     'nome' => 'Camposampiero - Presidio Ospedaliero',
                     'descrizione' => 'Presidio Ospedaliero "Giovanni Paolo II" Pronto Soccorso',
                     'adulti' => true,
@@ -220,8 +232,8 @@ return [
                     ],
                     'data' => $dataCommons,
                 ],
-                'cittadella,' => [
-                    'id' => 4,
+                'cittadella' => [
+                    'id' => 5,
                     'nome' => 'Cittadella - ULSS 6 Euganea ',
                     'descrizione' => 'Ospedale di Cittadella - ULSS 6 Euganea : Pronto Soccorso',
                     'adulti' => true,
@@ -236,25 +248,60 @@ return [
                     ],
                     'data' => $dataCommons,
                 ],
-                'monselice,' => [
-                    'id' => 5,
-                    'nome' => 'Monselice - Ospedali Riuniti Padova Sud ',
-                    'descrizione' => 'Ospedali Riuniti Padova Sud Pronto Soccorso',
+            ]
+        ],
+        'padova_ao' => [
+            'cache' => [
+                'key' => 'veneto.padova.ao',
+                'ttlMinute' => 1
+            ],
+            'url' => 'https://salute.regione.veneto.it/servizi/situazione-nei-pronto-soccorso?p_p_id=PRONTOSOCCORSO_WAR_portalprontosoccorso_INSTANCE_o0QZ&p_p_lifecycle=1&p_p_state=normal&p_p_mode=view&p_p_col_id=column-3&p_p_col_count=1',
+            'method' => 'POST',
+            'form_params' => ['ulss' => '901'],
+            'iterateSelector' => '$I',
+            'headers' => $headers,
+            'jobClass' => \App\Jobs\GenericScrapeJob::class,
+            'data' => [
+                'sant_antonio' => [
+                    'id' => 6,
+                    'nome' => 'Padova - Ospedale Sant\'Antonio',
+                    'descrizione' => 'Pronto Soccorso Ospedale Sant\'Antonio',
                     'adulti' => true,
-                    'indirizzo' => 'Via Albere, 30, 35043 Monselice PD',
-                    'telefono' => '800 829 141',
+                    'indirizzo' => 'Via Facciolati, 71, Padova, 35127, PD',
+                    'telefono' => '',
                     'email' => '',
                     'web' => 'https://salute.regione.veneto.it/servizi/situazione-nei-pronto-soccorso',
-                    'google_maps' => 'https://www.google.it/maps/place/Ospedali+Riuniti+Padova+Sud+Pronto+Soccorso/@45.2065908,11.7211558,634m/data=!3m2!1e3!4b1!4m6!3m5!1s0x477ee3c7657eda4b:0x9cc5ff4de6cddc06!8m2!3d45.2065908!4d11.7211558!16s%2Fg%2F11b6gc5f4y?entry=ttu&g_ep=EgoyMDI0MDgyOC4wIKXMDSoASAFQAw%3D%3D',
-                    'coords' => [
-                        'lat' => '45.2065908',
-                        'lng' => '11.7211558',
-                    ],
+                    'google_maps' => 'https://www.google.it/maps/place/Via+Facciolati,+71,+35127+Padova+PD',
+                    'coords' => [],
+                    'data' => $dataCommons,
+                ],
+                'padova_ao' => [
+                    'id' => 7,
+                    'nome' => 'Padova - Azienda Ospedaliera',
+                    'descrizione' => 'Pronto Soccorso Azienda Ospedaliera di Padova',
+                    'adulti' => true,
+                    'indirizzo' => 'Via Giustiniani, 1, Padova, 35128, PD',
+                    'telefono' => '',
+                    'email' => '',
+                    'web' => 'https://salute.regione.veneto.it/servizi/situazione-nei-pronto-soccorso',
+                    'google_maps' => 'https://www.google.it/maps/place/Via+Giustiniani,+1,+35128+Padova+PD',
+                    'coords' => [],
+                    'data' => $dataCommons,
+                ],
+                'padova_ped' => [
+                    'id' => 8,
+                    'nome' => 'Padova - Azienda Ospedaliera Pediatrico',
+                    'descrizione' => 'Pronto Soccorso Pediatrico Azienda Ospedaliera di Padova',
+                    'adulti' => false,
+                    'indirizzo' => 'Via Giustiniani, 1, Padova, 35128, PD',
+                    'telefono' => '',
+                    'email' => '',
+                    'web' => 'https://salute.regione.veneto.it/servizi/situazione-nei-pronto-soccorso',
+                    'google_maps' => 'https://www.google.it/maps/place/Via+Giustiniani,+1,+35128+Padova+PD',
+                    'coords' => [],
                     'data' => $dataCommons,
                 ],
             ]
-        ],
-
-
+        ]
     ]
 ];

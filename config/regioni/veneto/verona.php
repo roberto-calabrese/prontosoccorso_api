@@ -69,7 +69,6 @@ $dataCommons = [
                 'label' => 'Pazienti in trattamento',
                 'selector' => 'table#ps>tbody>tr:nth-child($I)>td:nth-child(3)>table>tr:nth-child(3)>td:nth-child(5)',
             ],
-
         ]
     ],
     'bianco' => [
@@ -150,95 +149,160 @@ $tableSettings = [
 
 return [
     'meta' => [
-        'slug' => 'rovigo',
-        'Titolo' => 'Rovigo'
+        'slug' => 'verona',
+        'Titolo' => 'Verona'
     ],
     'websocket' => [
         'active' => true,
-        'channel' => 'veneto.rovigo',
+        'channel' => 'veneto.verona',
         'event' => 'data'
     ],
     'tableSettings' => $tableSettings,
     'ospedali' => [
-        'salute_regione_veneto' => [
+        'verona_ulss9' => [
             'cache' => [
-                'key' => 'veneto.rovigo.salute_regione_veneto',
+                'key' => 'veneto.verona.ulss9',
                 'ttlMinute' => 1
             ],
             'url' => 'https://salute.regione.veneto.it/servizi/situazione-nei-pronto-soccorso?p_p_id=PRONTOSOCCORSO_WAR_portalprontosoccorso_INSTANCE_o0QZ&p_p_lifecycle=1&p_p_state=normal&p_p_mode=view&p_p_col_id=column-3&p_p_col_count=1',
             'method' => 'POST',
-            'form_params' => ['ulss' => '505'],
+            'form_params' => ['ulss' => '509'],
             'iterateSelector' => '$I',
             'headers' => $headers,
             'jobClass' => \App\Jobs\GenericScrapeJob::class,
             'data' => [
-                'trecenta' => [
+                'bussolengo' => [
                     'id' => 1,
-                    'nome' => 'Trecenta - Ospedale San Luca ',
-                    'descrizione' => 'Ospedale San Luca Pronto Soccorso',
+                    'nome' => 'Bussolengo - Pronto Soccorso',
+                    'descrizione' => 'Pronto Soccorso Bussolengo',
                     'adulti' => true,
-                    'indirizzo' => 'Viale Ugo Grisetti, 265, 45027 Trecenta RO',
-                    'telefono' => '0425 725316',
+                    'indirizzo' => 'Via Ospedale, 2, Bussolengo, 37012, VR',
+                    'telefono' => '',
                     'email' => '',
                     'web' => 'https://salute.regione.veneto.it/servizi/situazione-nei-pronto-soccorso',
-                    'google_maps' => 'https://www.google.it/maps/place/Ospedale+San+Luca+Pronto+Soccorso/@45.0295914,11.4673534,636m/data=!3m2!1e3!4b1!4m6!3m5!1s0x477f075c4e3b248d:0x151eefc99fe30f65!8m2!3d45.0295914!4d11.4673534!16s%2Fg%2F11gbffq4zf?entry=ttu&g_ep=EgoyMDI0MDgyOC4wIKXMDSoASAFQAw%3D%3D',
-                    'coords' => [
-                        'lat' => '45.0295914',
-                        'lng' => '11.4673534',
-                    ],
+                    'google_maps' => 'https://www.google.it/maps/place/Via+Ospedale,+2,+37012+Bussolengo+VR',
+                    'coords' => [],
                     'data' => $dataCommons,
                 ],
-                'porto_viro' => [
+                'malcesine' => [
                     'id' => 2,
-                    'nome' => 'Porto Viro - Casa di cura Madonna della salute',
-                    'descrizione' => 'Pronto soccorso - casa di cura Madonna della salute',
+                    'nome' => 'Malcesine - Punto Primo Intervento',
+                    'descrizione' => 'Punto Primo Intervento Malcesine',
                     'adulti' => true,
-                    'indirizzo' => 'Via Giuseppe di Vittorio, 45, 45014 Porto Viro RO',
-                    'telefono' => '0437 516125',
+                    'indirizzo' => 'Via Gardesana, 37, Malcesine, 37018, VR',
+                    'telefono' => '',
                     'email' => '',
                     'web' => 'https://salute.regione.veneto.it/servizi/situazione-nei-pronto-soccorso',
-                    'google_maps' => 'https://www.google.it/maps/place/Pronto+soccorso+-+casa+di+cura+Madonna+della+salute/@45.0266499,12.2240419,636m/data=!3m2!1e3!4b1!4m6!3m5!1s0x477e8587162a66ed:0x99c9bbf886b376f4!8m2!3d45.0266499!4d12.2240419!16s%2Fg%2F11jqx2dt33?entry=ttu&g_ep=EgoyMDI0MDgyOC4wIKXMDSoASAFQAw%3D%3D',
-                    'coords' => [
-                        'lat' => '45.0266499',
-                        'lng' => '12.2240419',
-                    ],
+                    'google_maps' => 'https://www.google.it/maps/place/Via+Gardesana,+37,+37018+Malcesine+VR',
+                    'coords' => [],
                     'data' => $dataCommons,
                 ],
-                'rovigo,' => [
+                'legnago' => [
                     'id' => 3,
-                    'nome' => 'Rovigo - Ospedale Santa Maria della Misericordia',
-                    'descrizione' => 'Ospedale Santa Maria della Misericordia',
+                    'nome' => 'Legnago - Pronto Soccorso',
+                    'descrizione' => 'Pronto Soccorso Legnago',
                     'adulti' => true,
-                    'indirizzo' => 'Viale Tre Martiri, 140, 45100 Rovigo RO',
-                    'telefono' => '0425 3931',
+                    'indirizzo' => 'Via Gianella, 1, Legnago, 37045, VR',
+                    'telefono' => '',
                     'email' => '',
                     'web' => 'https://salute.regione.veneto.it/servizi/situazione-nei-pronto-soccorso',
-                    'google_maps' => 'https://www.google.it/maps/place/Ospedale+Santa+Maria+della+Misericordia/@45.071969,11.8159052,635m/data=!3m2!1e3!4b1!4m6!3m5!1s0x477ef0b77587b113:0x5959d89e2cd6d030!8m2!3d45.071969!4d11.8159052!16s%2Fg%2F1td5_kqn?hl=it&entry=ttu&g_ep=EgoyMDI0MDgyOC4wIKXMDSoASAFQAw%3D%3D',
-                    'coords' => [
-                        'lat' => '45.071969',
-                        'lng' => '11.8159052',
-                    ],
+                    'google_maps' => 'https://www.google.it/maps/place/Via+Gianella,+1,+37045+Legnago+VR',
+                    'coords' => [],
                     'data' => $dataCommons,
                 ],
-                'adria,' => [
+                'negrar' => [
                     'id' => 4,
-                    'nome' => 'Adria - Santa Maria Regina degli Angeli',
-                    'descrizione' => 'Santa Maria Regina degli Angeli, Pronto Soccorso',
+                    'nome' => 'Negrar - Sacro Cuore Don G. Calabria',
+                    'descrizione' => 'Pronto Soccorso Ospedale Classificato Sacro Cuore Don G. Calabria',
                     'adulti' => true,
-                    'indirizzo' => 'Piazzale degli Etruschi, 9, 45011 Adria RO',
-                    'telefono' => '0426 940111',
+                    'indirizzo' => 'Via Don A. Sempreboni, 5, Negrar, 37024, VR',
+                    'telefono' => '',
                     'email' => '',
                     'web' => 'https://salute.regione.veneto.it/servizi/situazione-nei-pronto-soccorso',
-                    'google_maps' => 'https://www.google.it/maps/place/Santa+Maria+Regina+degli+Angeli,+Pronto+Soccorso/@45.0480893,12.0550679,636m/data=!3m2!1e3!4b1!4m6!3m5!1s0x477e8c128c8decb5:0x3b9fcbdd9dffc925!8m2!3d45.0480893!4d12.0550679!16s%2Fg%2F11gbf8g6yg?hl=it&entry=ttu&g_ep=EgoyMDI0MDgyOC4wIKXMDSoASAFQAw%3D%3D',
-                    'coords' => [
-                        'lat' => '45.0480893',
-                        'lng' => '12.0550679',
-                    ],
+                    'google_maps' => 'https://www.google.it/maps/place/Via+Don+A.+Sempreboni,+5,+37024+Negrar+VR',
+                    'coords' => [],
+                    'data' => $dataCommons,
+                ],
+                'san_bonifacio' => [
+                    'id' => 5,
+                    'nome' => 'San Bonifacio - Pronto Soccorso',
+                    'descrizione' => 'Pronto Soccorso San Bonifacio',
+                    'adulti' => true,
+                    'indirizzo' => 'Via Fontanelle, 18, San Bonifacio, 37047, VR',
+                    'telefono' => '',
+                    'email' => '',
+                    'web' => 'https://salute.regione.veneto.it/servizi/situazione-nei-pronto-soccorso',
+                    'google_maps' => 'https://www.google.it/maps/place/Via+Fontanelle,+18,+37047+San+Bonifacio+VR',
+                    'coords' => [],
                     'data' => $dataCommons,
                 ],
             ]
         ],
-
-
+        'verona_ao' => [
+            'cache' => [
+                'key' => 'veneto.verona.ao',
+                'ttlMinute' => 1
+            ],
+            'url' => 'https://salute.regione.veneto.it/servizi/situazione-nei-pronto-soccorso?p_p_id=PRONTOSOCCORSO_WAR_portalprontosoccorso_INSTANCE_o0QZ&p_p_lifecycle=1&p_p_state=normal&p_p_mode=view&p_p_col_id=column-3&p_p_col_count=1',
+            'method' => 'POST',
+            'form_params' => ['ulss' => '912'],
+            'iterateSelector' => '$I',
+            'headers' => $headers,
+            'jobClass' => \App\Jobs\GenericScrapeJob::class,
+            'data' => [
+                'bt_ostetrico' => [
+                    'id' => 6,
+                    'nome' => 'Verona - Borgo Trento Ostetrico-Ginecologico',
+                    'descrizione' => 'Pronto Soccorso Ostetrico-Ginecologico AOUI Verona Osp. B.Trento',
+                    'adulti' => true,
+                    'indirizzo' => 'Piazzale Stefani, 1, Verona, 37126, VR',
+                    'telefono' => '',
+                    'email' => '',
+                    'web' => 'https://salute.regione.veneto.it/servizi/situazione-nei-pronto-soccorso',
+                    'google_maps' => 'https://www.google.it/maps/place/Piazzale+Stefani,+1,+37126+Verona+VR',
+                    'coords' => [],
+                    'data' => $dataCommons,
+                ],
+                'borgo_roma' => [
+                    'id' => 7,
+                    'nome' => 'Verona - Borgo Roma',
+                    'descrizione' => 'Pronto Soccorso AOUI Verona Osp. B.Roma',
+                    'adulti' => true,
+                    'indirizzo' => 'Piazzale L. A. Scuro, 10, Verona, 37134, VR',
+                    'telefono' => '',
+                    'email' => '',
+                    'web' => 'https://salute.regione.veneto.it/servizi/situazione-nei-pronto-soccorso',
+                    'google_maps' => 'https://www.google.it/maps/place/Piazzale+L.+A.+Scuro,+10,+37134+Verona+VR',
+                    'coords' => [],
+                    'data' => $dataCommons,
+                ],
+                'bt_pediatrico' => [
+                    'id' => 8,
+                    'nome' => 'Verona - Borgo Trento Pediatrico',
+                    'descrizione' => 'Pronto Soccorso Pediatrico AOUI Verona Osp. B.Trento',
+                    'adulti' => false,
+                    'indirizzo' => 'Piazzale Stefani, 1, Verona, 37126, VR',
+                    'telefono' => '',
+                    'email' => '',
+                    'web' => 'https://salute.regione.veneto.it/servizi/situazione-nei-pronto-soccorso',
+                    'google_maps' => 'https://www.google.it/maps/place/Piazzale+Stefani,+1,+37126+Verona+VR',
+                    'coords' => [],
+                    'data' => $dataCommons,
+                ],
+                'bt_generale' => [
+                    'id' => 9,
+                    'nome' => 'Verona - Borgo Trento Generale e Trauma Center',
+                    'descrizione' => 'Pronto Soccorso e Trauma Center AOUI Verona Osp. B.Trento',
+                    'adulti' => true,
+                    'indirizzo' => 'Via Lungadige Attiraglio, 10, Verona, 37124, VR',
+                    'telefono' => '',
+                    'email' => '',
+                    'web' => 'https://salute.regione.veneto.it/servizi/situazione-nei-pronto-soccorso',
+                    'google_maps' => 'https://www.google.it/maps/place/Via+Lungadige+Attiraglio,+10,+37124+Verona+VR',
+                    'coords' => [],
+                    'data' => $dataCommons,
+                ],
+            ]
+        ]
     ]
 ];

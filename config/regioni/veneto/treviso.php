@@ -167,7 +167,7 @@ return [
             ],
             'url' => 'https://salute.regione.veneto.it/servizi/situazione-nei-pronto-soccorso?p_p_id=PRONTOSOCCORSO_WAR_portalprontosoccorso_INSTANCE_o0QZ&p_p_lifecycle=1&p_p_state=normal&p_p_mode=view&p_p_col_id=column-3&p_p_col_count=1',
             'method' => 'POST',
-            'form_params' => ['provincia' => 'TV'],
+            'form_params' => ['ulss' => '502'],
             'iterateSelector' => '$I',
             'headers' => $headers,
             'jobClass' => \App\Jobs\GenericScrapeJob::class,
