@@ -167,4 +167,12 @@ class GenericScrapeJob implements ShouldQueue
         return $selector;
     }
 
+    private function filterNode(Crawler $crawler, string $selector): Crawler
+    {
+        if (str_starts_with($selector, '//') || str_starts_with($selector, '/')) {
+            return $crawler->filterXPath($selector);
+        }
+        return $crawler->filter($selector);
+    }
+
 }

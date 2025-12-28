@@ -75,6 +75,11 @@ return [
             'pistoia' => \App\Services\GenericDataService::class,
         ]
     ],
+    'campania' => [
+        'provincie' => [
+            'caserta' => \App\Services\GenericDataService::class,
+        ],
+    ],
     'calabria' => [
         'provincie' => [
             'reggio-calabria' => \App\Services\GenericDataService::class,
