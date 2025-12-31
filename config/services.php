@@ -85,5 +85,10 @@ return [
             'reggio-calabria' => \App\Services\GenericDataService::class,
             'catanzaro' => \App\Services\GenericDataService::class,
         ],
+    ],
+    'emilia-romagna' => [
+        'provincie' => [
+            'romagna' => \App\Services\GenericDataService::class,
+        ],
     ]
 ];
