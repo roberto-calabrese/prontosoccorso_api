@@ -2,127 +2,187 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
     <url>
         <loc>https://prontosoccorso.live/</loc>
-        <lastmod>2024-12-10T00:00:00+01:00</lastmod>
+            <lastmod>2025-12-28T00:00:00+01:00</lastmod>
 
             </url>
     <url>
         <loc>https://prontosoccorso.live/il-progetto</loc>
-        <lastmod>2024-12-10T00:00:00+01:00</lastmod>
+        <lastmod>2025-12-28T00:00:00+01:00</lastmod>
 
             </url>
     <url>
         <loc>https://prontosoccorso.live/come-funziona</loc>
-        <lastmod>2024-12-10T00:00:00+01:00</lastmod>
+        <lastmod>2025-12-28T00:00:00+01:00</lastmod>
+
+            </url>
+    <url>
+        <loc>https://prontosoccorso.live/calabria</loc>
+        <lastmod>2025-12-28T00:00:00+01:00</lastmod>
+
+            </url>
+    <url>
+        <loc>https://prontosoccorso.live/calabria/catanzaro</loc>
+        <lastmod>2025-12-28T00:00:00+01:00</lastmod>
+
+            </url>
+    <url>
+        <loc>https://prontosoccorso.live/calabria/reggio-calabria</loc>
+        <lastmod>2025-12-28T00:00:00+01:00</lastmod>
+
+            </url>
+    <url>
+        <loc>https://prontosoccorso.live/campania</loc>
+        <lastmod>2025-12-28T00:00:00+01:00</lastmod>
+
+            </url>
+    <url>
+        <loc>https://prontosoccorso.live/campania/caserta</loc>
+        <lastmod>2025-12-28T00:00:00+01:00</lastmod>
 
             </url>
     <url>
         <loc>https://prontosoccorso.live/liguria</loc>
-        <lastmod>2024-12-10T00:00:00+01:00</lastmod>
+        <lastmod>2025-12-28T00:00:00+01:00</lastmod>
 
             </url>
     <url>
         <loc>https://prontosoccorso.live/liguria/genova</loc>
-        <lastmod>2024-12-10T00:00:00+01:00</lastmod>
+        <lastmod>2025-12-28T00:00:00+01:00</lastmod>
 
             </url>
     <url>
         <loc>https://prontosoccorso.live/liguria/imperia</loc>
-        <lastmod>2024-12-10T00:00:00+01:00</lastmod>
+        <lastmod>2025-12-28T00:00:00+01:00</lastmod>
 
             </url>
     <url>
         <loc>https://prontosoccorso.live/liguria/la-spezia</loc>
-        <lastmod>2024-12-10T00:00:00+01:00</lastmod>
+        <lastmod>2025-12-28T00:00:00+01:00</lastmod>
 
             </url>
     <url>
         <loc>https://prontosoccorso.live/liguria/savona</loc>
-        <lastmod>2024-12-10T00:00:00+01:00</lastmod>
+        <lastmod>2025-12-28T00:00:00+01:00</lastmod>
 
             </url>
     <url>
         <loc>https://prontosoccorso.live/piemonte</loc>
-        <lastmod>2024-12-10T00:00:00+01:00</lastmod>
+        <lastmod>2025-12-28T00:00:00+01:00</lastmod>
 
             </url>
     <url>
         <loc>https://prontosoccorso.live/piemonte/novara</loc>
-        <lastmod>2024-12-10T00:00:00+01:00</lastmod>
+        <lastmod>2025-12-28T00:00:00+01:00</lastmod>
 
             </url>
     <url>
         <loc>https://prontosoccorso.live/piemonte/torino</loc>
-        <lastmod>2024-12-10T00:00:00+01:00</lastmod>
+        <lastmod>2025-12-28T00:00:00+01:00</lastmod>
 
             </url>
     <url>
         <loc>https://prontosoccorso.live/piemonte/vercelli</loc>
-        <lastmod>2024-12-10T00:00:00+01:00</lastmod>
+        <lastmod>2025-12-28T00:00:00+01:00</lastmod>
 
             </url>
     <url>
         <loc>https://prontosoccorso.live/sicilia</loc>
-        <lastmod>2024-12-10T00:00:00+01:00</lastmod>
+        <lastmod>2025-12-28T00:00:00+01:00</lastmod>
 
             </url>
     <url>
         <loc>https://prontosoccorso.live/sicilia/agrigento</loc>
-        <lastmod>2024-12-10T00:00:00+01:00</lastmod>
+        <lastmod>2025-12-28T00:00:00+01:00</lastmod>
 
             </url>
     <url>
         <loc>https://prontosoccorso.live/sicilia/caltanissetta</loc>
-        <lastmod>2024-12-10T00:00:00+01:00</lastmod>
+        <lastmod>2025-12-28T00:00:00+01:00</lastmod>
 
             </url>
     <url>
         <loc>https://prontosoccorso.live/sicilia/catania</loc>
-        <lastmod>2024-12-10T00:00:00+01:00</lastmod>
+        <lastmod>2025-12-28T00:00:00+01:00</lastmod>
 
             </url>
     <url>
         <loc>https://prontosoccorso.live/sicilia/messina</loc>
-        <lastmod>2024-12-10T00:00:00+01:00</lastmod>
+        <lastmod>2025-12-28T00:00:00+01:00</lastmod>
 
             </url>
     <url>
         <loc>https://prontosoccorso.live/sicilia/palermo</loc>
-        <lastmod>2024-12-10T00:00:00+01:00</lastmod>
+        <lastmod>2025-12-28T00:00:00+01:00</lastmod>
 
             </url>
     <url>
         <loc>https://prontosoccorso.live/sicilia/siracusa</loc>
-        <lastmod>2024-12-10T00:00:00+01:00</lastmod>
+        <lastmod>2025-12-28T00:00:00+01:00</lastmod>
+
+            </url>
+    <url>
+        <loc>https://prontosoccorso.live/toscana</loc>
+        <lastmod>2025-12-28T00:00:00+01:00</lastmod>
+
+            </url>
+    <url>
+        <loc>https://prontosoccorso.live/toscana/empoli</loc>
+        <lastmod>2025-12-28T00:00:00+01:00</lastmod>
+
+            </url>
+    <url>
+        <loc>https://prontosoccorso.live/toscana/firenze</loc>
+        <lastmod>2025-12-28T00:00:00+01:00</lastmod>
+
+            </url>
+    <url>
+        <loc>https://prontosoccorso.live/toscana/pistoia</loc>
+        <lastmod>2025-12-28T00:00:00+01:00</lastmod>
+
+            </url>
+    <url>
+        <loc>https://prontosoccorso.live/toscana/prato</loc>
+        <lastmod>2025-12-28T00:00:00+01:00</lastmod>
 
             </url>
     <url>
         <loc>https://prontosoccorso.live/veneto</loc>
-        <lastmod>2024-12-10T00:00:00+01:00</lastmod>
+        <lastmod>2025-12-28T00:00:00+01:00</lastmod>
 
             </url>
     <url>
         <loc>https://prontosoccorso.live/veneto/belluno</loc>
-        <lastmod>2024-12-10T00:00:00+01:00</lastmod>
+        <lastmod>2025-12-28T00:00:00+01:00</lastmod>
 
             </url>
     <url>
         <loc>https://prontosoccorso.live/veneto/padova</loc>
-        <lastmod>2024-12-10T00:00:00+01:00</lastmod>
+        <lastmod>2025-12-28T00:00:00+01:00</lastmod>
 
             </url>
     <url>
         <loc>https://prontosoccorso.live/veneto/rovigo</loc>
-        <lastmod>2024-12-10T00:00:00+01:00</lastmod>
+        <lastmod>2025-12-28T00:00:00+01:00</lastmod>
 
             </url>
     <url>
         <loc>https://prontosoccorso.live/veneto/treviso</loc>
-        <lastmod>2024-12-10T00:00:00+01:00</lastmod>
+        <lastmod>2025-12-28T00:00:00+01:00</lastmod>
 
             </url>
     <url>
         <loc>https://prontosoccorso.live/veneto/venezia</loc>
-        <lastmod>2024-12-10T00:00:00+01:00</lastmod>
+        <lastmod>2025-12-28T00:00:00+01:00</lastmod>
+
+            </url>
+    <url>
+        <loc>https://prontosoccorso.live/veneto/verona</loc>
+        <lastmod>2025-12-28T00:00:00+01:00</lastmod>
+
+            </url>
+    <url>
+        <loc>https://prontosoccorso.live/veneto/vicenza</loc>
+        <lastmod>2025-12-28T00:00:00+01:00</lastmod>
 
             </url>
 </urlset>
