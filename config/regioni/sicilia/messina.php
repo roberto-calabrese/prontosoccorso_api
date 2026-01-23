@@ -15,9 +15,14 @@ $tableSettings = [
             'key' => 'data.data.rosso.value'
         ],
         [
-            'title' => 'Giallo in attesa',
+            'title' => 'Arancione in attesa',
             'align' => 'end',
-            'key' => 'data.data.giallo.value'
+            'key' => 'data.data.arancione.value'
+        ],
+        [
+            'title' => 'Azzurro in attesa',
+            'align' => 'end',
+            'key' => 'data.data.azzurro.value'
         ],
         [
             'title' => 'Verde in attesa',
@@ -58,7 +63,7 @@ $dataCommons = [
             ]
         ]
     ],
-    'giallo' => [
+    'arancione' => [
         'selector' => 'table.table>tbody>tr:nth-child($I)>td:nth-child(2)>div:nth-child(2)>div>div',
         'extra' => [
             'in_attesa' => [
@@ -71,12 +76,12 @@ $dataCommons = [
             ],
         ]
     ],
-    'verde' => [
+    'azzurro' => [
         'selector' => 'table.table>tbody>tr:nth-child($I)>td:nth-child(2)>div:nth-child(3)>div>div',
         'extra' => [
             'in_attesa' => [
                 'label' => 'Pazienti in attesa',
-                'selector' => 'table.table>tbody>tr:nth-child(1)>td:nth-child(2)>div:nth-child(3)>div>div',
+                'selector' => 'table.table>tbody>tr:nth-child($I)>td:nth-child(2)>div:nth-child(3)>div>div',
             ],
             'in_trattamento' => [
                 'label' => 'Pazienti in trattamento',
@@ -84,7 +89,7 @@ $dataCommons = [
             ],
         ]
     ],
-    'bianco' => [
+    'verde' => [
         'selector' => 'table.table>tbody>tr:nth-child($I)>td:nth-child(2)>div:nth-child(4)>div>div',
         'extra' => [
             'in_attesa' => [
@@ -94,6 +99,19 @@ $dataCommons = [
             'in_trattamento' => [
                 'label' => 'Pazienti in trattamento',
                 'selector' => 'table.table>tbody>tr:nth-child($I)>td:nth-child(3)>div:nth-child(4)>div>div',
+            ],
+        ]
+    ],
+    'bianco' => [
+        'selector' => 'table.table>tbody>tr:nth-child($I)>td:nth-child(2)>div:nth-child(5)>div>div',
+        'extra' => [
+            'in_attesa' => [
+                'label' => 'Pazienti in attesa',
+                'selector' => 'table.table>tbody>tr:nth-child($I)>td:nth-child(2)>div:nth-child(5)>div>div',
+            ],
+            'in_trattamento' => [
+                'label' => 'Pazienti in trattamento',
+                'selector' => 'table.table>tbody>tr:nth-child($I)>td:nth-child(3)>div:nth-child(5)>div>div',
             ],
 
         ]
