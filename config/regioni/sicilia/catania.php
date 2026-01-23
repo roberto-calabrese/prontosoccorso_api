@@ -15,9 +15,14 @@ $tableSettings = [
             'key' => 'data.data.rosso.value'
         ],
         [
-            'title' => 'Giallo in attesa',
+            'title' => 'Arancione in attesa',
             'align' => 'end',
-            'key' => 'data.data.giallo.value'
+            'key' => 'data.data.arancione.value'
+        ],
+        [
+            'title' => 'Azzurro in attesa',
+            'align' => 'end',
+            'key' => 'data.data.azzurro.value'
         ],
         [
             'title' => 'Verde in attesa',
@@ -79,67 +84,84 @@ return [
                     ],
                     'data' => [
                         'rosso' => [
-                            'selector' => 'div#DivSmartEUS105>div:nth-child(3)>div>div:nth-child(1)>div:nth-child(3)>div:nth-child(1)>span',
+                            'selector' => '.pazientiAttesa105[data-color="uno"] span',
                             'extra' => [
                                 'in_attesa' => [
                                     'label' => 'Pazienti in attesa',
-                                    'selector' => 'div#DivSmartEUS105>div:nth-child(3)>div>div:nth-child(1)>div:nth-child(3)>div:nth-child(1)>span',
+                                    'selector' => '.pazientiAttesa105[data-color="uno"] span',
                                 ],
                                 'in_trattamento' => [
                                     'label' => 'Pazienti in trattamento',
-                                    'selector' => 'div#DivSmartEUS105>div:nth-child(3)>div>div:nth-child(3)>div:nth-child(3)>div:nth-child(1)>span',
+                                    'selector' => '.pazientiTrattamento105[data-color="uno"] span',
                                 ]
                             ]
                         ],
-                        'giallo' => [
-                            'selector' => 'div#DivSmartEUS105>div:nth-child(3)>div>div:nth-child(1)>div:nth-child(3)>div:nth-child(2)>span',
+                        'arancione' => [
+                            'selector' => '.pazientiAttesa105[data-color="due"] span',
                             'extra' => [
                                 'in_attesa' => [
                                     'label' => 'Pazienti in attesa',
-                                    'selector' => 'div#DivSmartEUS105>div:nth-child(3)>div>div:nth-child(1)>div:nth-child(3)>div:nth-child(2)>span',
+                                    'selector' => '.pazientiAttesa105[data-color="due"] span',
                                 ],
                                 'in_trattamento' => [
                                     'label' => 'Pazienti in trattamento',
-                                    'selector' => 'div#DivSmartEUS105>div:nth-child(3)>div>div:nth-child(3)>div:nth-child(3)>div:nth-child(2)>span',
+                                    'selector' => '.pazientiTrattamento105[data-color="due"] span',
+                                ]
+                            ]
+                        ],
+                        'azzurro' => [
+                            'selector' => '.pazientiAttesa105[data-color="tre"] span',
+                            'extra' => [
+                                'in_attesa' => [
+                                    'label' => 'Pazienti in attesa',
+                                    'selector' => '.pazientiAttesa105[data-color="tre"] span',
+                                ],
+                                'in_trattamento' => [
+                                    'label' => 'Pazienti in trattamento',
+                                    'selector' => '.pazientiTrattamento105[data-color="tre"] span',
                                 ]
                             ]
                         ],
                         'verde' => [
-                            'selector' => 'div#DivSmartEUS105>div:nth-child(3)>div>div:nth-child(1)>div:nth-child(3)>div:nth-child(3)>span',
+                            'selector' => '.pazientiAttesa105[data-color="quattro"] span',
                             'extra' => [
                                 'in_attesa' => [
                                     'label' => 'Pazienti in attesa',
-                                    'selector' => 'div#DivSmartEUS105>div:nth-child(3)>div>div:nth-child(1)>div:nth-child(3)>div:nth-child(3)>span',
+                                    'selector' => '.pazientiAttesa105[data-color="quattro"] span',
                                 ],
                                 'in_trattamento' => [
                                     'label' => 'Pazienti in trattamento',
-                                    'selector' => 'div#DivSmartEUS105>div:nth-child(3)>div>div:nth-child(3)>div:nth-child(3)>div:nth-child(3)>span',
+                                    'selector' => '.pazientiTrattamento105[data-color="quattro"] span',
                                 ]
                             ]
                         ],
                         'bianco' => [
-                            'selector' => 'div#DivSmartEUS105>div:nth-child(3)>div>div:nth-child(1)>div:nth-child(3)>div:nth-child(4)>span',
+                            'selector' => '.pazientiAttesa105[data-color="cinque"] span',
                             'extra' => [
                                 'in_attesa' => [
                                     'label' => 'Pazienti in attesa',
-                                    'selector' => 'div#DivSmartEUS105>div:nth-child(3)>div>div:nth-child(1)>div:nth-child(3)>div:nth-child(4)>span',
+                                    'selector' => '.pazientiAttesa105[data-color="cinque"] span',
                                 ],
                                 'in_trattamento' => [
                                     'label' => 'Pazienti in trattamento',
-                                    'selector' => 'div#DivSmartEUS105>div:nth-child(3)>div>div:nth-child(3)>div:nth-child(3)>div:nth-child(4)>span',
+                                    'selector' => '.pazientiTrattamento105[data-color="cinque"] span',
                                 ]
                             ]
                         ],
                         'totali' => [
-                            'selector' => 'div#DivSmartEUS105>div:nth-child(3)>div>div:nth-child(1)>div:nth-child(2)>div>p',
+                            'selector' => '.pazientiAttesa105[data-color="totale"] p[data-color="totale"]',
                             'extra' => [
                                 'in_trattamento' => [
                                     'label' => 'Pazienti in trattamento',
-                                    'selector' => 'div#DivSmartEUS105>div:nth-child(3)>div>div:nth-child(3)>div:nth-child(2)>div>p',
+                                    'selector' => '.pazientiTrattamento105[data-color="totale"] p[data-color="totale"]',
                                 ],
                                 'in_attesa' => [
                                     'label' => 'Pazienti in attesa',
-                                    'selector' => 'div#DivSmartEUS105>div:nth-child(3)>div>div:nth-child(1)>div:nth-child(2)>div>p',
+                                    'selector' => '.pazientiAttesa105[data-color="totale"] p[data-color="totale"]',
+                                ],
+                                'in_obi' => [
+                                    'label' => 'Pazienti in OBI',
+                                    'selector' => '.pazientiObi105[data-color="totale"] p[data-color="totale"]',
                                 ]
                             ],
 
@@ -162,67 +184,84 @@ return [
                     ],
                     'data' => [
                         'rosso' => [
-                            'selector' => 'div#DivSmartEUS106>div:nth-child(3)>div>div:nth-child(1)>div:nth-child(3)>div:nth-child(1)>span',
+                            'selector' => '.pazientiAttesa106[data-color="uno"] span',
                             'extra' => [
                                 'in_attesa' => [
                                     'label' => 'Pazienti in attesa',
-                                    'selector' => 'div#DivSmartEUS106>div:nth-child(3)>div>div:nth-child(1)>div:nth-child(3)>div:nth-child(1)>span',
+                                    'selector' => '.pazientiAttesa106[data-color="uno"] span',
                                 ],
                                 'in_trattamento' => [
                                     'label' => 'Pazienti in trattamento',
-                                    'selector' => 'div#DivSmartEUS106>div:nth-child(3)>div>div:nth-child(3)>div:nth-child(3)>div:nth-child(1)>span',
+                                    'selector' => '.pazientiTrattamento106[data-color="uno"] span',
                                 ]
                             ]
                         ],
-                        'giallo' => [
-                            'selector' => 'div#DivSmartEUS106>div:nth-child(3)>div>div:nth-child(1)>div:nth-child(3)>div:nth-child(2)>span',
+                        'arancione' => [
+                            'selector' => '.pazientiAttesa106[data-color="due"] span',
                             'extra' => [
                                 'in_attesa' => [
                                     'label' => 'Pazienti in attesa',
-                                    'selector' => 'div#DivSmartEUS106>div:nth-child(3)>div>div:nth-child(1)>div:nth-child(3)>div:nth-child(2)>span',
+                                    'selector' => '.pazientiAttesa106[data-color="due"] span',
                                 ],
                                 'in_trattamento' => [
                                     'label' => 'Pazienti in trattamento',
-                                    'selector' => 'div#DivSmartEUS106>div:nth-child(3)>div>div:nth-child(3)>div:nth-child(3)>div:nth-child(2)>span',
+                                    'selector' => '.pazientiTrattamento106[data-color="due"] span',
+                                ]
+                            ]
+                        ],
+                        'azzurro' => [
+                            'selector' => '.pazientiAttesa106[data-color="tre"] span',
+                            'extra' => [
+                                'in_attesa' => [
+                                    'label' => 'Pazienti in attesa',
+                                    'selector' => '.pazientiAttesa106[data-color="tre"] span',
+                                ],
+                                'in_trattamento' => [
+                                    'label' => 'Pazienti in trattamento',
+                                    'selector' => '.pazientiTrattamento106[data-color="tre"] span',
                                 ]
                             ]
                         ],
                         'verde' => [
-                            'selector' => 'div#DivSmartEUS106>div:nth-child(3)>div>div:nth-child(1)>div:nth-child(3)>div:nth-child(3)>span',
+                            'selector' => '.pazientiAttesa106[data-color="quattro"] span',
                             'extra' => [
                                 'in_attesa' => [
                                     'label' => 'Pazienti in attesa',
-                                    'selector' => 'div#DivSmartEUS106>div:nth-child(3)>div>div:nth-child(1)>div:nth-child(3)>div:nth-child(3)>span',
+                                    'selector' => '.pazientiAttesa106[data-color="quattro"] span',
                                 ],
                                 'in_trattamento' => [
                                     'label' => 'Pazienti in trattamento',
-                                    'selector' => 'div#DivSmartEUS106>div:nth-child(3)>div>div:nth-child(3)>div:nth-child(3)>div:nth-child(3)>span',
+                                    'selector' => '.pazientiTrattamento106[data-color="quattro"] span',
                                 ]
                             ]
                         ],
                         'bianco' => [
-                            'selector' => 'div#DivSmartEUS106>div:nth-child(3)>div>div:nth-child(1)>div:nth-child(3)>div:nth-child(4)>span',
+                            'selector' => '.pazientiAttesa106[data-color="cinque"] span',
                             'extra' => [
                                 'in_attesa' => [
                                     'label' => 'Pazienti in attesa',
-                                    'selector' => 'div#DivSmartEUS106>div:nth-child(3)>div>div:nth-child(1)>div:nth-child(3)>div:nth-child(4)>span',
+                                    'selector' => '.pazientiAttesa106[data-color="cinque"] span',
                                 ],
                                 'in_trattamento' => [
                                     'label' => 'Pazienti in trattamento',
-                                    'selector' => 'div#DivSmartEUS106>div:nth-child(3)>div>div:nth-child(3)>div:nth-child(3)>div:nth-child(4)>span',
+                                    'selector' => '.pazientiTrattamento106[data-color="cinque"] span',
                                 ]
                             ]
                         ],
                         'totali' => [
-                            'selector' => 'div#DivSmartEUS106>div:nth-child(3)>div>div:nth-child(1)>div:nth-child(2)>div>p',
+                            'selector' => '.pazientiAttesa106[data-color="totale"] p[data-color="totale"]',
                             'extra' => [
                                 'in_trattamento' => [
                                     'label' => 'Pazienti in trattamento',
-                                    'selector' => 'div#DivSmartEUS106>div:nth-child(3)>div>div:nth-child(3)>div:nth-child(2)>div>p',
+                                    'selector' => '.pazientiTrattamento106[data-color="totale"] p[data-color="totale"]',
                                 ],
                                 'in_attesa' => [
                                     'label' => 'Pazienti in attesa',
-                                    'selector' => 'div#DivSmartEUS106>div:nth-child(3)>div>div:nth-child(1)>div:nth-child(2)>div>p',
+                                    'selector' => '.pazientiAttesa106[data-color="totale"] p[data-color="totale"]',
+                                ],
+                                'in_obi' => [
+                                    'label' => 'Pazienti in OBI',
+                                    'selector' => '.pazientiObi106[data-color="totale"] p[data-color="totale"]',
                                 ]
                             ],
 
