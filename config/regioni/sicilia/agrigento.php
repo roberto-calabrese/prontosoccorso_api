@@ -55,22 +55,22 @@ $tableSettings = [
 
 $dataCommons = [
     'rosso' => [
-        'selector' => 'table.table>tbody>tr:nth-child($I)>td:nth-child(2)',
+        'selector' => '.wrap>.row:nth-child($I)>div.c-tri:nth-child(2) .badge',
     ],
     'arancione' => [
-        'selector' => 'table.table>tbody>tr:nth-child($I)>td:nth-child(3)',
+        'selector' => '.wrap>.row:nth-child($I)>div.c-tri:nth-child(3) .badge',
     ],
     'giallo' => [
-        'selector' => 'table.table>tbody>tr:nth-child($I)>td:nth-child(4)',
+        'selector' => '.wrap>.row:nth-child($I)>div.c-tri:nth-child(4) .badge',
     ],
     'verde' => [
-        'selector' => 'table.table>tbody>tr:nth-child($I)>td:nth-child(5)',
+        'selector' => '.wrap>.row:nth-child($I)>div.c-tri:nth-child(5) .badge',
     ],
     'azzurro' => [
-        'selector' => 'table.table>tbody>tr:nth-child($I)>td:nth-child(6)',
+        'selector' => '.wrap>.row:nth-child($I)>div.c-tri:nth-child(6) .badge',
     ],
     'bianco' => [
-        'selector' => 'table.table>tbody>tr:nth-child($I)>td:nth-child(7)',
+        'selector' => '.wrap>.row:nth-child($I)>div.c-tri:nth-child(7) .badge',
     ],
     'totali' => [
         'action' => [
@@ -110,6 +110,7 @@ return [
             ],
             'jobClass' => \App\Jobs\GenericScrapeJob::class,
             'iterateSelector' => '$I',
+            'iterateOffset' => 1,
             'data' => [
                 'ps_agrigento' => [
                     'id' => 1,

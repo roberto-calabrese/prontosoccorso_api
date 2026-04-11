@@ -65,7 +65,7 @@ return [
                 'key' => 'toscana.empoli.uslCentro',
                 'ttlMinute' => 1
             ],
-            'url' => 'https://www.uslcentro.toscana.it/psstat/pronto-soccorso-pa.php',
+            'url' => 'https://www-old.uslcentro.toscana.it/psstat/pronto-soccorso-pa.php',
             'headers' => [
                 'Referer' => 'https://www.uslcentro.toscana.it',
                 'User-Agent' => $userAgent,
@@ -81,7 +81,7 @@ return [
                     'indirizzo' => 'Viale Giovanni Boccaccio, 16/20, 50053 Empoli FI',
                     'telefono' => '0571 7051',
                     'email' => '',
-                    'web' => 'https://www.uslcentro.toscana.it/psstat/pronto-soccorso-pa.php',
+                    'web' => 'https://www-old.uslcentro.toscana.it/psstat/pronto-soccorso-pa.php',
                     'google_maps' => 'https://www.google.it/maps/place/Ospedale+S.Giuseppe+Pronto+Soccorso/@43.7215166,10.9348309,1400m/data=!3m2!1e3!4b1!4m6!3m5!1s0x132a68806d7fe49f:0x49fc60aa7649cb6a!8m2!3d43.7215166!4d10.9348309!16s%2Fg%2F11f1zlf150?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D',
                     'coords' => [
                         'lat' => '43.7215166',

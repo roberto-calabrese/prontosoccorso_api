@@ -65,7 +65,7 @@ return [
                 'key' => 'toscana.prato.uslCentro',
                 'ttlMinute' => 1
             ],
-            'url' => 'https://www.uslcentro.toscana.it/psstat/pronto-soccorso-pa.php',
+            'url' => 'https://www-old.uslcentro.toscana.it/psstat/pronto-soccorso-pa.php',
             'headers' => [
                 'Referer' => 'https://www.uslcentro.toscana.it',
                 'User-Agent' => $userAgent,
@@ -81,7 +81,7 @@ return [
                     'indirizzo' => 'Via Suor Niccolina Infermiera, 20/22, 59100 Prato PO',
                     'telefono' => '0574 801111',
                     'email' => 'direzionesanitaria.ss@uslcentro.toscana.it',
-                    'web' => 'https://www.uslcentro.toscana.it/psstat/pronto-soccorso-pa.php',
+                    'web' => 'https://www-old.uslcentro.toscana.it/psstat/pronto-soccorso-pa.php',
                     'google_maps' => 'https://www.google.com/maps/place/Nuovo+Ospedale+di+Prato+-+S.+Stefano/@43.8906812,11.0643568,17z/data=!3m1!4b1!4m6!3m5!1s0x132af5da76b9f367:0xf7539695ca900666!8m2!3d43.8906812!4d11.0643568!16s%2Fg%2F1pp2vlrnv?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D',
                     'coords' => [
                         'lat' => '43.8906812',
