@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/settings', \App\Http\Controllers\ApiSettingsController::class);
 Route::get('/github', \App\Http\Controllers\ApiGithubController::class);
 Route::get('/regioni', \App\Http\Controllers\ApiRegioniController::class);
+Route::post('/feedback', [\App\Http\Controllers\ApiFeedbackController::class, 'store']);
 Route::get('/{regione}', \App\Http\Controllers\ApiRegioneController::class);
 Route::get('/{regione}/{provincia}', \App\Http\Controllers\ApiProvinciaController::class);
 
