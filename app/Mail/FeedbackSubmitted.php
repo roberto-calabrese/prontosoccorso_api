@@ -14,14 +14,16 @@ class FeedbackSubmitted extends Mailable
     use Queueable, SerializesModels;
 
     public $name;
+    public $email;
     public $messageContent;
 
     /**
      * Create a new message instance.
      */
-    public function __construct($name, $messageContent)
+    public function __construct($name, $email, $messageContent)
     {
         $this->name = $name;
+        $this->email = $email;
         $this->messageContent = $messageContent;
     }
 
@@ -32,6 +34,9 @@ class FeedbackSubmitted extends Mailable
     {
         return new Envelope(
             subject: 'Nuovo Feedback/Segnalazione Errore - Pronto Soccorso Live',
+            replyTo: [
+                new \Illuminate\Mail\Mailables\Address($this->email, $this->name),
+            ],
         );
     }
 
