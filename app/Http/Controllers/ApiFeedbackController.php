@@ -16,6 +16,7 @@ class ApiFeedbackController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
             'message' => 'required|string',
+            'url' => 'nullable|url|max:2048',
             'cf-turnstile-response' => 'required|string',
         ]);
 
@@ -43,7 +44,7 @@ class ApiFeedbackController extends Controller
         try {
             // Send email
             $toEmail = config('services.feedback.email');
-            Mail::to($toEmail)->send(new FeedbackSubmitted($request->name, $request->email, $request->message));
+            Mail::to($toEmail)->send(new FeedbackSubmitted($request->name, $request->email, $request->message, $request->url));
         } catch (\Exception $e) {
             Log::error('Errore durante l\'invio dell\'email di feedback', ['error' => $e->getMessage()]);
             return response()->json([

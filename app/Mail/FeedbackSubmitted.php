@@ -16,15 +16,17 @@ class FeedbackSubmitted extends Mailable
     public $name;
     public $email;
     public $messageContent;
+    public $url;
 
     /**
      * Create a new message instance.
      */
-    public function __construct($name, $email, $messageContent)
+    public function __construct($name, $email, $messageContent, $url = null)
     {
         $this->name = $name;
         $this->email = $email;
         $this->messageContent = $messageContent;
+        $this->url = $url;
     }
 
     /**
