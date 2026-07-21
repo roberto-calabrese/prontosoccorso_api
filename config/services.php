@@ -40,6 +40,15 @@ return [
         'email' => env('FEEDBACK_EMAIL', 'pippo.pluto@test.it'),
     ],
 
+    'scrape_alert' => [
+        // Indirizzo che riceve le notifiche quando un job di scraping fallisce
+        // o non restituisce dati. Se vuoto, le notifiche sono disabilitate.
+        'email' => env('SCRAPE_ALERT_EMAIL') ?: env('FEEDBACK_EMAIL'),
+        // Minuti di silenzio per la stessa sorgente, per evitare email a raffica
+        // (gli scrape girano ~ogni minuto).
+        'cooldown_minutes' => (int) env('SCRAPE_ALERT_COOLDOWN', 30),
+    ],
+
     'sicilia' => [
         'provincie' => [
             'palermo' => \App\Services\GenericDataService::class,

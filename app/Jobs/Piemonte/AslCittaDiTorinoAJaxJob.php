@@ -10,10 +10,11 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Cache;
+use App\Jobs\Concerns\AlertsOnScrapeFailure;
 
 class AslCittaDiTorinoAJaxJob implements ShouldQueue
 {
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels, AlertsOnScrapeFailure;
 
     /**
      * Mappatura dei codici priorita' dell'ASL Citta' di Torino sui colori interni.
@@ -104,6 +105,8 @@ class AslCittaDiTorinoAJaxJob implements ShouldQueue
                 $ospedali[$keyH]['data'] = $counters;
                 $ospedali[$keyH]['data']['extra'] = $this->extra($struttura);
             }
+
+            $this->reportIfScrapeEmpty($ospedali);
 
             if ($this->websocket) {
                 event(new PusherEvent($ospedali, [

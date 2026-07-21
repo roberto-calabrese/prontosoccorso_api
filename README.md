@@ -92,3 +92,6 @@ Quando viene richiesta una provincia (`/api/{regione}/{provincia}`):
     *   **Cache Miss**:
         *   Se i WebSocket sono attivi (Queue Redis): Lancia un Job in background e restituisce una risposta vuota o parziale. Il client riceverà i dati via evento Pusher una volta completato lo scraping.
         *   Se i WebSocket non sono attivi (Sync): Esegue lo scraping in tempo reale (attendendo la risposta HTTP della fonte) e restituisce i dati nella risposta API.
+
+
+php artisan tinker --execute="app(App\Services\ScrapeAlertNotifier::class)->report('diagnostica-'.time(),'test produzione',null);"

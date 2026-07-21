@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use Illuminate\Support\Facades\Cache;
+use Throwable;
 
 class GenericDataService
 {
@@ -11,7 +12,7 @@ class GenericDataService
     protected string $configKey;
 
 
-    public function __construct()
+    public function __construct(protected ScrapeAlertNotifier $alertNotifier)
     {
 
     }
@@ -44,7 +45,25 @@ class GenericDataService
         }
 
         if (empty($data)) {
-            $dataJobSync = $this->getJobResult(new $ospedaleConfig['jobClass']($this->activeWebsocket(), $ospedaleConfig), $ospedaleConfig);
+            try {
+                $dataJobSync = $this->getJobResult(new $ospedaleConfig['jobClass']($this->activeWebsocket(), $ospedaleConfig), $ospedaleConfig);
+            } catch (Throwable $e) {
+                // Path sincrono/locale: il job viene eseguito direttamente, quindi
+                // l'eccezione non passa dalla coda. Notifichiamo qui e rilanciamo.
+                $this->alertNotifier->report(
+                    source: $ospedaleConfig['cache']['key'] ?? $configKey,
+                    reason: 'Il job di scraping ha sollevato un\'eccezione',
+                    e: $e,
+                    context: [
+                        'jobClass' => $ospedaleConfig['jobClass'] ?? null,
+                        'url' => $ospedaleConfig['url'] ?? null,
+                    ],
+                );
+                throw $e;
+            }
+
+            // La rilevazione dello scrape "vuoto" è gestita dentro il job (trait
+            // AlertsOnScrapeFailure), così funziona anche in modalità async/redis.
             if (!$this->activeWebsocket()) {
                 foreach ($this->ospedaliData as $key => $data) {
                     if (isset($dataJobSync[$key]['data'])) {

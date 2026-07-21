@@ -10,10 +10,11 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Cache;
+use App\Jobs\Concerns\AlertsOnScrapeFailure;
 
 class CittaDellaSaluteAJaxJob implements ShouldQueue
 {
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels, AlertsOnScrapeFailure;
 
     protected array $websocket;
 
@@ -165,6 +166,8 @@ class CittaDellaSaluteAJaxJob implements ShouldQueue
                     $ospedali[$keyH]['data'] = $counters;
                 }
             }
+
+            $this->reportIfScrapeEmpty($ospedali);
 
             if ($this->websocket) {
                 event(new PusherEvent($ospedali, [
