@@ -53,24 +53,30 @@ $tableSettings = [
     ]
 ];
 
+// La pagina https://www.aspag.it/monitoraggio-afflusso-ps/ espone una tabella
+// (.lap-table) con una riga (.lap-row) per presidio. Ogni riga inizia con la
+// colonna nome (.lap-cname) seguita dalle 6 celle triage (.lap-ctri) nell'ordine
+// Rosso, Arancione, Giallo, Verde, Azzurro, Bianco. La prima riga della tabella
+// e' l'intestazione (.lap-head), quindi i presidi partono da nth-child(2) e
+// l'ordine di questa configurazione deve rispecchiare quello della pagina.
 $dataCommons = [
     'rosso' => [
-        'selector' => '.wrap>.row:nth-child($I)>div.c-tri:nth-child(2) .badge',
+        'selector' => '.lap-table>.lap-row:nth-child($I)>.lap-ctri:nth-child(2) .lap-badge',
     ],
     'arancione' => [
-        'selector' => '.wrap>.row:nth-child($I)>div.c-tri:nth-child(3) .badge',
+        'selector' => '.lap-table>.lap-row:nth-child($I)>.lap-ctri:nth-child(3) .lap-badge',
     ],
     'giallo' => [
-        'selector' => '.wrap>.row:nth-child($I)>div.c-tri:nth-child(4) .badge',
+        'selector' => '.lap-table>.lap-row:nth-child($I)>.lap-ctri:nth-child(4) .lap-badge',
     ],
     'verde' => [
-        'selector' => '.wrap>.row:nth-child($I)>div.c-tri:nth-child(5) .badge',
+        'selector' => '.lap-table>.lap-row:nth-child($I)>.lap-ctri:nth-child(5) .lap-badge',
     ],
     'azzurro' => [
-        'selector' => '.wrap>.row:nth-child($I)>div.c-tri:nth-child(6) .badge',
+        'selector' => '.lap-table>.lap-row:nth-child($I)>.lap-ctri:nth-child(6) .lap-badge',
     ],
     'bianco' => [
-        'selector' => '.wrap>.row:nth-child($I)>div.c-tri:nth-child(7) .badge',
+        'selector' => '.lap-table>.lap-row:nth-child($I)>.lap-ctri:nth-child(7) .lap-badge',
     ],
     'totali' => [
         'action' => [
@@ -102,11 +108,11 @@ return [
                 'key' => 'sicilia.agrigento.aspAgrigento',
                 'ttlMinute' => 1
             ],
-            'url' => 'http://pswall.aspag.it/ps/listaattesa.php',
+            'url' => 'https://www.aspag.it/monitoraggio-afflusso-ps/',
             'headers' => [
-                'Referer' => 'http://www.aspag.it/',
+                'Referer' => 'https://www.aspag.it/',
                 'User-Agent' => $userAgent,
-                'Origin' => 'http://www.aspag.it/',
+                'Origin' => 'https://www.aspag.it',
             ],
             'jobClass' => \App\Jobs\GenericScrapeJob::class,
             'iterateSelector' => '$I',
@@ -125,6 +131,22 @@ return [
                     'coords' => [
                         'lat' => '37.3520998',
                         'lng' => '13.6077597',
+                    ],
+                    'data' => $dataCommons,
+                ],
+                'ps_sciacca' => [
+                    'id' => 5,
+                    'nome' => 'Sciacca - Giovanni Paolo II',
+                    'descrizione' => 'Orari di accesso: Da Lunedì a Domenica h24 Al pronto soccorso si può accedere direttamente, su richiesta del medico di famiglia o di continuità assistenziale, o tramite ambulanza inviata dalla centrale operativa del 118',
+                    'adulti' => true,
+                    'indirizzo' => 'Via Pompei, 92019 Sciacca AG',
+                    'telefono' => '0925/962528',
+                    'email' => 'posciacca.medicinaurgenza@aspag.it',
+                    'web' => 'http://www.aspag.it/index.php/il-distretto-ospedaliero/ospedale-di-sciacca/medicina-e-chirurgia-urgenza',
+                    'google_maps' => 'https://www.google.it/maps/place/Pronto+Soccorso/@37.525705,13.0736286,17z/data=!3m1!4b1!4m6!3m5!1s0x131a46c9b133d5e5:0xef1b1d1a9958fb4f!8m2!3d37.525705!4d13.0736286!16s%2Fg%2F11f24x5lw6?entry=ttu',
+                    'coords' => [
+                        'lat' => '37.525705',
+                        'lng' => '13.0736286',
                     ],
                     'data' => $dataCommons,
                 ],
@@ -173,22 +195,6 @@ return [
                     'coords' => [
                         'lat' => '37.493477',
                         'lng' => '13.265719',
-                    ],
-                    'data' => $dataCommons,
-                ],
-                'ps_sciacca' => [
-                    'id' => 5,
-                    'nome' => 'Sciacca - Giovanni Paolo II',
-                    'descrizione' => 'Orari di accesso: Da Lunedì a Domenica h24 Al pronto soccorso si può accedere direttamente, su richiesta del medico di famiglia o di continuità assistenziale, o tramite ambulanza inviata dalla centrale operativa del 118',
-                    'adulti' => true,
-                    'indirizzo' => 'Via Pompei, 92019 Sciacca AG',
-                    'telefono' => '0925/962528',
-                    'email' => 'posciacca.medicinaurgenza@aspag.it',
-                    'web' => 'http://www.aspag.it/index.php/il-distretto-ospedaliero/ospedale-di-sciacca/medicina-e-chirurgia-urgenza',
-                    'google_maps' => 'https://www.google.it/maps/place/Pronto+Soccorso/@37.525705,13.0736286,17z/data=!3m1!4b1!4m6!3m5!1s0x131a46c9b133d5e5:0xef1b1d1a9958fb4f!8m2!3d37.525705!4d13.0736286!16s%2Fg%2F11f24x5lw6?entry=ttu',
-                    'coords' => [
-                        'lat' => '37.525705',
-                        'lng' => '13.0736286',
                     ],
                     'data' => $dataCommons,
                 ],

@@ -150,7 +150,7 @@ return [
                 'key' => 'sicilia.palermo.aspMessina',
                 'ttlMinute' => 1
             ],
-            'url' => 'https://www.asp.messina.it/?page_id=125231',
+            'url' => 'https://old.asp.messina.it/?page_id=125231',
             'headers' => [
                 'Referer' => 'https://www.asp.messina.it',
                 'User-Agent' => $userAgent,

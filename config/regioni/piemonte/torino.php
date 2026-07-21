@@ -278,7 +278,7 @@ return [
             ],
             'jobClass' => \App\Jobs\Piemonte\CittaDellaSaluteAJaxJob::class,
             'data' => [
-                'st_anna' => [
+                'regina_margherita' => [
                     'id' => 5,
                     'nome' => 'Torino - Ospedale Regina Margherita',
                     'descrizione' => 'L\'ospedale infantile Regina Margherita di Torino, con l\'ospedale ostetrico-ginecologico Sant\'Anna, costituisce un presidio ospedaliero di rilievo nazionale ad alta specializzazione materno-infantile. Fa parte dell\'AOU Città della Salute e della Scienza.',
@@ -406,6 +406,99 @@ return [
                         ],
                     ]
                 ]
+            ]
+        ],
+        // Un'unica chiamata restituisce tutte le strutture dell'ASL Citta' di Torino:
+        // gli ospedali vengono abbinati tramite il campo 'codice'.
+        'aslCittaDiTorino' => [
+            'cache' => [
+                'key' => 'piemonte.torino.aslCittaDiTorino',
+                'ttlMinute' => 1
+            ],
+            'url' => 'https://prontosoccorso.aslcittaditorino.it/api/strutture/',
+            'auth' => [
+                'url' => 'https://prontosoccorso.aslcittaditorino.it/oauth/token',
+                'clientId' => env('ASL_TORINO_CLIENT_ID', 'jhisps'),
+                'clientSecret' => env('ASL_TORINO_CLIENT_SECRET', 'Sincos38'),
+                'username' => env('ASL_TORINO_USERNAME', 'aziendaact'),
+                'password' => env('ASL_TORINO_PASSWORD', 'jh!sPsClient'),
+            ],
+            'headers' => [
+                'Accept' => 'application/json, text/plain, */*',
+                'Referer' => 'https://prontosoccorso.aslcittaditorino.it/situazione',
+                'User-Agent' => $userAgent,
+                'Origin' => 'https://prontosoccorso.aslcittaditorino.it',
+            ],
+            'jobClass' => \App\Jobs\Piemonte\AslCittaDiTorinoAJaxJob::class,
+            'data' => [
+                'maria_vittoria' => [
+                    'id' => 7,
+                    'codice' => '01000300',
+                    'nome' => 'Torino - Ospedale Maria Vittoria',
+                    'descrizione' => 'Ospedale Maria Vittoria - Amedeo di Savoia, uno dei cinque ospedali generali di riferimento per l\'area metropolitana di Torino. ASL Citta\' di Torino.',
+                    'adulti' => true,
+                    'indirizzo' => 'Via Cibrario, 72, 10144 Torino TO',
+                    'telefono' => '011 439 3111',
+                    'email' => '',
+                    'web' => 'https://www.aslcittaditorino.it/strutture_sanitarie/ospedale-maria-vittoria/',
+                    'google_maps' => 'https://www.google.com/maps/search/?api=1&query=45.08192719084199,7.656632793872947',
+                    'coords' => [
+                        'lat' => '45.08192719084199',
+                        'lng' => '7.656632793872947',
+                    ],
+                    'data' => []
+                ],
+                'martini' => [
+                    'id' => 8,
+                    'codice' => '01000700',
+                    'nome' => 'Torino - Ospedale Martini',
+                    'descrizione' => 'Ospedale Martini, presidio ospedaliero dell\'ASL Citta\' di Torino organizzato su base dipartimentale.',
+                    'adulti' => true,
+                    'indirizzo' => 'Via Tofane, 71, 10141 Torino TO',
+                    'telefono' => '011 709 5111',
+                    'email' => '',
+                    'web' => 'https://www.aslcittaditorino.it/strutture_sanitarie/ospedale-martini/',
+                    'google_maps' => 'https://www.google.com/maps/search/?api=1&query=45.067090062881256,7.6285316846410405',
+                    'coords' => [
+                        'lat' => '45.067090062881256',
+                        'lng' => '7.6285316846410405',
+                    ],
+                    'data' => []
+                ],
+                'oftalmico' => [
+                    'id' => 9,
+                    'codice' => '01001000',
+                    'nome' => 'Torino - Ospedale Oftalmico',
+                    'descrizione' => 'Ospedale Oftalmico, centro regionale per l\'emergenza oculistica. Pronto soccorso oculistico attivo dal lunedi\' al venerdi\' 8:00-22:00, sabato, domenica e festivi 8:00-20:00. Fuori orario ci si rivolge al pronto soccorso dell\'Ospedale Maria Vittoria.',
+                    'adulti' => true,
+                    'indirizzo' => 'Via Filippo Juvarra, 19, 10122 Torino TO',
+                    'telefono' => '011 566 1566',
+                    'email' => '',
+                    'web' => 'https://www.aslcittaditorino.it/strutture_sanitarie/ospedale-oftalmico/',
+                    'google_maps' => 'https://www.google.com/maps/search/?api=1&query=45.07456241948964,7.670830683465644',
+                    'coords' => [
+                        'lat' => '45.07456241948964',
+                        'lng' => '7.670830683465644',
+                    ],
+                    'data' => []
+                ],
+                'san_giovanni_bosco' => [
+                    'id' => 10,
+                    'codice' => '01001100',
+                    'nome' => 'Torino - Ospedale San Giovanni Bosco',
+                    'descrizione' => 'Ospedale San Giovanni Bosco, il piu\' grande ospedale della zona Nord di Torino. ASL Citta\' di Torino.',
+                    'adulti' => true,
+                    'indirizzo' => 'Piazza del Donatore di Sangue, 3, 10154 Torino TO',
+                    'telefono' => '011 240 1111',
+                    'email' => '',
+                    'web' => 'https://www.aslcittaditorino.it/strutture_sanitarie/ospedale-giovanni-bosco/',
+                    'google_maps' => 'https://www.google.com/maps/search/?api=1&query=45.0977660899632,7.700378179361587',
+                    'coords' => [
+                        'lat' => '45.0977660899632',
+                        'lng' => '7.700378179361587',
+                    ],
+                    'data' => []
+                ],
             ]
         ],
     ]
