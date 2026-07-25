@@ -173,7 +173,7 @@ return [
     'ospedali' => [
         'osp_evangelico' => [
             'cache' => [
-                'key' => 'sicilia.liguria.genova.ops_evangelico',
+                'key' => 'liguria.genova.ops_evangelico',
                 'ttlMinute' => 1
             ],
             'url' => 'https://pslive.regione.liguria.it/api/prontosoccorso/07005102',
@@ -202,7 +202,7 @@ return [
         ],
         'osp_villa_scassi' => [
             'cache' => [
-                'key' => 'sicilia.liguria.genova.osp_villa_scassi',
+                'key' => 'liguria.genova.osp_villa_scassi',
                 'ttlMinute' => 1
             ],
             'url' => 'https://pslive.regione.liguria.it/api/prontosoccorso/07030104',
@@ -231,7 +231,7 @@ return [
         ],
         'osp_galliera' => [
             'cache' => [
-                'key' => 'sicilia.liguria.genova.osp_galliera',
+                'key' => 'liguria.genova.osp_galliera',
                 'ttlMinute' => 1
             ],
             'url' => 'https://pslive.regione.liguria.it/api/prontosoccorso/07002500',
@@ -259,7 +259,7 @@ return [
         ],
         'policlino_san_martino' => [
             'cache' => [
-                'key' => 'sicilia.liguria.genova.policlino_san_martino',
+                'key' => 'liguria.genova.policlino_san_martino',
                 'ttlMinute' => 1
             ],
             'url' => 'https://pslive.regione.liguria.it/api/prontosoccorso/07090100',
@@ -287,7 +287,7 @@ return [
         ],
         'osp_gaslini_pediatrico' => [
             'cache' => [
-                'key' => 'sicilia.liguria.genova.osp_gaslini_pediatrico',
+                'key' => 'liguria.genova.osp_gaslini_pediatrico',
                 'ttlMinute' => 1
             ],
             'url' => 'https://pslive.regione.liguria.it/api/prontosoccorso/07094000',
@@ -315,7 +315,7 @@ return [
         ],
         'osp_del_tigullio' => [
             'cache' => [
-                'key' => 'sicilia.liguria.genova.osp_del_tigullio',
+                'key' => 'liguria.genova.osp_del_tigullio',
                 'ttlMinute' => 1
             ],
             'url' => 'https://pslive.regione.liguria.it/api/prontosoccorso/07003901',

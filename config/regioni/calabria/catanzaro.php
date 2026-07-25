@@ -52,19 +52,19 @@ $dataCommon = [
     'rosso' => [
         'label' => 'Rosso',
         'value' => 0,
-        'selector' => 'table tr:nth-of-type(1) td:nth-of-type(3) p',
+        'selector' => '.ps-agid-table tbody tr:nth-of-type(1) td:nth-of-type(3) .ps-agid-value',
         'extra' => [
             'in_visita' => [
                 'label' => 'Pazienti in visita',
-                'selector' => 'table tr:nth-of-type(1) td:nth-of-type(2) p',
+                'selector' => '.ps-agid-table tbody tr:nth-of-type(1) td:nth-of-type(2) .ps-agid-value',
             ],
             'in_attesa' => [
                 'label' => 'Pazienti in attesa',
-                'selector' => 'table tr:nth-of-type(1) td:nth-of-type(3) p',
+                'selector' => '.ps-agid-table tbody tr:nth-of-type(1) td:nth-of-type(3) .ps-agid-value',
             ],
             'attesa_media' => [
                 'label' => 'Attesa media',
-                'selector' => 'table tr:nth-of-type(1) td:nth-of-type(4) p',
+                'selector' => '.ps-agid-table tbody tr:nth-of-type(1) td:nth-of-type(4) .ps-agid-value',
                 'is_string' => true,
             ]
         ]
@@ -72,19 +72,19 @@ $dataCommon = [
     'arancione' => [
         'label' => 'Arancione',
         'value' => 0,
-        'selector' => 'table tr:nth-of-type(2) td:nth-of-type(3) p',
+        'selector' => '.ps-agid-table tbody tr:nth-of-type(2) td:nth-of-type(3) .ps-agid-value',
         'extra' => [
             'in_visita' => [
                 'label' => 'Pazienti in visita',
-                'selector' => 'table tr:nth-of-type(2) td:nth-of-type(2) p',
+                'selector' => '.ps-agid-table tbody tr:nth-of-type(2) td:nth-of-type(2) .ps-agid-value',
             ],
             'in_attesa' => [
                 'label' => 'Pazienti in attesa',
-                'selector' => 'table tr:nth-of-type(2) td:nth-of-type(3) p',
+                'selector' => '.ps-agid-table tbody tr:nth-of-type(2) td:nth-of-type(3) .ps-agid-value',
             ],
             'attesa_media' => [
                 'label' => 'Attesa media',
-                'selector' => 'table tr:nth-of-type(2) td:nth-of-type(4) p',
+                'selector' => '.ps-agid-table tbody tr:nth-of-type(2) td:nth-of-type(4) .ps-agid-value',
                 'is_string' => true,
             ]
         ]
@@ -92,19 +92,19 @@ $dataCommon = [
     'azzurro' => [
         'label' => 'Azzurro',
         'value' => 0,
-        'selector' => 'table tr:nth-of-type(3) td:nth-of-type(3) p',
+        'selector' => '.ps-agid-table tbody tr:nth-of-type(3) td:nth-of-type(3) .ps-agid-value',
         'extra' => [
             'in_visita' => [
                 'label' => 'Pazienti in visita',
-                'selector' => 'table tr:nth-of-type(3) td:nth-of-type(2) p',
+                'selector' => '.ps-agid-table tbody tr:nth-of-type(3) td:nth-of-type(2) .ps-agid-value',
             ],
             'in_attesa' => [
                 'label' => 'Pazienti in attesa',
-                'selector' => 'table tr:nth-of-type(3) td:nth-of-type(3) p',
+                'selector' => '.ps-agid-table tbody tr:nth-of-type(3) td:nth-of-type(3) .ps-agid-value',
             ],
             'attesa_media' => [
                 'label' => 'Attesa media',
-                'selector' => 'table tr:nth-of-type(3) td:nth-of-type(4) p',
+                'selector' => '.ps-agid-table tbody tr:nth-of-type(3) td:nth-of-type(4) .ps-agid-value',
                 'is_string' => true,
             ]
         ]
@@ -112,19 +112,19 @@ $dataCommon = [
     'verde' => [
         'label' => 'Verde',
         'value' => 0,
-        'selector' => 'table tr:nth-of-type(4) td:nth-of-type(3) p',
+        'selector' => '.ps-agid-table tbody tr:nth-of-type(4) td:nth-of-type(3) .ps-agid-value',
         'extra' => [
             'in_visita' => [
                 'label' => 'Pazienti in visita',
-                'selector' => 'table tr:nth-of-type(4) td:nth-of-type(2) p',
+                'selector' => '.ps-agid-table tbody tr:nth-of-type(4) td:nth-of-type(2) .ps-agid-value',
             ],
             'in_attesa' => [
                 'label' => 'Pazienti in attesa',
-                'selector' => 'table tr:nth-of-type(4) td:nth-of-type(3) p',
+                'selector' => '.ps-agid-table tbody tr:nth-of-type(4) td:nth-of-type(3) .ps-agid-value',
             ],
             'attesa_media' => [
                 'label' => 'Attesa media',
-                'selector' => 'table tr:nth-of-type(4) td:nth-of-type(4) p',
+                'selector' => '.ps-agid-table tbody tr:nth-of-type(4) td:nth-of-type(4) .ps-agid-value',
                 'is_string' => true,
             ]
         ]
@@ -132,19 +132,19 @@ $dataCommon = [
     'bianco' => [
         'label' => 'Bianco',
         'value' => 0,
-        'selector' => 'table tr:nth-of-type(5) td:nth-of-type(3) p',
+        'selector' => '.ps-agid-table tbody tr:nth-of-type(5) td:nth-of-type(3) .ps-agid-value',
         'extra' => [
             'in_visita' => [
                 'label' => 'Pazienti in visita',
-                'selector' => 'table tr:nth-of-type(5) td:nth-of-type(2) p',
+                'selector' => '.ps-agid-table tbody tr:nth-of-type(5) td:nth-of-type(2) .ps-agid-value',
             ],
             'in_attesa' => [
                 'label' => 'Pazienti in attesa',
-                'selector' => 'table tr:nth-of-type(5) td:nth-of-type(3) p',
+                'selector' => '.ps-agid-table tbody tr:nth-of-type(5) td:nth-of-type(3) .ps-agid-value',
             ],
             'attesa_media' => [
                 'label' => 'Attesa media',
-                'selector' => 'table tr:nth-of-type(5) td:nth-of-type(4) p',
+                'selector' => '.ps-agid-table tbody tr:nth-of-type(5) td:nth-of-type(4) .ps-agid-value',
                 'is_string' => true,
             ]
         ]
@@ -183,7 +183,7 @@ return [
                 'key' => 'calabria.catanzaro.pugliese_ciaccio',
                 'ttlMinute' => 1
             ],
-            'url' => 'https://www.aourenatodulbecco.it/servizi/accessi-pronto-soccorso/',
+            'url' => 'https://www.aourenatodulbecco.it/accessi-pronto-soccorso/',
             'headers' => [
                 'User-Agent' => $userAgent,
             ],
@@ -197,7 +197,7 @@ return [
                     'indirizzo' => 'Via Vinicio Cortese, 25, 88100 Catanzaro CZ',
                     'telefono' => '0961 883111',
                     'email' => '',
-                    'web' => 'https://www.aourenatodulbecco.it/servizi/accessi-pronto-soccorso/',
+                    'web' => 'https://www.aourenatodulbecco.it/accessi-pronto-soccorso/',
                     'google_maps' => 'https://www.google.com/maps/place/Azienda+Ospedaliero+Universitaria+%22Renato+Dulbecco%22/@38.9202449,16.5823473,17z/data=!3m1!4b1!4m6!3m5!1s0x1340065246a4e873:0xba473ebd55397468!8m2!3d38.9202449!4d16.5823473!16s%2Fg%2F1twxbn_v?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D',
                     'coords' => [
                         'lat' => '38.9202449',

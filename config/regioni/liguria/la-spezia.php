@@ -173,7 +173,7 @@ return [
     'ospedali' => [
         'osp_sant_andrea' => [
             'cache' => [
-                'key' => 'sicilia.liguria.la_spezia.osp_sant_andrea',
+                'key' => 'liguria.la_spezia.osp_sant_andrea',
                 'ttlMinute' => 1
             ],
             'url' => 'https://pslive.regione.liguria.it/api/prontosoccorso/07005804',
@@ -202,7 +202,7 @@ return [
         ],
         'osp_san_bartolomeo' => [
             'cache' => [
-                'key' => 'sicilia.liguria.la_spezia.osp_san_bartolomeo',
+                'key' => 'liguria.la_spezia.osp_san_bartolomeo',
                 'ttlMinute' => 1
             ],
             'url' => 'https://pslive.regione.liguria.it/api/prontosoccorso/07005801',

@@ -173,7 +173,7 @@ return [
     'ospedali' => [
         'bordighera' => [
             'cache' => [
-                'key' => 'sicilia.liguria.imperia.bordighera',
+                'key' => 'liguria.imperia.bordighera',
                 'ttlMinute' => 1
             ],
             'url' => 'https://pslive.regione.liguria.it/api/prontosoccorso/07000103',
@@ -201,7 +201,7 @@ return [
         ],
         'imperia_santagata' => [
             'cache' => [
-                'key' => 'sicilia.liguria.imperia.santagata',
+                'key' => 'liguria.imperia.santagata',
                 'ttlMinute' => 1
             ],
             'url' => 'https://pslive.regione.liguria.it/api/prontosoccorso/07000101',
@@ -229,7 +229,7 @@ return [
         ],
         'sanremo_borea' => [
             'cache' => [
-                'key' => 'sicilia.liguria.imperia.sanremo_borea',
+                'key' => 'liguria.imperia.sanremo_borea',
                 'ttlMinute' => 1
             ],
             'url' => 'https://pslive.regione.liguria.it/api/prontosoccorso/07000102',

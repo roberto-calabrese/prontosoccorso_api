@@ -173,7 +173,7 @@ return [
     'ospedali' => [
         'st_maria_misericordia' => [
             'cache' => [
-                'key' => 'sicilia.liguria.savona.st_maria_misericordia',
+                'key' => 'liguria.savona.st_maria_misericordia',
                 'ttlMinute' => 1
             ],
             'url' => 'https://pslive.regione.liguria.it/api/prontosoccorso/07021101',
@@ -201,7 +201,7 @@ return [
         ],
         'st_corona' => [
             'cache' => [
-                'key' => 'sicilia.liguria.savona.st_corona',
+                'key' => 'liguria.savona.st_corona',
                 'ttlMinute' => 1
             ],
             'url' => 'https://pslive.regione.liguria.it/api/prontosoccorso/07021102',
@@ -229,7 +229,7 @@ return [
         ],
         'st_giuseppe' => [
             'cache' => [
-                'key' => 'sicilia.liguria.savona.st_giuseppe',
+                'key' => 'liguria.savona.st_giuseppe',
                 'ttlMinute' => 1
             ],
             'url' => 'https://pslive.regione.liguria.it/api/prontosoccorso/07021203',
@@ -257,7 +257,7 @@ return [
         ],
         'st_paolo' => [
             'cache' => [
-                'key' => 'sicilia.liguria.savona.st_paolo',
+                'key' => 'liguria.savona.st_paolo',
                 'ttlMinute' => 1
             ],
             'url' => 'https://pslive.regione.liguria.it/api/prontosoccorso/07021204',
