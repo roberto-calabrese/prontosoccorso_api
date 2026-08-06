@@ -11,10 +11,11 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Cache;
 use App\Jobs\Concerns\AlertsOnScrapeFailure;
+use App\Jobs\Concerns\HasHttpTimeouts;
 
 class GenericAJaxJob implements ShouldQueue
 {
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels, AlertsOnScrapeFailure;
+    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels, AlertsOnScrapeFailure, HasHttpTimeouts;
 
     protected array $websocket;
 
@@ -47,7 +48,7 @@ class GenericAJaxJob implements ShouldQueue
 
         return Cache::remember($cacheKey, now()->addMinutes($cacheTTL), function () use ($method) {
 
-            $client = new Client();
+            $client = new Client($this->httpClientOptions());
 
             $options = [
                 'headers' => $this->config['headers'],

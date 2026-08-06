@@ -11,10 +11,11 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Cache;
 use App\Jobs\Concerns\AlertsOnScrapeFailure;
+use App\Jobs\Concerns\HasHttpTimeouts;
 
 class AslCittaDiTorinoAJaxJob implements ShouldQueue
 {
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels, AlertsOnScrapeFailure;
+    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels, AlertsOnScrapeFailure, HasHttpTimeouts;
 
     /**
      * Mappatura dei codici priorita' dell'ASL Citta' di Torino sui colori interni.
@@ -58,7 +59,7 @@ class AslCittaDiTorinoAJaxJob implements ShouldQueue
 
         return Cache::remember($cacheKey, now()->addMinutes($cacheTTL), function () use ($method) {
 
-            $client = new Client();
+            $client = new Client($this->httpClientOptions());
 
             $response = $client->request($method, $this->config['url'], [
                 'headers' => [
