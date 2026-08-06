@@ -109,8 +109,13 @@ class GenericAJaxJob implements ShouldQueue
                             $ospedali[$keyH]['data'][$key][$extraK] = $ospedale['data'][$key][$extraK];
                             $default = $extraV['default'] ?? null;
                             $cleanedValue = data_get($dati, $extraV['selector'], $default);
+
+                            if (isset($extraV['format'])) {
+                                $cleanedValue = $this->applyFormat($cleanedValue, $extraV['format']);
+                            }
+
                             $ospedali[$keyH]['data'][$key][$extraK]['value'] = ($extraK === 'indice_sovraffollamento') ? (int)preg_replace('/[^0-9.]/', '', $cleanedValue) : $cleanedValue;
-                            unset($ospedali[$keyH]['data'][$key][$extraK]['selector'], $ospedali[$keyH]['data'][$key][$extraK]['default']);
+                            unset($ospedali[$keyH]['data'][$key][$extraK]['selector'], $ospedali[$keyH]['data'][$key][$extraK]['default'], $ospedali[$keyH]['data'][$key][$extraK]['format']);
 
                         }
                     }
@@ -176,9 +181,37 @@ class GenericAJaxJob implements ShouldQueue
         return $dati;
     }
 
+    /**
+     * Converte una data espressa in UTC nel fuso dell'applicazione.
+     * Alcune sorgenti (es. ASL TO5) pubblicano l'orario UTC senza indicare il
+     * fuso: va convertito, non spostato di un offset fisso, altrimenti l'ora
+     * risulterebbe sbagliata nel passaggio da/a ora legale.
+     */
+    private function utcToLocal($value, string $inputFormat = 'd/m/Y H:i:s'): mixed
+    {
+        if (!is_string($value) || trim($value) === '') {
+            return $value;
+        }
+
+        try {
+            $data = \Carbon\Carbon::createFromFormat($inputFormat, $value, 'UTC');
+        } catch (\Throwable) {
+            try {
+                $data = \Carbon\Carbon::parse($value, 'UTC');
+            } catch (\Throwable) {
+                return $value;
+            }
+        }
+
+        return $data->timezone(config('app.timezone'))->format('d/m/Y H:i');
+    }
+
     private function applyFormat($value, $format)
     {
         switch ($format) {
+            case 'utc_to_local':
+                return $this->utcToLocal($value);
+
             case 'minutes_to_time':
                 if (!is_numeric($value)) {
                     return $value;

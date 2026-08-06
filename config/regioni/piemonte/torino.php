@@ -48,6 +48,94 @@ $tableSettings = [
     ]
 ];
 
+// L'API dell'ASL TO5 restituisce tutti i presidi in un'unica risposta:
+// dopo le transformations ogni presidio e' raggiungibile con 'ospedali.<id>'
+// e i codici colore con 'triage.<nome>'.
+$aslTo5Colori = [
+    'rosso' => 'Rosso',
+    'arancione' => 'Arancio',
+    'azzurro' => 'Azzurro',
+    'verde' => 'Verde',
+    'bianco' => 'Bianco',
+];
+
+$buildAslTo5Data = static function (int $idPresidio) use ($aslTo5Colori): array {
+
+    $campiColore = static fn(string $campo): array => array_map(
+        static fn(string $triage): string => "ospedali.$idPresidio.triage.$triage.$campo",
+        array_values($aslTo5Colori)
+    );
+
+    $data = [];
+
+    foreach ($aslTo5Colori as $colore => $triage) {
+        $base = "ospedali.$idPresidio.triage.$triage";
+
+        $data[$colore] = [
+            'selector' => "$base.in_attesa",
+            'default' => 0,
+            'extra' => [
+                'in_attesa' => [
+                    'label' => 'Pazienti in attesa',
+                    'selector' => "$base.in_attesa",
+                    'default' => 0,
+                ],
+                'in_trattamento' => [
+                    'label' => 'Pazienti in trattamento',
+                    'selector' => "$base.in_cura",
+                    'default' => 0,
+                ],
+                'totale_presenti' => [
+                    'label' => 'Totale presenti',
+                    'selector' => "$base.totale",
+                    'default' => 0,
+                ],
+            ]
+        ];
+    }
+
+    $data['totali'] = [
+        'action' => [
+            'operation' => 'sum',
+            'keys' => [
+                'in_attesa' => [
+                    'label' => 'Pazienti in attesa',
+                    'fields' => $campiColore('in_attesa'),
+                ],
+                'in_trattamento' => [
+                    'label' => 'Pazienti in trattamento',
+                    'fields' => $campiColore('in_cura'),
+                ],
+                'totale_presenti' => [
+                    'label' => 'Totale presenti',
+                    'fields' => $campiColore('totale'),
+                ],
+            ]
+        ],
+    ];
+
+    $data['extra'] = [
+        'pazienti_presenti' => [
+            'label' => 'Pazienti presenti',
+            'selector' => "ospedali.$idPresidio.pazienti_presenti",
+            'default' => 0,
+        ],
+        'ambulanze_in_arrivo' => [
+            'label' => 'Ambulanze in arrivo',
+            'selector' => "ospedali.$idPresidio.ambulanze_in_arrivo",
+            'default' => 0,
+        ],
+        // L'API pubblica l'orario in UTC senza indicare il fuso.
+        'ultimo_aggiornamento' => [
+            'label' => 'Ultimo aggiornamento',
+            'selector' => 'timestamp',
+            'format' => 'utc_to_local',
+        ],
+    ];
+
+    return $data;
+};
+
 return [
     'meta' => [
       'slug' => 'torino',
@@ -498,6 +586,79 @@ return [
                         'lng' => '7.700378179361587',
                     ],
                     'data' => []
+                ],
+            ]
+        ],
+        // Un'unica chiamata restituisce i tre presidi dell'ASL TO5
+        // (Chieri, Moncalieri, Carmagnola): gli ospedali vengono abbinati
+        // tramite l'id presente nella risposta.
+        'aslTo5' => [
+            'cache' => [
+                'key' => 'piemonte.torino.aslTo5',
+                'ttlMinute' => 1
+            ],
+            'url' => 'https://servizi.aslto5.piemonte.it/ps/api/dati',
+            'headers' => [
+                'Accept' => 'application/json, text/plain, */*',
+                'Referer' => 'https://servizi.aslto5.piemonte.it/ps/',
+                'User-Agent' => $userAgent,
+                'Origin' => 'https://servizi.aslto5.piemonte.it',
+            ],
+            'transformations' => [
+                'path_key_by' => [
+                    'ospedali' => 'id',
+                    'ospedali.*.triage' => 'nome',
+                ]
+            ],
+            'jobClass' => \App\Jobs\GenericAJaxJob::class,
+            'data' => [
+                'chieri' => [
+                    'id' => 11,
+                    'nome' => 'Chieri - Ospedale Maggiore',
+                    'descrizione' => 'Ospedale Maggiore di Chieri, sede di DEA di I livello dell\'ASL TO5.',
+                    'adulti' => true,
+                    'indirizzo' => 'Via Giovanni De Maria, 1, 10023 Chieri TO',
+                    'telefono' => '011 94291',
+                    'email' => 'dirsan.riuniti@aslto5.piemonte.it',
+                    'web' => 'https://www.aslto5.piemonte.it/it/sede/ospedale-maggiore',
+                    'google_maps' => 'https://www.google.com/maps/search/?api=1&query=45.0106285,7.8236629',
+                    'coords' => [
+                        'lat' => '45.0106285',
+                        'lng' => '7.8236629',
+                    ],
+                    'data' => $buildAslTo5Data(1)
+                ],
+                'moncalieri' => [
+                    'id' => 12,
+                    'nome' => 'Moncalieri - Ospedale Santa Croce',
+                    'descrizione' => 'Ospedale Santa Croce di Moncalieri, sede di DEA di I livello dell\'ASL TO5. L\'ingresso del pronto soccorso, pedonale e per le ambulanze, e\' in Via Galileo Galilei.',
+                    'adulti' => true,
+                    'indirizzo' => 'Piazza Augusto Ferdinando, 3, 10024 Moncalieri TO',
+                    'telefono' => '011 69301',
+                    'email' => 'dirsan.riuniti@aslto5.piemonte.it',
+                    'web' => 'https://www.aslto5.piemonte.it/it/sede/ospedale-santa-croce',
+                    'google_maps' => 'https://www.google.com/maps/search/?api=1&query=45.0018347,7.6899411',
+                    'coords' => [
+                        'lat' => '45.0018347',
+                        'lng' => '7.6899411',
+                    ],
+                    'data' => $buildAslTo5Data(2)
+                ],
+                'carmagnola' => [
+                    'id' => 13,
+                    'nome' => 'Carmagnola - Ospedale San Lorenzo',
+                    'descrizione' => 'Ospedale San Lorenzo di Carmagnola, sede di pronto soccorso dell\'ASL TO5.',
+                    'adulti' => true,
+                    'indirizzo' => 'Via Ospedale, 13, 10022 Carmagnola TO',
+                    'telefono' => '011 97191',
+                    'email' => 'dirsan.riuniti@aslto5.piemonte.it',
+                    'web' => 'https://www.aslto5.piemonte.it/it/sede/ospedale-san-lorenzo',
+                    'google_maps' => 'https://www.google.com/maps/search/?api=1&query=44.8468055,7.7165660',
+                    'coords' => [
+                        'lat' => '44.8468055',
+                        'lng' => '7.7165660',
+                    ],
+                    'data' => $buildAslTo5Data(3)
                 ],
             ]
         ],
