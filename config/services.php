@@ -44,9 +44,11 @@ return [
         // Indirizzo che riceve le notifiche quando un job di scraping fallisce
         // o non restituisce dati. Se vuoto, le notifiche sono disabilitate.
         'email' => env('SCRAPE_ALERT_EMAIL') ?: env('FEEDBACK_EMAIL'),
-        // Minuti di silenzio per la stessa sorgente, per evitare email a raffica
-        // (gli scrape girano ~ogni minuto).
-        'cooldown_minutes' => (int) env('SCRAPE_ALERT_COOLDOWN', 30),
+        // La mail parte solo quando una sorgente accumula almeno 'threshold'
+        // fallimenti entro 'window_minutes'. Un recupero riuscito azzera il
+        // contatore: i fallimenti transitori non generano email.
+        'threshold' => (int) env('SCRAPE_ALERT_THRESHOLD', 20),
+        'window_minutes' => (int) env('SCRAPE_ALERT_WINDOW', 30),
     ],
 
     'sicilia' => [

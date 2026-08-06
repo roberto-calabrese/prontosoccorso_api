@@ -202,7 +202,7 @@ class AslvcAJaxJob implements ShouldQueue
                 $ospedali[$keyH]['data']['extra'] = $extra;
             }
 
-            $this->reportIfScrapeEmpty($ospedali);
+            $this->trackScrapeOutcome($ospedali);
 
             if ($this->websocket) {
                 event(new PusherEvent($ospedali, [

@@ -6,17 +6,18 @@ use App\Services\ScrapeAlertNotifier;
 use Throwable;
 
 /**
- * Notifica automatica dei problemi di scraping, direttamente dentro il job così
- * da funzionare in QUALSIASI modalità (coda/redis via Horizon oppure sincrono).
+ * Notifica dei problemi di scraping con criterio a "soglia su finestra"
+ * (gestito da ScrapeAlertNotifier): la mail parte solo se una sorgente accumula
+ * troppi fallimenti entro la finestra configurata; un recupero riuscito azzera
+ * il contatore. Funziona in QUALSIASI modalità (coda/redis via Horizon o sync).
  *
- * Copre due casi:
+ * Copre:
  *  - failed(): eccezione del job. Laravel lo invoca dentro Job::fail(), prima
  *    dei listener dell'evento JobFailed, quindi è indipendente dall'ordine dei
  *    listener di Horizon e dallo stato dello storage dei failed_jobs.
- *  - reportIfScrapeEmpty(): lo scrape non ha prodotto dati validi (es. selettori
- *    o struttura della pagina cambiati). Va chiamato dentro handle() prima di
- *    trasmettere/ritornare i dati, perché in modalità async il risultato non
- *    torna a GenericDataService.
+ *  - trackScrapeOutcome(): da chiamare in handle() prima del broadcast. Se lo
+ *    scrape ha prodotto dati validi azzera il contatore, altrimenti registra un
+ *    fallimento (in modalità async il risultato non torna a GenericDataService).
  *
  * Richiede che la classe abbia una property `protected array $config`.
  */
@@ -27,35 +28,45 @@ trait AlertsOnScrapeFailure
      */
     public function failed(Throwable $e): void
     {
-        $this->notifyScrapeAlert(
+        app(ScrapeAlertNotifier::class)->recordFailure(
+            source: $this->scrapeAlertSource(),
             reason: 'Il job di scraping è fallito con un\'eccezione',
             e: $e,
+            context: $this->scrapeAlertContext(),
         );
     }
 
     /**
-     * Da chiamare in handle() prima del broadcast: se lo scrape non ha prodotto
-     * dati validi invia l'alert.
+     * Da chiamare in handle() prima del broadcast: registra l'esito dello scrape
+     * (successo -> reset del contatore, dati vuoti -> fallimento).
      */
-    protected function reportIfScrapeEmpty(?array $ospedali): void
+    protected function trackScrapeOutcome(?array $ospedali): void
     {
+        $notifier = app(ScrapeAlertNotifier::class);
+
         if (ScrapeAlertNotifier::resultLooksEmpty($ospedali)) {
-            $this->notifyScrapeAlert(reason: 'Lo scraping non ha restituito dati validi');
+            $notifier->recordFailure(
+                source: $this->scrapeAlertSource(),
+                reason: 'Lo scraping non ha restituito dati validi',
+                context: $this->scrapeAlertContext(),
+            );
+
+            return;
         }
+
+        $notifier->recordSuccess($this->scrapeAlertSource());
     }
 
-    private function notifyScrapeAlert(string $reason, ?Throwable $e = null): void
+    private function scrapeAlertSource(): string
     {
-        $config = $this->config ?? [];
+        return $this->config['cache']['key'] ?? static::class;
+    }
 
-        app(ScrapeAlertNotifier::class)->report(
-            source: $config['cache']['key'] ?? static::class,
-            reason: $reason,
-            e: $e,
-            context: [
-                'jobClass' => static::class,
-                'url' => $config['url'] ?? null,
-            ],
-        );
+    private function scrapeAlertContext(): array
+    {
+        return [
+            'jobClass' => static::class,
+            'url' => $this->config['url'] ?? null,
+        ];
     }
 }

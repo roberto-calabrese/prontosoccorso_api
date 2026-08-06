@@ -6,8 +6,11 @@
 <body>
     <h2>⚠️ Scraping fallito - Pronto Soccorso Live</h2>
     <p>Un job di raccolta dati non è andato a buon fine.</p>
+    @if($failureCount && $windowMinutes)
+        <p><strong>Soglia raggiunta:</strong> {{ $failureCount }} fallimenti negli ultimi {{ $windowMinutes }} minuti.</p>
+    @endif
     <p><strong>Sorgente:</strong> {{ $source }}</p>
-    <p><strong>Motivo:</strong> {{ $reason }}</p>
+    <p><strong>Ultimo motivo:</strong> {{ $reason }}</p>
     @if($jobClass)
         <p><strong>Job:</strong> {{ $jobClass }}</p>
     @endif

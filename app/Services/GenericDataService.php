@@ -49,8 +49,9 @@ class GenericDataService
                 $dataJobSync = $this->getJobResult(new $ospedaleConfig['jobClass']($this->activeWebsocket(), $ospedaleConfig), $ospedaleConfig);
             } catch (Throwable $e) {
                 // Path sincrono/locale: il job viene eseguito direttamente, quindi
-                // l'eccezione non passa dalla coda. Notifichiamo qui e rilanciamo.
-                $this->alertNotifier->report(
+                // l'eccezione non passa dalla coda (failed() non viene invocato).
+                // Registriamo il fallimento qui e rilanciamo.
+                $this->alertNotifier->recordFailure(
                     source: $ospedaleConfig['cache']['key'] ?? $configKey,
                     reason: 'Il job di scraping ha sollevato un\'eccezione',
                     e: $e,

@@ -91,7 +91,7 @@ class ArsCivicoJob implements ShouldQueue
                 }
             }
 
-            $this->reportIfScrapeEmpty($ospedali);
+            $this->trackScrapeOutcome($ospedali);
 
             if ($this->websocket) {
                 event(new PusherEvent($ospedali, [

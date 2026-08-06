@@ -106,7 +106,7 @@ class AslCittaDiTorinoAJaxJob implements ShouldQueue
                 $ospedali[$keyH]['data']['extra'] = $this->extra($struttura);
             }
 
-            $this->reportIfScrapeEmpty($ospedali);
+            $this->trackScrapeOutcome($ospedali);
 
             if ($this->websocket) {
                 event(new PusherEvent($ospedali, [

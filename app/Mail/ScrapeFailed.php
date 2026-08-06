@@ -25,6 +25,8 @@ class ScrapeFailed extends Mailable
         public ?string $jobClass = null,
         public ?string $url = null,
         public ?string $details = null,
+        public ?int $failureCount = null,
+        public ?int $windowMinutes = null,
     ) {
     }
 
