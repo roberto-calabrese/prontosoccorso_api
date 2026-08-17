@@ -80,6 +80,15 @@ return [
             'vicenza' => \App\Services\GenericDataService::class,
         ],
     ],
+    'lazio' => [
+        'provincie' => [
+            'roma' => \App\Services\GenericDataService::class,
+            'frosinone' => \App\Services\GenericDataService::class,
+            'latina' => \App\Services\GenericDataService::class,
+            'rieti' => \App\Services\GenericDataService::class,
+            'viterbo' => \App\Services\GenericDataService::class,
+        ]
+    ],
     'puglia' => [
         'provincie' => [
             'bari' => \App\Services\GenericDataService::class,
