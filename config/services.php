@@ -80,6 +80,16 @@ return [
             'vicenza' => \App\Services\GenericDataService::class,
         ],
     ],
+    'puglia' => [
+        'provincie' => [
+            'bari' => \App\Services\GenericDataService::class,
+            'barletta-andria-trani' => \App\Services\GenericDataService::class,
+            'brindisi' => \App\Services\GenericDataService::class,
+            'foggia' => \App\Services\GenericDataService::class,
+            'lecce' => \App\Services\GenericDataService::class,
+            'taranto' => \App\Services\GenericDataService::class,
+        ]
+    ],
     'piemonte' => [
         'provincie' => [
             'vercelli' => \App\Services\GenericDataService::class,
