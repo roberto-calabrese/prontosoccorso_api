@@ -16,7 +16,7 @@ L'applicazione recupera i dati attraverso tecniche di scraping o chiamate API di
 
 ## Requisiti
 
-*   PHP 8.1 o superiore
+*   PHP 8.3 o superiore (Laravel 13)
 *   Composer
 *   Redis (consigliato per la gestione delle code e caching avanzato)
 *   Account Pusher (necessario per le funzionalità real-time)

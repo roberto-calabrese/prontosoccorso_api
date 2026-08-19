@@ -188,7 +188,10 @@ $commonData = [
     ]
 ];
 
-function buildHospitalData($id, $commonData) {
+// Guard necessaria: i file di config vengono caricati piu' volte nello stesso
+// processo da 'config:cache' e 'route:cache', che rideclarerebbero la funzione.
+if (! function_exists('buildHospitalData')) {
+    function buildHospitalData($id, $commonData) {
     $data = $commonData;
     foreach ($data as $key => &$value) {
         if (isset($value['selector'])) {
@@ -210,6 +213,7 @@ function buildHospitalData($id, $commonData) {
         }
     }
     return $data;
+}
 }
 
 return [
