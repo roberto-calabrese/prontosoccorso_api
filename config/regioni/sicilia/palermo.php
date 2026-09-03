@@ -574,8 +574,8 @@ return [
                     'web' => 'https://www.policlinico.pa.it/web/guest',
                     'google_maps' => 'https://www.google.it/maps/place/AZIENDA+OSPEDALIERA+UNIVERSITARIA+POLICLINICO+PAOLO+GIACCONE/@38.1044938,13.3625445,16z/data=!3m1!4b1!4m6!3m5!1s0x1319e587f5bc639f:0xcbac5e0f9d0ba0e4!8m2!3d38.1044938!4d13.3625445!16s%2Fg%2F1tgfsk1z?entry=ttu&g_ep=EgoyMDI0MDgyOC4wIKXMDSoASAFQAw%3D%3D',
                     'coords' => [
-                        'lat' => '38.1044938',
-                        'lng' => '13.3625445',
+                        'lat' => '38.106222784345874',
+                        'lng' => '13.360894857018508',
                     ],
                     'data' => [
                         'rosso' => [

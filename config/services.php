@@ -112,6 +112,7 @@ return [
             'empoli' => \App\Services\GenericDataService::class,
             'prato' => \App\Services\GenericDataService::class,
             'pistoia' => \App\Services\GenericDataService::class,
+            'siena' => \App\Services\GenericDataService::class,
         ]
     ],
     'campania' => [
