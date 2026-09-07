@@ -866,18 +866,44 @@ return [
                                 ],
                             ]
                         ],
-                        'giallo' => [
-                            'selector' => 'pazientiInAttesa.totaleCodiciGialli',
+                        'arancione' => [
+                            'selector' => 'pazientiInAttesa.totaleCodiciArancioni',
                             'extra' => [
                                 'in_attesa' => [
                                     'label' => 'Pazienti in attesa',
-                                    'selector' => 'pazientiInAttesa.totaleCodiciGialli',
+                                    'selector' => 'pazientiInAttesa.totaleCodiciArancioni',
                                 ],
                                 'in_trattamento' => [
                                     'label' => 'Pazienti in trattamento',
-                                    'selector' => 'pazientiInTrattamento.totaleCodiciGialli',
+                                    'selector' => 'pazientiInTrattamento.totaleCodiciArancioni',
                                 ],
-
+                            ]
+                        ],
+//                        'giallo' => [
+//                            'selector' => 'pazientiInAttesa.totaleCodiciGialli',
+//                            'extra' => [
+//                                'in_attesa' => [
+//                                    'label' => 'Pazienti in attesa',
+//                                    'selector' => 'pazientiInAttesa.totaleCodiciGialli',
+//                                ],
+//                                'in_trattamento' => [
+//                                    'label' => 'Pazienti in trattamento',
+//                                    'selector' => 'pazientiInTrattamento.totaleCodiciGialli',
+//                                ],
+//
+//                            ]
+//                        ],
+                        'azzurro' => [
+                            'selector' => 'pazientiInAttesa.totaleCodiciAzzurri',
+                            'extra' => [
+                                'in_attesa' => [
+                                    'label' => 'Pazienti in attesa',
+                                    'selector' => 'pazientiInAttesa.totaleCodiciAzzurri',
+                                ],
+                                'in_trattamento' => [
+                                    'label' => 'Pazienti in trattamento',
+                                    'selector' => 'pazientiInTrattamento.totaleCodiciAzzurri',
+                                ],
                             ]
                         ],
                         'verde' => [
