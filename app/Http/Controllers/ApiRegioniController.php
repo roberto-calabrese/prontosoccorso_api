@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Concerns\LeggeCoordinate;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -9,6 +10,8 @@ use Symfony\Component\HttpFoundation\Response;
 
 class ApiRegioniController extends Controller
 {
+    use LeggeCoordinate;
+
     public function __invoke(Request $request): JsonResponse
     {
         try {
@@ -16,7 +19,7 @@ class ApiRegioniController extends Controller
 
             $numeroOspedaliTotali = 0;
 
-            $ospedaliPerRegione = array_map(static function ($province, $regione) use (&$numeroOspedaliTotali) {
+            $ospedaliPerRegione = array_map(function ($province, $regione) use (&$numeroOspedaliTotali) {
                 $numeroOspedali = array_sum(array_map(static function ($provincia) {
                     return array_sum(array_map(static function ($ospedali) {
                         return count($ospedali['data']);
@@ -28,6 +31,8 @@ class ApiRegioniController extends Controller
                 return [
                     'nome' => $regione,
                     'numero_ospedali' => $numeroOspedali,
+                    // baricentro dei presidi: disegna la cartina di sfondo dell'hero in home
+                    'coords' => $this->baricentro($this->puntiRegione($province)),
                 ];
             }, $regioni, array_keys($regioni));
 

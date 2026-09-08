@@ -1,108 +1,7 @@
 <?php
 
-$userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.79 Safari/537.36';
-
-$headers = [
-    'Accept' => 'application/json',
-    'Accept-Language' => 'it,en-US;q=0.9,en;q=0.8,it-IT;q=0.7',
-    'Cache-Control' => 'no-cache',
-    'Pragma' => 'no-cache',
-    'Priority' => 'u=1, i',
-    'Referer' => 'https://salute.regione.veneto.it/servizi/situazione-nei-pronto-soccorso',
-    'Sec-CH-UA' => '"Not/A)Brand";v="8", "Chromium";v="126", "Google Chrome";v="126"',
-    'Sec-CH-UA-Mobile' => '?0',
-    'Sec-CH-UA-Platform' => '"macOS"',
-    'Sec-Fetch-Dest' => 'empty',
-    'Sec-Fetch-Mode' => 'cors',
-    'Sec-Fetch-Site' => 'same-origin',
-    'User-Agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36'
-];
-
-$dataCommons = [
-    'rosso' => [
-        'selector' => 'table#ps>tbody>tr:nth-child($I)>td:nth-child(3)>table>tr:nth-child(2)>td:nth-child(2)',
-        'extra' => [
-            'in_attesa' => [
-                'label' => 'Pazienti in attesa',
-                'selector' => 'table#ps>tbody>tr:nth-child($I)>td:nth-child(3)>table>tr:nth-child(2)>td:nth-child(2)',
-            ],
-            'in_trattamento' => [
-                'label' => 'Pazienti in trattamento',
-                'selector' => 'table#ps>tbody>tr:nth-child($I)>td:nth-child(3)>table>tr:nth-child(3)>td:nth-child(2)',
-            ],
-        ]
-    ],
-    'arancione' => [
-        'selector' => 'table#ps>tbody>tr:nth-child($I)>td:nth-child(3)>table>tr:nth-child(2)>td:nth-child(3)',
-        'extra' => [
-            'in_attesa' => [
-                'label' => 'Pazienti in attesa',
-                'selector' => 'table#ps>tbody>tr:nth-child($I)>td:nth-child(3)>table>tr:nth-child(2)>td:nth-child(3)',
-            ],
-            'in_trattamento' => [
-                'label' => 'Pazienti in trattamento',
-                'selector' => 'table#ps>tbody>tr:nth-child($I)>td:nth-child(3)>table>tr:nth-child(3)>td:nth-child(3)',
-            ],
-        ]
-    ],
-    'giallo' => [
-        'selector' => 'table#ps>tbody>tr:nth-child($I)>td:nth-child(3)>table>tr:nth-child(2)>td:nth-child(4)',
-        'extra' => [
-            'in_attesa' => [
-                'label' => 'Pazienti in attesa',
-                'selector' => 'table#ps>tbody>tr:nth-child($I)>td:nth-child(3)>table>tr:nth-child(2)>td:nth-child(4)',
-            ],
-            'in_trattamento' => [
-                'label' => 'Pazienti in trattamento',
-                'selector' => 'table#ps>tbody>tr:nth-child($I)>td:nth-child(3)>table>tr:nth-child(3)>td:nth-child(4)',
-            ],
-        ]
-    ],
-    'verde' => [
-        'selector' => 'table#ps>tbody>tr:nth-child($I)>td:nth-child(3)>table>tr:nth-child(2)>td:nth-child(5)',
-        'extra' => [
-            'in_attesa' => [
-                'label' => 'Pazienti in attesa',
-                'selector' => 'table#ps>tbody>tr:nth-child($I)>td:nth-child(3)>table>tr:nth-child(2)>td:nth-child(5)',
-            ],
-            'in_trattamento' => [
-                'label' => 'Pazienti in trattamento',
-                'selector' => 'table#ps>tbody>tr:nth-child($I)>td:nth-child(3)>table>tr:nth-child(3)>td:nth-child(5)',
-            ],
-        ]
-    ],
-    'bianco' => [
-        'selector' => 'table#ps>tbody>tr:nth-child($I)>td:nth-child(3)>table>tr:nth-child(2)>td:nth-child(6)',
-        'extra' => [
-            'in_attesa' => [
-                'label' => 'Pazienti in attesa',
-                'selector' => 'table#ps>tbody>tr:nth-child($I)>td:nth-child(3)>table>tr:nth-child(2)>td:nth-child(6)',
-            ],
-            'in_trattamento' => [
-                'label' => 'Pazienti in trattamento',
-                'selector' => 'table#ps>tbody>tr:nth-child($I)>td:nth-child(3)>table>tr:nth-child(3)>td:nth-child(6)',
-            ],
-        ]
-    ],
-    'totali' => [
-        'action' => [
-            'operation' => 'sum',
-            'keys' => [
-                'in_attesa' => [
-                    'label' => 'Pazienti in attesa',
-                    'value' => null
-                ],
-                'in_trattamento' => [
-                    'label' => 'Pazienti in trattamento',
-                    'value' => null
-                ],
-            ]
-        ],
-    ]
-];
-
 $tableSettings = [
-    'headers' => $tableHeaders = [
+    'headers' => [
         [
             'title' => 'Presidio',
             'align' => 'start',
@@ -141,10 +40,21 @@ $tableSettings = [
     ],
     'sortBy' => [
         [
-            'key' => 'data.data.bianco.value',
-            'order' => 'asc'
+            'key' => 'data.data.totali.value',
+            'order' => 'desc'
         ]
     ]
+];
+
+$headers = [
+    'Accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+    'Accept-Language' => 'it,en-US;q=0.9,en;q=0.8,it-IT;q=0.7',
+    'Cache-Control' => 'no-cache',
+    'Content-Type' => 'application/x-www-form-urlencoded',
+    'Origin' => 'https://salute.regione.veneto.it',
+    'Pragma' => 'no-cache',
+    'Referer' => 'https://salute.regione.veneto.it/servizi/situazione-nei-pronto-soccorso',
+    'User-Agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36',
 ];
 
 return [
@@ -159,20 +69,24 @@ return [
     ],
     'tableSettings' => $tableSettings,
     'ospedali' => [
-        'verona_ulss9' => [
+        // Il portale richiede obbligatoriamente la provincia e restituisce i
+        // presidi cinque per pagina: il job segue la paginazione da solo.
+        // Il campo 'codice' e' il nome con cui il portale pubblica il presidio
+        // ed e' la chiave di abbinamento.
+        'salute_regione_veneto' => [
             'cache' => [
-                'key' => 'veneto.verona.ulss9',
+                'key' => 'veneto.verona.salute_regione_veneto',
                 'ttlMinute' => 1
             ],
             'url' => 'https://salute.regione.veneto.it/servizi/situazione-nei-pronto-soccorso?p_p_id=PRONTOSOCCORSO_WAR_portalprontosoccorso_INSTANCE_o0QZ&p_p_lifecycle=1&p_p_state=normal&p_p_mode=view&p_p_col_id=column-3&p_p_col_count=1',
             'method' => 'POST',
-            'form_params' => ['ulss' => '509'],
-            'iterateSelector' => '$I',
+            'form_params' => ['provincia' => 'VR'],
             'headers' => $headers,
-            'jobClass' => \App\Jobs\GenericScrapeJob::class,
+            'jobClass' => \App\Jobs\Veneto\SaluteVenetoScrapeJob::class,
             'data' => [
                 'bussolengo' => [
                     'id' => 1,
+                    'codice' => 'Pronto Soccorso Bussolengo',
                     'nome' => 'Bussolengo - Pronto Soccorso',
                     'descrizione' => 'Pronto Soccorso Bussolengo',
                     'adulti' => true,
@@ -180,12 +94,16 @@ return [
                     'telefono' => '',
                     'email' => '',
                     'web' => 'https://salute.regione.veneto.it/servizi/situazione-nei-pronto-soccorso',
-                    'google_maps' => 'https://www.google.it/maps/place/Via+Ospedale,+2,+37012+Bussolengo+VR',
-                    'coords' => [],
-                    'data' => $dataCommons,
+                    'google_maps' => 'https://www.google.com/maps/search/?api=1&query=45.4757183,10.8492401',
+                    'coords' => [
+                        'lat' => '45.4757183',
+                        'lng' => '10.8492401',
+                    ],
+                    'data' => [],
                 ],
                 'malcesine' => [
                     'id' => 2,
+                    'codice' => 'Punto Primo Intervento Malcesine',
                     'nome' => 'Malcesine - Punto Primo Intervento',
                     'descrizione' => 'Punto Primo Intervento Malcesine',
                     'adulti' => true,
@@ -193,25 +111,16 @@ return [
                     'telefono' => '',
                     'email' => '',
                     'web' => 'https://salute.regione.veneto.it/servizi/situazione-nei-pronto-soccorso',
-                    'google_maps' => 'https://www.google.it/maps/place/Via+Gardesana,+37,+37018+Malcesine+VR',
-                    'coords' => [],
-                    'data' => $dataCommons,
-                ],
-                'legnago' => [
-                    'id' => 3,
-                    'nome' => 'Legnago - Pronto Soccorso',
-                    'descrizione' => 'Pronto Soccorso Legnago',
-                    'adulti' => true,
-                    'indirizzo' => 'Via Gianella, 1, Legnago, 37045, VR',
-                    'telefono' => '',
-                    'email' => '',
-                    'web' => 'https://salute.regione.veneto.it/servizi/situazione-nei-pronto-soccorso',
-                    'google_maps' => 'https://www.google.it/maps/place/Via+Gianella,+1,+37045+Legnago+VR',
-                    'coords' => [],
-                    'data' => $dataCommons,
+                    'google_maps' => 'https://www.google.com/maps/search/?api=1&query=45.7515235,10.7968565',
+                    'coords' => [
+                        'lat' => '45.7515235',
+                        'lng' => '10.7968565',
+                    ],
+                    'data' => [],
                 ],
                 'negrar' => [
-                    'id' => 4,
+                    'id' => 3,
+                    'codice' => 'Pronto Soccorso Ospedale Classificato Sacro Cuore Don G. Calabria',
                     'nome' => 'Negrar - Sacro Cuore Don G. Calabria',
                     'descrizione' => 'Pronto Soccorso Ospedale Classificato Sacro Cuore Don G. Calabria',
                     'adulti' => true,
@@ -219,12 +128,16 @@ return [
                     'telefono' => '',
                     'email' => '',
                     'web' => 'https://salute.regione.veneto.it/servizi/situazione-nei-pronto-soccorso',
-                    'google_maps' => 'https://www.google.it/maps/place/Via+Don+A.+Sempreboni,+5,+37024+Negrar+VR',
-                    'coords' => [],
-                    'data' => $dataCommons,
+                    'google_maps' => 'https://www.google.com/maps/search/?api=1&query=45.5303545,10.9363783',
+                    'coords' => [
+                        'lat' => '45.5303545',
+                        'lng' => '10.9363783',
+                    ],
+                    'data' => [],
                 ],
                 'san_bonifacio' => [
-                    'id' => 5,
+                    'id' => 4,
+                    'codice' => 'Pronto Soccorso San Bonifacio',
                     'nome' => 'San Bonifacio - Pronto Soccorso',
                     'descrizione' => 'Pronto Soccorso San Bonifacio',
                     'adulti' => true,
@@ -232,26 +145,50 @@ return [
                     'telefono' => '',
                     'email' => '',
                     'web' => 'https://salute.regione.veneto.it/servizi/situazione-nei-pronto-soccorso',
-                    'google_maps' => 'https://www.google.it/maps/place/Via+Fontanelle,+18,+37047+San+Bonifacio+VR',
-                    'coords' => [],
-                    'data' => $dataCommons,
+                    'google_maps' => 'https://www.google.com/maps/search/?api=1&query=45.3919432,11.2796303',
+                    'coords' => [
+                        'lat' => '45.3919432',
+                        'lng' => '11.2796303',
+                    ],
+                    'data' => [],
                 ],
-            ]
-        ],
-        'verona_ao' => [
-            'cache' => [
-                'key' => 'veneto.verona.ao',
-                'ttlMinute' => 1
-            ],
-            'url' => 'https://salute.regione.veneto.it/servizi/situazione-nei-pronto-soccorso?p_p_id=PRONTOSOCCORSO_WAR_portalprontosoccorso_INSTANCE_o0QZ&p_p_lifecycle=1&p_p_state=normal&p_p_mode=view&p_p_col_id=column-3&p_p_col_count=1',
-            'method' => 'POST',
-            'form_params' => ['ulss' => '912'],
-            'iterateSelector' => '$I',
-            'headers' => $headers,
-            'jobClass' => \App\Jobs\GenericScrapeJob::class,
-            'data' => [
-                'bt_ostetrico' => [
+                'villafranca' => [
+                    'id' => 5,
+                    'codice' => 'Pronto Soccorso Villafranca di Verona',
+                    'nome' => 'Villafranca di Verona - Ospedale Magalini',
+                    'descrizione' => 'Ospedale Marcello Magalini di Villafranca di Verona, ULSS 9 Scaligera.',
+                    'adulti' => true,
+                    'indirizzo' => 'Via Ospedale Marcello Magalini, 2, Villafranca di Verona, 37069, VR',
+                    'telefono' => '',
+                    'email' => '',
+                    'web' => 'https://salute.regione.veneto.it/servizi/situazione-nei-pronto-soccorso',
+                    'google_maps' => 'https://www.google.com/maps/search/?api=1&query=45.3481672,10.8387288',
+                    'coords' => [
+                        'lat' => '45.3481672',
+                        'lng' => '10.8387288',
+                    ],
+                    'data' => [],
+                ],
+                'pederzoli' => [
                     'id' => 6,
+                    'codice' => 'Pronto Soccorso Casa di Cura Dott. Pederzoli',
+                    'nome' => 'Peschiera del Garda - Casa di Cura Pederzoli',
+                    'descrizione' => 'Casa di Cura Dott. Pederzoli di Peschiera del Garda, ospedale classificato ULSS 9 Scaligera.',
+                    'adulti' => true,
+                    'indirizzo' => 'Via Monte Baldo, 24, Peschiera del Garda, 37019, VR',
+                    'telefono' => '',
+                    'email' => '',
+                    'web' => 'https://salute.regione.veneto.it/servizi/situazione-nei-pronto-soccorso',
+                    'google_maps' => 'https://www.google.com/maps/search/?api=1&query=45.4437519,10.7066937',
+                    'coords' => [
+                        'lat' => '45.4437519',
+                        'lng' => '10.7066937',
+                    ],
+                    'data' => [],
+                ],
+                'bt_ostetrico' => [
+                    'id' => 7,
+                    'codice' => 'Pronto Soccorso Ostetrico-Ginecologico AOUI Verona Osp. B.Trento',
                     'nome' => 'Verona - Borgo Trento Ostetrico-Ginecologico',
                     'descrizione' => 'Pronto Soccorso Ostetrico-Ginecologico AOUI Verona Osp. B.Trento',
                     'adulti' => true,
@@ -259,12 +196,16 @@ return [
                     'telefono' => '',
                     'email' => '',
                     'web' => 'https://salute.regione.veneto.it/servizi/situazione-nei-pronto-soccorso',
-                    'google_maps' => 'https://www.google.it/maps/place/Piazzale+Stefani,+1,+37126+Verona+VR',
-                    'coords' => [],
-                    'data' => $dataCommons,
+                    'google_maps' => 'https://www.google.com/maps/search/?api=1&query=45.4528634,10.9841333',
+                    'coords' => [
+                        'lat' => '45.4528634',
+                        'lng' => '10.9841333',
+                    ],
+                    'data' => [],
                 ],
                 'borgo_roma' => [
-                    'id' => 7,
+                    'id' => 8,
+                    'codice' => 'Pronto Soccorso AOUI Verona Osp. B.Roma',
                     'nome' => 'Verona - Borgo Roma',
                     'descrizione' => 'Pronto Soccorso AOUI Verona Osp. B.Roma',
                     'adulti' => true,
@@ -273,11 +214,15 @@ return [
                     'email' => '',
                     'web' => 'https://salute.regione.veneto.it/servizi/situazione-nei-pronto-soccorso',
                     'google_maps' => 'https://www.google.it/maps/place/Piazzale+L.+A.+Scuro,+10,+37134+Verona+VR',
-                    'coords' => [],
-                    'data' => $dataCommons,
+                    'coords' => [
+                        'lat' => '',
+                        'lng' => '',
+                    ],
+                    'data' => [],
                 ],
                 'bt_pediatrico' => [
-                    'id' => 8,
+                    'id' => 9,
+                    'codice' => 'Pronto Soccorso Pediatrico AOUI Verona Osp. B.Trento',
                     'nome' => 'Verona - Borgo Trento Pediatrico',
                     'descrizione' => 'Pronto Soccorso Pediatrico AOUI Verona Osp. B.Trento',
                     'adulti' => false,
@@ -285,12 +230,16 @@ return [
                     'telefono' => '',
                     'email' => '',
                     'web' => 'https://salute.regione.veneto.it/servizi/situazione-nei-pronto-soccorso',
-                    'google_maps' => 'https://www.google.it/maps/place/Piazzale+Stefani,+1,+37126+Verona+VR',
-                    'coords' => [],
-                    'data' => $dataCommons,
+                    'google_maps' => 'https://www.google.com/maps/search/?api=1&query=45.4528634,10.9841333',
+                    'coords' => [
+                        'lat' => '45.4528634',
+                        'lng' => '10.9841333',
+                    ],
+                    'data' => [],
                 ],
                 'bt_generale' => [
-                    'id' => 9,
+                    'id' => 10,
+                    'codice' => 'Pronto Soccorso e Trauma Center AOUI Verona Osp. B.Trento',
                     'nome' => 'Verona - Borgo Trento Generale e Trauma Center',
                     'descrizione' => 'Pronto Soccorso e Trauma Center AOUI Verona Osp. B.Trento',
                     'adulti' => true,
@@ -298,11 +247,14 @@ return [
                     'telefono' => '',
                     'email' => '',
                     'web' => 'https://salute.regione.veneto.it/servizi/situazione-nei-pronto-soccorso',
-                    'google_maps' => 'https://www.google.it/maps/place/Via+Lungadige+Attiraglio,+10,+37124+Verona+VR',
-                    'coords' => [],
-                    'data' => $dataCommons,
+                    'google_maps' => 'https://www.google.com/maps/search/?api=1&query=45.4530156,10.9819907',
+                    'coords' => [
+                        'lat' => '45.4530156',
+                        'lng' => '10.9819907',
+                    ],
+                    'data' => [],
                 ],
             ]
-        ]
+        ],
     ]
 ];

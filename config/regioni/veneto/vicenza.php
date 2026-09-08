@@ -1,108 +1,7 @@
 <?php
 
-$userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.79 Safari/537.36';
-
-$headers = [
-    'Accept' => 'application/json',
-    'Accept-Language' => 'it,en-US;q=0.9,en;q=0.8,it-IT;q=0.7',
-    'Cache-Control' => 'no-cache',
-    'Pragma' => 'no-cache',
-    'Priority' => 'u=1, i',
-    'Referer' => 'https://salute.regione.veneto.it/servizi/situazione-nei-pronto-soccorso',
-    'Sec-CH-UA' => '"Not/A)Brand";v="8", "Chromium";v="126", "Google Chrome";v="126"',
-    'Sec-CH-UA-Mobile' => '?0',
-    'Sec-CH-UA-Platform' => '"macOS"',
-    'Sec-Fetch-Dest' => 'empty',
-    'Sec-Fetch-Mode' => 'cors',
-    'Sec-Fetch-Site' => 'same-origin',
-    'User-Agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36'
-];
-
-$dataCommons = [
-    'rosso' => [
-        'selector' => 'table#ps>tbody>tr:nth-child($I)>td:nth-child(3)>table>tr:nth-child(2)>td:nth-child(2)',
-        'extra' => [
-            'in_attesa' => [
-                'label' => 'Pazienti in attesa',
-                'selector' => 'table#ps>tbody>tr:nth-child($I)>td:nth-child(3)>table>tr:nth-child(2)>td:nth-child(2)',
-            ],
-            'in_trattamento' => [
-                'label' => 'Pazienti in trattamento',
-                'selector' => 'table#ps>tbody>tr:nth-child($I)>td:nth-child(3)>table>tr:nth-child(3)>td:nth-child(2)',
-            ],
-        ]
-    ],
-    'arancione' => [
-        'selector' => 'table#ps>tbody>tr:nth-child($I)>td:nth-child(3)>table>tr:nth-child(2)>td:nth-child(3)',
-        'extra' => [
-            'in_attesa' => [
-                'label' => 'Pazienti in attesa',
-                'selector' => 'table#ps>tbody>tr:nth-child($I)>td:nth-child(3)>table>tr:nth-child(2)>td:nth-child(3)',
-            ],
-            'in_trattamento' => [
-                'label' => 'Pazienti in trattamento',
-                'selector' => 'table#ps>tbody>tr:nth-child($I)>td:nth-child(3)>table>tr:nth-child(3)>td:nth-child(3)',
-            ],
-        ]
-    ],
-    'giallo' => [
-        'selector' => 'table#ps>tbody>tr:nth-child($I)>td:nth-child(3)>table>tr:nth-child(2)>td:nth-child(4)',
-        'extra' => [
-            'in_attesa' => [
-                'label' => 'Pazienti in attesa',
-                'selector' => 'table#ps>tbody>tr:nth-child($I)>td:nth-child(3)>table>tr:nth-child(2)>td:nth-child(4)',
-            ],
-            'in_trattamento' => [
-                'label' => 'Pazienti in trattamento',
-                'selector' => 'table#ps>tbody>tr:nth-child($I)>td:nth-child(3)>table>tr:nth-child(3)>td:nth-child(4)',
-            ],
-        ]
-    ],
-    'verde' => [
-        'selector' => 'table#ps>tbody>tr:nth-child($I)>td:nth-child(3)>table>tr:nth-child(2)>td:nth-child(5)',
-        'extra' => [
-            'in_attesa' => [
-                'label' => 'Pazienti in attesa',
-                'selector' => 'table#ps>tbody>tr:nth-child($I)>td:nth-child(3)>table>tr:nth-child(2)>td:nth-child(5)',
-            ],
-            'in_trattamento' => [
-                'label' => 'Pazienti in trattamento',
-                'selector' => 'table#ps>tbody>tr:nth-child($I)>td:nth-child(3)>table>tr:nth-child(3)>td:nth-child(5)',
-            ],
-        ]
-    ],
-    'bianco' => [
-        'selector' => 'table#ps>tbody>tr:nth-child($I)>td:nth-child(3)>table>tr:nth-child(2)>td:nth-child(6)',
-        'extra' => [
-            'in_attesa' => [
-                'label' => 'Pazienti in attesa',
-                'selector' => 'table#ps>tbody>tr:nth-child($I)>td:nth-child(3)>table>tr:nth-child(2)>td:nth-child(6)',
-            ],
-            'in_trattamento' => [
-                'label' => 'Pazienti in trattamento',
-                'selector' => 'table#ps>tbody>tr:nth-child($I)>td:nth-child(3)>table>tr:nth-child(3)>td:nth-child(6)',
-            ],
-        ]
-    ],
-    'totali' => [
-        'action' => [
-            'operation' => 'sum',
-            'keys' => [
-                'in_attesa' => [
-                    'label' => 'Pazienti in attesa',
-                    'value' => null
-                ],
-                'in_trattamento' => [
-                    'label' => 'Pazienti in trattamento',
-                    'value' => null
-                ],
-            ]
-        ],
-    ]
-];
-
 $tableSettings = [
-    'headers' => $tableHeaders = [
+    'headers' => [
         [
             'title' => 'Presidio',
             'align' => 'start',
@@ -141,10 +40,21 @@ $tableSettings = [
     ],
     'sortBy' => [
         [
-            'key' => 'data.data.bianco.value',
-            'order' => 'asc'
+            'key' => 'data.data.totali.value',
+            'order' => 'desc'
         ]
     ]
+];
+
+$headers = [
+    'Accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+    'Accept-Language' => 'it,en-US;q=0.9,en;q=0.8,it-IT;q=0.7',
+    'Cache-Control' => 'no-cache',
+    'Content-Type' => 'application/x-www-form-urlencoded',
+    'Origin' => 'https://salute.regione.veneto.it',
+    'Pragma' => 'no-cache',
+    'Referer' => 'https://salute.regione.veneto.it/servizi/situazione-nei-pronto-soccorso',
+    'User-Agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36',
 ];
 
 return [
@@ -159,20 +69,24 @@ return [
     ],
     'tableSettings' => $tableSettings,
     'ospedali' => [
-        'vicenza_ulss7' => [
+        // Il portale richiede obbligatoriamente la provincia e restituisce i
+        // presidi cinque per pagina: il job segue la paginazione da solo.
+        // Il campo 'codice' e' il nome con cui il portale pubblica il presidio
+        // ed e' la chiave di abbinamento.
+        'salute_regione_veneto' => [
             'cache' => [
-                'key' => 'veneto.vicenza.ulss7',
+                'key' => 'veneto.vicenza.salute_regione_veneto',
                 'ttlMinute' => 1
             ],
             'url' => 'https://salute.regione.veneto.it/servizi/situazione-nei-pronto-soccorso?p_p_id=PRONTOSOCCORSO_WAR_portalprontosoccorso_INSTANCE_o0QZ&p_p_lifecycle=1&p_p_state=normal&p_p_mode=view&p_p_col_id=column-3&p_p_col_count=1',
             'method' => 'POST',
-            'form_params' => ['ulss' => '507'],
-            'iterateSelector' => '$I',
+            'form_params' => ['provincia' => 'VI'],
             'headers' => $headers,
-            'jobClass' => \App\Jobs\GenericScrapeJob::class,
+            'jobClass' => \App\Jobs\Veneto\SaluteVenetoScrapeJob::class,
             'data' => [
                 'asiago' => [
                     'id' => 1,
+                    'codice' => 'Pronto Soccorso Asiago',
                     'nome' => 'Asiago - Pronto Soccorso',
                     'descrizione' => 'Pronto Soccorso Asiago',
                     'adulti' => true,
@@ -180,12 +94,16 @@ return [
                     'telefono' => '',
                     'email' => '',
                     'web' => 'https://salute.regione.veneto.it/servizi/situazione-nei-pronto-soccorso',
-                    'google_maps' => 'https://www.google.it/maps/place/Via+Martiri+di+Granezza,+42,+36012+Asiago+VI',
-                    'coords' => [],
-                    'data' => $dataCommons,
+                    'google_maps' => 'https://www.google.com/maps/search/?api=1&query=45.8621074,11.5226356',
+                    'coords' => [
+                        'lat' => '45.8621074',
+                        'lng' => '11.5226356',
+                    ],
+                    'data' => [],
                 ],
                 'bassano' => [
                     'id' => 2,
+                    'codice' => 'Pronto Soccorso Bassano del Grappa',
                     'nome' => 'Bassano del Grappa - Pronto Soccorso',
                     'descrizione' => 'Pronto Soccorso Bassano del Grappa',
                     'adulti' => true,
@@ -193,12 +111,16 @@ return [
                     'telefono' => '',
                     'email' => '',
                     'web' => 'https://salute.regione.veneto.it/servizi/situazione-nei-pronto-soccorso',
-                    'google_maps' => 'https://www.google.it/maps/place/Via+dei+Lotti,+40,+36061+Bassano+del+Grappa+VI',
-                    'coords' => [],
-                    'data' => $dataCommons,
+                    'google_maps' => 'https://www.google.com/maps/search/?api=1&query=45.7467107,11.7443565',
+                    'coords' => [
+                        'lat' => '45.7467107',
+                        'lng' => '11.7443565',
+                    ],
+                    'data' => [],
                 ],
                 'santorso' => [
                     'id' => 3,
+                    'codice' => 'Pronto Soccorso Santorso',
                     'nome' => 'Santorso - Pronto Soccorso',
                     'descrizione' => 'Pronto Soccorso Santorso',
                     'adulti' => true,
@@ -206,12 +128,16 @@ return [
                     'telefono' => '',
                     'email' => '',
                     'web' => 'https://salute.regione.veneto.it/servizi/situazione-nei-pronto-soccorso',
-                    'google_maps' => 'https://www.google.it/maps/place/Via+Garziere,+42,+36014+Santorso+VI',
-                    'coords' => [],
-                    'data' => $dataCommons,
+                    'google_maps' => 'https://www.google.com/maps/search/?api=1&query=45.7269087,11.4148050',
+                    'coords' => [
+                        'lat' => '45.7269087',
+                        'lng' => '11.4148050',
+                    ],
+                    'data' => [],
                 ],
                 'santorso_ped' => [
                     'id' => 4,
+                    'codice' => 'Pronto Soccorso Santorso Pediatrico',
                     'nome' => 'Santorso - Pronto Soccorso Pediatrico',
                     'descrizione' => 'Pronto Soccorso Santorso Pediatrico',
                     'adulti' => false,
@@ -219,12 +145,16 @@ return [
                     'telefono' => '',
                     'email' => '',
                     'web' => 'https://salute.regione.veneto.it/servizi/situazione-nei-pronto-soccorso',
-                    'google_maps' => 'https://www.google.it/maps/place/Via+Garziere,+42,+36014+Santorso+VI',
-                    'coords' => [],
-                    'data' => $dataCommons,
+                    'google_maps' => 'https://www.google.com/maps/search/?api=1&query=45.7269087,11.4148050',
+                    'coords' => [
+                        'lat' => '45.7269087',
+                        'lng' => '11.4148050',
+                    ],
+                    'data' => [],
                 ],
                 'santorso_gin' => [
                     'id' => 5,
+                    'codice' => 'Pronto Soccorso Santorso Ginecologico',
                     'nome' => 'Santorso - Pronto Soccorso Ginecologico',
                     'descrizione' => 'Pronto Soccorso Santorso Ginecologico',
                     'adulti' => true,
@@ -232,26 +162,16 @@ return [
                     'telefono' => '',
                     'email' => '',
                     'web' => 'https://salute.regione.veneto.it/servizi/situazione-nei-pronto-soccorso',
-                    'google_maps' => 'https://www.google.it/maps/place/Via+Garziere,+42,+36014+Santorso+VI',
-                    'coords' => [],
-                    'data' => $dataCommons,
+                    'google_maps' => 'https://www.google.com/maps/search/?api=1&query=45.7269087,11.4148050',
+                    'coords' => [
+                        'lat' => '45.7269087',
+                        'lng' => '11.4148050',
+                    ],
+                    'data' => [],
                 ],
-            ]
-        ],
-        'vicenza_ulss8' => [
-            'cache' => [
-                'key' => 'veneto.vicenza.ulss8',
-                'ttlMinute' => 1
-            ],
-            'url' => 'https://salute.regione.veneto.it/servizi/situazione-nei-pronto-soccorso?p_p_id=PRONTOSOCCORSO_WAR_portalprontosoccorso_INSTANCE_o0QZ&p_p_lifecycle=1&p_p_state=normal&p_p_mode=view&p_p_col_id=column-3&p_p_col_count=1',
-            'method' => 'POST',
-            'form_params' => ['ulss' => '508'],
-            'iterateSelector' => '$I',
-            'headers' => $headers,
-            'jobClass' => \App\Jobs\GenericScrapeJob::class,
-            'data' => [
                 'lonigo' => [
                     'id' => 6,
+                    'codice' => 'Punto Primo Intervento Lonigo',
                     'nome' => 'Lonigo - Punto Primo Intervento',
                     'descrizione' => 'Punto Primo Intervento Lonigo',
                     'adulti' => true,
@@ -260,11 +180,15 @@ return [
                     'email' => '',
                     'web' => 'https://salute.regione.veneto.it/servizi/situazione-nei-pronto-soccorso',
                     'google_maps' => 'https://www.google.it/maps/place/Via+Sisana,+36045+Lonigo+VI',
-                    'coords' => [],
-                    'data' => $dataCommons,
+                    'coords' => [
+                        'lat' => '',
+                        'lng' => '',
+                    ],
+                    'data' => [],
                 ],
                 'arzignano' => [
                     'id' => 7,
+                    'codice' => 'Pronto soccorso Arzignano',
                     'nome' => 'Arzignano - Pronto Soccorso',
                     'descrizione' => 'Pronto soccorso Arzignano',
                     'adulti' => true,
@@ -273,11 +197,15 @@ return [
                     'email' => '',
                     'web' => 'https://salute.regione.veneto.it/servizi/situazione-nei-pronto-soccorso',
                     'google_maps' => 'https://www.google.it/maps/place/Via+del+Parco,+1,+36071+Arzignano+VI',
-                    'coords' => [],
-                    'data' => $dataCommons,
+                    'coords' => [
+                        'lat' => '',
+                        'lng' => '',
+                    ],
+                    'data' => [],
                 ],
                 'valdagno' => [
                     'id' => 8,
+                    'codice' => 'Pronto soccorso Valdagno',
                     'nome' => 'Valdagno - Pronto Soccorso',
                     'descrizione' => 'Pronto soccorso Valdagno',
                     'adulti' => true,
@@ -285,12 +213,16 @@ return [
                     'telefono' => '',
                     'email' => '',
                     'web' => 'https://salute.regione.veneto.it/servizi/situazione-nei-pronto-soccorso',
-                    'google_maps' => 'https://www.google.it/maps/place/Via+Galileo+Galilei,+1,+36078+Valdagno+VI',
-                    'coords' => [],
-                    'data' => $dataCommons,
+                    'google_maps' => 'https://www.google.com/maps/search/?api=1&query=45.6468951,11.3081528',
+                    'coords' => [
+                        'lat' => '45.6468951',
+                        'lng' => '11.3081528',
+                    ],
+                    'data' => [],
                 ],
                 'vicenza' => [
                     'id' => 9,
+                    'codice' => 'Pronto Soccorso Vicenza',
                     'nome' => 'Vicenza - Pronto Soccorso',
                     'descrizione' => 'Pronto Soccorso Vicenza',
                     'adulti' => true,
@@ -298,12 +230,16 @@ return [
                     'telefono' => '',
                     'email' => '',
                     'web' => 'https://salute.regione.veneto.it/servizi/situazione-nei-pronto-soccorso',
-                    'google_maps' => 'https://www.google.it/maps/place/Viale+Rodolfi,+37,+36100+Vicenza+VI',
-                    'coords' => [],
-                    'data' => $dataCommons,
+                    'google_maps' => 'https://www.google.com/maps/search/?api=1&query=45.5563987,11.5461965',
+                    'coords' => [
+                        'lat' => '45.5563987',
+                        'lng' => '11.5461965',
+                    ],
+                    'data' => [],
                 ],
                 'noventa' => [
                     'id' => 10,
+                    'codice' => 'Pronto Soccorso Noventa Vicentina',
                     'nome' => 'Noventa Vicentina - Pronto Soccorso',
                     'descrizione' => 'Pronto Soccorso Noventa Vicentina',
                     'adulti' => true,
@@ -311,11 +247,14 @@ return [
                     'telefono' => '',
                     'email' => '',
                     'web' => 'https://salute.regione.veneto.it/servizi/situazione-nei-pronto-soccorso',
-                    'google_maps' => 'https://www.google.it/maps/place/Via+Capo+di+Sopra,+1,+36025+Noventa+Vicentina+VI',
-                    'coords' => [],
-                    'data' => $dataCommons,
+                    'google_maps' => 'https://www.google.com/maps/search/?api=1&query=45.2930712,11.5356828',
+                    'coords' => [
+                        'lat' => '45.2930712',
+                        'lng' => '11.5356828',
+                    ],
+                    'data' => [],
                 ],
             ]
-        ]
+        ],
     ]
 ];

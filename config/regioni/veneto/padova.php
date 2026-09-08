@@ -1,108 +1,7 @@
 <?php
 
-$userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.79 Safari/537.36';
-
-$headers = [
-    'Accept' => 'application/json',
-    'Accept-Language' => 'it,en-US;q=0.9,en;q=0.8,it-IT;q=0.7',
-    'Cache-Control' => 'no-cache',
-    'Pragma' => 'no-cache',
-    'Priority' => 'u=1, i',
-    'Referer' => 'https://salute.regione.veneto.it/servizi/situazione-nei-pronto-soccorso',
-    'Sec-CH-UA' => '"Not/A)Brand";v="8", "Chromium";v="126", "Google Chrome";v="126"',
-    'Sec-CH-UA-Mobile' => '?0',
-    'Sec-CH-UA-Platform' => '"macOS"',
-    'Sec-Fetch-Dest' => 'empty',
-    'Sec-Fetch-Mode' => 'cors',
-    'Sec-Fetch-Site' => 'same-origin',
-    'User-Agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36'
-];
-
-$dataCommons = [
-    'rosso' => [
-        'selector' => 'table#ps>tbody>tr:nth-child($I)>td:nth-child(3)>table>tr:nth-child(2)>td:nth-child(2)',
-        'extra' => [
-            'in_attesa' => [
-                'label' => 'Pazienti in attesa',
-                'selector' => 'table#ps>tbody>tr:nth-child($I)>td:nth-child(3)>table>tr:nth-child(2)>td:nth-child(2)',
-            ],
-            'in_trattamento' => [
-                'label' => 'Pazienti in trattamento',
-                'selector' => 'table#ps>tbody>tr:nth-child($I)>td:nth-child(3)>table>tr:nth-child(3)>td:nth-child(2)',
-            ],
-        ]
-    ],
-    'arancione' => [
-        'selector' => 'table#ps>tbody>tr:nth-child($I)>td:nth-child(3)>table>tr:nth-child(2)>td:nth-child(3)',
-        'extra' => [
-            'in_attesa' => [
-                'label' => 'Pazienti in attesa',
-                'selector' => 'table#ps>tbody>tr:nth-child($I)>td:nth-child(3)>table>tr:nth-child(2)>td:nth-child(3)',
-            ],
-            'in_trattamento' => [
-                'label' => 'Pazienti in trattamento',
-                'selector' => 'table#ps>tbody>tr:nth-child($I)>td:nth-child(3)>table>tr:nth-child(3)>td:nth-child(3)',
-            ],
-        ]
-    ],
-    'giallo' => [
-        'selector' => 'table#ps>tbody>tr:nth-child($I)>td:nth-child(3)>table>tr:nth-child(2)>td:nth-child(4)',
-        'extra' => [
-            'in_attesa' => [
-                'label' => 'Pazienti in attesa',
-                'selector' => 'table#ps>tbody>tr:nth-child($I)>td:nth-child(3)>table>tr:nth-child(2)>td:nth-child(4)',
-            ],
-            'in_trattamento' => [
-                'label' => 'Pazienti in trattamento',
-                'selector' => 'table#ps>tbody>tr:nth-child($I)>td:nth-child(3)>table>tr:nth-child(3)>td:nth-child(4)',
-            ],
-        ]
-    ],
-    'verde' => [
-        'selector' => 'table#ps>tbody>tr:nth-child($I)>td:nth-child(3)>table>tr:nth-child(2)>td:nth-child(5)',
-        'extra' => [
-            'in_attesa' => [
-                'label' => 'Pazienti in attesa',
-                'selector' => 'table#ps>tbody>tr:nth-child($I)>td:nth-child(3)>table>tr:nth-child(2)>td:nth-child(5)',
-            ],
-            'in_trattamento' => [
-                'label' => 'Pazienti in trattamento',
-                'selector' => 'table#ps>tbody>tr:nth-child($I)>td:nth-child(3)>table>tr:nth-child(3)>td:nth-child(5)',
-            ],
-        ]
-    ],
-    'bianco' => [
-        'selector' => 'table#ps>tbody>tr:nth-child($I)>td:nth-child(3)>table>tr:nth-child(2)>td:nth-child(6)',
-        'extra' => [
-            'in_attesa' => [
-                'label' => 'Pazienti in attesa',
-                'selector' => 'table#ps>tbody>tr:nth-child($I)>td:nth-child(3)>table>tr:nth-child(2)>td:nth-child(6)',
-            ],
-            'in_trattamento' => [
-                'label' => 'Pazienti in trattamento',
-                'selector' => 'table#ps>tbody>tr:nth-child($I)>td:nth-child(3)>table>tr:nth-child(3)>td:nth-child(6)',
-            ],
-        ]
-    ],
-    'totali' => [
-        'action' => [
-            'operation' => 'sum',
-            'keys' => [
-                'in_attesa' => [
-                    'label' => 'Pazienti in attesa',
-                    'value' => null
-                ],
-                'in_trattamento' => [
-                    'label' => 'Pazienti in trattamento',
-                    'value' => null
-                ],
-            ]
-        ],
-    ]
-];
-
 $tableSettings = [
-    'headers' => $tableHeaders = [
+    'headers' => [
         [
             'title' => 'Presidio',
             'align' => 'start',
@@ -141,10 +40,21 @@ $tableSettings = [
     ],
     'sortBy' => [
         [
-            'key' => 'data.data.bianco.value',
-            'order' => 'asc'
+            'key' => 'data.data.totali.value',
+            'order' => 'desc'
         ]
     ]
+];
+
+$headers = [
+    'Accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+    'Accept-Language' => 'it,en-US;q=0.9,en;q=0.8,it-IT;q=0.7',
+    'Cache-Control' => 'no-cache',
+    'Content-Type' => 'application/x-www-form-urlencoded',
+    'Origin' => 'https://salute.regione.veneto.it',
+    'Pragma' => 'no-cache',
+    'Referer' => 'https://salute.regione.veneto.it/servizi/situazione-nei-pronto-soccorso',
+    'User-Agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36',
 ];
 
 return [
@@ -159,20 +69,24 @@ return [
     ],
     'tableSettings' => $tableSettings,
     'ospedali' => [
-        'padova_ulss6' => [
+        // Il portale richiede obbligatoriamente la provincia e restituisce i
+        // presidi cinque per pagina: il job segue la paginazione da solo.
+        // Il campo 'codice' e' il nome con cui il portale pubblica il presidio
+        // ed e' la chiave di abbinamento.
+        'salute_regione_veneto' => [
             'cache' => [
-                'key' => 'veneto.padova.ulss6',
+                'key' => 'veneto.padova.salute_regione_veneto',
                 'ttlMinute' => 1
             ],
             'url' => 'https://salute.regione.veneto.it/servizi/situazione-nei-pronto-soccorso?p_p_id=PRONTOSOCCORSO_WAR_portalprontosoccorso_INSTANCE_o0QZ&p_p_lifecycle=1&p_p_state=normal&p_p_mode=view&p_p_col_id=column-3&p_p_col_count=1',
             'method' => 'POST',
-            'form_params' => ['ulss' => '506'],
-            'iterateSelector' => '$I',
+            'form_params' => ['provincia' => 'PD'],
             'headers' => $headers,
-            'jobClass' => \App\Jobs\GenericScrapeJob::class,
+            'jobClass' => \App\Jobs\Veneto\SaluteVenetoScrapeJob::class,
             'data' => [
                 'piove_di_sacco' => [
                     'id' => 1,
+                    'codice' => 'Pronto Soccorso Piove di Sacco',
                     'nome' => 'Piove di Sacco - Pronto Soccorso',
                     'descrizione' => 'Presidio Ospedaliero di Piove di Sacco',
                     'adulti' => true,
@@ -185,23 +99,11 @@ return [
                         'lat' => '45.2921053',
                         'lng' => '12.0304049',
                     ],
-                    'data' => $dataCommons,
-                ],
-                'montagnana' => [
-                    'id' => 2,
-                    'nome' => 'Montagnana - Punto Primo Intervento',
-                    'descrizione' => 'Pronto Soccorso - Punto Primo Intervento Montagnana',
-                    'adulti' => true,
-                    'indirizzo' => 'Via Lovara, 10, Montagnana, 35044, PD',
-                    'telefono' => '',
-                    'email' => '',
-                    'web' => 'https://salute.regione.veneto.it/servizi/situazione-nei-pronto-soccorso',
-                    'google_maps' => 'https://www.google.it/maps/place/Via+Lovara,+10,+35044+Montagnana+PD',
-                    'coords' => [],
-                    'data' => $dataCommons,
+                    'data' => [],
                 ],
                 'abano_terme' => [
-                    'id' => 3,
+                    'id' => 2,
+                    'codice' => 'Pronto Soccorso Policlinico Abano Terme',
                     'nome' => 'Abano Terme - Policlinico',
                     'descrizione' => 'Policlinico Abano Terme Pronto Soccorso',
                     'adulti' => true,
@@ -214,10 +116,11 @@ return [
                         'lat' => '45.3491652',
                         'lng' => '11.7863037',
                     ],
-                    'data' => $dataCommons,
+                    'data' => [],
                 ],
                 'camposampiero' => [
-                    'id' => 4,
+                    'id' => 3,
+                    'codice' => 'Pronto Soccorso Camposampiero',
                     'nome' => 'Camposampiero - Presidio Ospedaliero',
                     'descrizione' => 'Presidio Ospedaliero "Giovanni Paolo II" Pronto Soccorso',
                     'adulti' => true,
@@ -230,11 +133,12 @@ return [
                         'lat' => '45.5641217',
                         'lng' => '11.9279788',
                     ],
-                    'data' => $dataCommons,
+                    'data' => [],
                 ],
                 'cittadella' => [
-                    'id' => 5,
-                    'nome' => 'Cittadella - ULSS 6 Euganea ',
+                    'id' => 4,
+                    'codice' => 'Pronto Soccorso Cittadella',
+                    'nome' => 'Cittadella - ULSS 6 Euganea',
                     'descrizione' => 'Ospedale di Cittadella - ULSS 6 Euganea : Pronto Soccorso',
                     'adulti' => true,
                     'indirizzo' => 'Via Pilastroni, 35013 Cittadella PD',
@@ -246,24 +150,11 @@ return [
                         'lat' => '45.6474292',
                         'lng' => '11.7886955',
                     ],
-                    'data' => $dataCommons,
+                    'data' => [],
                 ],
-            ]
-        ],
-        'padova_ao' => [
-            'cache' => [
-                'key' => 'veneto.padova.ao',
-                'ttlMinute' => 1
-            ],
-            'url' => 'https://salute.regione.veneto.it/servizi/situazione-nei-pronto-soccorso?p_p_id=PRONTOSOCCORSO_WAR_portalprontosoccorso_INSTANCE_o0QZ&p_p_lifecycle=1&p_p_state=normal&p_p_mode=view&p_p_col_id=column-3&p_p_col_count=1',
-            'method' => 'POST',
-            'form_params' => ['ulss' => '901'],
-            'iterateSelector' => '$I',
-            'headers' => $headers,
-            'jobClass' => \App\Jobs\GenericScrapeJob::class,
-            'data' => [
                 'sant_antonio' => [
-                    'id' => 6,
+                    'id' => 5,
+                    'codice' => 'Pronto Soccorso Ospedale Sant\'Antonio',
                     'nome' => 'Padova - Ospedale Sant\'Antonio',
                     'descrizione' => 'Pronto Soccorso Ospedale Sant\'Antonio',
                     'adulti' => true,
@@ -271,12 +162,16 @@ return [
                     'telefono' => '',
                     'email' => '',
                     'web' => 'https://salute.regione.veneto.it/servizi/situazione-nei-pronto-soccorso',
-                    'google_maps' => 'https://www.google.it/maps/place/Via+Facciolati,+71,+35127+Padova+PD',
-                    'coords' => [],
-                    'data' => $dataCommons,
+                    'google_maps' => 'https://www.google.com/maps/search/?api=1&query=45.3926851,11.8918117',
+                    'coords' => [
+                        'lat' => '45.3926851',
+                        'lng' => '11.8918117',
+                    ],
+                    'data' => [],
                 ],
                 'padova_ao' => [
-                    'id' => 7,
+                    'id' => 6,
+                    'codice' => 'Pronto Soccorso Azienda Ospedaliera di Padova',
                     'nome' => 'Padova - Azienda Ospedaliera',
                     'descrizione' => 'Pronto Soccorso Azienda Ospedaliera di Padova',
                     'adulti' => true,
@@ -284,12 +179,16 @@ return [
                     'telefono' => '',
                     'email' => '',
                     'web' => 'https://salute.regione.veneto.it/servizi/situazione-nei-pronto-soccorso',
-                    'google_maps' => 'https://www.google.it/maps/place/Via+Giustiniani,+1,+35128+Padova+PD',
-                    'coords' => [],
-                    'data' => $dataCommons,
+                    'google_maps' => 'https://www.google.com/maps/search/?api=1&query=45.4028473,11.8869743',
+                    'coords' => [
+                        'lat' => '45.4028473',
+                        'lng' => '11.8869743',
+                    ],
+                    'data' => [],
                 ],
                 'padova_ped' => [
-                    'id' => 8,
+                    'id' => 7,
+                    'codice' => 'Pronto Soccorso Pediatrico Azienda Ospedaliera di Padova',
                     'nome' => 'Padova - Azienda Ospedaliera Pediatrico',
                     'descrizione' => 'Pronto Soccorso Pediatrico Azienda Ospedaliera di Padova',
                     'adulti' => false,
@@ -297,11 +196,14 @@ return [
                     'telefono' => '',
                     'email' => '',
                     'web' => 'https://salute.regione.veneto.it/servizi/situazione-nei-pronto-soccorso',
-                    'google_maps' => 'https://www.google.it/maps/place/Via+Giustiniani,+1,+35128+Padova+PD',
-                    'coords' => [],
-                    'data' => $dataCommons,
+                    'google_maps' => 'https://www.google.com/maps/search/?api=1&query=45.4028473,11.8869743',
+                    'coords' => [
+                        'lat' => '45.4028473',
+                        'lng' => '11.8869743',
+                    ],
+                    'data' => [],
                 ],
             ]
-        ]
+        ],
     ]
 ];
