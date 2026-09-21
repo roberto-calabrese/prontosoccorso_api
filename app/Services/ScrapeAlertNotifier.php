@@ -128,19 +128,31 @@ class ScrapeAlertNotifier
         }
 
         foreach ($ospedali as $ospedale) {
-            $colori = $ospedale['data'] ?? [];
-
-            foreach ($colori as $chiave => $valore) {
-                if ($chiave === 'extra' || $chiave === 'totali') {
-                    continue;
-                }
-
-                if (isset($valore['value']) && is_numeric($valore['value'])) {
-                    return false;
-                }
+            if (self::ospedaleHaDati($ospedale)) {
+                return false;
             }
         }
 
         return true;
+    }
+
+    /**
+     * Un singolo ospedale ha dati validi se almeno un codice colore riporta un
+     * valore numerico. Gli zeri sono dati validi (pronto soccorso scarico),
+     * mentre 'totali' ed 'extra' sono derivati e non fanno testo.
+     */
+    public static function ospedaleHaDati($ospedale): bool
+    {
+        foreach (($ospedale['data'] ?? []) as $chiave => $valore) {
+            if ($chiave === 'extra' || $chiave === 'totali') {
+                continue;
+            }
+
+            if (isset($valore['value']) && is_numeric($valore['value'])) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

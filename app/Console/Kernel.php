@@ -12,7 +12,13 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        // $schedule->command('inspire')->hourly();
+        // Controllo completo delle sorgenti di scraping due volte al giorno.
+        // withoutOverlapping: se un giro fosse ancora in corso (sorgenti lente
+        // o irraggiungibili) il successivo non parte sovrapposto.
+        $schedule->command('scrape:check')
+            ->twiceDailyAt(7, 19, 30)
+            ->withoutOverlapping()
+            ->runInBackground();
     }
 
     /**

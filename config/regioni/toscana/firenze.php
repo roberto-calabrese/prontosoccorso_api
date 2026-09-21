@@ -65,7 +65,7 @@ return [
                 'key' => 'toscana.firenze.uslCentro',
                 'ttlMinute' => 1
             ],
-            'url' => 'https://www-old.uslcentro.toscana.it/psstat/pronto-soccorso-pa.php',
+            'url' => 'https://www.uslcentro.toscana.it/psstat/pronto-soccorso-pa.php',
             'headers' => [
                 'Referer' => 'https://www.uslcentro.toscana.it',
                 'User-Agent' => $userAgent,
@@ -81,14 +81,14 @@ return [
                     'indirizzo' => 'Via Torregalli, 3, 50143 Firenze FI',
                     'telefono' => '055 69321',
                     'email' => '',
-                    'web' => 'https://www-old.uslcentro.toscana.it/psstat/pronto-soccorso-pa.php',
+                    'web' => 'https://www.uslcentro.toscana.it/psstat/pronto-soccorso-pa.php',
                     'google_maps' => 'https://www.google.it/maps/place/Ospedale+San+Giovanni+di+Dio+Pronto+Soccorso/@43.7574418,11.2034533,700m/data=!3m2!1e3!4b1!4m6!3m5!1s0x132a50dece1ecd95:0x20923eab24fe05e3!8m2!3d43.7574418!4d11.2034533!16s%2Fg%2F11f25snn__?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D',
                     'coords' => [
                         'lat' => '43.7574418',
                         'lng' => '11.2034533',
                     ],
                     'data' => [
-                        'name' => 'Ospedale San Giovanni di Dio - Firenze'
+                        'name' => 'S.Giovanni Di Dio-Torregalli (FI)'
                     ],
                 ],
                 'StMariaNuova' => [
@@ -99,7 +99,7 @@ return [
                     'indirizzo' => 'Via Torregalli, 3, 50143 Firenze FI',
                     'telefono' => '055 693111',
                     'email' => '',
-                    'web' => 'https://www-old.uslcentro.toscana.it/psstat/pronto-soccorso-pa.php',
+                    'web' => 'https://www.uslcentro.toscana.it/psstat/pronto-soccorso-pa.php',
                     'google_maps' => 'https://www.google.it/maps/place/Ospedale+Santa+Maria+Nuova+Pronto+Soccorso/@43.7734519,11.259605,1399m/data=!3m2!1e3!4b1!4m6!3m5!1s0x132a5403d376289f:0x21708120bed83250!8m2!3d43.7734519!4d11.259605!16s%2Fg%2F12hlqnqq8?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D',
                     'coords' => [
                         'lat' => '43.7734519',
@@ -108,7 +108,7 @@ return [
                     'replaceSearch' => '/\#R/',
                     'replaceTo' => [14],
                     'data' => [
-                        'name' => 'Ospedale Santa Maria Nuova - Firenze'
+                        'name' => 'S. Maria Nuova Firenze (FI)'
                     ],
                 ],
                 'SantaMariaAnnunziata' => [
@@ -119,14 +119,14 @@ return [
                     'indirizzo' => 'Via Antella, 58, 50012 Bagno a Ripoli FI',
                     'telefono' => '055 69361',
                     'email' => 'direzionesanitaria.sma@uslcentro.toscana.it',
-                    'web' => 'https://www-old.uslcentro.toscana.it/psstat/pronto-soccorso-pa.php',
+                    'web' => 'https://www.uslcentro.toscana.it/psstat/pronto-soccorso-pa.php',
                     'google_maps' => 'https://www.google.com/maps/place/Ospedale+Santa+Maria+Annunziata/@43.7321241,11.3056594,17z/data=!3m1!4b1!4m6!3m5!1s0x132a53066f7aa449:0x37f740c4dcc0a31!8m2!3d43.7321241!4d11.3056594!16s%2Fg%2F119v61yys?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D',
                     'coords' => [
                         'lat' => '43.7321241',
                         'lng' => '11.3056594',
                     ],
                     'data' => [
-                        'name' => 'Ospedale Santa Maria Annunziata - Bagno a Ripoli'
+                        'name' => 'S.M. Annunziata Bagno a Ripoli (FI)'
                     ],
                 ],
                 'SanGiuseppeEmpoli' => [
@@ -137,14 +137,14 @@ return [
                     'indirizzo' => 'Viale Giovanni Boccaccio, 16, 50053 Empoli FI',
                     'telefono' => '0571 7051',
                     'email' => 'direzionesanitaria.sg@uslcentro.toscana.it',
-                    'web' => 'https://www-old.uslcentro.toscana.it/psstat/pronto-soccorso-pa.php',
+                    'web' => 'https://www.uslcentro.toscana.it/psstat/pronto-soccorso-pa.php',
                     'google_maps' => 'https://www.google.com/maps/place/Ospedale+San+Giuseppe+di+Empoli/@43.7222153,10.9340379,16z/data=!3m1!4b1!4m6!3m5!1s0x132a6880304ee9f5:0xa2fbeb2e2cb2a93b!8m2!3d43.7222153!4d10.9340379!16s%2Fg%2F1vlcyzrt?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D',
                     'coords' => [
                         'lat' => '43.7222153',
                         'lng' => '10.9340379',
                     ],
                     'data' => [
-                        'name' => 'Ospedale San Giuseppe - Empoli'
+                        'name' => 'Ospedale S. Giuseppe Empoli'
                     ],
                 ],
                 'Mugello' => [
@@ -155,14 +155,14 @@ return [
                     'indirizzo' => 'Viale della Resistenza, 60, 50032 Borgo San Lorenzo FI',
                     'telefono' => '055 84511',
                     'email' => 'direzionesanitaria.mugello@uslcentro.toscana.it',
-                    'web' => 'https://www-old.uslcentro.toscana.it/psstat/pronto-soccorso-pa.php',
+                    'web' => 'https://www.uslcentro.toscana.it/psstat/pronto-soccorso-pa.php',
                     'google_maps' => 'https://www.google.com/maps/place/Ospedale+del+Mugello/@43.9584307,11.3752875,16z/data=!3m1!4b1!4m6!3m5!1s0x132b02ef3296a4e3:0xda128eda59c57680!8m2!3d43.9584307!4d11.3752875!16s%2Fg%2F126299n0l?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D',
                     'coords' => [
                         'lat' => '43.9584307',
                         'lng' => '11.3752875',
                     ],
                     'data' => [
-                        'name' => 'Nuovo Ospedale del Mugello - Borgo San Lorenzo'
+                        'name' => 'Nuovo Ospedale Borgo S.Lorenzo (FI)'
                     ],
                 ],
             ]
